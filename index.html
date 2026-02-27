@@ -1,0 +1,2151 @@
+<HTML>
+  <HEAD>
+    <TITLE>
+      OS/2 API Trace
+    </TITLE>
+  </HEAD>
+
+  <CENTER><!-- Required for HTML viewers that don't understand TABLE's ALIGN attribute -->
+
+    <BODY BACKGROUND="images/OS2LOGO.GIF" BGCOLOR=#DBDBDB TEXT=#000000>
+    <TABLE ALIGN=CENTER BORDER=0 CELLPADDING=3 CELLSPACING=3 WIDTH=600>
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="TOP"></A>
+          <IMG SRC="images/OS2TRACE.GIF" ALT="OS/2 API Trace logo" BORDER=0 WIDTH=200 HEIGHT=190>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <H1>
+            OS/2 API Trace
+          </H1>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <H2>
+            <I>by Dave Blaschke</I>
+          </H2>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+          Last updated October 25, 2010
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="INTRODUCTION"></A>
+          <P>
+            OS/2 API Trace allows you to trace the 16-bit and 32-bit OS/2 APIs
+            used by any application running on any 32-bit version of OS/2 (2.0
+            or later) without requiring the application's source code or
+            requiring the application to be recompiled/relinked.  Simply enable
+            the application for tracing and run it, and the OS/2 API calls (and
+            optionally their parameters) made by the application are logged to
+            a text file that is already formatted and in English.  OS/2 API
+            Trace also allows tracing to be customized, controlled, and
+            summarized.
+          </P>
+
+          <P>
+            <A HREF="#MOREABOUTIT">Want to learn more about OS/2 API Trace?</A><BR>
+            <A HREF="#HOWTOUSEIT">Want to learn how to use OS/2 API Trace?</A><BR>
+            <A HREF="#DOWNLOADIT">Want to download OS/2 API Trace?</A><BR>
+            <A HREF="#AUTHOR">Want to contact the author of OS/2 API Trace?</A><BR>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="MOREABOUTIT"></A>
+          <H2>
+            More About OS/2 API Trace
+          </H2>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD>
+          <P>
+            So you want to learn more about OS/2 API Trace.  Choose as many of
+            the following questions that suit your interest:
+          </P>
+
+          <P>
+            <A HREF="#WHO"><I>Who</I>&nbsp; can use OS/2 API Trace?</A><BR>
+            <A HREF="#WHAT"><I>What</I>&nbsp; is OS/2 API Trace?</A><BR>
+            <A HREF="#WHERE"><I>Where</I>&nbsp; can you get OS/2 API Trace?</A><BR>
+            <A HREF="#WHEN"><I>When</I>&nbsp; is OS/2 API Trace updated?</A><BR>
+            <A HREF="#WHY"><I>Why</I>&nbsp; should you use OS/2 API Trace?</A><BR>
+            <A HREF="#HOW"><I>How</I>&nbsp; does OS/2 API Trace work?</A><BR>
+            <A HREF="#INTRODUCTION">Now you know more about OS/2 API Trace, back to introduction</A><BR>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="WHO"></A>
+          <H3>
+            <I>Who</I>&nbsp; can use OS/2 API Trace?
+          </H3>
+
+          <P>
+            Anybody can use OS/2 API Trace, as the only requirement is a basic
+            working knowledge of OS/2.  Although OS/2 API Trace will benefit
+            application developers and debuggers the most, it was designed so
+            that even the beginner can utilize it to start comprehending how
+            OS/2 APIs are used as the building blocks of applications running
+            under OS/2.
+          </P>
+
+          <P>
+            As far as system requirements are concerned, anyone with a 32-bit
+            version of OS/2 (OS/2 2.0 or later) and 2.08MB of available DASD
+            can use OS/2 API Trace.
+          </P>
+
+          <P>
+            <A HREF="#MOREABOUTIT">Back to more about OS/2 API Trace</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="WHAT"></A>
+          <H3>
+            <I>What</I>&nbsp; is OS/2 API Trace?
+          </H3>
+
+          <P>
+            OS/2 API Trace is a freeware application written by a former IBM software
+            engineer with extensive experience in OS/2 kernel and Presentation
+            Manager development.  Although originally designed to be a run-time
+            utility that determined the actual API coverage of test programs,
+            it has evolved into a comprehensive and robust tracing application
+            that supports 1989 OS/2 APIs and consists of over 108,000 lines of
+            C and assembly code.  This evolution came about in part because the
+            author was unhappy with the complexity of the system trace utility
+            provided with OS/2 and its inherent limitations, especially with
+            regards to dumping structures.  OS/2 API Trace can trace 16-bit,
+            32-bit, and mixed 16/32-bit applications, multi-threaded
+            applications, and applications comprised of an .EXE or .COM, one or
+            more .DLLs, and an .EXE or .COM and one or more .DLLs.
+          </P>
+
+          <P>
+            The OS/2 API Trace package consists of several executable files,
+            including a command line interface (OS2TRACE.EXE) and a graphical
+            interface (PMOS2TRC.EXE) for enabling/customizing/summarizing
+            tracing, a command line program (CHK4TRC.EXE) that checks for and
+            reports the executable file(s) that are trace-enabled, a command
+            line program (STRIPAPI.EXE) that strips API entries/exits from a
+            trace information file, and many trace DLLs (T_*.DLL).  The package
+            also includes several text files that contain helping information
+            such as how to use OS/2 API Trace, the list of OS/2 APIs that are
+            supported, answers to frequently asked questions, and a source code
+            example of a user hook DLL.
+          </P>
+
+          <P>
+            <A HREF="#MOREABOUTIT">Back to more about OS/2 API Trace</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="WHERE"></A>
+          <H3>
+            <I>Where</I>&nbsp; can you get OS/2 API Trace?
+          </H3>
+
+          <P>
+            In addition to this DevCon site, OS/2 API Trace is available on
+            several places over the internet, including but not limited to:
+          </P>
+
+          <UL>
+<!--        <LI><A HREF="http://www.angelfire.com/tx4/blaschke/OS2Trace/">Dave Blaschke's Website on Angelfire</A></LI> -->
+            <LI><A HREF="https://www.zx.net.nz/mirror/hobbes.nmsu.edu/download/pub/os2/dev/tools/debuggers/OS2APITrace_2-45-40.zip">Hobbes OS/2 Archive</A>
+<!--        <LI><A HREF="http://www.os2bbs.com/file_e/tools/os2trace.zip">OS/2 Shareware BBS Website</A> (Subscription required)</LI> -->
+          </UL>
+
+          <P>
+            <A HREF="#MOREABOUTIT">Back to more about OS/2 API Trace</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="WHEN"></A>
+          <H3>
+            <I>When</I>&nbsp; is OS/2 API Trace updated?
+          </H3>
+
+          <P>
+            OS/2 API Trace is updated whenever the need arises, and changes
+            generally encompass bug fixes, enhancements, and user-requested
+            additions.  To make it easier to keep track of the updates, the
+            revision portion of the version number is incremented whenever a
+            change is made, while the major and minor portions of the version
+            number reflect the major and minor version of OS/2 currently
+            supported by OS/2 API Trace.  A complete history of OS/2 API Trace
+            changes can be found in the text file OS2TRACE.NWS.
+          </P>
+
+          <P>
+            While the author maintains OS/2 API Trace on his own personal time,
+            most changes are turned around in five working days or less,
+            although this is, of course, not a guarantee.
+          </P>
+
+          <P>
+            <A HREF="#MOREABOUTIT">Back to more about OS/2 API Trace</A> </P>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="WHY"></A>
+          <H3>
+            <I>Why</I>&nbsp; should you use OS/2 API Trace?
+          </H3>
+
+          <P>
+            OS/2 API Trace best serves any of the following purposes:
+          </P>
+
+          <UL>
+            <LI>Debugging
+              <P>
+                OS/2 API Trace is great for debugging applications which have
+                OS/2 APIs that are failing or APIs that just don't seem to be
+                behaving the way you think they should.  It can save you the
+                trouble of running the application under a debugger or
+                inserting a bunch of printf calls to see what's going on.  The
+                trace information file generated by OS/2 API Trace contains all
+                of the APIs' return codes and even denotes which passed and
+                which failed.  The file can optionally contain the parameters
+                passed in to and out of the APIs as well so that you can make
+                sure that you are indeed invoking the API correctly.
+              </P>
+            </LI>
+
+            <LI>Reverse Engineering
+              <P>
+                Want to see how a working application accomplishes something
+                using OS/2 APIs?  OS/2 API Trace can capture every single API
+                call an application makes, including those made by the C
+                run-time, those made from within a DLL, or those called
+                dynamically through DosLoadModule and DosQueryProcAddr.  By
+                analyzing the trace information file generated by OS/2 API
+                Trace, you can easily follow the application's logic and even
+                see how some of the more difficult tasks are accomplished using
+                OS/2 APIs.
+              </P>
+            </LI>
+
+            <LI>Analyzing Performance
+              <P>
+                OS/2 API Trace automatically logs the entry and exit times of
+                those OS/2 APIs that are most apt to block, such as DosSleep
+                and DosWaitEventSem.  It also has the optional capability of
+                time stamping all API entries and exits.  By examining the
+                trace information file generated by OS/2 API Trace, you can
+                determine where an application spends most of its time
+                executing and where it spends most of its time waiting, and
+                subsequently where you could improve performance.
+              </P>
+            </LI>
+
+            <LI>Analyzing API Coverage
+              <P>
+                OS/2 API Trace can summarize the trace information file it
+                generates, producing an alphabetical list of each and every
+                OS/2 API called by the application and how many times each
+                passed, failed, or did not return.  These statistics are great
+                for reporting the API coverage of test applications.
+              </P>
+            </LI>
+
+            <LI>Altering Execution
+              <P>
+                OS/2 API Trace supports a user-provided procedure, also known
+                as a user hook, that is called under various circumstances such
+                as API entry and exit.  Through use of this functionality you
+                can easily examine or even modify information passed to or
+                returned from any API being traced.  This makes the user hook a
+                very powerful tool at your disposal.
+              </P>
+            </LI>
+          </UL>
+
+          <P>
+            <A HREF="#MOREABOUTIT">Back to more about OS/2 API Trace</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="HOW"></A>
+          <H3>
+            <I>How</I>&nbsp; does OS/2 API Trace work?
+          </H3>
+
+          <P>
+            Simply put, OS/2 API Trace places itself between your application
+            and OS/2, from where it can monitor all data passed by the
+            application to OS/2 (API input parameters) and all data returned by
+            OS/2 to the application (API return code and output parameters).
+            This feat is accomplished by altering the application so that it
+            references the trace DLLs instead of the OS/2 DLLs.  The trace
+            DLLs, which mirror the OS/2 DLLs exactly, can then trace all
+            pertinent information before passing it on to OS/2 or back to the
+            application.
+          </P>
+
+          <P>
+            If this overview is too simplistic and you are curious as to how
+            you can exploit the many facets of OS/2 API Trace to your benefit,
+            then a more thorough description is in order.  Perhaps the easiest
+            way to understand the details of how OS/2 API Trace works is to use
+            an analogy with something that just about everyone is familiar with
+            - the telephone.
+          </P>
+
+          <P>
+            Let's start by understanding the basics of this analogy.  If we
+            look at a house as being like an application, then its occupants
+            are like threads within the application.  There is a main thread -
+            the head of the household - and quite often other threads, such as
+            a spouse and children.  The occupants can accomplish most of their
+            duties within the house, such as cooking and cleaning, without
+            outside assistance.  In the same fashion, an application can
+            accomplish most of its operations on its own, such as data
+            initialization and manipulation.  Occasionally, however, an
+            occupant may need help getting something done that none of the
+            other occupants can assist with or that can be better done by an
+            external source, such as plumbing or electrical work.  Likewise,
+            an application occasionally needs outside help, such as file or
+            window management. How can this help be obtained?  The easiest
+            method for the the occupants of the house is through a telephone
+            call, just like the easiest method for an application is an OS/2
+            API call.  So a telephone call is really like an API call, a
+            "request" to an outside source for help to accomplish something
+            that it cannot accomplish or does not want to accomplish on its
+            own.
+          </P>
+
+          <P>
+            Where does OS/2 API Trace fit into this analogy?  Well, much like
+            a phone tap can listen in on telephone conversations, OS/2 API
+            Trace can listen in on conversations between applications and OS/2.
+            When you use OS/2 API Trace to enable (-ON option) an application
+            for tracing, it's just like inserting a phone tap between the house
+            (application) and the telephone line to the outside world (OS/2).
+            Conversely, when you disable (-OFF option) an application for
+            tracing, it's just like removing the phone tap from the telephone
+            line.  As long as the phone tap is present on the telephone line,
+            it can record every outgoing phone call that traverses that line,
+            much in the same way that OS/2 API Trace can trace every API call
+            made by an application while the application is enabled for
+            tracing.
+          </P>
+
+          <P>
+            Now some houses are equipped with more than one telephone line, so
+            you may have to place a phone tap on more than one line in order to
+            intercept every phone call.  Similarly, some applications import
+            APIs from more than one OS/2 DLL, which is why OS/2 API Trace
+            provides both the -dll (akin to inserting/removing tap on one
+            specific telephone line) and the -ALL (akin to inserting/removing
+            taps on all telephone lines) options for enabling/disabling tracing
+            for a specific DLL or all DLLs, respectively.
+          </P>
+
+          <P>
+            Unlike most phone taps, however, which are simple recording devices
+            that turn on when a phone call is placed and off when the call is
+            terminated, OS/2 API Trace comes fully equipped with additional
+            options that allow the user to customize several different aspects
+            of tracing.  For instance, instead of simply recording the entire
+            conversation like a phone tap, OS/2 API Trace can record various
+            amounts of information (-L option): what API was called and the
+            result of the call (level 1), what API was called and the
+            parameters and result of the call (level 2), or what API was
+            called, the parameters and their contents, and the result of the
+            call (level 3).  And instead of recording the entire conversation
+            from start to finish like a phone tap, OS/2 API Trace can also
+            pause and resume recording (-C, -PAUSE, and -RESUME options) as
+            many times as needed so that only the desired portion of the
+            conversation is recorded.  Finally, instead of disconnecting the
+            phone call after the end of the tape is reached and missing the
+            rest of the conversation, OS/2 API Trace can record all
+            conversations on any tape (-A option) that has sufficient available
+            space.
+          </P>
+
+          <P>
+            Suppose you want to record more than just the highlights of the
+            conversation because you are interested in some of the details, but
+            you don't want to waste unnecessary tape space recording complete
+            conversations that may drag on and on.  Since the general direction
+            of a conversation can usually be determined within the first few
+            minutes, it would be advantageous if the phone tap could record
+            just these first few critical moments of the conversation and
+            ignore the rest.  OS/2 API Trace provides this functionality by
+            allowing the user to place an upper limit on the amount of
+            information traced from each buffer (-B option) passed into and/or
+            returned from an API, thereby limiting what is logged to just the
+            desired number of initial bytes.
+          </P>
+
+          <P>
+            What if you're only interested in finding out the details of one
+            single specific call, but there are so many calls being made that
+            the phone tap's tape might run out before actually capturing the
+            one of interest?  It would be advantageous if the phone tap could
+            handle an unlimited number of phone calls, but once the end of the
+            tape is reached it is longer operational.  OS/2 API Trace, on the
+            other hand, can handle this possibility by allowing the user to
+            place an upper limit on the overall amount of disk space to use (-F
+            option).  Whenever this limit is reached, OS/2 API Trace
+            automatically rewinds to the beginning of the trace information
+            file and records over previous calls, thereby guaranteeing that the
+            most recently made calls will be preserved in the file even if disk
+            space is constrained.  This rewinding can happen over and over
+            again until the desired call is captured.
+          </P>
+
+          <P>
+            Let's say that there is an occupant, such as a teenager, in the
+            house that makes many, many phone calls a day, but you are only
+            interested in recording the calls placed to a specific individual
+            or a select group of individuals.  It would be advantageous if the
+            phone tap could filter outgoing calls and limit itself to recording
+            only those calls made to a small select group of individuals,
+            ignoring all of the other extraneous calls.  OS/2 API Trace
+            provides this functionality by allowing the user to select a small
+            subset of calls to trace (-D, -G, and -W options) from within DLLs
+            that contain a sometimes unmanagebly large amount of APIs -
+            DOSCALLS.DLL (over 375 APIs), PMGPI.DLL (over 550 APIs), and
+            PMWIN.DLL (over 525 APIs).
+          </P>
+
+          <P>
+            What about cellular phone calls placed from within the house?  A
+            phone tap has absolutely no chance of intercepting and recording
+            such calls because the calls do not traverse any of the telephone
+            lines statically attached to the house that are actually being
+            monitored by the tap.  OS/2 API Trace, on the other hand, can
+            handle this possibility by allowing the user to request
+            interception and tracing of dynamic API calls (-I option).  Dynamic
+            API calls are those which are dynamically loaded and called by the
+            application at run-time, as opposed to those API calls which are
+            statically bound into the executable file at link-time that OS/2
+            API Trace normally traces.
+          </P>
+
+          <P>
+            All phone taps record and replay exactly what is spoken during the
+            course of the conversation, but what if part of the conversation
+            is in Spanish and you only understand English?  You'd have to have
+            that portion of the tape translated for you.  While OS/2 API Trace
+            cannot provide assistance translating something as complex as human
+            language, it can help with some basic data translation services by
+            allowing the user to request to have character buffers dumped in
+            the EBCDIC format (-E option) in addition to the standard ASCII
+            format.
+          </P>
+
+          <P>
+            Most phone taps can and usually do record the time a phone call is
+            placed, and some may even be able to record the time the call is
+            ended.  OS/2 API Trace provides both capabilities by allowing the
+            user to have all API entries and exits time stamped (-T option)
+            down to an accuracy of one one-hundredth of a second.
+          </P>
+
+          <P>
+            Finally, after the phone tap is removed from the telephone line,
+            you are left with a tape that contains some unknown amount of
+            information.  It would be advantageous if the contents of the tape
+            could be analyzed and a summary produced that included a list of
+            everyone that was called by the occupants of the house and how many
+            times each was called.  OS/2 API Trace provides this functionality
+            by allowing the user to request a summary of all the calls made
+            within a trace information file (-S option).  This summary is an
+            alphabetical list of every API that was called by the application
+            and how many times each call passed, failed, or didn't return.
+          </P>
+
+          <P>
+            <B>NOTE:</B>&nbsp; For a more technical discussion on how OS/2 API
+            Trace works, please see the answers to frequently asked questions
+            in OS2TRACE.FAQ.
+          </P>
+
+          <P>
+            <A HREF="#MOREABOUTIT">Back to more about OS/2 API Trace</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="HOWTOUSEIT"></A>
+          <H2>
+            How to Use OS/2 API Trace
+          </H2>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD>
+          <P>
+            So you want to know how to use OS/2 API Trace.  Remembering that
+            OS/2 API Trace has four different flavors - trace enabler, trace
+            customizer, trace controller, and trace summarizer - and that it
+            includes a graphical interface, choose as many of the following
+            topics that suit your interest:
+          </P>
+
+          <P>
+            <A HREF="#ENABLER">Learn how to use OS/2 API Trace Enabler</A><BR>
+            <A HREF="#CUSTOMIZER">Learn how to use OS/2 API Trace Customizer</A><BR>
+            <A HREF="#CONTROLLER">Learn how to use OS/2 API Trace Controller</A><BR>
+            <A HREF="#SUMMARIZER">Learn how to use OS/2 API Trace Summarizer</A><BR>
+            <A HREF="#PMOS2TRC">Learn how to use unique options of OS/2 API Trace's graphical interface</A><BR>
+            <A HREF="#INTRODUCTION">Now you know how to use OS/2 API Trace, back to introduction</A><BR>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="ENABLER"></A>
+          <H3>
+            How to Use OS/2 API Trace Enabler
+          </H3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="ENABSYN"></A>
+          <H4>
+            Syntax
+          </H4>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD NOWRAP>
+          <P>
+            OS2TRACE
+            <A HREF="#OFFOPT">-OFF</A>|<A HREF="#ONOPT">-ON</A>
+            {<A HREF="#ALLOPT">-ALL</A>|<A HREF="#DLLOPT">-dll</A>}...
+            [<A HREF="#POPT">-P</A>]
+            <A HREF="#ENABFILE">file</A>
+          </P>
+
+          <P>
+            <A HREF="#HOWTOUSEIT">Back to how to use OS/2 API Trace</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="OFFOPT"></A>
+          <H4>
+            <BR>-OFF Option
+          </H4>
+
+          <P>
+            The -OFF option disables tracing for all supported OS/2 DLLs (when
+            specified along with
+            <A HREF="#ALLOPT">-ALL</A>)
+            or for a specific OS/2 DLL (when specified along with
+            <A HREF="#DLLOPT">-dll</A>).
+            The same functionality can be obtained with the graphical interface
+            by selecting the "Open file..." item from the "Enable" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/EOPNITM.GIF" ALT="Enable/Open file..." BORDER=0 WIDTH=427 HEIGHT=90>
+          </P>
+
+          <P>
+            selecting an executable file (.EXE, .COM, or .DLL) with the "Open
+            Executable File" dialog, and selecting the desired OFF check
+            box(es) on the resulting enablement dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/ENABDLG.GIF" ALT="Enablement dialog" BORDER=0 WIDTH=562 HEIGHT=433>
+          </P>
+
+          <P>
+            <A HREF="#ENABLER">Back to how to use OS/2 API Trace enabler</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="ONOPT"></A>
+          <H4>
+            <BR>-ON Option
+          </H4>
+
+          <P>
+            The -ON option enables tracing for all supported OS/2 DLLs (when
+            specified along with
+            <A HREF="#ALLOPT">-ALL</A>)
+            or for a specific OS/2 DLL (when specified along with
+            <A HREF="#DLLOPT">-dll</A> option).
+            The same functionality can be obtained with the graphical interface
+            by selecting the "Open file..." item from the "Enable" submenu (see
+            <A HREF="#OFFOPT">-OFF</A>
+            option for image), selecting an executable file (.EXE, .COM, or
+            .DLL) with the "Open Executable File" dialog, and selecting the
+            desired ON check box(es) on the resulting enablement dialog (see
+            <A HREF="#OFFOPT">-OFF</A>
+            option for image).
+          </P>
+
+          <P>
+            <A HREF="#ENABLER">Back to how to use OS/2 API Trace enabler</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="ALLOPT"></A>
+          <H4>
+            <BR>-ALL Option
+          </H4>
+
+          <P>
+            The -ALL option enables (when specified along with
+            <A HREF="#ONOPT">-ON</A>)
+            or disables (when specified along with
+            <A HREF="#OFFOPT">-OFF</A>)
+            tracing for all supported OS/2 DLLs.  The same functionality can be
+            obtained with the graphical interface by selecting the "Open
+            file..." item from the "Enable" submenu (see
+            <A HREF="#OFFOPT">-OFF</A>
+            option for image), selecting an executable file with the "Open
+            Executable File" dialog, and selecting the "All On" button on the
+            resulting enablement dialog (see
+            <A HREF="#OFFOPT">-OFF</A>
+            option for image).
+          </P>
+
+          <P>
+            <A HREF="#ENABLER">Back to how to use OS/2 API Trace enabler</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="DLLOPT"></A>
+          <H4>
+            <BR>-dll Option
+          </H4>
+
+          <P>
+            The -dll option enables (when specified along with
+            <A HREF="#ONOPT">-ON</A>)
+            or disables (when specified along with
+            <A HREF="#OFFOPT">-OFF</A>)
+            tracing for a specific OS/2 DLL, where <I>dll</I>&nbsp; can be one
+            of the following:
+          </P>
+
+          <TABLE ALIGN=CENTER BORDER=3 CELLSPACING=1 CELLPADDING=1>
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=100>DOSCALLS</TD>
+              <TD WIDTH=100>HELPMGR</TD>
+              <TD WIDTH=100>KBDCALLS</TD>
+              <TD WIDTH=100>MONCALLS</TD>
+              <TD WIDTH=100>MOUCALLS</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=100>MSG</TD>
+              <TD WIDTH=100>NAMPIPES</TD>
+              <TD WIDTH=100>NLS</TD>
+              <TD WIDTH=100>PMBIDI</TD>
+              <TD WIDTH=100>PMCTLS</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=100>PMDRAG</TD>
+              <TD WIDTH=100>PMGPI</TD>
+              <TD WIDTH=100>PMMERGE</TD>
+              <TD WIDTH=100>PMPIC</TD>
+              <TD WIDTH=100>PMSHAPI</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=100>PMSPL</TD>
+              <TD WIDTH=100>PMVIOP</TD>
+              <TD WIDTH=100>PMWIN</TD>
+              <TD WIDTH=100>PMWP</TD>
+              <TD WIDTH=100>QUECALLS</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=100>SESMGR</TD>
+              <TD WIDTH=100>VIOCALLS</TD>
+            </TR>
+          </TABLE>
+
+          <P>
+            The same functionality can be obtained with the graphical interface
+            by selecting the "Open file..." item from the "Enable" submenu (see
+            <A HREF="#OFFOPT">-OFF</A>
+            option for image), selecting an executable file with the "Open
+            Executable File" dialog, and selecting the check box of the desired
+            DLL (see
+            <A HREF="#OFFOPT">-OFF</A>
+            option for image).
+          </P>
+
+          <P>
+            <A HREF="#ENABLER">Back to how to use OS/2 API Trace enabler</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="POPT"></A>
+          <H4>
+            <BR>-P Option
+          </H4>
+
+          <P>
+            The -P option preserves the executable file's date and time stamp
+            should any enabling/disabling changes be made.  The same
+            functionality can be obtained with the graphical interface by
+            selecting the "Preserve file date/time stamp" item from the
+            "Enable" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/PDTSITM.GIF" ALT="Enable/Preserve file date/time stamp" BORDER=0 WIDTH=427 HEIGHT=90>
+          </P>
+
+          <P>
+            <A HREF="#ENABLER">Back to how to use OS/2 API Trace enabler</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="ENABFILE"></A>
+          <H4>
+            <BR>file
+          </H4>
+
+          <P>
+            <I>file</I>&nbsp; is the name of executable file (.EXE, .COM, or
+            .DLL) to to be trace enabled/disabled.
+          </P>
+
+          <P>
+            <A HREF="#ENABLER">Back to how to use OS/2 API Trace enabler</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="CUSTOMIZER"></A>
+          <H3>
+            How to Use OS/2 API Trace Customizer
+          </H3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="CUSTSYN"></A>
+          <H4>
+            Syntax
+          </H4>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD NOWRAP>
+          <P>
+            OS2TRACE
+            {<A HREF="#AOPT">-A</A> s
+            |<A HREF="#BOPT">-B</A> n
+            |<A HREF="#COPT">-C</A> f
+            |<A HREF="#DOPT">-D</A> g
+            |<A HREF="#EOPT">-E</A> f
+            |<A HREF="#FOPT">-F</A> n
+            |<A HREF="#GOPT">-G</A> g
+            |<A HREF="#IOPT">-I</A> f
+            |<A HREF="#LOPT">-L</A> n
+            |<A HREF="#QOPT">-Q</A>
+            |<A HREF="#TOPT">-T</A> f
+            |<A HREF="#UOPT">-U</A> s
+            |<A HREF="#WOPT">-W</A> g}...
+          </P>
+
+          <P>
+            <A HREF="#HOWTOUSEIT">Back to how to use OS/2 API Trace</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="AOPT"></A>
+          <H4>
+            <BR>-A Option
+          </H4>
+
+          <P>
+            The -A option specifies the alternative logging directory, where
+            <I>s</I>&nbsp; is the fully qualified drive and path of this
+            directory or NONE to specify the default directory (same as the
+            .EXE/.COM file).  The same functionality can be obtained with the
+            graphical interface by selecting the "Alternative directory..."
+            item from the "Customize" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/ALTITM.GIF" ALT="Customize/Alternate directory..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "Alternate Directory" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/ALTDLG.GIF" ALT="Alternate Directory dialog" BORDER=0 WIDTH=500 HEIGHT=180>
+          </P>
+
+          <P>
+            Logging to an alternative directory is especially useful when
+            tracing a .EXE/.COM that resides on a disk drive that does not have
+            sufficient free space available.
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="BOPT"></A>
+          <H4>
+            <BR>-B Option
+          </H4>
+
+          <P>
+            The -B option places an upper limit on the number of bytes to log
+            from buffers, where <I>n</I>&nbsp; is a decimal number between 16
+            and 65536, inclusive, or ALL to log all bytes from buffers.
+            Buffers affected by this option include character, ASCIIZ string,
+            integer, color, FIXED, POINTL, RECTL, WPOINT, and user-defined
+            buffers.  The same functionality can be obtained with the graphical
+            interface by selecting the "Buffer length..." item from the
+            "Customize" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/BUFITM.GIF" ALT="Customize/Buffer length..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "Buffer Length" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/BUFDLG.GIF" ALT="Buffer Length dialog" BORDER=0 WIDTH=500 HEIGHT=205>
+          </P>
+
+          <P>
+            Imposing a limit on buffer length is especially useful when tracing
+            APIs that input and/or output large arrays comprising of:
+            <UL>
+              <LI>ASCIIZ strings</LI>
+              <LI>Characters (bytes)</LI>
+              <LI>Colors</LI>
+              <LI>FIXED structures</LI>
+              <LI>Integers</LI>
+              <LI>POINTL structures</LI>
+              <LI>RECTL structures</LI>
+              <LI>User-defined buffers</LI>
+              <LI>WPOINT structures</LI>
+            </UL>
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="COPT"></A>
+          <H4>
+            <BR>-C Option
+          </H4>
+
+          <P>
+            The -C option enables (if <I>f</I>&nbsp; is ON) or disables (if
+            <I>f</I>&nbsp; is OFF) tracing control.
+            The same functionality can be obtained with the graphical interface
+            by selecting the "Tracing control..." item from the "Customize"
+            submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/CTLITM.GIF" ALT="Customize/Tracing control..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "Tracing Control" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/CTLDLG.GIF" ALT="Tracing Control dialog" BORDER=0 WIDTH=500 HEIGHT=180>
+          </P>
+
+          <P>
+            Controlling tracing is especially useful when only interested in
+            tracing a specific behavior of the application, such as opening a
+            file or painting a window.
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="DOPT"></A>
+          <H4>
+            <BR>-D Option
+          </H4>
+
+          <P>
+            The -D option traces specific groups of APIs within DOSCALLS.DLL,
+            where <I>g</I>&nbsp; is either ALL[,NOgrp]... or grp[,grp]... and
+            <I>grp</I>&nbsp; is one of the following:
+          </P>
+
+          <TABLE ALIGN=CENTER BORDER=3 CELLSPACING=1 CELLPADDING=1>
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>DEV</TD>
+              <TD WIDTH=50>FILE</TD>
+              <TD WIDTH=50>INFO</TD>
+              <TD WIDTH=50>MEM</TD>
+              <TD WIDTH=50>MISC</TD>
+              <TD WIDTH=50>MOD</TD>
+              <TD WIDTH=50>MSG</TD>
+              <TD WIDTH=50>MVDM</TD>
+              <TD WIDTH=50>NLS</TD>
+              <TD WIDTH=50>PIPE</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>PRF</TD>
+              <TD WIDTH=50>PROC</TD>
+              <TD WIDTH=50>PROF</TD>
+              <TD WIDTH=50>RES</TD>
+              <TD WIDTH=50>SEM</TD>
+              <TD WIDTH=50>SES</TD>
+              <TD WIDTH=50>SIG</TD>
+              <TD WIDTH=50>SMP</TD>
+              <TD WIDTH=50>TIME</TD>
+              <TD WIDTH=50>XCPT</TD>
+            </TR>
+          </TABLE>
+
+          <P>
+            The same functionality can be obtained with the graphical interface
+            by selecting the "DOSCALLS APIs..." item from the "Customize"
+            submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/DOSITM.GIF" ALT="Customize/DOSCALLS APIs..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "DOSCALLS APIs" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/DOSDLG.GIF" ALT="DOSCALLS APIs dialog" BORDER=0 WIDTH=562 HEIGHT=295>
+          </P>
+
+          <P>
+            Limiting the number of groups of DOSCALLS APIs is especially useful
+            when only interested in tracing a few specific areas within
+            DOSCALLS.DLL, such as:
+            <UL>
+              <LI>Date/time and timer support</LI>
+              <LI>Device specific, ring 2 support</LI>
+              <LI>DosProfile API</LI>
+              <LI>Exception management support</LI>
+              <LI>File management</LI>
+              <LI>Infoseg support</LI>
+              <LI>Memory management</LI>
+              <LI>Message</LI>
+              <LI>Miscellaneous</LI>
+              <LI>Module manager</LI>
+              <LI>MVDM support</LI>
+              <LI>Named pipes support</LI>
+              <LI>National language support</LI>
+              <LI>Performance</LI>
+              <LI>Process and thread support</LI>
+              <LI>Resource support</LI>
+              <LI>Semaphore support</LI>
+              <LI>Session manager support</LI>
+              <LI>Signals</LI>
+              <LI>SMP support</LI>
+            </UL>
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="EOPT"></A>
+          <H4>
+            <BR>-E Option
+          </H4>
+
+          <P>
+            The -E option enables (if <I>f</I>&nbsp; is ON) or disables (if
+            <I>f</I>&nbsp; is OFF) the logging of EBCDIC translations of
+            character buffers.  ASCII translations of character buffers are
+            always logged.  The same functionality can be obtained with the
+            graphical interface by selecting the "EBCDIC translation..." item
+            from the "Customize" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/EBCITM.GIF" ALT="Customize/EBCDIC translation..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "EBCDIC Translation" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/EBCDLG.GIF" ALT="EBCDIC Translation dialog" BORDER=0 WIDTH=500 HEIGHT=180>
+          </P>
+
+          <P>
+            Logging EBCDIC translation of character buffers is especially
+            useful when the contents of character buffers are not guaranteed to
+            be ASCII.
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="FOPT"></A>
+          <H4>
+            <BR>-F Option
+          </H4>
+
+          <P>
+            The -F option places an upper limit on the number of bytes to log
+            to the trace information file before file wrapping occurs, where
+            <I>n</I>&nbsp; is a decimal number between 4096 (4K) and 67108864
+            (64M), inclusive, or ALL to log all information without log file
+            wrapping.  The same functionality can be obtained with the
+            graphical interface by selecting the "File wrapping..." item from
+            the "Customize" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/FILITM.GIF" ALT="Customize/File wrapping..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "File Wrapping" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/FILDLG.GIF" ALT="File Wrapping dialog" BORDER=0 WIDTH=500 HEIGHT=205>
+          </P>
+
+          <P>
+            Imposing a limit on log file length is especially useful when
+            tracing large numbers of APIs, when tracing over extended periods
+            of time, or when disk space is limited and only the most recent
+            information is required.
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="GOPT"></A>
+          <H4>
+            <BR>-G Option
+          </H4>
+
+          <P>
+            The -G option traces specific groups of APIs within PMGPI.DLL,
+            where <I>g</I>&nbsp; is either ALL[,NOgrp]... or grp[,grp]... and
+            <I>grp</I>&nbsp; is one of the following:
+          </P>
+
+          <TABLE ALIGN=CENTER BORDER=3 CELLSPACING=1 CELLPADDING=1>
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>BIT</TD>
+              <TD WIDTH=50>CORR</TD>
+              <TD WIDTH=50>CTRL</TD>
+              <TD WIDTH=50>DEF</TD>
+              <TD WIDTH=50>DEV</TD>
+              <TD WIDTH=50>EDIT</TD>
+              <TD WIDTH=50>INK</TD>
+              <TD WIDTH=50>LCID</TD>
+              <TD WIDTH=50>LCT</TD>
+              <TD WIDTH=50>META</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>PATH</TD>
+              <TD WIDTH=50>POLY</TD>
+              <TD WIDTH=50>PRIM</TD>
+              <TD WIDTH=50>RGN</TD>
+              <TD WIDTH=50>SEG</TD>
+              <TD WIDTH=50>TRAN</TD>
+            </TR>
+          </TABLE>
+
+          <P>
+            The same functionality can be obtained with the graphical interface
+            by selecting the "PMGPI APIs..." item from the "Customize" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/GPIITM.GIF" ALT="Customize/PMGPI APIs..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "PMGPI APIs" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/GPIDLG.GIF" ALT="PMGPI APIs dialog" BORDER=0 WIDTH=562 HEIGHT=295>
+          </P>
+
+          <P>
+            Limiting the number of groups of PMGPI APIs is especially useful
+            when only interested in tracing a few specific areas within
+            PMGPI.DLL, such as:
+            <UL>
+              <LI>Basic PS control</LI>
+              <LI>Bitmaps and pels operations</LI>
+              <LI>Default primitive attributes</LI>
+              <LI>Device contexts</LI>
+              <LI>Drawing primitives and primitive attributes</LI>
+              <LI>Inking</LI>
+              <LI>Logical color tables</LI>
+              <LI>Metafiles</LI>
+              <LI>Paths and clipping with paths</LI>
+              <LI>Phyical and logical fonts with lcids</LI>
+              <LI>Picking, boundary and correlation</LI>
+              <LI>Polygons</LI>
+              <LI>Regions and clipping with regions</LI>
+              <LI>Segment control and drawing</LI>
+              <LI>Segment editing via elements</LI>
+              <LI>Transform and transform conversion</LI>
+            </UL>
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="IOPT"></A>
+          <H4>
+            <BR>-I Option
+          </H4>
+
+          <P>
+            The -I option enables (if <I>f</I>&nbsp; is ON) or disables (if
+            <I>f</I>&nbsp; is OFF) the interception of dynamic API calls.
+            The same functionality can be obtained with the graphical interface
+            by selecting the "API interception..." item from the "Customize"
+            submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/INTITM.GIF" ALT="Customize/API interception..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "API Interception" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/INTDLG.GIF" ALT="API Interception dialog" BORDER=0 WIDTH=500 HEIGHT=180>
+          </P>
+
+          <P>
+            Intercepting dynamic API calls is especially useful when tracing
+            applications that seem to be accomplishing much more through the
+            operating system than is evident in the trace file or applications
+            that are backwards compatible across several versions of the
+            operating system.
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="LOPT"></A>
+          <H4>
+            <BR>-L Option
+          </H4>
+
+          <P>
+            The -L option sets the level of trace information to log, where:
+          </P>
+
+          <TABLE ALIGN=CENTER BORDER=3 CELLSPACING=1 CELLPADDING=1>
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>1</TD>
+              <TD>logs API entry/exit information</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>2</TD>
+              <TD>logs level 1 plus API parameters</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>3</TD>
+              <TD>logs level 2 plus API parameter contents</TD>
+            </TR>
+          </TABLE>
+
+          <P>
+            The same functionality can be obtained with the graphical interface
+            by selecting the "Logging level..." item from the "Customize"
+            submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/LVLITM.GIF" ALT="Customize/Logging level..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "Logging Level" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/LVLDLG.GIF" ALT="Logging Level dialog" BORDER=0 WIDTH=500 HEIGHT=218>
+          </P>
+
+          <P>
+            Logging specific amounts of trace information is especially useful
+            when only interested in summarizing trace information (minimum
+            level) or when interested in debugging trace information (maximum
+            level).
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="QOPT"></A>
+          <H4>
+            <BR>-Q Option
+          </H4>
+
+          <P>
+            The -Q option displays the current state of the trace customization
+            options stored in OS2.INI.
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="TOPT"></A>
+          <H4>
+            <BR>-T Option
+          </H4>
+
+          <P>
+            The -T option enables (if <I>f</I>&nbsp; is ON) or disables (if
+            <I>f</I>&nbsp; is OFF) the time stamping of API entries and exits.
+            The same functionality can be obtained with the graphical interface
+            by selecting the "Time stamping..." item from the "Customize"
+            submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/TIMITM.GIF" ALT="Customize/Time stamping..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "Time Stamping" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/TIMDLG.GIF" ALT="Time Stamping dialog" BORDER=0 WIDTH=500 HEIGHT=180>
+          </P>
+
+          <P>
+            Time stamping API entries and exits is especially useful when
+            tracing over extended periods of time or when tracing
+            multi-threaded applications.
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="UOPT"></A>
+          <H4>
+            <BR>-U Option
+          </H4>
+
+          <P>
+            The -U option specifies the user hook, where <I>s</I>&nbsp; is of
+            the format DLLNAME.HOOKNAME directory or NONE for no user hook.
+            The same functionality can be obtained with the graphical interface
+            by selecting the "User hook..." item from the "Customize" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/USRITM.GIF" ALT="Customize/User hook..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "User Hook" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/USRDLG.GIF" ALT="User Hook dialog" BORDER=0 WIDTH=500 HEIGHT=180>
+          </P>
+
+          <P>
+            Having a user hook called is especially useful when customized
+            tracing behavior is desired, such as tracing the stack whenever a
+            specific API is entered or logging the amount of memory available
+            after every API is exited.  Because the user provides the hook, the
+            user can perform whatever tracing behavior is desired.
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="WOPT"></A>
+          <H4>
+            <BR>-W Option
+          </H4>
+
+          <P>
+            The -W option traces specific groups of APIs within PMWIN.DLL,
+            where <I>g</I>&nbsp; is either ALL[,NOgrp]... or grp[,grp]... and
+            <I>grp</I>&nbsp; is one of the following:
+          </P>
+
+          <TABLE ALIGN=CENTER BORDER=3 CELLSPACING=1 CELLPADDING=1>
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>ACCL</TD>
+              <TD WIDTH=50>ATOM</TD>
+              <TD WIDTH=50>CLIP</TD>
+              <TD WIDTH=50>CTRY</TD>
+              <TD WIDTH=50>CUR</TD>
+              <TD WIDTH=50>DDE</TD>
+              <TD WIDTH=50>DESK</TD>
+              <TD WIDTH=50>DLG</TD>
+              <TD WIDTH=50>ENV</TD>
+              <TD WIDTH=50>ERR</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>FRAM</TD>
+              <TD WIDTH=50>HEAP</TD>
+              <TD WIDTH=50>HOOK</TD>
+              <TD WIDTH=50>INPT</TD>
+              <TD WIDTH=50>LOAD</TD>
+              <TD WIDTH=50>MENU</TD>
+              <TD WIDTH=50>MSG</TD>
+              <TD WIDTH=50>PAL</TD>
+              <TD WIDTH=50>PTR</TD>
+              <TD WIDTH=50>RECT</TD>
+            </TR>
+
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD WIDTH=50>SEI</TD>
+              <TD WIDTH=50>SYS</TD>
+              <TD WIDTH=50>THK</TD>
+              <TD WIDTH=50>TIME</TD>
+              <TD WIDTH=50>TREC</TD>
+              <TD WIDTH=50>WIN</TD>
+            </TR>
+          </TABLE>
+
+          <P>
+            The same functionality can be obtained with the graphical interface
+            by selecting the "PMWIN APIs..." item from the "Customize" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/WINITM.GIF" ALT="Customize/PMWIN APIs..." BORDER=0 WIDTH=427 HEIGHT=270>
+          </P>
+
+          <P>
+            and manipulating the resulting "PMWIN APIs" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/WINDLG.GIF" ALT="PMWIN APIs dialog" BORDER=0 WIDTH=562 HEIGHT=370>
+          </P>
+
+          <P>
+            Limiting the number of groups of PMWIN APIs is especially useful
+            when only interested in tracing a few specific areas within
+            PMWIN.DLL, such as:
+            <UL>
+              <LI>Atom manager</LI>
+              <LI>Clipboard manager</LI>
+              <LI>Country support</LI>
+              <LI>Desktop API</LI>
+              <LI>Dialog boxes</LI>
+              <LI>Dynamic data exchange</LI>
+              <LI>Error code definitions</LI>
+              <LI>Frame manager</LI>
+              <LI>General window management</LI>
+              <LI>Heap manager</LI>
+              <LI>Hook manager</LI>
+              <LI>Keyboard accelerators</LI>
+              <LI>Load/delete library/procedure</LI>
+              <LI>Menu controls</LI>
+              <LI>Message management</LI>
+              <LI>Mouse and keyboard input</LI>
+              <LI>Mouse pointers</LI>
+              <LI>Palettes</LI>
+              <LI>Rectangle routines</LI>
+              <LI>Set error info API</LI>
+              <LI>System values (and colors)</LI>
+              <LI>Text cursors</LI>
+              <LI>Thunk procedure API</LI>
+              <LI>Timer routines</LI>
+              <LI>WinCatch/WinThrow support</LI>
+              <LI>WinDefWindowProc</LI>
+              <LI>WinDispatchMsg and WinGetMsg</LI>
+              <LI>WinTrackRect() function</LI>
+            </UL>
+          </P>
+
+          <P>
+            <A HREF="#CUSTOMIZER">Back to how to use OS/2 API Trace customizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="CONTROLLER"></A>
+          <H3>
+            How to Use OS/2 API Trace Controller
+          </H3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="CTLSYN"></A>
+          <H4>
+            Syntax
+          </H4>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD NOWRAP>
+          <P>
+            OS2TRACE <A HREF="#PAUSEOPT">-PAUSE</A>|<A HREF="#RESUMEOPT">-RESUME</A>
+          </P>
+
+          <P>
+            <A HREF="#HOWTOUSEIT">Back to how to use OS/2 API Trace</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="PAUSEOPT"></A>
+          <H4>
+            <BR>-PAUSE Option
+          </H4>
+
+          <P>
+            The -PAUSE option pauses tracing.  The same
+            functionality can be obtained with the graphical interface by
+            selecting the "Pause tracing" item from the "Control" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/CTLPITM.GIF" ALT="Control/Pause tracing" BORDER=0 WIDTH=427 HEIGHT=90>
+          </P>
+
+          <P>
+            When controlling is complete
+            the following dialog will be presented:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/CTLPMLE.GIF" ALT="Pause tracing dialog" BORDER=0 WIDTH=384 HEIGHT=207>
+          </P>
+
+          <P>
+            <A HREF="#CONTROLLER">Back to how to use OS/2 API Trace summarizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="RESUMEOPT"></A>
+          <H4>
+            <BR>-RESUME Option
+          </H4>
+
+          <P>
+            The -RESUME option resumes tracing.  The same
+            functionality can be obtained with the graphical interface by
+            selecting the "Resume tracing" item from the "Control" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/CTLRITM.GIF" ALT="Control/Pause tracing" BORDER=0 WIDTH=427 HEIGHT=90>
+          </P>
+
+          <P>
+            When controlling is complete
+            the following dialog will be presented:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/CTLRMLE.GIF" ALT="Resume tracing dialog" BORDER=0 WIDTH=384 HEIGHT=207>
+          </P>
+
+          <P>
+            <A HREF="#CONTROLLER">Back to how to use OS/2 API Trace summarizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="SUMMARIZER"></A>
+          <H3>
+            How to Use OS/2 API Trace Summarizer
+          </H3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="SUMSYN"></A>
+          <H4>
+            Syntax
+          </H4>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD NOWRAP>
+          <P>
+            OS2TRACE <A HREF="#SOPT">-S</A> <A HREF="#SUMFILE">file</A>
+          </P>
+
+          <P>
+            <A HREF="#HOWTOUSEIT">Back to how to use OS/2 API Trace</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="SOPT"></A>
+          <H4>
+            <BR>-S Option
+          </H4>
+
+          <P>
+            The -S option summarizes API tracing by generating an alphabetical
+            list of the APIs present in a trace information file along with the
+            number of times each passed, failed, and didn't return.  The same
+            functionality can be obtained with the graphical interface by
+            selecting the "Open file..." item from the "Summarize" submenu:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/SOPNITM.GIF" ALT="Summarize/Open file..." BORDER=0 WIDTH=427 HEIGHT=72>
+          </P>
+
+          <P>
+            and selecting a trace information file (.TRC) from the resulting
+            "Open Trace Information File" dialog.  When summarizing is complete
+            the following dialog will be presented:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/SUMMLE.GIF" ALT="Summarization dialog" BORDER=0 WIDTH=384 HEIGHT=357>
+          </P>
+
+          <P>
+            <A HREF="#SUMMARIZER">Back to how to use OS/2 API Trace summarizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="SUMFILE"></A>
+          <H4>
+            <BR>file
+          </H4>
+
+          <P>
+            <I>file</I>&nbsp; is the name of trace information file (.TRC) to
+            be summarized.
+          </P>
+
+          <P>
+            <A HREF="#SUMMARIZER">Back to how to use OS/2 API Trace summarizer</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="PMOS2TRC"></A>
+          <H3>
+            How to Use Unique Options of OS/2 API Trace's Graphical Interface
+          </H3>
+        </TD>
+      </TR>
+
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD>
+          <P>
+            OS/2 API Trace's graphical interface, PMOS2TRC.EXE, has several
+            options not available to the command line interface, OS2TRACE.EXE,
+            because they are only effective under Presentation Manager
+            programs.  Choose as many of the items from the "Options" submenu
+            that suit your interest:
+          </P>
+
+          <MAP NAME="OPTIONS">
+            <AREA SHAPE=RECT COORDS="310, 49,503, 73" HREF="#OPTSEXE">
+            <AREA SHAPE=RECT COORDS="310, 74,503, 95" HREF="#OPTSMON">
+            <AREA SHAPE=RECT COORDS="310, 96,503,111" HREF="#OPTSAPI">
+            <AREA SHAPE=RECT COORDS="310,112,503,135" HREF="#OPTSLEN">
+            <AREA SHAPE=RECT COORDS="310,136,503,161" HREF="#OPTSBAR">
+            <AREA SHAPE=RECT COORDS="310,162,503,182" HREF="#OPTSSWP">
+            <AREA SHAPE=RECT COORDS="310,183,503,203" HREF="#OPTRSWP">
+          </MAP>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/OPTSMNU.GIF" ALT="Options" BORDER=0 WIDTH=505 HEIGHT=204 USEMAP="#OPTIONS">
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="OPTSEXE"></A>
+          <H4>
+            <BR>Launch .EXE/.COM files
+          </H4>
+
+          <P>
+            Use "Launch .EXE/.COM files" to enable or disable the launching of
+            .EXE/.COM files.  If this menu item is enabled (checked), a dialog
+            similar to the following is presented for launching a .EXE/.COM file
+            whenever any trace enablement changes are made to the file:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/EXEDLG.GIF" ALT="Launch .EXE/.COM dialog" BORDER=0 WIDTH=432 HEIGHT=223>
+          </P>
+
+          <P>
+            <A HREF="#PMOS2TRC">Back to how to use unique options of OS/2 API Trace's graphical interface</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="OPTSMON"></A>
+          <H4>
+            <BR>Monitor tracing
+          </H4>
+
+          <P>
+            Use "Monitor tracing" to enable or disable the monitoring of
+            tracing.  If this menu item is enabled (checked), the following
+            trace monitoring information is displayed in the window while a
+            trace-enabled executable runs:
+          </P>
+
+          <UL>
+            <LI>Fully-qualified log file name</LI>
+            <LI>Executable file name</LI>
+            <LI>Process identifier</LI>
+            <LI>Number of APIs (optional)</LI>
+            <LI>Log file length (optional)</LI>
+          </UL>
+
+          <P>
+            The information displayed is similar to the following when all
+            optional information is included:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/MONITOR.GIF" ALT="Monitoring window" BORDER=0 WIDTH=427 HEIGHT=279>
+          </P>
+
+          <P>
+            <A HREF="#PMOS2TRC">Back to how to use unique options of OS/2 API Trace's graphical interface</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="OPTSAPI"></A>
+          <H4>
+            <BR>API monitoring...
+          </H4>
+
+          <P>
+            Use "API monitoring" to specify the API monitoring frequency (the
+            rate at which the number of APIs is updated) or to disable the
+            monitoring of APIs altogether by manipulating the "API Monitoring"
+            dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/APIDLG.GIF" ALT="API Monitoring dialog" BORDER=0 WIDTH=500 HEIGHT=180>
+          </P>
+
+          <P>
+            <A HREF="#PMOS2TRC">Back to how to use unique options of OS/2 API Trace's graphical interface</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="OPTSLEN"></A>
+          <H4>
+            <BR>File length monitoring...
+          </H4>
+
+          <P>
+            Use "File length monitoring" to specify the file length monitoring
+            frequency (the rate at which the log file length is updated) or to
+            disable the monitoring of file length altogether by manipulating
+            the "File Length Monitoring" dialog:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/LENDLG.GIF" ALT="File Length Monitoring dialog" BORDER=0 WIDTH=500 HEIGHT=180>
+          </P>
+
+          <P>
+            <A HREF="#PMOS2TRC">Back to how to use unique options of OS/2 API Trace's graphical interface</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="OPTSBAR"></A>
+          <H4>
+            <BR>Title/Action bar only
+          </H4>
+
+          <P>
+            Use "Title/Action bar only" to change the window's size such that
+            only the title bar and a single-line action bar are displayed,
+            similar to the following:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/BARONLY.GIF" ALT="Title bar only window" BORDER=0 WIDTH=427 HEIGHT=53>
+          </P>
+
+          <P>
+            Based on the submenu selection, this resized window can be centered
+            along the top or bottom of the screen or can remain at the current
+            window position:
+          </P>
+
+          <P ALIGN=CENTER>
+            <IMG SRC="images/BARITM.GIF" ALT="Options/Title/Action bar only" BORDER=0 WIDTH=643 HEIGHT=204>
+          </P>
+
+          <P>
+            <A HREF="#PMOS2TRC">Back to how to use unique options of OS/2 API Trace's graphical interface</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="OPTSSWP"></A>
+          <H4>
+            <BR>Save window position
+          </H4>
+
+          <P>
+            Use "Save window position" to save the window's current window
+            position in the operating system's user profile, OS2.INI.  This
+            window position is then restored upon future invocations of OS/2
+            API Trace and when <A HREF="#OPTRSWP">"Restore window position"</A>
+            is used.
+          </P>
+
+          <P>
+            <A HREF="#PMOS2TRC">Back to how to use unique options of OS/2 API Trace's graphical interface</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD><A NAME="OPTRSWP"></A>
+          <H4>
+            <BR>Restore window position
+          </H4>
+
+          <P>
+            Use "Restore window position" to restore the window's current
+            window position from the position saved in the operating system's
+            user profile, OS2.INI, by the previous <A HREF="#OPTSSWP">"Save
+            window position"</A> use.
+          </P>
+
+          <P>
+            <A HREF="#PMOS2TRC">Back to how to use unique options of OS/2 API Trace's graphical interface</A>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="DOWNLOADIT"></A>
+          <H2>
+            Download OS/2 API Trace
+          </H2>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD>
+          <P>
+            The last ten changes made to OS/2 API Trace are described in the
+            following table:
+          </P>
+
+          <TABLE ALIGN=CENTER BORDER=3 CELLSPACING=1 CELLPADDING=1>
+            <TR ALIGN=CENTER VALIGN=TOP>
+              <TH>Version</TH>
+              <TH>Date</TH>
+              <TH>Description</TH>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.40</TD>
+              <TD ALIGN=CENTER NOWRAP>25 Oct 10</TD>
+              <TD ALIGN=LEFT>
+                Fixed input/output logging of PEAOP and PEAOP2 structures
+              </TD>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.39</TD>
+              <TD ALIGN=CENTER NOWRAP>10 Oct 10</TD>
+              <TD ALIGN=LEFT>
+                Saved and restored FS register around use in T_GetTID
+              </TD>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.38</TD>
+              <TD ALIGN=CENTER NOWRAP>04 May 09</TD>
+              <TD ALIGN=LEFT>
+                Added Dos32DumpProcess errors (70000-70026)
+              </TD>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.37</TD>
+              <TD ALIGN=CENTER NOWRAP>30 Apr 09</TD>
+              <TD ALIGN=LEFT>
+                Fixed displaying null for unknown error within known error
+                range
+              </TD>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.36</TD>
+              <TD ALIGN=CENTER NOWRAP>03 Dec 03</TD>
+              <TD ALIGN=LEFT>
+                Passed pointer to actual parameters and return code to user
+                hook for WinSetErrorInfo instead of pointer to local copies
+              </TD>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.35</TD>
+              <TD ALIGN=CENTER NOWRAP>02 Dec 03</TD>
+              <TD ALIGN=LEFT>
+                Fixed corruption of registers by Dos16CreateThread due to C
+                run-time thunking code<BR><BR>
+                NOTE: IBM's Corrective Service Facility (SERVICE.EXE) expects
+                the contents of registers CX, DX, SI and DI upon entry to
+                Dos16CreateThread to be passed unaltered to the newly created
+                thread's initial dispatch point.
+              </TD>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.34</TD>
+              <TD ALIGN=CENTER NOWRAP>10 Jul 01</TD>
+              <TD ALIGN=LEFT>
+                Moved C run-time functions from trace DLLs into T_COMMON,
+                resulting in reduction of 488KB from DASD requirements
+              </TD>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.33</TD>
+              <TD ALIGN=CENTER NOWRAP>29 Jun 01</TD>
+              <TD ALIGN=LEFT>
+                Added support for public OS/2 2.00 and 2.30 APIs exported from
+                PMSHAPI that are not included in any public include file:
+                <UL>
+                  <LI>Win16SetFgndWindow (PMSHAPI.9)</LI>
+                  <LI>Win16RemoveProgram (PMSHAPI.13)</LI>
+                  <LI>Win16ChangeProgram (PMSHAPI.14)</LI>
+                  <LI>Win16AddToGroup (PMSHAPI.19)</LI>
+                  <LI>Win16QueryProgramUse (PMSHAPI.20)</LI>
+                  <LI>Win16RemoveFromGroup (PMSHAPI.21)</LI>
+                  <LI>Win16DestroyGroup (PMSHAPI.23)</LI>
+                  <LI>Win16QueryProgramType (PMSHAPI.26)</LI>
+                  <LI>Win16EndProgram (PMSHAPI.73)</LI>
+                  <LI>Win16StopProgram (PMSHAPI.74)</LI>
+                  <LI>Win16NoShutdown (PMSHAPI.91)</LI>
+                  <LI>Win16SetTitle (PMSHAPI.93)</LI>
+                  <LI>Win16SetTitleAndIcon (PMSHAPI.97)</LI>
+                  <LI>Win16SetTitleAndHwndIcon (PMSHAPI.99)</LI>
+                  <LI>Win16HAPPfromPID (PMSHAPI.208)</LI>
+                  <LI>Win16HSWITCHfromHAPP (PMSHAPI.209)</LI>
+                </UL>
+              </TD>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.32</TD>
+              <TD ALIGN=CENTER NOWRAP>28 Jun 01</TD>
+              <TD ALIGN=LEFT>
+                Added the -U option, which specifies a user hook
+              </TD>
+            </TR>
+
+            <TR VALIGN=TOP>
+              <TD ALIGN=CENTER>2.45.31</TD>
+              <TD ALIGN=CENTER NOWRAP>26 Jun 01</TD>
+              <TD ALIGN=LEFT>
+                Added capability of building 32-bit only trace DLLs which
+                do not support 16-bit OS/2 APIs but result in a reduction
+                of 514KB  from DASD  requirements due  to elimination  of
+                16-bit code and data segments
+              </TD>
+            </TR>
+          </TABLE>
+
+          <P>
+            Download <A HREF="bin/v2.45.40/OS2TRACE.ZIP">OS/2 API Trace Version 2.45.40</A> (770KB File)
+          </P>
+
+          <P>
+            <A HREF="#INTRODUCTION">Now you downloaded OS/2 API Trace, back to introduction</A><BR>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD><A NAME="AUTHOR"></A>
+          <H2>
+            Contact the Author of OS/2 API Trace
+          </H2>
+        </TD>
+      </TR>
+
+      <TR ALIGN=LEFT VALIGN=CENTER>
+        <TD>
+          <P>
+            The author of OS/2 API Trace, Dave Blaschke, can be contacted at
+            either of the following IDs:
+          </P>
+
+          <TABLE ALIGN=CENTER BORDER=3 CELLSPACING=1 CELLPADDING=1>
+            <TR ALIGN=LEFT VALIGN=CENTER>
+              <TD NOWRAP><A HREF="mailto:deblaschke@yahoo.com">deblaschke@yahoo.com</A></TD>
+              <TD NOWRAP><A HREF="mailto:deblaschke@gmail.com">deblaschke@gmail.com</A></TD>
+            </TR>
+          </TABLE>
+
+          <P>
+            The author appreciates good news (how OS/2 API Trace helped you
+            out) as well as bad (what bugs you found), and will respond in a
+            timely manner to all inquiries as well as requests for
+            enhancements.
+          </P>
+
+          <P>
+            <A HREF="#INTRODUCTION">Now you know how to contact the author of OS/2 API Trace, back to introduction</A><BR>
+          </P>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <HR SIZE=3>
+        </TD>
+      </TR>
+
+      <TR ALIGN=CENTER VALIGN=CENTER>
+        <TD>
+          <A HREF="#TOP"><IMG SRC="images/OS2TRACE.GIF" ALT="Back to top" BORDER=0 WIDTH=50 HEIGHT=48></A>
+        </TD>
+      </TR>
+    </TABLE>
+  </BODY>
+
+  </CENTER><!-- Required for HTML viewers that don't understand TABLE's ALIGN attribute -->
+</HTML>
