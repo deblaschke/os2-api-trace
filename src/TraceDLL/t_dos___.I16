@@ -1,0 +1,2019 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_DOS___.I16                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL DOSCALLS module definitions file    ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.00 12Jun95 Created (supported LX format  and 32-bit Dos ;
+;                                 APIs only)                                   ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.30.20 27Nov95 Added  support for  Dos APIs  in  MSG,  NLS, ;
+;                                 QUECALLS, and SESMGR exported by DOSCALLS    ;
+;                 2.30.21 13Dec95 Forwarded private entry table ordinals       ;
+;                 2.40.00 05Sep96 Added new OS/2 2.40 APIs                     ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                 2.40.18 30Apr97 Added 16-bit Kbd APIs                        ;
+;                 2.40.19 01May97 Added 16-bit Mou APIs                        ;
+;                 2.40.20 05May97 Added 16-bit Vio APIs                        ;
+;                 2.40.39 17Sep97 Fixed 16-bit DosProtect APIs bug             ;
+;                 2.40.61 17Aug98 Added SMP Dos APIs                           ;
+;                 2.40.66 09Sep98 Added private profile Dos APIs               ;
+;                 2.40.69 21Oct98 Forwarded removed entry table ordinals       ;
+;                 2.40.70 21Oct98 Added miscellaneous Dos APIs                 ;
+;                 2.40.78 16Nov98 Added miscellaneous Dos APIs                 ;
+;                 2.45.00 15Apr99 Added new OS/2 2.45 APIs                     ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_DOS___ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL DOSCALLS Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_dos___0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                                                      DOSICREATETHREAD                    @   1 NONAME       ; Not in entry table
+                                                      TRC_DOS16CWAIT                      @   2 NONAME       ; Not in entry table
+                                                      TRC_DOS16ENTERCRITSEC               @   3 NONAME       ; Not in entry table
+                                                      DOSIEXECPGM                         @   4 NONAME       ; Not in entry table
+                                                      TRC_DOS16EXIT                       @   5 NONAME       ; Not in entry table
+                                                      TRC_DOS16EXITCRITSEC                @   6 NONAME       ; Not in entry table
+                                                      TRC_DOS16EXITLIST                   @   7 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETINFOSEG                 @   8 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETPRTY                    @   9 NONAME       ; Not in entry table
+                                                      TRC_DOS16KILLPROCESS                @  10 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETPRTY                    @  11 NONAME       ; Not in entry table
+                                                      TRC_DOS16PTRACE                     @  12 NONAME
+                                                      TRC_DOS16HOLDSIGNAL                 @  13 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETSIGHANDLER              @  14 NONAME       ; Not in entry table
+                                                      TRC_DOS16FLAGPROCESS                @  15 NONAME       ; Not in entry table
+                                                      TRC_DOS16MAKEPIPE                   @  16 NONAME       ; Not in entry table
+                                                      DOSISYSSEMCLEAR                     @  17 NONAME       ; Not in entry table
+                                                      DOSISEMREQUEST                      @  18 NONAME       ; Not in entry table
+                                                      DOSISYSSEMSET                       @  19 NONAME       ; Not in entry table
+                                                      TRC_DOS16SEMSETWAIT                 @  20 NONAME       ; Not in entry table
+                                                      DOSISEMWAIT                         @  21 NONAME       ; Not in entry table
+                                                      TRC_DOS16MUXSEMWAIT                 @  22 NONAME       ; Not in entry table
+                                                      TRC_DOS16CLOSESEM                   @  23 NONAME       ; Not in entry table
+                                                      TRC_DOS16CREATESEM                  @  24 NONAME       ; Not in entry table
+                                                      TRC_DOS16OPENSEM                    @  25 NONAME       ; Not in entry table
+                                                      TRC_DOS16RESUMETHREAD               @  26 NONAME       ; Not in entry table
+                                                      TRC_DOS16SUSPENDTHREAD              @  27 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETDATETIME                @  28 NONAME       ; Not in entry table
+                                                      TRC_DOS16TIMERASYNC                 @  29 NONAME
+                                                      TRC_DOS16TIMERSTART                 @  30 NONAME
+                                                      TRC_DOS16TIMERSTOP                  @  31 NONAME
+                                                      TRC_DOS16SLEEP                      @  32 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETDATETIME                @  33 NONAME       ; Not in entry table
+                                                      TRC_DOS16ALLOCSEG                   @  34 NONAME       ; Not in entry table
+                                                      TRC_DOS16ALLOCSHRSEG                @  35 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETSHRSEG                  @  36 NONAME       ; Not in entry table
+                                                      TRC_DOS16GIVESEG                    @  37 NONAME       ; Not in entry table
+                                                      TRC_DOS16REALLOCSEG                 @  38 NONAME       ; Not in entry table
+                                                      TRC_DOS16FREESEG                    @  39 NONAME       ; Not in entry table
+                                                      TRC_DOS16ALLOCHUGE                  @  40 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETHUGESHIFT               @  41 NONAME       ; Not in entry table
+                                                      TRC_DOS16REALLOCHUGE                @  42 NONAME       ; Not in entry table
+                                                      TRC_DOS16CREATECSALIAS              @  43 NONAME       ; Not in entry table
+                                                      TRC_DOS16LOADMODULE                 @  44 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETPROCADDR                @  45 NONAME       ; Not in entry table
+                                                      TRC_DOS16FREEMODULE                 @  46 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETMODHANDLE               @  47 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETMODNAME                 @  48 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETMACHINEMODE             @  49 NONAME       ; Not in entry table
+                                                      TRC_DOS16BEEP                       @  50 NONAME       ; Not in entry table
+                                                      TRC_DOS16CLIACCESS                  @  51 NONAME       ; Not in entry table
+                                                      TRC_DOS16DEVCONFIG                  @  52 NONAME       ; Not in entry table
+                                                      TRC_DOS16DEVIOCTL                   @  53 NONAME       ; Not in entry table
+                                                      DOSSGSWITCH                         @  54 NONAME       ; Not in entry table
+                                                      DOSSGSWITCHME                       @  55 NONAME       ; Not in entry table
+                                                      TRC_DOS16BUFRESET                   @  56 NONAME       ; Not in entry table
+                                                      TRC_DOS16CHDIR                      @  57 NONAME       ; Not in entry table
+                                                      TRC_DOS16CHGFILEPTR                 @  58 NONAME       ; Not in entry table
+                                                      TRC_DOS16CLOSE                      @  59 NONAME       ; Not in entry table
+                                                      TRC_DOS16DELETE                     @  60 NONAME       ; Not in entry table
+                                                      TRC_DOS16DUPHANDLE                  @  61 NONAME       ; Not in entry table
+                                                      TRC_DOS16FILELOCKS                  @  62 NONAME       ; Not in entry table
+                                                      TRC_DOS16FINDCLOSE                  @  63 NONAME       ; Not in entry table
+                                                      TRC_DOS16FINDFIRST                  @  64 NONAME       ; Not in entry table
+                                                      TRC_DOS16FINDNEXT                   @  65 NONAME       ; Not in entry table
+                                                      TRC_DOS16MKDIR                      @  66 NONAME       ; Not in entry table
+                                                      TRC_DOS16MOVE                       @  67 NONAME       ; Not in entry table
+                                                      TRC_DOS16NEWSIZE                    @  68 NONAME       ; Not in entry table
+                                                      TRC_DOS16PORTACCESS                 @  69 NONAME       ; Not in entry table
+                                                      TRC_DOS16OPEN                       @  70 NONAME       ; Not in entry table
+                                                      TRC_DOS16QCURDIR                    @  71 NONAME       ; Not in entry table
+                                                      TRC_DOS16QCURDISK                   @  72 NONAME       ; Not in entry table
+                                                      TRC_DOS16QFHANDSTATE                @  73 NONAME       ; Not in entry table
+                                                      TRC_DOS16QFILEINFO                  @  74 NONAME       ; Not in entry table
+                                                      TRC_DOS16QFILEMODE                  @  75 NONAME       ; Not in entry table
+                                                      TRC_DOS16QFSINFO                    @  76 NONAME       ; Not in entry table
+                                                      TRC_DOS16QHANDTYPE                  @  77 NONAME       ; Not in entry table
+                                                      TRC_DOS16QVERIFY                    @  78 NONAME       ; Not in entry table
+                                                      DOSIREAD                            @  79 NONAME       ; Not in entry table
+                                                      TRC_DOS16RMDIR                      @  80 NONAME       ; Not in entry table
+                                                      TRC_DOS16SELECTDISK                 @  81 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETFHANDSTATE              @  82 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETFILEINFO                @  83 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETFILEMODE                @  84 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETMAXFH                   @  85 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETVERIFY                  @  86 NONAME       ; Not in entry table
+                                                      DOSIWRITE                           @  87 NONAME       ; Not in entry table
+                                                      TRC_DOS16SYSTEMSERVICE              @  88 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETVEC                     @  89 NONAME       ; Not in entry table
+                                                      TRC_DOS16SYSTRACE                   @  90 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETENV                     @  91 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETVERSION                 @  92 NONAME       ; Not in entry table
+                                                      DOSQTRACEINFO                       @  93 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETPID                     @  94 NONAME       ; Not in entry table
+                                                      TRC_DOS16OPEN2                      @  95 NONAME       ; Not in entry table
+                                                      DOSLIBINIT                          @  96 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETFSINFO                  @  97 NONAME       ; Not in entry table
+                                                      TRC_DOS16QPATHINFO                  @  98 NONAME       ; Not in entry table
+                                                      TRC_DOS16DEVIOCTL2                  @  99 NONAME       ; Not in entry table
+                                                      DOSICANONICALIZE                    @ 100 NONAME       ; Not in entry table
+                                                      DOSSETFGND                          @ 101 NONAME       ; Not in entry table
+                                                      DOSSWAPTASKINIT                     @ 102 NONAME       ; Not in entry table
+                                                      DOSREADPHYS                         @ 103 NONAME       ; Not in entry table
+                                                      TRC_DOS16SETPATHINFO                @ 104 NONAME       ; Not in entry table
+                                                      DOSSGSWITCHPROC2                    @ 105 NONAME       ; Not in entry table
+                                                      STRUCHECK                           @ 106 NONAME       ; Not in entry table
+                                                      STRURESUPDATE                       @ 107 NONAME       ; Not in entry table
+                                                      DOSISETRELMAXFH                     @ 108 NONAME       ; Not in entry table
+                                                      DOSIDEVIOCTL                        @ 109 NONAME       ; Not in entry table
+                                                      Trc_Dos32ForceDelete                @ 110 NONAME
+                                                      Trc_Dos32KillThread                 @ 111 NONAME
+                                                      Trc_Dos32QueryRASInfo               @ 112 NONAME
+                                                      Trc_Dos32DumpProcess                @ 113 NONAME       ; OS2VER 210
+                                                      Trc_Dos32SuppressPopUps             @ 114 NONAME       ; OS2VER 210
+;                                                     T32FORCESYSTEMDUMP                  @ 115 NONAME       ; Moved to 1045, OS2VER 230
+                                                      THK32ALLOCMEM                       @ 115 NONAME       ; OS2VER 230
+;                                                     T32QUERYABIOSSUPPORT                @ 116 NONAME       ; Moved to 1048, OS2VER 230
+                                                      THK32FREEMEM                        @ 116 NONAME       ; OS2VER 230
+;                                                     T32QUERYMODFROMEIP                  @ 117 NONAME       ; Moved to 1049, OS2VER 230
+                                                      THK32ALLOCSTACK                     @ 117 NONAME       ; OS2VER 230
+                                                      DOSOPEN2COMPT                       @ 118 NONAME       ; Not in entry table
+                                                      DOSGETSTDA                          @ 119 NONAME       ; Not in entry table
+                                                      TRC_DOS16ERROR                      @ 120 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETSEG                     @ 121 NONAME       ; Not in entry table
+                                                      TRC_DOS16LOCKSEG                    @ 122 NONAME       ; Not in entry table
+                                                      TRC_DOS16UNLOCKSEG                  @ 123 NONAME       ; Not in entry table
+                                                      DOSSGSWITCHPROC                     @ 124 NONAME       ; Not in entry table
+                                                      DOSIRAMSEMWAKE                      @ 125 NONAME       ; Not in entry table
+                                                      TRC_DOS16SIZESEG                    @ 126 NONAME       ; Not in entry table
+                                                      TRC_DOS16MEMAVAIL                   @ 127 NONAME       ; Not in entry table
+                                                      DOSIRAMSEMREQUEST                   @ 128 NONAME       ; Not in entry table
+                                                      TRC_DOS16PHYSICALDISK               @ 129 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETCP                      @ 130 NONAME       ; Not in entry table
+                                                      DOSISETCP                           @ 131 NONAME       ; Not in entry table
+                                                      DOSGLOBALSEG                        @ 132 NONAME       ; Not in entry table
+                                                      DOSPROFILE                          @ 133 NONAME       ; Not in entry table
+                                                      TRC_DOS16SENDSIGNAL                 @ 134 NONAME       ; Not in entry table
+                                                      DOSHUGESHIFT                        @ 135 NONAME       ; Not in entry table
+                                                      DOSHUGEINCR                         @ 136 NONAME       ; Not in entry table
+                                                      TRC_DOS16READ                       @ 137 NONAME
+                                                      TRC_DOS16WRITE                      @ 138 NONAME
+                                                      TRC_DOS16ERRCLASS                   @ 139 NONAME
+                                                      TRC_DOS16SEMREQUEST                 @ 140 NONAME
+                                                      TRC_DOS16SEMCLEAR                   @ 141 NONAME
+                                                      TRC_DOS16SEMWAIT                    @ 142 NONAME
+                                                      TRC_DOS16SEMSET                     @ 143 NONAME
+                                                      TRC_DOS16EXECPGM                    @ 144 NONAME
+                                                      TRC_DOS16CREATETHREAD               @ 145 NONAME       ; Not in entry table
+                                                      TRC_DOS16SUBSET                     @ 146 NONAME
+                                                      TRC_DOS16SUBALLOC                   @ 147 NONAME
+                                                      TRC_DOS16SUBFREE                    @ 148 NONAME
+                                                      TRC_DOS16READASYNC                  @ 149 NONAME
+                                                      TRC_DOS16WRITEASYNC                 @ 150 NONAME
+                                                      TRC_DOS16SEARCHPATH                 @ 151 NONAME
+                                                      TRC_DOS16SCANENV                    @ 152 NONAME
+                                                      TRC_DOS16SETCP                      @ 153 NONAME
+                                                      DOSQPROCSTATUS                      @ 154 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETRESOURCE                @ 155 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETPPID                    @ 156 NONAME       ; Not in entry table
+                                                      TRC_DOS16CALLBACK                   @ 157 NONAME
+                                                      DOSICALLBACK                        @ 158 NONAME       ; Not in entry table
+                                                      DOSRETFORWARD                       @ 159 NONAME       ; Not in entry table
+                                                      TRC_DOS16R2STACKREALLOC             @ 160 NONAME       ; Not in entry table
+                                                      TRC_DOS16FSRAMSEMREQUEST            @ 161 NONAME
+                                                      TRC_DOS16FSRAMSEMCLEAR              @ 162 NONAME
+                                                      TRC_DOS16QAPPTYPE                   @ 163 NONAME
+                                                      TRC_DOS16SETPROCCP                  @ 164 NONAME
+                                                      TRC_DOS16DYNAMICTRACE               @ 165 NONAME       ; Not in entry table
+                                                      TRC_DOS16QSYSINFO                   @ 166 NONAME       ; Not in entry table
+                                                      DOSIMAKENMPIPE                      @ 167 NONAME       ; Not in entry table
+                                                      DOSICALLNMPIPE                      @ 168 NONAME       ; Not in entry table
+                                                      DOSICONNECTNMPIPE                   @ 169 NONAME       ; Not in entry table
+                                                      DOSIDISCONNECTNMPIPE                @ 170 NONAME       ; Not in entry table
+                                                      DOSIPEEKNMPIPE                      @ 171 NONAME       ; Not in entry table
+                                                      DOSIQNMPIPEINFO                     @ 172 NONAME       ; Not in entry table
+                                                      DOSIQNMPHANDSTATE                   @ 173 NONAME       ; Not in entry table
+                                                      DOSISETNMPHANDSTATE                 @ 174 NONAME       ; Not in entry table
+                                                      DOSITRANSACTNMPIPE                  @ 175 NONAME       ; Not in entry table
+                                                      DOSIWAITNMPIPE                      @ 176 NONAME       ; Not in entry table
+                                                      DOSISETNMPIPESEM                    @ 177 NONAME       ; Not in entry table
+                                                      DOSIQNMPIPESEMSTATE                 @ 178 NONAME       ; Not in entry table
+                                                      DOSIRAWREADNMPIPE                   @ 179 NONAME       ; Not in entry table
+                                                      DOSIRAWWRITENMPIPE                  @ 180 NONAME       ; Not in entry table
+                                                      TRC_DOS16FSATTACH                   @ 181 NONAME       ; Not in entry table
+                                                      TRC_DOS16QFSATTACH                  @ 182 NONAME       ; Not in entry table
+                                                      TRC_DOS16FSCTL                      @ 183 NONAME       ; Not in entry table
+                                                      TRC_DOS16FINDFIRST2                 @ 184 NONAME       ; Not in entry table
+                                                      TRC_DOS16MKDIR2                     @ 185 NONAME       ; Not in entry table
+                                                      TRC_DOS16FILEIO                     @ 186 NONAME       ; Not in entry table
+                                                      DOSFINDNOTIFYCLOSE                  @ 187 NONAME       ; Not in entry table
+                                                      DOSFINDNOTIFYFIRST                  @ 188 NONAME       ; Not in entry table
+                                                      DOSFINDNOTIFYNEXT                   @ 189 NONAME       ; Not in entry table
+                                                      DOSSETTRACEINFO                     @ 190 NONAME       ; Not in entry table
+                                                      TRC_DOS16EDITNAME                   @ 191 NONAME       ; Not in entry table
+                                                      DOSLOGMODE                          @ 192 NONAME       ; Not in entry table
+                                                      DOSLOGENTRY                         @ 193 NONAME       ; Not in entry table
+                                                      DOSGETLOGBUFFER                     @ 194 NONAME       ; Not in entry table
+                                                      DOSLOGREGISTER                      @ 195 NONAME
+                                                      DOSLOGREAD                          @ 196 NONAME
+                                                      DOSFINDFROMNAME                     @ 197 NONAME       ; Not in entry table
+                                                      DOSOPLOCKRELEASE                    @ 198 NONAME       ; Not in entry table
+                                                      DOSOPLOCKWAIT                       @ 199 NONAME       ; Not in entry table
+                                                      DOSICOPY                            @ 200 NONAME       ; Not in entry table
+                                                      TRC_DOS16COPY                       @ 201 NONAME
+                                                      DOSIQAPPTYPE                        @ 202 NONAME       ; Not in entry table
+                                                      TRC_DOS16FORCEDELETE                @ 203 NONAME       ; Not in entry table
+                                                      TRC_DOS16ENUMATTRIBUTE              @ 204 NONAME       ; Not in entry table
+                                                      DOSOPLOCKSHUTDOWN                   @ 205 NONAME       ; Not in entry table
+                                                      TRC_DOS16SHUTDOWN                   @ 206 NONAME       ; Not in entry table
+                                                      TRC_DOS16GETRESOURCE2               @ 207 NONAME       ; Not in entry table
+                                                      TRC_DOS16FREERESOURCE               @ 208 NONAME       ; Not in entry table
+                                                      Trc_Dos32SetMaxFH                   @ 209 NONAME
+                                                      Trc_Dos32SetVerify                  @ 210 NONAME
+                                                      Trc_Dos32ErrClass                   @ 211 NONAME
+                                                      Trc_Dos32Error                      @ 212 NONAME
+                                                      DOSCREATEVDM                        @ 213 NONAME       ; Not in entry table
+                                                      DOSMAXPATHLEN                       @ 214 NONAME       ; Not in entry table
+                                                      DOSPAGESIZE                         @ 215 NONAME       ; Not in entry table
+                                                      DOSLOCALINFO                        @ 216 NONAME       ; Not in entry table
+                                                      DOSGLOBALINFO                       @ 217 NONAME       ; Not in entry table
+                                                      Trc_Dos32SetFileInfo                @ 218 NONAME
+                                                      Trc_Dos32SetPathInfo                @ 219 NONAME
+                                                      Trc_Dos32SetDefaultDisk             @ 220 NONAME
+                                                      Trc_Dos32SetFHState                 @ 221 NONAME
+                                                      Trc_Dos32SetFSInfo                  @ 222 NONAME
+                                                      Trc_Dos32QueryPathInfo              @ 223 NONAME
+                                                      Trc_Dos32QueryHType                 @ 224 NONAME
+                                                      Trc_Dos32QueryVerify                @ 225 NONAME
+                                                      Trc_Dos32DeleteDir                  @ 226 NONAME
+                                                      Trc_Dos32ScanEnv                    @ 227 NONAME
+                                                      Trc_Dos32SearchPath                 @ 228 NONAME
+                                                      Trc_Dos32Sleep                      @ 229 NONAME
+                                                      Trc_Dos32GetDateTime                @ 230 NONAME
+                                                      Trc_Dos32DevConfig                  @ 231 NONAME
+                                                      Trc_Dos32EnterCritSec               @ 232 NONAME
+                                                      Trc_Dos32ExitCritSec                @ 233 NONAME
+                                                      Trc_Dos32Exit                       @ 234 NONAME
+                                                      Trc_Dos32KillProcess                @ 235 NONAME
+                                                      Trc_Dos32SetPriority                @ 236 NONAME
+                                                      Trc_Dos32ResumeThread               @ 237 NONAME
+                                                      Trc_Dos32SuspendThread              @ 238 NONAME
+                                                      Trc_Dos32CreatePipe                 @ 239 NONAME
+                                                      Trc_Dos32CallNPipe                  @ 240 NONAME
+                                                      Trc_Dos32ConnectNPipe               @ 241 NONAME
+                                                      Trc_Dos32DisConnectNPipe            @ 242 NONAME
+                                                      Trc_Dos32CreateNPipe                @ 243 NONAME
+                                                      Trc_Dos32PeekNPipe                  @ 244 NONAME
+                                                      Trc_Dos32QueryNPHState              @ 245 NONAME
+                                                      Trc_Dos32RawReadNPipe               @ 246 NONAME
+                                                      Trc_Dos32RawWriteNPipe              @ 247 NONAME
+                                                      Trc_Dos32QueryNPipeInfo             @ 248 NONAME
+                                                      Trc_Dos32QueryNPipeSemState         @ 249 NONAME
+                                                      Trc_Dos32SetNPHState                @ 250 NONAME
+                                                      Trc_Dos32SetNPipeSem                @ 251 NONAME
+                                                      Trc_Dos32TransactNPipe              @ 252 NONAME
+                                                      Trc_Dos32WaitNPipe                  @ 253 NONAME
+                                                      Trc_Dos32ResetBuffer                @ 254 NONAME
+                                                      Trc_Dos32SetCurrentDir              @ 255 NONAME
+                                                      Trc_Dos32SetFilePtr                 @ 256 NONAME
+                                                      Trc_Dos32Close                      @ 257 NONAME
+                                                      Trc_Dos32Copy                       @ 258 NONAME
+                                                      Trc_Dos32Delete                     @ 259 NONAME
+                                                      Trc_Dos32DupHandle                  @ 260 NONAME
+                                                      Trc_Dos32EditName                   @ 261 NONAME
+                                                      THK32FREESTACK                      @ 262 NONAME       ; OS2VER 230
+                                                      Trc_Dos32FindClose                  @ 263 NONAME
+                                                      Trc_Dos32FindFirst                  @ 264 NONAME
+                                                      Trc_Dos32FindNext                   @ 265 NONAME
+                                                      TRC_DOS16OPENVDD                    @ 266 NONAME
+                                                      TRC_DOS16REQUESTVDD                 @ 267 NONAME
+                                                      TRC_DOS16CLOSEVDD                   @ 268 NONAME
+                                                      Trc_Dos32FSAttach                   @ 269 NONAME
+                                                      Trc_Dos32CreateDir                  @ 270 NONAME
+                                                      Trc_Dos32Move                       @ 271 NONAME
+                                                      Trc_Dos32SetFileSize                @ 272 NONAME
+                                                      Trc_Dos32Open                       @ 273 NONAME
+                                                      Trc_Dos32QueryCurrentDir            @ 274 NONAME
+                                                      Trc_Dos32QueryCurrentDisk           @ 275 NONAME
+                                                      Trc_Dos32QueryFHState               @ 276 NONAME
+                                                      Trc_Dos32QueryFSAttach              @ 277 NONAME
+                                                      Trc_Dos32QueryFSInfo                @ 278 NONAME
+                                                      Trc_Dos32QueryFileInfo              @ 279 NONAME
+                                                      Trc_Dos32WaitChild                  @ 280 NONAME
+                                                      Trc_Dos32Read                       @ 281 NONAME
+                                                      Trc_Dos32Write                      @ 282 NONAME
+                                                      Trc_Dos32ExecPgm                    @ 283 NONAME
+                                                      Trc_Dos32DevIOCtl                   @ 284 NONAME
+                                                      Trc_Dos32FSCtl                      @ 285 NONAME
+                                                      Trc_Dos32Beep                       @ 286 NONAME
+                                                      Trc_Dos32PhysicalDisk               @ 287 NONAME
+                                                      Trc_Dos32SetCp                      @ 288 NONAME
+                                                      Trc_Dos32SetProcessCp               @ 289 NONAME
+                                                      Trc_Dos32StopTimer                  @ 290 NONAME
+                                                      Trc_Dos32QueryCp                    @ 291 NONAME
+                                                      Trc_Dos32SetDateTime                @ 292 NONAME
+                                                      THK32ALLOCBLOCK                     @ 293 NONAME
+                                                      THK32FREEBLOCK                      @ 294 NONAME
+                                                      THK32R3DS                           @ 295 NONAME       ; Not in entry table
+                                                      Trc_Dos32ExitList                   @ 296 NONAME
+                                                      DOS32ALLOCPROTECTEDMEM              @ 297 NONAME
+                                                      Trc_Dos32AliasMem                   @ 298 NONAME
+                                                      Trc_Dos32AllocMem                   @ 299 NONAME
+                                                      Trc_Dos32AllocSharedMem             @ 300 NONAME
+                                                      Trc_Dos32GetNamedSharedMem          @ 301 NONAME
+                                                      Trc_Dos32GetSharedMem               @ 302 NONAME
+                                                      Trc_Dos32GiveSharedMem              @ 303 NONAME
+                                                      Trc_Dos32FreeMem                    @ 304 NONAME
+                                                      Trc_Dos32SetMem                     @ 305 NONAME
+                                                      Trc_Dos32QueryMem                   @ 306 NONAME
+                                                      Trc_Dos32QueryMemState              @ 307 NONAME
+                                                      Trc_Dos32OpenVDD                    @ 308 NONAME
+                                                      Trc_Dos32RequestVDD                 @ 309 NONAME
+                                                      Trc_Dos32CloseVDD                   @ 310 NONAME
+                                                      Trc_Dos32CreateThread               @ 311 NONAME
+                                                      Trc_Dos32GetInfoBlocks              @ 312 NONAME
+                                                      DOSALLOCPROTSEG                     @ 313 NONAME       ; Not in entry table
+                                                      DOSALLOCSHRPROTSEG                  @ 314 NONAME       ; Not in entry table
+                                                      DOSALLOCPROTHUGE                    @ 315 NONAME       ; Not in entry table
+                                                      Trc_Dos32DynamicTrace               @ 316 NONAME
+                                                      Trc_Dos32Debug                      @ 317 NONAME
+                                                      Trc_Dos32LoadModule                 @ 318 NONAME
+                                                      Trc_Dos32QueryModuleHandle          @ 319 NONAME
+                                                      Trc_Dos32QueryModuleName            @ 320 NONAME
+                                                      Trc_Dos32QueryProcAddr              @ 321 NONAME
+                                                      Trc_Dos32FreeModule                 @ 322 NONAME
+                                                      Trc_Dos32QueryAppType               @ 323 NONAME
+                                                      Trc_Dos32CreateEventSem             @ 324 NONAME
+                                                      Trc_Dos32OpenEventSem               @ 325 NONAME
+                                                      Trc_Dos32CloseEventSem              @ 326 NONAME
+                                                      Trc_Dos32ResetEventSem              @ 327 NONAME
+                                                      Trc_Dos32PostEventSem               @ 328 NONAME
+                                                      Trc_Dos32WaitEventSem               @ 329 NONAME
+                                                      Trc_Dos32QueryEventSem              @ 330 NONAME
+                                                      Trc_Dos32CreateMutexSem             @ 331 NONAME
+                                                      Trc_Dos32OpenMutexSem               @ 332 NONAME
+                                                      Trc_Dos32CloseMutexSem              @ 333 NONAME
+                                                      Trc_Dos32RequestMutexSem            @ 334 NONAME
+                                                      Trc_Dos32ReleaseMutexSem            @ 335 NONAME
+                                                      Trc_Dos32QueryMutexSem              @ 336 NONAME
+                                                      Trc_Dos32CreateMuxWaitSem           @ 337 NONAME
+                                                      Trc_Dos32OpenMuxWaitSem             @ 338 NONAME
+                                                      Trc_Dos32CloseMuxWaitSem            @ 339 NONAME
+                                                      Trc_Dos32WaitMuxWaitSem             @ 340 NONAME
+                                                      Trc_Dos32AddMuxWaitSem              @ 341 NONAME
+                                                      Trc_Dos32DeleteMuxWaitSem           @ 342 NONAME
+                                                      Trc_Dos32QueryMuxWaitSem            @ 343 NONAME
+                                                      Trc_Dos32SubSetMem                  @ 344 NONAME
+                                                      Trc_Dos32SubAllocMem                @ 345 NONAME
+                                                      Trc_Dos32SubFreeMem                 @ 346 NONAME
+                                                      Trc_Dos32SubUnsetMem                @ 347 NONAME
+                                                      Trc_Dos32QuerySysInfo               @ 348 NONAME
+                                                      Trc_Dos32WaitThread                 @ 349 NONAME
+                                                      Trc_Dos32AsyncTimer                 @ 350 NONAME
+                                                      Trc_Dos32StartTimer                 @ 351 NONAME
+                                                      Trc_Dos32GetResource                @ 352 NONAME
+                                                      Trc_Dos32FreeResource               @ 353 NONAME
+                                                      Trc_Dos32SetExceptionHandler        @ 354 NONAME
+                                                      Trc_Dos32UnsetExceptionHandler      @ 355 NONAME
+                                                      Trc_Dos32RaiseException             @ 356 NONAME
+                                                      Trc_Dos32UnwindException            @ 357 NONAME
+                                                      DOS32QUERYPAGEUSAGE                 @ 358 NONAME
+                                                      TRC_DOS16QUERYMODFROMCS             @ 359 NONAME       ; Not in entry table, OS2VER 210
+                                                      Trc_Dos32QueryModFromEIP            @ 360 NONAME       ; OS2VER 210
+                                                      DOSFPDATAAREA                       @ 361 NONAME       ; Not in entry table
+                                                      Trc_Dos32TmrQueryFreq               @ 362 NONAME
+                                                      Trc_Dos32TmrQueryTime               @ 363 NONAME
+                                                      Trc_Dos32AliasPerfCtrs              @ 364 NONAME
+                                                      Trc_Dos32ConfigurePerf              @ 365 NONAME
+                                                      Trc_Dos32DeconPerf                  @ 366 NONAME
+                                                      Trc_Dos32RegisterPerfCtrs           @ 367 NONAME
+                                                      Trc_Dos32QuerySysState              @ 368 NONAME
+                                                      DOS32FLATCS                         @ 369 NONAME       ; Not in entry table
+                                                      DOS32FLATDS                         @ 370 NONAME       ; Not in entry table
+                                                      Trc_Dos32QueryABIOSSupport          @ 371 NONAME       ; OS2VER 210
+                                                      Trc_Dos32EnumAttribute              @ 372 NONAME
+                                                      Trc_Dos32QueryDOSProperty           @ 373 NONAME
+                                                      Trc_Dos32SetDOSProperty             @ 374 NONAME
+                                                      TRC_DOS16QUERYDOSPROPERTY           @ 375 NONAME
+                                                      TRC_DOS16SETDOSPROPERTY             @ 376 NONAME
+                                                      Trc_Dos32Profile                    @ 377 NONAME
+                                                      Trc_Dos32SetSignalExceptionFocus    @ 378 NONAME
+                                                      Trc_Dos32SendSignalException        @ 379 NONAME
+                                                      Trc_Dos32EnterMustComplete          @ 380 NONAME
+                                                      Trc_Dos32ExitMustComplete           @ 381 NONAME
+                                                      Trc_Dos32SetRelMaxFH                @ 382 NONAME
+                                                      DOSPUTMESSAGE                       @ 383 NONAME       ; Forwarded to MSG
+                                                      DOSTRUEGETMESSAGE                   @ 384 NONAME       ; Forwarded to MSG
+                                                      DOSINSMESSAGE                       @ 385 NONAME       ; Forwarded to MSG
+                                                      DOS32INSERTMESSAGE                  @ 386 NONAME       ; Forwarded to MSG
+                                                      DOS32PUTMESSAGE                     @ 387 NONAME       ; Forwarded to MSG
+                                                      DOS32TRUEGETMESSAGE                 @ 388 NONAME       ; Forwarded to MSG
+                                                      DOSIQUERYMESSAGECP                  @ 389 NONAME
+                                                      DOS32IQUERYMESSAGECP                @ 390 NONAME       ; Forwarded to MSG
+                                                      DOSCASEMAP                          @ 391 NONAME       ; Forwarded to NLS
+                                                      DOSGETCOLLATE                       @ 392 NONAME       ; Forwarded to NLS
+                                                      DOSGETCTRYINFO                      @ 393 NONAME       ; Forwarded to NLS
+                                                      DOSGETDBCSEV                        @ 394 NONAME       ; Forwarded to NLS
+                                                      DOS32QUERYCTRYINFO                  @ 395 NONAME       ; Forwarded to NLS
+                                                      DOS32QUERYDBCSENV                   @ 396 NONAME       ; Forwarded to NLS
+                                                      DOS32MAPCASE                        @ 397 NONAME       ; Forwarded to NLS
+                                                      DOS32QUERYCOLLATE                   @ 398 NONAME       ; Forwarded to NLS
+                                                      DOSMAKENMPIPE                       @ 399 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSQNMPIPEINFO                      @ 400 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSCONNECTNMPIPE                    @ 401 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSDISCONNECTNMPIPE                 @ 402 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSQNMPHANDSTATE                    @ 403 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSSETNMPHANDSTATE                  @ 404 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSPEEKNMPIPE                       @ 405 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSWAITNMPIPE                       @ 406 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSTRANSACTNMPIPE                   @ 407 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSCALLNMPIPE                       @ 408 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSRAWREADNMPIPE                    @ 409 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSRAWWRITENMPIPE                   @ 410 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSSETNMPIPESEM                     @ 411 NONAME       ; Forwarded to NAMPIPES
+                                                      DOSQNMPIPESEMSTATE                  @ 412 NONAME       ; Forwarded to NAMPIPES
+                                                      STARTLAZYWRITER                     @ 413 NONAME
+                                                      _QUEINST_DATA                       @ 414 NONAME
+                                                      Trc_Dos32Shutdown                   @ 415 NONAME
+                                                      DOS32ICACHEMODULE                   @ 416 NONAME
+                                                      Trc_Dos32ReplaceModule              @ 417 NONAME
+                                                      Trc_Dos32AcknowledgeSignalException @ 418 NONAME
+                                                      DOS32TIB                            @ 419 NONAME       ; Not in entry table
+                                                      TRC_DOS16TMRQUERYFREQ               @ 420 NONAME
+                                                      TRC_DOS16TMRQUERYTIME               @ 421 NONAME
+                                                      TRC_DOS16REGISTERPERFCTRS           @ 422 NONAME
+                                                      DOS16FLATTOSEL                      @ 423 NONAME
+                                                      DOS16SELTOFLAT                      @ 424 NONAME
+                                                      DOSFLATTOSEL                        @ 425 NONAME
+                                                      DOSSELTOFLAT                        @ 426 NONAME
+                                                      DOSIODELAYCNT                       @ 427 NONAME       ; Not in entry table
+                                                      Trc_Dos32SetFileLocks               @ 428 NONAME
+                                                      Trc_Dos32CancelLockRequest          @ 429 NONAME
+                                                      LOGOPEN                             @ 430 NONAME
+                                                      LOGCLOSE                            @ 431 NONAME
+                                                      LOGADDENTRIES                       @ 432 NONAME
+                                                      LOGGETENTRIES                       @ 433 NONAME
+                                                      LOGSETSTATE                         @ 434 NONAME
+                                                      LOGSETNAME                          @ 435 NONAME
+                                                      LOGQUERYSTATE                       @ 436 NONAME
+                                                      DOSOPENCHANGENOTIFY                 @ 437 NONAME       ; Not in entry table
+                                                      DOSRESETCHANGENOTIFY                @ 438 NONAME       ; Not in entry table
+                                                      DOSCLOSECHANGENOTIFY                @ 439 NONAME       ; Not in entry table
+                                                      DOS32OPENCHANGENOTIFY               @ 440 NONAME
+                                                      DOS32RESETCHANGENOTIFY              @ 441 NONAME
+                                                      DOS32CLOSECHANGENOTIFY              @ 442 NONAME
+                                                      DOSQUERYABIOSSUPPORT                @ 443 NONAME       ; Not in entry table
+                                                      DOS32FORCESYSTEMDUMP                @ 444 NONAME       ; OS2VER 210
+                                                      Trc_Dos32GetProcessorStatus         @ 447 NONAME       ; SMP
+                                                      Trc_Dos32SetProcessorStatus         @ 448 NONAME       ; SMP
+                                                      TRC_DOS16CREATESPINLOCK             @ 449 NONAME       ; SMP
+                                                      TRC_DOS16ACQUIRESPINLOCK            @ 450 NONAME       ; SMP
+                                                      TRC_DOS16RELEASESPINLOCK            @ 451 NONAME       ; SMP
+                                                      TRC_DOS16FREESPINLOCK               @ 452 NONAME       ; SMP
+                                                      Trc_Dos32TestPSD                    @ 453 NONAME       ; SMP
+                                                      Trc_Dos32AllocThreadLocalMemory     @ 454 NONAME       ; OS2VER 230
+                                                      Trc_Dos32FreeThreadLocalMemory      @ 455 NONAME       ; OS2VER 230
+                                                      Trc_Dos32VerifyPidTid               @ 460 NONAME       ; OS2VER 230
+                                                      PTDA_LANMAN_SEC                     @ 464 NONAME       ; Not in entry table
+                                                      PTDA_PID                            @ 465 NONAME       ; Not in entry table
+                                                      SAS_SEL                             @ 466 NONAME       ; Not in entry table
+                                                      TCB_OPCOOKIE                        @ 467 NONAME       ; Not in entry table
+                                                      TCB_OPFLAGS                         @ 468 NONAME       ; Not in entry table
+                                                      TCB_NEWFLAGS                        @ 469 NONAME       ; Not in entry table
+                                                      TCB_USER_ID                         @ 470 NONAME       ; Not in entry table
+                                                      TCB_PROC_ID                         @ 471 NONAME       ; Not in entry table
+                                                      TCB_FSHARING                        @ 472 NONAME       ; Not in entry table
+                                                      TCB_SRVATTRIB                       @ 473 NONAME       ; Not in entry table
+                                                      TCB_ALLOWED                         @ 474 NONAME       ; Not in entry table
+                                                      TCB_PRTCB                           @ 475 NONAME       ; Not in entry table
+                                                      TCB_NUMBER                          @ 476 NONAME       ; Not in entry table
+                                                      TCB_THISSFT                         @ 477 NONAME       ; Not in entry table
+                                                      TCB_THISCDS                         @ 478 NONAME       ; Not in entry table
+                                                      TKOPTDA                             @ 479 NONAME       ; Not in entry table
+                                                      PTDA_CRITSEC                        @ 480 NONAME       ; Not in entry table
+                                                      PTDA_HOLDSIGCNT                     @ 481 NONAME       ; Not in entry table
+                                                      PTDA_PPTDAPARENT                    @ 482 NONAME       ; Not in entry table
+                                                      PTDA_PGDATA                         @ 483 NONAME       ; Not in entry table
+                                                      PTDA_HANDLE                         @ 484 NONAME       ; Not in entry table
+                                                      PTDA_MODULE                         @ 485 NONAME       ; Not in entry table
+                                                      PTDA_LDTHANDLE                      @ 486 NONAME       ; Not in entry table
+                                                      PTDA_CODEPAGE_TAG                   @ 487 NONAME       ; Not in entry table
+                                                      PTDA_JFN_LENGTH                     @ 488 NONAME       ; Not in entry table
+                                                      PTDA_JFN_PTABLE                     @ 489 NONAME       ; Not in entry table
+                                                      PTDA_JFN_FLG_PTR                    @ 490 NONAME       ; Not in entry table
+                                                      PTDA_EXTERR_LOCUS                   @ 491 NONAME       ; Not in entry table
+                                                      PTDA_EXTERR                         @ 492 NONAME       ; Not in entry table
+                                                      PTDA_EXTERR_ACTION                  @ 493 NONAME       ; Not in entry table
+                                                      PTDA_EXTERR_CLASS                   @ 494 NONAME       ; Not in entry table
+                                                      PTDA_PPID                           @ 495 NONAME       ; Not in entry table
+                                                      PTDA_PROCTYPE                       @ 496 NONAME       ; Not in entry table
+                                                      PTDA_CURRTCB                        @ 497 NONAME       ; Not in entry table
+                                                      PTDA_CURRTSD                        @ 498 NONAME       ; Not in entry table
+                                                      PTDA_SIGNATURE                      @ 499 NONAME       ; Not in entry table
+;                                                     T32EXITLIST                         @ 500 NONAME       ; Moved to 1000, OS2VER 230
+;                                                     T32ALLOCPROTECTEDMEM                @ 501 NONAME       ; Moved to 1001, OS2VER 230
+;                                                     T32ALIASMEM                         @ 502 NONAME       ; Moved to 1002, OS2VER 230
+;                                                     T32ALLOCMEM                         @ 503 NONAME       ; Moved to 1003, OS2VER 230
+;                                                     T32ALLOCSHAREDMEM                   @ 504 NONAME       ; Moved to 1004, OS2VER 230
+;                                                     T32GETNAMEDSHAREDMEM                @ 505 NONAME       ; Moved to 1005, OS2VER 230
+;                                                     T32GETSHAREDMEM                     @ 506 NONAME       ; Moved to 1006, OS2VER 230
+;                                                     T32GIVESHAREDMEM                    @ 507 NONAME       ; Moved to 1007, OS2VER 230
+;                                                     T32FREEMEM                          @ 508 NONAME       ; Moved to 1008, OS2VER 230
+;                                                     T32SETMEM                           @ 509 NONAME       ; Moved to 1009, OS2VER 230
+;                                                     T32QUERYMEM                         @ 510 NONAME       ; Moved to 1010, OS2VER 230
+;                                                     T32QUERYMEMSTATE                    @ 511 NONAME       ; Moved to 1011, OS2VER 230
+;                                                     T32OPENVDD                          @ 512 NONAME       ; Moved to 1012, OS2VER 230
+;                                                     T32REQUESTVDD                       @ 513 NONAME       ; Moved to 1013, OS2VER 230
+;                                                     T32CLOSEVDD                         @ 514 NONAME       ; Moved to 1014, OS2VER 230
+;                                                     T32CREATETHREAD                     @ 515 NONAME       ; Moved to 1015, OS2VER 230
+;                                                     T32DYNAMICTRACE                     @ 516 NONAME       ; Moved to 1016, OS2VER 230
+;                                                     T32DEBUG                            @ 517 NONAME       ; Moved to 1017, OS2VER 230
+;                                                     T32QUERYPROCADDR                    @ 518 NONAME       ; Moved to 1018, OS2VER 230
+;                                                     T32CREATEEVENTSEM                   @ 519 NONAME       ; Moved to 1019, OS2VER 230
+;                                                     T32OPENEVENTSEM                     @ 520 NONAME       ; Moved to 1020, OS2VER 230
+;                                                     T32CLOSEEVENTSEM                    @ 521 NONAME       ; Moved to 1021, OS2VER 230
+;                                                     T32RESETEVENTSEM                    @ 522 NONAME       ; Moved to 1022, OS2VER 230
+;                                                     T32POSTEVENTSEM                     @ 523 NONAME       ; Moved to 1023, OS2VER 230
+;                                                     T32WAITEVENTSEM                     @ 524 NONAME       ; Moved to 1024, OS2VER 230
+;                                                     T32QUERYEVENTSEM                    @ 525 NONAME       ; Moved to 1025, OS2VER 230
+;                                                     T32CREATEMUTEXSEM                   @ 526 NONAME       ; Moved to 1026, OS2VER 230
+;                                                     T32OPENMUTEXSEM                     @ 527 NONAME       ; Moved to 1027, OS2VER 230
+;                                                     T32CLOSEMUTEXSEM                    @ 528 NONAME       ; Moved to 1028, OS2VER 230
+;                                                     T32REQUESTMUTEXSEM                  @ 529 NONAME       ; Moved to 1029, OS2VER 230
+;                                                     T32RELEASEMUTEXSEM                  @ 530 NONAME       ; Moved to 1030, OS2VER 230
+;                                                     T32QUERYMUTEXSEM                    @ 531 NONAME       ; Moved to 1031, OS2VER 230
+;                                                     T32CREATEMUXWAITSEM                 @ 532 NONAME       ; Moved to 1032, OS2VER 230
+;                                                     T32OPENMUXWAITSEM                   @ 533 NONAME       ; Moved to 1033, OS2VER 230
+;                                                     T32CLOSEMUXWAITSEM                  @ 534 NONAME       ; Moved to 1034, OS2VER 230
+;                                                     T32WAITMUXWAITSEM                   @ 535 NONAME       ; Moved to 1035, OS2VER 230
+;                                                     T32ADDMUXWAITSEM                    @ 536 NONAME       ; Moved to 1036, OS2VER 230
+;                                                     T32DELETEMUXWAITSEM                 @ 537 NONAME       ; Moved to 1037, OS2VER 230
+;                                                     T32QUERYMUXWAITSEM                  @ 538 NONAME       ; Moved to 1038, OS2VER 230
+;                                                     T32QUERYSYSINFO                     @ 539 NONAME       ; Moved to 1039, OS2VER 230
+;                                                     T32WAITTHREAD                       @ 540 NONAME       ; Moved to 1040, OS2VER 230
+;                                                     T32GETRESOURCE                      @ 541 NONAME       ; Moved to 1041, OS2VER 230
+                                                      DOSIOPENL                           @ 541 NONAME       ; Not in entry table, OS2VER 245
+;                                                     T32FREERESOURCE                     @ 542 NONAME       ; Moved to 1042, OS2VER 230
+                                                      DOSIPROTECTOPENL                    @ 542 NONAME       ; Not in entry table, OS2VER 245
+;                                                     T32EXCEPTIONCALLBACK                @ 543 NONAME       ; Moved to 1043, OS2VER 230
+                                                      DOSISETFILESIZEL                    @ 543 NONAME       ; Not in entry table, OS2VER 245
+;                                                     T32QUERYPAGEUSAGE                   @ 544 NONAME       ; Moved to 1044, OS2VER 230
+                                                      DOSIPROTECTSETFILESIZEL             @ 544 NONAME       ; Not in entry table, OS2VER 245
+                                                      DOS32EXCEPTIONCALLBACK              @ 545 NONAME       ; Not in entry table
+;                                                     TI32ASYNCTIMER                      @ 546 NONAME       ; Moved to 1046, OS2VER 230
+                                                      THK32STRLEN                         @ 546 NONAME       ; OS2VER 230
+;                                                     TI32STARTTIMER                      @ 547 NONAME       ; Moved to 1047, OS2VER 230
+                                                      THK32_UNITHUNK                      @ 547 NONAME       ; OS2VER 230
+                                                      DOS32R3EXCEPTIONDISPATCHER          @ 548 NONAME
+                                                      DOSLIBIDISP                         @ 549 NONAME
+                                                      DOSLIBIDISP16                       @ 550 NONAME
+                                                      DOSLIBIDISP32                       @ 551 NONAME
+                                                      DOSR3EXITADDR                       @ 552 NONAME
+                                                      DOS32R3EXITADDR                     @ 553 NONAME
+                                                      DOS32IREAD                          @ 554 NONAME       ; Not in entry table
+;                                                     T32IREAD                            @ 555 NONAME       ; Moved to 1055, OS2VER 230
+                                                      DOS32IWRITE                         @ 556 NONAME       ; Not in entry table
+;                                                     T32IWRITE                           @ 557 NONAME       ; Moved to 1056, OS2VER 230
+                                                      Trc_Dos32CreateSpinLock             @ 557 NONAME       ; SMP
+;                                                     T32TMRQUERYFREQ                     @ 558 NONAME       ; Moved to 1057, OS2VER 230
+                                                      Trc_Dos32AcquireSpinLock            @ 558 NONAME       ; SMP
+;                                                     T32TMRQUERYTIME                     @ 559 NONAME       ; Moved to 1058, OS2VER 230
+                                                      Trc_Dos32ReleaseSpinLock            @ 559 NONAME       ; SMP
+;                                                     T32ALIASPERFCTRS                    @ 560 NONAME       ; Moved to 1050, OS2VER 230
+                                                      Trc_Dos32FreeSpinLock               @ 560 NONAME       ; SMP
+;                                                     T32CONFIGUREPERF                    @ 561 NONAME       ; Moved to 1051, OS2VER 230
+                                                      Trc_Dos32PMR3WaitEventSem           @ 561 NONAME       ; OS2VER 245
+;                                                     T32DECONPERF                        @ 562 NONAME       ; Moved to 1052, OS2VER 230
+                                                      Trc_Dos32PMR3PostEventSem           @ 562 NONAME       ; OS2VER 245
+;                                                     T32REGISTERPERFCTRS                 @ 563 NONAME       ; Moved to 1053, OS2VER 230
+                                                      Trc_Dos32QueryThreadAffinity        @ 563 NONAME       ; OS2VER 245
+;                                                     T32QUERYSYSSTATE                    @ 564 NONAME       ; Moved to 1054, OS2VER 230
+                                                      Trc_Dos32SetThreadAffinity          @ 564 NONAME       ; OS2VER 245
+                                                      DOSISETFILEINFO                     @ 565 NONAME       ; Not in entry table
+                                                      DOSISETPATHINFO                     @ 566 NONAME       ; Not in entry table
+;                                                     T32QUERYDOSPROPERTY                 @ 567 NONAME       ; Moved to 1076, OS2VER 230
+                                                      DOSOPENL                            @ 567 NONAME       ; OS2VER 245
+;                                                     T32SETDOSPROPERTY                   @ 568 NONAME       ; Moved to 1077, OS2VER 230
+                                                      DOSSETFILEPTRL                      @ 568 NONAME       ; OS2VER 245
+                                                      DOSIFINDNEXT                        @ 569 NONAME       ; Not in entry table
+;                                                     T32PROFILE                          @ 570 NONAME       ; Moved to 1062, OS2VER 230
+                                                      DOSSETFILESIZEL                     @ 570 NONAME       ; OS2VER 245
+;                                                     T32QUERYRESOURCESIZE                @ 571 NONAME       ; Moved to 1061, OS2VER 230
+                                                      Trc_Dos32QueryResourceSize          @ 572 NONAME
+                                                      TRC_DOS16QUERYRESOURCESIZE          @ 573 NONAME
+;                                                     T32SETSIGNALEXCEPTIONFOC            @ 574 NONAME       ; Moved to 1063, OS2VER 230
+                                                      DOSPMSEMWAIT                        @ 574 NONAME       ; OS2VER 230
+;                                                     T32SENDSIGNALEXCEPTION              @ 575 NONAME       ; Moved to 1064, OS2VER 230
+                                                      DOSPMMUXSEMWAIT                     @ 575 NONAME       ; OS2VER 230
+;                                                     T32STARTTIMER                       @ 576 NONAME       ; Moved to 1065, OS2VER 230
+                                                      THK16_UNITHUNK                      @ 576 NONAME       ; OS2VER 230
+;                                                     T32STOPTIMER                        @ 577 NONAME       ; Moved to 1066, OS2VER 230
+                                                      HT16_STARTUP                        @ 577 NONAME       ; OS2VER 230
+;                                                     T32ASYNCTIMER                       @ 578 NONAME       ; Moved to 1067, OS2VER 230
+                                                      HT16_CLEANUP                        @ 578 NONAME       ; OS2VER 230
+;                                                     T32INITIALIZEPORTHOLE               @ 579 NONAME       ; Moved to 1068, OS2VER 230
+                                                      HT32_STARTUP                        @ 579 NONAME       ; OS2VER 230
+                                                      DOS32INITIALIZEPORTHOLE             @ 580 NONAME
+;                                                     T32QUERYHEADERINFO                  @ 581 NONAME       ; Moved to 1069, OS2VER 230
+                                                      HT32_CLEANUP                        @ 581 NONAME       ; OS2VER 230
+                                                      DOS32QUERYHEADERINFO                @ 582 NONAME
+                                                      DOSINITIALIZEPORTHOLE               @ 583 NONAME
+                                                      DOSQUERYHEADERINFO                  @ 584 NONAME
+;                                                     T32QUERYPROCTYPE                    @ 585 NONAME       ; Moved to 1070, OS2VER 230
+                                                      _DOS32IMONREAD                      @ 585 NONAME       ; OS2VER 230
+                                                      Trc_Dos32QueryProcType              @ 586 NONAME
+                                                      TRC_DOS16QUERYPROCTYPE              @ 587 NONAME
+;                                                     T32IEXITMUSTCOMPLETE                @ 588 NONAME       ; Moved to 1071, OS2VER 230
+                                                      _DOS32IMONWRITE                     @ 588 NONAME       ; OS2VER 230
+                                                      DOSISIGDISPATCH                     @ 589 NONAME
+;                                                     T32ICACHEMODULE                     @ 590 NONAME       ; Moved to 1072, OS2VER 230
+                                                      Trc_Dos32PMPostEventSem             @ 590 NONAME       ; OS2VER 230
+;                                                     T32DLLTERM                          @ 591 NONAME       ; Moved to 1073, OS2VER 230
+                                                      Trc_Dos32PMWaitEventSem             @ 591 NONAME       ; OS2VER 230
+                                                      DOS32DLLTERMDISP                    @ 592 NONAME
+;                                                     T32IRAISEEXCEPTION                  @ 593 NONAME       ; Moved to 1074, OS2VER 230
+                                                      Trc_Dos32PMRequestMutexSem          @ 593 NONAME       ; OS2VER 230
+                                                      DOS32IRAISEEXCEPTION                @ 594 NONAME
+;                                                     T32ACKNOWLEDGESIGNALEXCEPTION       @ 595 NONAME       ; Moved to 1075, OS2VER 230
+                                                      Trc_Dos32PMWaitMuxWaitSem           @ 595 NONAME       ; OS2VER 230
+                                                      DOS32PM16SEMCHK                     @ 596 NONAME       ; OS2VER 230
+                                                      DOS32IQUERYFHSTATE                  @ 597 NONAME       ; Not in entry table
+                                                      DOS32ISETFHSTATE                    @ 598 NONAME       ; Not in entry table
+                                                      DOSLDTSEL                           @ 599 NONAME       ; Not in entry table
+                                                      DOS32R3FRESTOR                      @ 600 NONAME
+                                                      DOSIFINDFIRST                       @ 601 NONAME       ; Not in entry table
+;                                                     T32SETFILELOCKS                     @ 602 NONAME       ; Moved to 1078, OS2VER 230
+;                                                     T32CANCELLOCKREQUEST                @ 603 NONAME       ; Moved to 1079, OS2VER 230
+;                                                     T32IMONREAD                         @ 604 NONAME       ; Moved to 1059, OS2VER 230
+;                                                     T32IMONWRITE                        @ 605 NONAME       ; Moved to 1060, OS2VER 230
+                                                      DOSMONOPEN                          @ 606 NONAME       ; Removed OS2VER 230, forwarded to MONCALLS
+                                                      DOSMONCLOSE                         @ 607 NONAME       ; Removed OS2VER 230, forwarded to MONCALLS
+                                                      DOSMONREAD                          @ 608 NONAME       ; Removed OS2VER 230, forwarded to MONCALLS
+                                                      DOSMONWRITE                         @ 609 NONAME       ; Removed OS2VER 230, forwarded to MONCALLS
+                                                      DOSMONREG                           @ 610 NONAME       ; Removed OS2VER 230, forwarded to MONCALLS
+;                                                     T32KILLTHREAD                       @ 611 NONAME       ; Moved to 1080, OS2VER 230
+;                                                     TQUERYRASINFO                       @ 612 NONAME       ; Moved to 1081, OS2VER 230
+;                                                     T32DUMPPROCESS                      @ 613 NONAME       ; Moved to 1082, OS2VER 230
+;                                                     T32SUPPRESSPOPUPS                   @ 614 NONAME       ; Moved to 1083, OS2VER 230
+                                                      DOS32IPROTECTWRITE                  @ 615 NONAME       ; Not in entry table
+;                                                     T32IPROTECTWRITE                    @ 616 NONAME       ; Moved to 1084, OS2VER 230
+                                                      DOSIPROTECTSETFILEINFO              @ 617 NONAME       ; Not in entry table
+                                                      DOS32IPROTECTSETFILEINFO            @ 618 NONAME       ; Not in entry table
+                                                      DOS32IPROTECTSETFHSTATE             @ 619 NONAME       ; Not in entry table
+                                                      DOS32IPROTECTQUERYFHSTATE           @ 620 NONAME       ; Not in entry table
+                                                      Trc_Dos32ProtectSetFilePtr          @ 621 NONAME       ; OS2VER 210
+                                                      TRC_DOS16PROTECTCLOSE               @ 622 NONAME       ; Not in entry table, OS2VER 230
+                                                      TRC_DOS16PROTECTFILEIO              @ 623 NONAME       ; Not in entry table, OS2VER 230
+                                                      TRC_DOS16PROTECTFILELOCKS           @ 624 NONAME       ; Not in entry table, OS2VER 230
+                                                      DOSIPROTECTREAD                     @ 625 NONAME       ; Not in entry table, OS2VER 230
+                                                      DOSIPROTECTWRITE                    @ 626 NONAME       ; Not in entry table, OS2VER 230
+                                                      TRC_DOS16PROTECTNEWSIZE             @ 627 NONAME       ; Not in entry table, OS2VER 230
+                                                      TRC_DOS16PROTECTOPEN                @ 628 NONAME       ; Not in entry table, OS2VER 230
+                                                      TRC_DOS16PROTECTQFHANDSTATE         @ 629 NONAME       ; Not in entry table, OS2VER 230
+                                                      TRC_DOS16PROTECTSETFHANDSTATE       @ 630 NONAME       ; Not in entry table, OS2VER 230
+                                                      TRC_DOS16PROTECTQFILEINFO           @ 631 NONAME       ; Not in entry table, OS2VER 230
+                                                      TRC_DOS16PROTECTSETFILEINFO         @ 632 NONAME       ; Not in entry table, OS2VER 230
+;                                                     T32PROTECTSETFILELOCKS              @ 633 NONAME       ; Moved to 1085, OS2VER 230
+                                                      TRC_DOS16PROTECTCHGFILEPTR          @ 634 NONAME       ; Not in entry table, OS2VER 230
+                                                      TRC_DOS16PROTECTENUMATTRIBUTE       @ 635 NONAME       ; Not in entry table, OS2VER 230
+                                                      Trc_Dos32ProtectEnumAttribute       @ 636 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectOpen                @ 637 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectClose               @ 638 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectSetFileLocks        @ 639 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectSetFileSize         @ 640 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectRead                @ 641 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectWrite               @ 642 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectSetFileInfo         @ 643 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectSetFHState          @ 644 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectQueryFHState        @ 645 NONAME       ; OS2VER 210
+                                                      Trc_Dos32ProtectQueryFileInfo       @ 646 NONAME       ; OS2VER 210
+                                                      DOS32IPROTECTREAD                   @ 647 NONAME       ; Not in entry table, OS2VER 210
+;                                                     T32IPROTECTREAD                     @ 648 NONAME       ; Moved to 1086, OS2VER 230
+                                                      DOSCLOSEMESSAGEFILE                 @ 649 NONAME       ; OS2VER 210
+                                                      DOSLDRDIRTYWORKER                   @ 650 NONAME       ; Not in entry table
+                                                      DOS16LDRDIRTYWORKER                 @ 651 NONAME       ; Not in entry table
+                                                      DOS32IGETINFOBLOCKS                 @ 652 NONAME       ; Not in entry table, SMP
+                                                      T32IGETINFOBLOCKS                   @ 653 NONAME       ; Not in entry table, SMP
+                                                      T32GETPROCESSORSTATUS               @ 656 NONAME       ; Not in entry table, SMP
+                                                      T32SETPROCESSORSTATUS               @ 657 NONAME       ; Not in entry table, SMP
+                                                      T32TESTPSD                          @ 658 NONAME       ; Not in entry table, SMP
+                                                      T32QUERYTHREADAFFINITY              @ 659 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32SETTHREADAFFINITY                @ 660 NONAME       ; Not in entry table, OS2VER 245
+                                                      DOS32READQUEUE                      @ 661 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOS32PURGEQUEUE                     @ 662 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOS32CLOSEQUEUE                     @ 663 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOS32QUERYQUEUE                     @ 664 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOS32PEEKQUEUE                      @ 665 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOS32WRITEQUEUE                     @ 666 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOS32OPENQUEUE                      @ 667 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOS32CREATEQUEUE                    @ 668 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOS32STARTSESSION                   @ 669 NONAME       ; Forwarded to SESMGR, OS2VER 230
+                                                      DOS32SELECTSESSION                  @ 670 NONAME       ; Forwarded to SESMGR, OS2VER 230
+                                                      DOS32SETSESSION                     @ 671 NONAME       ; Forwarded to SESMGR, OS2VER 230
+                                                      DOS32STOPSESSION                    @ 672 NONAME       ; Forwarded to SESMGR, OS2VER 230
+                                                      DOSREGISTERNOTIFICATION             @ 673 NONAME       ; OS2VER 230
+                                                      DOSREADQUEUE                        @ 674 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOSPURGEQUEUE                       @ 675 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOSCLOSEQUEUE                       @ 676 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOSQUERYQUEUE                       @ 677 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOSPEEKQUEUE                        @ 678 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOSWRITEQUEUE                       @ 679 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOSOPENQUEUE                        @ 680 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOSCREATEQUEUE                      @ 681 NONAME       ; Forwarded to QUECALLS, OS2VER 230
+                                                      DOSSMGETMEM                         @ 682 NONAME       ; OS2VER 230
+                                                      DOSSMFREEMEM                        @ 683 NONAME       ; OS2VER 230
+                                                      DOSSMGETSGCB                        @ 684 NONAME       ; OS2VER 230
+                                                      DOSSMINITSGCB                       @ 685 NONAME       ; OS2VER 230
+                                                      DOSSMSGDOPOPUP                      @ 686 NONAME       ; OS2VER 230
+                                                      DOSSMSWITCH                         @ 687 NONAME       ; OS2VER 230
+                                                      DOSSMSERVEAPPREQ                    @ 688 NONAME       ; OS2VER 230
+                                                      DOSGETTIMES                         @ 689 NONAME       ; OS2VER 230
+                                                      DOSSMSETTITLE                       @ 690 NONAME       ; OS2VER 230
+                                                      DOSSCRUNLOCK                        @ 691 NONAME       ; OS2VER 230
+                                                      DOSSMDOAPPREQ                       @ 692 NONAME       ; OS2VER 230
+                                                      DOSSTOPSESSION                      @ 693 NONAME       ; Forwarded to SESMGR, OS2VER 230
+                                                      DOSSELECTSESSION                    @ 694 NONAME       ; Forwarded to SESMGR, OS2VER 230
+                                                      DOSSCRLOCK                          @ 695 NONAME       ; OS2VER 230
+                                                      DOSSAVREDRAWWAIT                    @ 696 NONAME       ; OS2VER 230
+                                                      DOSSAVREDRAWUNDO                    @ 697 NONAME       ; OS2VER 230
+                                                      DOSSMSGENDPOPUP                     @ 698 NONAME       ; OS2VER 230
+                                                      DOSSETSESSION                       @ 699 NONAME       ; Forwarded to SESMGR, OS2VER 230
+                                                      DOSSETMNLOCKTIME                    @ 700 NONAME       ; OS2VER 230
+                                                      DOSMODEUNDO                         @ 701 NONAME       ; OS2VER 230
+                                                      DOSSTARTSESSION                     @ 702 NONAME       ; Forwarded to SESMGR, OS2VER 230
+                                                      DOSSMGETSTATUS                      @ 703 NONAME       ; OS2VER 230
+                                                      DOSMODEWAIT                         @ 704 NONAME       ; OS2VER 230
+                                                      DOSSMTERMINATE                      @ 705 NONAME       ; OS2VER 230
+                                                      DOSSMGETAPPREQ                      @ 706 NONAME       ; OS2VER 230
+                                                      DOSSMINITIALIZE                     @ 707 NONAME       ; OS2VER 230
+                                                      DOSSMSTART                          @ 708 NONAME       ; OS2VER 230
+                                                      DOSSMPARENTSWITCH                   @ 709 NONAME       ; OS2VER 230
+                                                      DOSSMPAUSE                          @ 710 NONAME       ; OS2VER 230
+                                                      DOSSMHDEINIT                        @ 711 NONAME       ; OS2VER 230
+                                                      DOSSMPMPRESENT                      @ 712 NONAME       ; OS2VER 230
+                                                      DOSSMREGISTERDD                     @ 713 NONAME       ; Forwarded to SESMGR, OS2VER 230
+                                                      DOSSMNOTIFYDD                       @ 714 NONAME       ; OS2VER 230
+                                                      DOSSMNOTIFYDD2                      @ 715 NONAME       ; OS2VER 230
+                                                      DOSSMOPENDD                         @ 716 NONAME       ; OS2VER 230
+                                                      DOSSMSETSESSIONTYPE                 @ 717 NONAME       ; OS2VER 230
+                                                      OS2BASEINIT                         @ 718 NONAME       ; OS2VER 230
+                                                      MOUGETPTRSHAPE                      @ 719 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUSETPTRSHAPE                      @ 720 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUGETNUMMICKEYS                    @ 721 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUGETTHRESHOLD                     @ 722 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUSHELLINIT                        @ 723 NONAME       ; OS2VER 230
+                                                      MOUGETSCALEFACT                     @ 724 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUFLUSHQUE                         @ 725 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUGETNUMBUTTONS                    @ 726 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUCLOSE                            @ 727 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUSETTHRESHOLD                     @ 728 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUSETSCALEFACT                     @ 729 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUGETNUMQUEEL                      @ 730 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUDEREGISTER                       @ 731 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUGETEVENTMASK                     @ 732 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUSETEVENTMASK                     @ 733 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUOPEN                             @ 734 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUREMOVEPTR                        @ 735 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUGETPTRPOS                        @ 736 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUREADEVENTQUE                     @ 737 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUSETPTRPOS                        @ 738 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUGETDEVSTATUS                     @ 739 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUSYNCH                            @ 740 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUREGISTER                         @ 741 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUSETDEVSTATUS                     @ 742 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUDRAWPTR                          @ 743 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      MOUINITREAL                         @ 744 NONAME       ; Forwarded to MOUCALLS, OS2VER 230
+                                                      KBDSETCUSTXT                        @ 745 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDPROCESSINIT                      @ 746 NONAME       ; OS2VER 230
+                                                      KBDGETCP                            @ 747 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDCHARIN                           @ 748 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDSETCP                            @ 749 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDLOADINSTANCE                     @ 750 NONAME       ; OS2VER 230
+                                                      KBDSYNCH                            @ 751 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDREGISTER                         @ 752 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDSTRINGIN                         @ 753 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDGETSTATUS                        @ 754 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDSETSTATUS                        @ 755 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDGETFOCUS                         @ 756 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDFLUSHBUFFER                      @ 757 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDXLATE                            @ 758 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDSWITCHFGND                       @ 759 NONAME       ; OS2VER 230
+                                                      KBDSHELLINIT                        @ 760 NONAME       ; OS2VER 230
+                                                      KBDCLOSE                            @ 761 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDFREEFOCUS                        @ 762 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDFREE                             @ 763 NONAME       ; OS2VER 230
+                                                      KBDDEREGISTER                       @ 764 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDSETFGND                          @ 765 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDPEEK                             @ 766 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDOPEN                             @ 767 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDGETHWID                          @ 768 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      KBDSETHWID                          @ 769 NONAME       ; Forwarded to KBDCALLS, OS2VER 230
+                                                      VIOENDPOPUP                         @ 770 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOGETPHYSBUF                       @ 771 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOGETANSI                          @ 772 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOFREE                             @ 773 NONAME       ; OS2VER 230
+                                                      VIOSETANSI                          @ 774 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIODEREGISTER                       @ 775 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSCROLLUP                         @ 776 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOPRTSC                            @ 777 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOGETCURPOS                        @ 778 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOWRTCELLSTR                       @ 779 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOPOPUP                            @ 780 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSCROLLRT                         @ 781 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOWRTCHARSTR                       @ 782 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      AVS_PRTSC                           @ 783 NONAME       ; OS2VER 230
+                                                      VIOSETCURPOS                        @ 784 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSRFUNBLOCK                       @ 785 NONAME       ; OS2VER 230
+                                                      VIOSRFBLOCK                         @ 786 NONAME       ; OS2VER 230
+                                                      VIOSCRUNLOCK                        @ 787 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOWRTTTY                           @ 788 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSAVE                             @ 789 NONAME       ; OS2VER 230
+                                                      VIOGETMODE                          @ 790 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSETMODE                          @ 791 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSCRLOCK                          @ 792 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOREADCELLSTR                      @ 793 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSAVREDRAWWAIT                    @ 794 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOWRTNATTR                         @ 795 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOGETCURTYPE                       @ 796 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSAVREDRAWUNDO                    @ 797 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOGETFONT                          @ 798 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOREADCHARSTR                      @ 799 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOGETBUF                           @ 800 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSETCURTYPE                       @ 801 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSETFONT                          @ 802 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOHETINIT                          @ 803 NONAME       ; OS2VER 230
+                                                      VIOMODEUNDO                         @ 804 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSSWSWITCH                        @ 805 NONAME       ; OS2VER 230
+                                                      VIOMODEWAIT                         @ 806 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      AVS_PRTSCTOGGLE                     @ 807 NONAME       ; OS2VER 230
+                                                      VIOGETCP                            @ 808 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIORESTORE                          @ 809 NONAME       ; OS2VER 230
+                                                      VIOSETCP                            @ 810 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSHOWBUF                          @ 811 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSCROLLLF                         @ 812 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOREGISTER                         @ 813 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOGETCONFIG                        @ 814 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSCROLLDN                         @ 815 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOWRTCHARSTRATT                    @ 816 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOGETSTATE                         @ 817 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOPRTSCTOGGLE                      @ 818 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSETSTATE                         @ 819 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOWRTNCELL                         @ 820 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOWRTNCHAR                         @ 821 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOSHELLINIT                        @ 822 NONAME       ; OS2VER 230
+                                                      VIOASSOCIATE                        @ 823 NONAME       ; OS2VER 230
+                                                      VIOCREATEPS                         @ 824 NONAME       ; OS2VER 230
+                                                      VIODELETESETID                      @ 825 NONAME       ; OS2VER 230
+                                                      VIOGETDEVICECELLSIZE                @ 826 NONAME       ; OS2VER 230
+                                                      VIOGETORG                           @ 827 NONAME       ; OS2VER 230
+                                                      VIOCREATELOGFONT                    @ 828 NONAME       ; OS2VER 230
+                                                      VIODESTROYPS                        @ 829 NONAME       ; OS2VER 230
+                                                      VIOQUERYSETIDS                      @ 830 NONAME       ; OS2VER 230
+                                                      VIOSETORG                           @ 831 NONAME       ; OS2VER 230
+                                                      VIOQUERYFONTS                       @ 832 NONAME       ; OS2VER 230
+                                                      VIOSETDEVICECELLSIZE                @ 833 NONAME       ; OS2VER 230
+                                                      VIOSHOWPS                           @ 834 NONAME       ; OS2VER 230
+                                                      VIOGETPSADDRESS                     @ 835 NONAME       ; OS2VER 230
+                                                      VIOQUERYCONSOLE                     @ 836 NONAME       ; OS2VER 230
+                                                      VIOREDRAWSIZE                       @ 837 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      VIOGLOBALREG                        @ 838 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      XVIOSETCASTATE                      @ 839 NONAME       ; OS2VER 230
+                                                      XVIOCHECKCHARTYPE                   @ 840 NONAME       ; OS2VER 230
+                                                      XVIODESTROYCA                       @ 841 NONAME       ; OS2VER 230
+                                                      XVIOCREATECA                        @ 842 NONAME       ; OS2VER 230
+                                                      VIOCHECKCHARTYPE                    @ 843 NONAME       ; Forwarded to VIOCALLS, OS2VER 230
+                                                      XVIOGETCASTATE                      @ 844 NONAME       ; OS2VER 230
+                                                      BVSMAIN                             @ 845 NONAME       ; OS2VER 230
+                                                      BVSREDRAWSIZE                       @ 846 NONAME       ; OS2VER 230
+                                                      BVSGETPTRDRAWNAME                   @ 847 NONAME       ; OS2VER 230
+                                                      ANSIINJECT                          @ 848 NONAME       ; OS2VER 230
+                                                      ANSIKEYDEF                          @ 849 NONAME       ; OS2VER 230
+                                                      ANSIINTERP                          @ 850 NONAME       ; OS2VER 230
+                                                      BKSMAIN                             @ 851 NONAME       ; OS2VER 230
+                                                      BMSMAIN                             @ 852 NONAME       ; OS2VER 230
+                                                      MOUGETHOTKEY                        @ 853 NONAME       ; OS2VER 230
+                                                      MOUSETHOTKEY                        @ 854 NONAME       ; OS2VER 230
+                                                      DOSSMSYSINIT                        @ 855 NONAME       ; OS2VER 230
+                                                      QHKEYBDHANDLE                       @ 856 NONAME       ; OS2VER 230
+                                                      QHMOUSEHANDLE                       @ 857 NONAME       ; OS2VER 230
+                                                      SMQUEUERAMSEM                       @ 858 NONAME       ; OS2VER 230
+                                                      SMARRAY                             @ 859 NONAME       ; OS2VER 230
+                                                      SMPIDARRAY                          @ 860 NONAME       ; OS2VER 230
+                                                      SMINITIALIZED                       @ 861 NONAME       ; OS2VER 230
+                                                      SMARRAYSIZE                         @ 862 NONAME       ; OS2VER 230
+                                                      BVSGLOBAL                           @ 863 NONAME       ; OS2VER 230
+                                                      SMGINSTANCE                         @ 864 NONAME       ; OS2VER 230
+                                                      BVHINSTANCE                         @ 865 NONAME       ; OS2VER 230
+                                                      THK32ALIASMEM                       @ 866 NONAME       ; OS2VER 230
+                                                      THK32FREEALIAS                      @ 867 NONAME       ; OS2VER 230
+                                                      THK32ALLOCVARLEN                    @ 868 NONAME       ; OS2VER 230
+                                                      THK32HANDLEBOUNDARY                 @ 869 NONAME       ; OS2VER 230
+                                                      THK32HANDLESTRING                   @ 870 NONAME       ; OS2VER 230
+                                                      THK32DEALLOC                        @ 871 NONAME       ; OS2VER 230
+                                                      THK32XHNDLR                         @ 872 NONAME       ; OS2VER 230
+                                                      Trc_Dos32SetExtLIBPATH              @ 873 NONAME       ; OS2VER 230
+                                                      Trc_Dos32QueryExtLIBPATH            @ 874 NONAME       ; OS2VER 230
+                                                      DOS32PM16SEMRST                     @ 875 NONAME       ; OS2VER 230
+                                                      DOS32SYSCTL                         @ 876 NONAME       ; OS2VER 230
+                                                      Trc_Dos32QueryThreadContext         @ 877 NONAME       ; OS2VER 240
+                                                      DOSSGQUERYTOPMOST                   @ 878 NONAME       ; OS2VER 245
+                                                      Trc_Dos32PerfSysCall                @ 976 NONAME       ; OS2VER 240
+                                                      Trc_Dos32OpenL                      @ 981 NONAME       ; OS2VER 245
+                                                      Trc_Dos32ProtectOpenL               @ 982 NONAME       ; OS2VER 245
+                                                      Trc_Dos32ProtectSetFileLocksL       @ 983 NONAME       ; OS2VER 245
+                                                      Trc_Dos32ProtectSetFilePtrL         @ 984 NONAME       ; OS2VER 245
+                                                      Trc_Dos32ProtectSetFileSizeL        @ 985 NONAME       ; OS2VER 245
+                                                      Trc_Dos32SetFileLocksL              @ 986 NONAME       ; OS2VER 245
+                                                      Trc_Dos32CancelLockRequestL         @ 987 NONAME       ; OS2VER 245
+                                                      Trc_Dos32SetFilePtrL                @ 988 NONAME       ; OS2VER 245
+                                                      Trc_Dos32SetFileSizeL               @ 989 NONAME       ; OS2VER 245
+                                                      Trc_Dos32ListIOL                    @ 990 NONAME       ; OS2VER 245
+                                                      TRC_DOS16FSRAMSEMREQUEST2           @ 991 NONAME       ; OS2VER 245
+                                                      TRC_DOS16FSRAMSEMCLEAR2             @ 992 NONAME       ; OS2VER 245
+                                                      Trc_Dos32SystemService              @ 995 NONAME       ; OS2VER 245
+                                                      Trc_Dos32ListIO                     @ 996 NONAME       ; OS2VER 245
+                                                      Trc_Dos32CreateThread2              @ 997 NONAME       ; OS2VER 245
+                                                      TRC_DOS16SETEXTLIBPATH              @ 998 NONAME       ; OS2VER 230
+                                                      TRC_DOS16QUERYEXTLIBPATH            @ 999 NONAME       ; OS2VER 230
+                                                      T32EXITLIST                         @1000 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ALLOCPROTECTEDMEM                @1001 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ALIASMEM                         @1002 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ALLOCMEM                         @1003 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ALLOCSHAREDMEM                   @1004 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32GETNAMEDSHAREDMEM                @1005 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32GETSHAREDMEM                     @1006 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32GIVESHAREDMEM                    @1007 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32FREEMEM                          @1008 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32SETMEM                           @1009 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYMEM                         @1010 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYMEMSTATE                    @1011 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32OPENVDD                          @1012 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32REQUESTVDD                       @1013 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CLOSEVDD                         @1014 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CREATETHREAD                     @1015 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32DYNAMICTRACE                     @1016 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32DEBUG                            @1017 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYPROCADDR                    @1018 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CREATEEVENTSEM                   @1019 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32OPENEVENTSEM                     @1020 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CLOSEEVENTSEM                    @1021 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32RESETEVENTSEM                    @1022 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32POSTEVENTSEM                     @1023 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32WAITEVENTSEM                     @1024 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYEVENTSEM                    @1025 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CREATEMUTEXSEM                   @1026 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32OPENMUTEXSEM                     @1027 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CLOSEMUTEXSEM                    @1028 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32REQUESTMUTEXSEM                  @1029 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32RELEASEMUTEXSEM                  @1030 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYMUTEXSEM                    @1031 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CREATEMUXWAITSEM                 @1032 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32OPENMUXWAITSEM                   @1033 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CLOSEMUXWAITSEM                  @1034 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32WAITMUXWAITSEM                   @1035 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ADDMUXWAITSEM                    @1036 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32DELETEMUXWAITSEM                 @1037 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYMUXWAITSEM                  @1038 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYSYSINFO                     @1039 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32WAITTHREAD                       @1040 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32GETRESOURCE                      @1041 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32FREERESOURCE                     @1042 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32EXCEPTIONCALLBACK                @1043 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYPAGEUSAGE                   @1044 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32FORCESYSTEMDUMP                  @1045 NONAME       ; Not in entry table, OS2VER 230
+                                                      TI32ASYNCTIMER                      @1046 NONAME       ; Not in entry table, OS2VER 230
+                                                      TI32STARTTIMER                      @1047 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYABIOSSUPPORT                @1048 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYMODFROMEIP                  @1049 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ALIASPERFCTRS                    @1050 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CONFIGUREPERF                    @1051 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32DECONPERF                        @1052 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32REGISTERPERFCTRS                 @1053 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYSYSSTATE                    @1054 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32IREAD                            @1055 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32IWRITE                           @1056 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32TMRQUERYFREQ                     @1057 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32TMRQUERYTIME                     @1058 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32IMONREAD                         @1059 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32IMONWRITE                        @1060 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYRESOURCESIZE                @1061 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32PROFILE                          @1062 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32SETSIGNALEXCEPTIONFOCUS          @1063 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32SENDSIGNALEXCEPTION              @1064 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32STARTTIMER                       @1065 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32STOPTIMER                        @1066 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ASYNCTIMER                       @1067 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32INITIALIZEPORTHOLE               @1068 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYHEADERINFO                  @1069 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYPROCTYPE                    @1070 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32IEXITMUSTCOMPLETE                @1071 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ICACHEMODULE                     @1072 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32DLLTERM                          @1073 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32IRAISEEXCEPTION                  @1074 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ACKNOWLEDGESIGNALEXCEPTION       @1075 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYDOSPROPERTY                 @1076 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32SETDOSPROPERTY                   @1077 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32SETFILELOCKS                     @1078 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32CANCELLOCKREQUEST                @1079 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32KILLTHREAD                       @1080 NONAME       ; Not in entry table, OS2VER 230
+                                                      TQUERYRASINFO                       @1081 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32DUMPPROCESS                      @1082 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32SUPPRESSPOPUPS                   @1083 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32IPROTECTWRITE                    @1084 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32PROTECTSETFILELOCKS              @1085 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32IPROTECTREAD                     @1086 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32PMPOSTEVENTSEM                   @1087 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32PMWAITEVENTSEM                   @1088 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32PMREQUESTMUTEXSEM                @1089 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32PMWAITMUXWAITSEM                 @1090 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32PM16SEMCHK                       @1091 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32ALLOCTHREADLOCALMEMORY           @1092 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32FREETHREADLOCALMEMORY            @1093 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32SETEXTLIBPATH                    @1094 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYEXTLIBPATH                  @1095 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32PM16SEMRST                       @1096 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32VERIFYPIDTID                     @1097 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32SYSCTL                           @1098 NONAME       ; Not in entry table, OS2VER 230
+                                                      T32QUERYTHREADCONTEXT               @1099 NONAME       ; Not in entry table, OS2VER 240
+                                                      T32PERFSYSCALL                      @1101 NONAME       ; Not in entry table, OS2VER 240
+                                                      T32LISTIO                           @1102 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32PMR3WAITEVENTSEM                 @1103 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32PMR3POSTEVENTSEM                 @1104 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32CREATETHREAD2                    @1105 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32PROTECTSETFILELOCKSL             @1106 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32IPROTECTSETFILEPTRL              @1107 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32SETFILELOCKSL                    @1108 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32CANCELLOCKREQUESTL               @1109 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32ISETFILEPTRL                     @1110 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32LISTIOL                          @1111 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32ISETFILEPTR                      @1116 NONAME       ; Not in entry table, OS2VER 245
+                                                      T32IPROTECTSETFILEPTR               @1117 NONAME       ; Not in entry table, OS2VER 245
+IMPORTS
+                DOSICREATETHREAD                    = DOSCALLS.   1
+                DOSCWAIT                            = DOSCALLS.   2
+                DOSENTERCRITSEC                     = DOSCALLS.   3
+                DOSIEXECPGM                         = DOSCALLS.   4
+                DOSEXIT                             = DOSCALLS.   5
+                DOSEXITCRITSEC                      = DOSCALLS.   6
+                DOSEXITLIST                         = DOSCALLS.   7
+                DOSGETINFOSEG                       = DOSCALLS.   8
+                DOSGETPRTY                          = DOSCALLS.   9
+                DOSKILLPROCESS                      = DOSCALLS.  10
+                DOSSETPRTY                          = DOSCALLS.  11
+                DOSPTRACE                           = DOSCALLS.  12
+                DOSHOLDSIGNAL                       = DOSCALLS.  13
+                DOSSETSIGHANDLER                    = DOSCALLS.  14
+                DOSFLAGPROCESS                      = DOSCALLS.  15
+                DOSMAKEPIPE                         = DOSCALLS.  16
+                DOSISYSSEMCLEAR                     = DOSCALLS.  17
+                DOSISEMREQUEST                      = DOSCALLS.  18
+                DOSISYSSEMSET                       = DOSCALLS.  19
+                DOSSEMSETWAIT                       = DOSCALLS.  20
+                DOSISEMWAIT                         = DOSCALLS.  21
+                DOSMUXSEMWAIT                       = DOSCALLS.  22
+                DOSCLOSESEM                         = DOSCALLS.  23
+                DOSCREATESEM                        = DOSCALLS.  24
+                DOSOPENSEM                          = DOSCALLS.  25
+                DOSRESUMETHREAD                     = DOSCALLS.  26
+                DOSSUSPENDTHREAD                    = DOSCALLS.  27
+                DOSSETDATETIME                      = DOSCALLS.  28
+                DOSTIMERASYNC                       = DOSCALLS.  29
+                DOSTIMERSTART                       = DOSCALLS.  30
+                DOSTIMERSTOP                        = DOSCALLS.  31
+                DOSSLEEP                            = DOSCALLS.  32
+                DOSGETDATETIME                      = DOSCALLS.  33
+                DOSALLOCSEG                         = DOSCALLS.  34
+                DOSALLOCSHRSEG                      = DOSCALLS.  35
+                DOSGETSHRSEG                        = DOSCALLS.  36
+                DOSGIVESEG                          = DOSCALLS.  37
+                DOSREALLOCSEG                       = DOSCALLS.  38
+                DOSFREESEG                          = DOSCALLS.  39
+                DOSALLOCHUGE                        = DOSCALLS.  40
+                DOSGETHUGESHIFT                     = DOSCALLS.  41
+                DOSREALLOCHUGE                      = DOSCALLS.  42
+                DOSCREATECSALIAS                    = DOSCALLS.  43
+                DOSLOADMODULE                       = DOSCALLS.  44
+                DOSGETPROCADDR                      = DOSCALLS.  45
+                DOSFREEMODULE                       = DOSCALLS.  46
+                DOSGETMODHANDLE                     = DOSCALLS.  47
+                DOSGETMODNAME                       = DOSCALLS.  48
+                DOSGETMACHINEMODE                   = DOSCALLS.  49
+                DOSBEEP                             = DOSCALLS.  50
+                DOSCLIACCESS                        = DOSCALLS.  51
+                DOSDEVCONFIG                        = DOSCALLS.  52
+                DOSDEVIOCTL                         = DOSCALLS.  53
+                DOSSGSWITCH                         = DOSCALLS.  54
+                DOSSGSWITCHME                       = DOSCALLS.  55
+                DOSBUFRESET                         = DOSCALLS.  56
+                DOSCHDIR                            = DOSCALLS.  57
+                DOSCHGFILEPTR                       = DOSCALLS.  58
+                DOSCLOSE                            = DOSCALLS.  59
+                DOSDELETE                           = DOSCALLS.  60
+                DOSDUPHANDLE                        = DOSCALLS.  61
+                DOSFILELOCKS                        = DOSCALLS.  62
+                DOSFINDCLOSE                        = DOSCALLS.  63
+                DOSFINDFIRST                        = DOSCALLS.  64
+                DOSFINDNEXT                         = DOSCALLS.  65
+                DOSMKDIR                            = DOSCALLS.  66
+                DOSMOVE                             = DOSCALLS.  67
+                DOSNEWSIZE                          = DOSCALLS.  68
+                DOSPORTACCESS                       = DOSCALLS.  69
+                DOSOPEN                             = DOSCALLS.  70
+                DOSQCURDIR                          = DOSCALLS.  71
+                DOSQCURDISK                         = DOSCALLS.  72
+                DOSQFHANDSTATE                      = DOSCALLS.  73
+                DOSQFILEINFO                        = DOSCALLS.  74
+                DOSQFILEMODE                        = DOSCALLS.  75
+                DOSQFSINFO                          = DOSCALLS.  76
+                DOSQHANDTYPE                        = DOSCALLS.  77
+                DOSQVERIFY                          = DOSCALLS.  78
+                DOSIREAD                            = DOSCALLS.  79
+                DOSRMDIR                            = DOSCALLS.  80
+                DOSSELECTDISK                       = DOSCALLS.  81
+                DOSSETFHANDSTATE                    = DOSCALLS.  82
+                DOSSETFILEINFO                      = DOSCALLS.  83
+                DOSSETFILEMODE                      = DOSCALLS.  84
+                DOSSETMAXFH                         = DOSCALLS.  85
+                DOSSETVERIFY                        = DOSCALLS.  86
+                DOSIWRITE                           = DOSCALLS.  87
+                DOSSYSTEMSERVICE                    = DOSCALLS.  88
+                DOSSETVEC                           = DOSCALLS.  89
+                DOSSYSTRACE                         = DOSCALLS.  90
+                DOSGETENV                           = DOSCALLS.  91
+                DOSGETVERSION                       = DOSCALLS.  92
+                DOSQTRACEINFO                       = DOSCALLS.  93
+                DOSGETPID                           = DOSCALLS.  94
+                DOSOPEN2                            = DOSCALLS.  95
+                DOSLIBINIT                          = DOSCALLS.  96
+                DOSSETFSINFO                        = DOSCALLS.  97
+                DOSQPATHINFO                        = DOSCALLS.  98
+                DOSDEVIOCTL2                        = DOSCALLS.  99
+                DOSICANONICALIZE                    = DOSCALLS. 100
+                DOSSETFGND                          = DOSCALLS. 101
+                DOSSWAPTASKINIT                     = DOSCALLS. 102
+                DOSREADPHYS                         = DOSCALLS. 103
+                DOSSETPATHINFO                      = DOSCALLS. 104
+                DOSSGSWITCHPROC2                    = DOSCALLS. 105
+                STRUCHECK                           = DOSCALLS. 106
+                STRURESUPDATE                       = DOSCALLS. 107
+                DOSISETRELMAXFH                     = DOSCALLS. 108
+                DOSIDEVIOCTL                        = DOSCALLS. 109
+                DOS32FORCEDELETE                    = DOSCALLS. 110
+                DOS32KILLTHREAD                     = DOSCALLS. 111
+                DOS32QUERYRASINFO                   = DOSCALLS. 112
+;               DOS32DUMPPROCESS                    = DOSCALLS. 113
+;               DOS32SUPPRESSPOPUPS                 = DOSCALLS. 114
+                THK32ALLOCMEM                       = DOSCALLS. 115
+                THK32FREEMEM                        = DOSCALLS. 116
+                THK32ALLOCSTACK                     = DOSCALLS. 117
+                DOSOPEN2COMPT                       = DOSCALLS. 118
+                DOSGETSTDA                          = DOSCALLS. 119
+                DOSERROR                            = DOSCALLS. 120
+                DOSGETSEG                           = DOSCALLS. 121
+                DOSLOCKSEG                          = DOSCALLS. 122
+                DOSUNLOCKSEG                        = DOSCALLS. 123
+                DOSSGSWITCHPROC                     = DOSCALLS. 124
+                DOSIRAMSEMWAKE                      = DOSCALLS. 125
+                DOSSIZESEG                          = DOSCALLS. 126
+                DOSMEMAVAIL                         = DOSCALLS. 127
+                DOSIRAMSEMREQUEST                   = DOSCALLS. 128
+                DOSPHYSICALDISK                     = DOSCALLS. 129
+                DOSGETCP                            = DOSCALLS. 130
+                DOSISETCP                           = DOSCALLS. 131
+                DOSGLOBALSEG                        = DOSCALLS. 132
+                DOSPROFILE                          = DOSCALLS. 133
+                DOSSENDSIGNAL                       = DOSCALLS. 134
+                DOSHUGESHIFT                        = DOSCALLS. 135
+                DOSHUGEINCR                         = DOSCALLS. 136
+                DOSREAD                             = DOSCALLS. 137
+                DOSWRITE                            = DOSCALLS. 138
+                DOSERRCLASS                         = DOSCALLS. 139
+                DOSSEMREQUEST                       = DOSCALLS. 140
+                DOSSEMCLEAR                         = DOSCALLS. 141
+                DOSSEMWAIT                          = DOSCALLS. 142
+                DOSSEMSET                           = DOSCALLS. 143
+                DOSEXECPGM                          = DOSCALLS. 144
+                DOSCREATETHREAD                     = DOSCALLS. 145
+                DOS16SUBSET                         = DOSCALLS. 146
+                DOS16SUBALLOC                       = DOSCALLS. 147
+                DOS16SUBFREE                        = DOSCALLS. 148
+                DOSREADASYNC                        = DOSCALLS. 149
+                DOSWRITEASYNC                       = DOSCALLS. 150
+                DOSSEARCHPATH                       = DOSCALLS. 151
+                DOSSCANENV                          = DOSCALLS. 152
+                DOSSETCP                            = DOSCALLS. 153
+                DOSQPROCSTATUS                      = DOSCALLS. 154
+                DOSGETRESOURCE                      = DOSCALLS. 155
+                DOSGETPPID                          = DOSCALLS. 156
+                DOSCALLBACK                         = DOSCALLS. 157
+                DOSICALLBACK                        = DOSCALLS. 158
+                DOSRETFORWARD                       = DOSCALLS. 159
+                DOSR2STACKREALLOC                   = DOSCALLS. 160
+                DOSFSRAMSEMREQUEST                  = DOSCALLS. 161
+                DOSFSRAMSEMCLEAR                    = DOSCALLS. 162
+                DOSQAPPTYPE                         = DOSCALLS. 163
+                DOSSETPROCCP                        = DOSCALLS. 164
+                DOSDYNAMICTRACE                     = DOSCALLS. 165
+                DOSQSYSINFO                         = DOSCALLS. 166
+                DOSIMAKENMPIPE                      = DOSCALLS. 167
+                DOSICALLNMPIPE                      = DOSCALLS. 168
+                DOSICONNECTNMPIPE                   = DOSCALLS. 169
+                DOSIDISCONNECTNMPIPE                = DOSCALLS. 170
+                DOSIPEEKNMPIPE                      = DOSCALLS. 171
+                DOSIQNMPIPEINFO                     = DOSCALLS. 172
+                DOSIQNMPHANDSTATE                   = DOSCALLS. 173
+                DOSISETNMPHANDSTATE                 = DOSCALLS. 174
+                DOSITRANSACTNMPIPE                  = DOSCALLS. 175
+                DOSIWAITNMPIPE                      = DOSCALLS. 176
+                DOSISETNMPIPESEM                    = DOSCALLS. 177
+                DOSIQNMPIPESEMSTATE                 = DOSCALLS. 178
+                DOSIRAWREADNMPIPE                   = DOSCALLS. 179
+                DOSIRAWWRITENMPIPE                  = DOSCALLS. 180
+                DOSFSATTACH                         = DOSCALLS. 181
+                DOSQFSATTACH                        = DOSCALLS. 182
+                DOSFSCTL                            = DOSCALLS. 183
+                DOSFINDFIRST2                       = DOSCALLS. 184
+                DOSMKDIR2                           = DOSCALLS. 185
+                DOSFILEIO                           = DOSCALLS. 186
+                DOSFINDNOTIFYCLOSE                  = DOSCALLS. 187
+                DOSFINDNOTIFYFIRST                  = DOSCALLS. 188
+                DOSFINDNOTIFYNEXT                   = DOSCALLS. 189
+                DOSSETTRACEINFO                     = DOSCALLS. 190
+                DOSEDITNAME                         = DOSCALLS. 191
+                DOSLOGMODE                          = DOSCALLS. 192
+                DOSLOGENTRY                         = DOSCALLS. 193
+                DOSGETLOGBUFFER                     = DOSCALLS. 194
+                DOSLOGREGISTER                      = DOSCALLS. 195
+                DOSLOGREAD                          = DOSCALLS. 196
+                DOSFINDFROMNAME                     = DOSCALLS. 197
+                DOSOPLOCKRELEASE                    = DOSCALLS. 198
+                DOSOPLOCKWAIT                       = DOSCALLS. 199
+                DOSICOPY                            = DOSCALLS. 200
+                DOSCOPY                             = DOSCALLS. 201
+                DOSIQAPPTYPE                        = DOSCALLS. 202
+                DOSFORCEDELETE                      = DOSCALLS. 203
+                DOSENUMATTRIBUTE                    = DOSCALLS. 204
+                DOSOPLOCKSHUTDOWN                   = DOSCALLS. 205
+                DOSSHUTDOWN                         = DOSCALLS. 206
+                DOSGETRESOURCE2                     = DOSCALLS. 207
+                DOSFREERESOURCE                     = DOSCALLS. 208
+                DOS32SETMAXFH                       = DOSCALLS. 209
+                DOS32SETVERIFY                      = DOSCALLS. 210
+                DOS32ERRCLASS                       = DOSCALLS. 211
+                DOS32ERROR                          = DOSCALLS. 212
+                DOSCREATEVDM                        = DOSCALLS. 213
+                DOSMAXPATHLEN                       = DOSCALLS. 214
+                DOSPAGESIZE                         = DOSCALLS. 215
+                DOSLOCALINFO                        = DOSCALLS. 216
+                DOSGLOBALINFO                       = DOSCALLS. 217
+                DOS32SETFILEINFO                    = DOSCALLS. 218
+                DOS32SETPATHINFO                    = DOSCALLS. 219
+                DOS32SETDEFAULTDISK                 = DOSCALLS. 220
+                DOS32SETFHSTATE                     = DOSCALLS. 221
+                DOS32SETFSINFO                      = DOSCALLS. 222
+                DOS32QUERYPATHINFO                  = DOSCALLS. 223
+                DOS32QUERYHTYPE                     = DOSCALLS. 224
+                DOS32QUERYVERIFY                    = DOSCALLS. 225
+                DOS32DELETEDIR                      = DOSCALLS. 226
+                DOS32SCANENV                        = DOSCALLS. 227
+                DOS32SEARCHPATH                     = DOSCALLS. 228
+                DOS32SLEEP                          = DOSCALLS. 229
+                DOS32GETDATETIME                    = DOSCALLS. 230
+                DOS32DEVCONFIG                      = DOSCALLS. 231
+                DOS32ENTERCRITSEC                   = DOSCALLS. 232
+                DOS32EXITCRITSEC                    = DOSCALLS. 233
+                DOS32EXIT                           = DOSCALLS. 234
+                DOS32KILLPROCESS                    = DOSCALLS. 235
+                DOS32SETPRIORITY                    = DOSCALLS. 236
+                DOS32RESUMETHREAD                   = DOSCALLS. 237
+                DOS32SUSPENDTHREAD                  = DOSCALLS. 238
+                DOS32CREATEPIPE                     = DOSCALLS. 239
+                DOS32CALLNPIPE                      = DOSCALLS. 240
+                DOS32CONNECTNPIPE                   = DOSCALLS. 241
+                DOS32DISCONNECTNPIPE                = DOSCALLS. 242
+                DOS32CREATENPIPE                    = DOSCALLS. 243
+                DOS32PEEKNPIPE                      = DOSCALLS. 244
+                DOS32QUERYNPHSTATE                  = DOSCALLS. 245
+                DOS32RAWREADNPIPE                   = DOSCALLS. 246
+                DOS32RAWWRITENPIPE                  = DOSCALLS. 247
+                DOS32QUERYNPIPEINFO                 = DOSCALLS. 248
+                DOS32QUERYNPIPESEMSTATE             = DOSCALLS. 249
+                DOS32SETNPHSTATE                    = DOSCALLS. 250
+                DOS32SETNPIPESEM                    = DOSCALLS. 251
+                DOS32TRANSACTNPIPE                  = DOSCALLS. 252
+                DOS32WAITNPIPE                      = DOSCALLS. 253
+                DOS32RESETBUFFER                    = DOSCALLS. 254
+                DOS32SETCURRENTDIR                  = DOSCALLS. 255
+                DOS32SETFILEPTR                     = DOSCALLS. 256
+                DOS32CLOSE                          = DOSCALLS. 257
+                DOS32COPY                           = DOSCALLS. 258
+                DOS32DELETE                         = DOSCALLS. 259
+                DOS32DUPHANDLE                      = DOSCALLS. 260
+                DOS32EDITNAME                       = DOSCALLS. 261
+                THK32FREESTACK                      = DOSCALLS. 262
+                DOS32FINDCLOSE                      = DOSCALLS. 263
+                DOS32FINDFIRST                      = DOSCALLS. 264
+                DOS32FINDNEXT                       = DOSCALLS. 265
+                DOSOPENVDD                          = DOSCALLS. 266
+                DOSREQUESTVDD                       = DOSCALLS. 267
+                DOSCLOSEVDD                         = DOSCALLS. 268
+                DOS32FSATTACH                       = DOSCALLS. 269
+                DOS32CREATEDIR                      = DOSCALLS. 270
+                DOS32MOVE                           = DOSCALLS. 271
+                DOS32SETFILESIZE                    = DOSCALLS. 272
+                DOS32OPEN                           = DOSCALLS. 273
+                DOS32QUERYCURRENTDIR                = DOSCALLS. 274
+                DOS32QUERYCURRENTDISK               = DOSCALLS. 275
+                DOS32QUERYFHSTATE                   = DOSCALLS. 276
+                DOS32QUERYFSATTACH                  = DOSCALLS. 277
+                DOS32QUERYFSINFO                    = DOSCALLS. 278
+                DOS32QUERYFILEINFO                  = DOSCALLS. 279
+                DOS32WAITCHILD                      = DOSCALLS. 280
+                DOS32READ                           = DOSCALLS. 281
+                DOS32WRITE                          = DOSCALLS. 282
+                DOS32EXECPGM                        = DOSCALLS. 283
+                DOS32DEVIOCTL                       = DOSCALLS. 284
+                DOS32FSCTL                          = DOSCALLS. 285
+                DOS32BEEP                           = DOSCALLS. 286
+                DOS32PHYSICALDISK                   = DOSCALLS. 287
+                DOS32SETCP                          = DOSCALLS. 288
+                DOS32SETPROCESSCP                   = DOSCALLS. 289
+                DOS32STOPTIMER                      = DOSCALLS. 290
+                DOS32QUERYCP                        = DOSCALLS. 291
+                DOS32SETDATETIME                    = DOSCALLS. 292
+                THK32ALLOCBLOCK                     = DOSCALLS. 293
+                THK32FREEBLOCK                      = DOSCALLS. 294
+                THK32R3DS                           = DOSCALLS. 295
+                DOS32EXITLIST                       = DOSCALLS. 296
+                DOS32ALLOCPROTECTEDMEM              = DOSCALLS. 297
+                DOS32ALIASMEM                       = DOSCALLS. 298
+                DOS32ALLOCMEM                       = DOSCALLS. 299
+                DOS32ALLOCSHAREDMEM                 = DOSCALLS. 300
+                DOS32GETNAMEDSHAREDMEM              = DOSCALLS. 301
+                DOS32GETSHAREDMEM                   = DOSCALLS. 302
+                DOS32GIVESHAREDMEM                  = DOSCALLS. 303
+                DOS32FREEMEM                        = DOSCALLS. 304
+                DOS32SETMEM                         = DOSCALLS. 305
+                DOS32QUERYMEM                       = DOSCALLS. 306
+                DOS32QUERYMEMSTATE                  = DOSCALLS. 307
+                DOS32OPENVDD                        = DOSCALLS. 308
+                DOS32REQUESTVDD                     = DOSCALLS. 309
+                DOS32CLOSEVDD                       = DOSCALLS. 310
+                DOS32CREATETHREAD                   = DOSCALLS. 311
+                DOS32GETINFOBLOCKS                  = DOSCALLS. 312
+                DOSALLOCPROTSEG                     = DOSCALLS. 313
+                DOSALLOCSHRPROTSEG                  = DOSCALLS. 314
+                DOSALLOCPROTHUGE                    = DOSCALLS. 315
+                DOS32DYNAMICTRACE                   = DOSCALLS. 316
+                DOS32DEBUG                          = DOSCALLS. 317
+                DOS32LOADMODULE                     = DOSCALLS. 318
+                DOS32QUERYMODULEHANDLE              = DOSCALLS. 319
+                DOS32QUERYMODULENAME                = DOSCALLS. 320
+                DOS32QUERYPROCADDR                  = DOSCALLS. 321
+                DOS32FREEMODULE                     = DOSCALLS. 322
+                DOS32QUERYAPPTYPE                   = DOSCALLS. 323
+                DOS32CREATEEVENTSEM                 = DOSCALLS. 324
+                DOS32OPENEVENTSEM                   = DOSCALLS. 325
+                DOS32CLOSEEVENTSEM                  = DOSCALLS. 326
+                DOS32RESETEVENTSEM                  = DOSCALLS. 327
+                DOS32POSTEVENTSEM                   = DOSCALLS. 328
+                DOS32WAITEVENTSEM                   = DOSCALLS. 329
+                DOS32QUERYEVENTSEM                  = DOSCALLS. 330
+                DOS32CREATEMUTEXSEM                 = DOSCALLS. 331
+                DOS32OPENMUTEXSEM                   = DOSCALLS. 332
+                DOS32CLOSEMUTEXSEM                  = DOSCALLS. 333
+                DOS32REQUESTMUTEXSEM                = DOSCALLS. 334
+                DOS32RELEASEMUTEXSEM                = DOSCALLS. 335
+                DOS32QUERYMUTEXSEM                  = DOSCALLS. 336
+                DOS32CREATEMUXWAITSEM               = DOSCALLS. 337
+                DOS32OPENMUXWAITSEM                 = DOSCALLS. 338
+                DOS32CLOSEMUXWAITSEM                = DOSCALLS. 339
+                DOS32WAITMUXWAITSEM                 = DOSCALLS. 340
+                DOS32ADDMUXWAITSEM                  = DOSCALLS. 341
+                DOS32DELETEMUXWAITSEM               = DOSCALLS. 342
+                DOS32QUERYMUXWAITSEM                = DOSCALLS. 343
+                DOS32SUBSETMEM                      = DOSCALLS. 344
+                DOS32SUBALLOCMEM                    = DOSCALLS. 345
+                DOS32SUBFREEMEM                     = DOSCALLS. 346
+                DOS32SUBUNSETMEM                    = DOSCALLS. 347
+                DOS32QUERYSYSINFO                   = DOSCALLS. 348
+                DOS32WAITTHREAD                     = DOSCALLS. 349
+                DOS32ASYNCTIMER                     = DOSCALLS. 350
+                DOS32STARTTIMER                     = DOSCALLS. 351
+                DOS32GETRESOURCE                    = DOSCALLS. 352
+                DOS32FREERESOURCE                   = DOSCALLS. 353
+                DOS32SETEXCEPTIONHANDLER            = DOSCALLS. 354
+                DOS32UNSETEXCEPTIONHANDLER          = DOSCALLS. 355
+                DOS32RAISEEXCEPTION                 = DOSCALLS. 356
+                DOS32UNWINDEXCEPTION                = DOSCALLS. 357
+                DOS32QUERYPAGEUSAGE                 = DOSCALLS. 358
+;               DOSQUERYMODFROMCS                   = DOSCALLS. 359
+;               DOS32QUERYMODFROMEIP                = DOSCALLS. 360
+                DOSFPDATAAREA                       = DOSCALLS. 361
+                DOS32TMRQUERYFREQ                   = DOSCALLS. 362
+                DOS32TMRQUERYTIME                   = DOSCALLS. 363
+                DOS32ALIASPERFCTRS                  = DOSCALLS. 364
+                DOS32CONFIGUREPERF                  = DOSCALLS. 365
+                DOS32DECONPERF                      = DOSCALLS. 366
+                DOS32REGISTERPERFCTRS               = DOSCALLS. 367
+                DOS32QUERYSYSSTATE                  = DOSCALLS. 368
+                DOS32FLATCS                         = DOSCALLS. 369
+                DOS32FLATDS                         = DOSCALLS. 370
+;               DOS32QUERYABIOSSUPPORT              = DOSCALLS. 371
+                DOS32ENUMATTRIBUTE                  = DOSCALLS. 372
+                DOS32QUERYDOSPROPERTY               = DOSCALLS. 373
+                DOS32SETDOSPROPERTY                 = DOSCALLS. 374
+                DOSQUERYDOSPROPERTY                 = DOSCALLS. 375
+                DOSSETDOSPROPERTY                   = DOSCALLS. 376
+                DOS32PROFILE                        = DOSCALLS. 377
+                DOS32SETSIGNALEXCEPTIONFOCUS        = DOSCALLS. 378
+                DOS32SENDSIGNALEXCEPTION            = DOSCALLS. 379
+                DOS32ENTERMUSTCOMPLETE              = DOSCALLS. 380
+                DOS32EXITMUSTCOMPLETE               = DOSCALLS. 381
+                DOS32SETRELMAXFH                    = DOSCALLS. 382
+                DOSPUTMESSAGE                       = T_M     .   1
+                DOSTRUEGETMESSAGE                   = T_M     .   2
+                DOSINSMESSAGE                       = T_M     .   3
+                DOS32INSERTMESSAGE                  = T_M     .   4
+                DOS32PUTMESSAGE                     = T_M     .   5
+                DOS32TRUEGETMESSAGE                 = T_M     .   6
+                DOSIQUERYMESSAGECP                  = DOSCALLS. 389
+                DOS32IQUERYMESSAGECP                = T_M     .   8
+                DOSCASEMAP                          = T_N     .   1
+                DOSGETCOLLATE                       = T_N     .   2
+                DOSGETCTRYINFO                      = T_N     .   3
+                DOSGETDBCSEV                        = T_N     .   4
+                DOS32QUERYCTRYINFO                  = T_N     .   5
+                DOS32QUERYDBCSENV                   = T_N     .   6
+                DOS32MAPCASE                        = T_N     .   7
+                DOS32QUERYCOLLATE                   = T_N     .   8
+                DOSMAKENMPIPE                       = T_PIP___.   1
+                DOSQNMPIPEINFO                      = T_PIP___.   2
+                DOSCONNECTNMPIPE                    = T_PIP___.   3
+                DOSDISCONNECTNMPIPE                 = T_PIP___.   4
+                DOSQNMPHANDSTATE                    = T_PIP___.   5
+                DOSSETNMPHANDSTATE                  = T_PIP___.   6
+                DOSPEEKNMPIPE                       = T_PIP___.   7
+                DOSWAITNMPIPE                       = T_PIP___.   8
+                DOSTRANSACTNMPIPE                   = T_PIP___.   9
+                DOSCALLNMPIPE                       = T_PIP___.  10
+                DOSRAWREADNMPIPE                    = T_PIP___.  11
+                DOSRAWWRITENMPIPE                   = T_PIP___.  12
+                DOSSETNMPIPESEM                     = T_PIP___.  13
+                DOSQNMPIPESEMSTATE                  = T_PIP___.  14
+                STARTLAZYWRITER                     = DOSCALLS. 413
+                _QUEINST_DATA                       = DOSCALLS. 414
+                DOS32SHUTDOWN                       = DOSCALLS. 415
+                DOS32ICACHEMODULE                   = DOSCALLS. 416
+                DOS32REPLACEMODULE                  = DOSCALLS. 417
+                DOS32ACKNOWLEDGESIGNALEXCEPTION     = DOSCALLS. 418
+                DOS32TIB                            = DOSCALLS. 419
+                DOSTMRQUERYFREQ                     = DOSCALLS. 420
+                DOSTMRQUERYTIME                     = DOSCALLS. 421
+                DOSREGISTERPERFCTRS                 = DOSCALLS. 422
+                DOS16FLATTOSEL                      = DOSCALLS. 423
+                DOS16SELTOFLAT                      = DOSCALLS. 424
+                DOSFLATTOSEL                        = DOSCALLS. 425
+                DOSSELTOFLAT                        = DOSCALLS. 426
+                DOSIODELAYCNT                       = DOSCALLS. 427
+                DOS32SETFILELOCKS                   = DOSCALLS. 428
+                DOS32CANCELLOCKREQUEST              = DOSCALLS. 429
+                LOGOPEN                             = DOSCALLS. 430
+                LOGCLOSE                            = DOSCALLS. 431
+                LOGADDENTRIES                       = DOSCALLS. 432
+                LOGGETENTRIES                       = DOSCALLS. 433
+                LOGSETSTATE                         = DOSCALLS. 434
+                LOGSETNAME                          = DOSCALLS. 435
+                LOGQUERYSTATE                       = DOSCALLS. 436
+                DOSOPENCHANGENOTIFY                 = DOSCALLS. 437
+                DOSRESETCHANGENOTIFY                = DOSCALLS. 438
+                DOSCLOSECHANGENOTIFY                = DOSCALLS. 439
+                DOS32OPENCHANGENOTIFY               = DOSCALLS. 440
+                DOS32RESETCHANGENOTIFY              = DOSCALLS. 441
+                DOS32CLOSECHANGENOTIFY              = DOSCALLS. 442
+                DOSQUERYABIOSSUPPORT                = DOSCALLS. 443
+                DOS32FORCESYSTEMDUMP                = DOSCALLS. 444
+;               DOS32GETPROCESSORSTATUS             = DOSCALLS. 447
+;               DOS32SETPROCESSORSTATUS             = DOSCALLS. 448
+;               DOSCREATESPINLOCK                   = DOSCALLS. 449
+;               DOSACQUIRESPINLOCK                  = DOSCALLS. 450
+;               DOSRELEASESPINLOCK                  = DOSCALLS. 451
+;               DOSFREESPINLOCK                     = DOSCALLS. 452
+;               DOS32TESTPSD                        = DOSCALLS. 453
+;               DOS32ALLOCTHREADLOCALMEMORY         = DOSCALLS. 454
+;               DOS32FREETHREADLOCALMEMORY          = DOSCALLS. 455
+;               DOS32VERIFYPIDTID                   = DOSCALLS. 460
+                PTDA_LANMAN_SEC                     = DOSCALLS. 464
+                PTDA_PID                            = DOSCALLS. 465
+                SAS_SEL                             = DOSCALLS. 466
+                TCB_OPCOOKIE                        = DOSCALLS. 467
+                TCB_OPFLAGS                         = DOSCALLS. 468
+                TCB_NEWFLAGS                        = DOSCALLS. 469
+                TCB_USER_ID                         = DOSCALLS. 470
+                TCB_PROC_ID                         = DOSCALLS. 471
+                TCB_FSHARING                        = DOSCALLS. 472
+                TCB_SRVATTRIB                       = DOSCALLS. 473
+                TCB_ALLOWED                         = DOSCALLS. 474
+                TCB_PRTCB                           = DOSCALLS. 475
+                TCB_NUMBER                          = DOSCALLS. 476
+                TCB_THISSFT                         = DOSCALLS. 477
+                TCB_THISCDS                         = DOSCALLS. 478
+                TKOPTDA                             = DOSCALLS. 479
+                PTDA_CRITSEC                        = DOSCALLS. 480
+                PTDA_HOLDSIGCNT                     = DOSCALLS. 481
+                PTDA_PPTDAPARENT                    = DOSCALLS. 482
+                PTDA_PGDATA                         = DOSCALLS. 483
+                PTDA_HANDLE                         = DOSCALLS. 484
+                PTDA_MODULE                         = DOSCALLS. 485
+                PTDA_LDTHANDLE                      = DOSCALLS. 486
+                PTDA_CODEPAGE_TAG                   = DOSCALLS. 487
+                PTDA_JFN_LENGTH                     = DOSCALLS. 488
+                PTDA_JFN_PTABLE                     = DOSCALLS. 489
+                PTDA_JFN_FLG_PTR                    = DOSCALLS. 490
+                PTDA_EXTERR_LOCUS                   = DOSCALLS. 491
+                PTDA_EXTERR                         = DOSCALLS. 492
+                PTDA_EXTERR_ACTION                  = DOSCALLS. 493
+                PTDA_EXTERR_CLASS                   = DOSCALLS. 494
+                PTDA_PPID                           = DOSCALLS. 495
+                PTDA_PROCTYPE                       = DOSCALLS. 496
+                PTDA_CURRTCB                        = DOSCALLS. 497
+                PTDA_CURRTSD                        = DOSCALLS. 498
+                PTDA_SIGNATURE                      = DOSCALLS. 499
+                DOSIOPENL                           = DOSCALLS. 541
+                DOSIPROTECTOPENL                    = DOSCALLS. 542
+                DOSISETFILESIZEL                    = DOSCALLS. 543
+                DOSIPROTECTSETFILESIZEL             = DOSCALLS. 544
+                DOS32EXCEPTIONCALLBACK              = DOSCALLS. 545
+                THK32STRLEN                         = DOSCALLS. 546
+                THK32_UNITHUNK                      = DOSCALLS. 547
+                DOS32R3EXCEPTIONDISPATCHER          = DOSCALLS. 548
+                DOSLIBIDISP                         = DOSCALLS. 549
+                DOSLIBIDISP16                       = DOSCALLS. 550
+                DOSLIBIDISP32                       = DOSCALLS. 551
+                DOSR3EXITADDR                       = DOSCALLS. 552
+                DOS32R3EXITADDR                     = DOSCALLS. 553
+                DOS32IREAD                          = DOSCALLS. 554
+                DOS32IWRITE                         = DOSCALLS. 556
+;               DOS32CREATESPINLOCK                 = DOSCALLS. 557
+;               DOS32ACQUIRESPINLOCK                = DOSCALLS. 558
+;               DOS32RELEASESPINLOCK                = DOSCALLS. 559
+;               DOS32FREESPINLOCK                   = DOSCALLS. 560
+;               DOS32PMR3WAITEVENTSEM               = DOSCALLS. 561
+;               DOS32PMR3POSTEVENTSEM               = DOSCALLS. 562
+;               DOS32QUERYTHREADAFFINITY            = DOSCALLS. 563
+;               DOS32SETTHREADAFFINITY              = DOSCALLS. 564
+                DOSISETFILEINFO                     = DOSCALLS. 565
+                DOSISETPATHINFO                     = DOSCALLS. 566
+                DOSOPENL                            = DOSCALLS. 567
+                DOSSETFILEPTRL                      = DOSCALLS. 568
+                DOSIFINDNEXT                        = DOSCALLS. 569
+                DOSSETFILESIZEL                     = DOSCALLS. 570
+                DOS32QUERYRESOURCESIZE              = DOSCALLS. 572
+                DOSQUERYRESOURCESIZE                = DOSCALLS. 573
+                DOSPMSEMWAIT                        = DOSCALLS. 574
+                DOSPMMUXSEMWAIT                     = DOSCALLS. 575
+                THK16_UNITHUNK                      = DOSCALLS. 576
+                HT16_STARTUP                        = DOSCALLS. 577
+                HT16_CLEANUP                        = DOSCALLS. 578
+                HT32_STARTUP                        = DOSCALLS. 579
+                DOS32INITIALIZEPORTHOLE             = DOSCALLS. 580
+                HT32_CLEANUP                        = DOSCALLS. 581
+                DOS32QUERYHEADERINFO                = DOSCALLS. 582
+                DOSINITIALIZEPORTHOLE               = DOSCALLS. 583
+                DOSQUERYHEADERINFO                  = DOSCALLS. 584
+                _DOS32IMONREAD                      = DOSCALLS. 585
+                DOS32QUERYPROCTYPE                  = DOSCALLS. 586
+                DOSQUERYPROCTYPE                    = DOSCALLS. 587
+                _DOS32IMONWRITE                     = DOSCALLS. 588
+                DOSISIGDISPATCH                     = DOSCALLS. 589
+;               DOS32PMPOSTEVENTSEM                 = DOSCALLS. 590
+;               DOS32PMWAITEVENTSEM                 = DOSCALLS. 591
+                DOS32DLLTERMDISP                    = DOSCALLS. 592
+;               DOS32PMREQUESTMUTEXSEM              = DOSCALLS. 593
+                DOS32IRAISEEXCEPTION                = DOSCALLS. 594
+;               DOS32PMWAITMUXWAITSEM               = DOSCALLS. 595
+                DOS32PM16SEMCHK                     = DOSCALLS. 596
+                DOS32IQUERYFHSTATE                  = DOSCALLS. 597
+                DOS32ISETFHSTATE                    = DOSCALLS. 598
+                DOSLDTSEL                           = DOSCALLS. 599
+                DOS32R3FRESTOR                      = DOSCALLS. 600
+                DOSIFINDFIRST                       = DOSCALLS. 601
+                DOSMONOPEN                          = T_MON___.   4
+                DOSMONCLOSE                         = T_MON___.   3
+                DOSMONREAD                          = T_MON___.   2
+                DOSMONWRITE                         = T_MON___.   1
+                DOSMONREG                           = T_MON___.   5
+                DOS32IPROTECTWRITE                  = DOSCALLS. 615
+                DOSIPROTECTSETFILEINFO              = DOSCALLS. 617
+                DOS32IPROTECTSETFILEINFO            = DOSCALLS. 618
+                DOS32IPROTECTSETFHSTATE             = DOSCALLS. 619
+                DOS32IPROTECTQUERYFHSTATE           = DOSCALLS. 620
+;               DOS32PROTECTSETFILEPTR              = DOSCALLS. 621
+;               DOSPROTECTCLOSE                     = DOSCALLS. 622
+;               DOSPROTECTFILEIO                    = DOSCALLS. 623
+;               DOSPROTECTFILELOCKS                 = DOSCALLS. 624
+                DOSIPROTECTREAD                     = DOSCALLS. 625
+                DOSIPROTECTWRITE                    = DOSCALLS. 626
+;               DOSPROTECTNEWSIZE                   = DOSCALLS. 627
+;               DOSPROTECTOPEN                      = DOSCALLS. 628
+;               DOSPROTECTQFHANDSTATE               = DOSCALLS. 629
+;               DOSPROTECTSETFHANDSTATE             = DOSCALLS. 630
+;               DOSPROTECTQFILEINFO                 = DOSCALLS. 631
+;               DOSPROTECTSETFILEINFO               = DOSCALLS. 632
+;               DOSPROTECTCHGFILEPTR                = DOSCALLS. 634
+;               DOSPROTECTENUMATTRIBUTE             = DOSCALLS. 635
+;               DOS32PROTECTENUMATTRIBUTE           = DOSCALLS. 636
+;               DOS32PROTECTOPEN                    = DOSCALLS. 637
+;               DOS32PROTECTCLOSE                   = DOSCALLS. 638
+;               DOS32PROTECTSETFILELOCKS            = DOSCALLS. 639
+;               DOS32PROTECTSETFILESIZE             = DOSCALLS. 640
+;               DOS32PROTECTREAD                    = DOSCALLS. 641
+;               DOS32PROTECTWRITE                   = DOSCALLS. 642
+;               DOS32PROTECTSETFILEINFO             = DOSCALLS. 643
+;               DOS32PROTECTSETFHSTATE              = DOSCALLS. 644
+;               DOS32PROTECTQUERYFHSTATE            = DOSCALLS. 645
+;               DOS32PROTECTQUERYFILEINFO           = DOSCALLS. 646
+                DOS32IPROTECTREAD                   = DOSCALLS. 647
+                DOSCLOSEMESSAGEFILE                 = DOSCALLS. 649
+                DOSLDRDIRTYWORKER                   = DOSCALLS. 650
+                DOS16LDRDIRTYWORKER                 = DOSCALLS. 651
+                DOS32IGETINFOBLOCKS                 = DOSCALLS. 652
+                T32IGETINFOBLOCKS                   = DOSCALLS. 653
+                T32GETPROCESSORSTATUS               = DOSCALLS. 656
+                T32SETPROCESSORSTATUS               = DOSCALLS. 657
+                T32TESTPSD                          = DOSCALLS. 658
+                T32QUERYTHREADAFFINITY              = DOSCALLS. 659
+                T32SETTHREADAFFINITY                = DOSCALLS. 660
+                DOS32READQUEUE                      = T_QUE___.   9
+                DOS32PURGEQUEUE                     = T_QUE___.  10
+                DOS32CLOSEQUEUE                     = T_QUE___.  11
+                DOS32QUERYQUEUE                     = T_QUE___.  12
+                DOS32PEEKQUEUE                      = T_QUE___.  13
+                DOS32WRITEQUEUE                     = T_QUE___.  14
+                DOS32OPENQUEUE                      = T_QUE___.  15
+                DOS32CREATEQUEUE                    = T_QUE___.  16
+                DOS32STARTSESSION                   = T_SES_  .  37
+                DOS32SELECTSESSION                  = T_SES_  .  38
+                DOS32SETSESSION                     = T_SES_  .  39
+                DOS32STOPSESSION                    = T_SES_  .  40
+                DOSREGISTERNOTIFICATION             = DOSCALLS. 673
+                DOSREADQUEUE                        = T_QUE___.   1
+                DOSPURGEQUEUE                       = T_QUE___.   2
+                DOSCLOSEQUEUE                       = T_QUE___.   3
+                DOSQUERYQUEUE                       = T_QUE___.   4
+                DOSPEEKQUEUE                        = T_QUE___.   5
+                DOSWRITEQUEUE                       = T_QUE___.   6
+                DOSOPENQUEUE                        = T_QUE___.   7
+                DOSCREATEQUEUE                      = T_QUE___.   8
+                DOSSMGETMEM                         = DOSCALLS. 682
+                DOSSMFREEMEM                        = DOSCALLS. 683
+                DOSSMGETSGCB                        = DOSCALLS. 684
+                DOSSMINITSGCB                       = DOSCALLS. 685
+                DOSSMSGDOPOPUP                      = DOSCALLS. 686
+                DOSSMSWITCH                         = DOSCALLS. 687
+                DOSSMSERVEAPPREQ                    = DOSCALLS. 688
+                DOSGETTIMES                         = DOSCALLS. 689
+                DOSSMSETTITLE                       = DOSCALLS. 690
+                DOSSCRUNLOCK                        = DOSCALLS. 691
+                DOSSMDOAPPREQ                       = DOSCALLS. 692
+                DOSSTOPSESSION                      = T_SES_  .   8
+                DOSSELECTSESSION                    = T_SES_  .   9
+                DOSSCRLOCK                          = DOSCALLS. 695
+                DOSSAVREDRAWWAIT                    = DOSCALLS. 696
+                DOSSAVREDRAWUNDO                    = DOSCALLS. 697
+                DOSSMSGENDPOPUP                     = DOSCALLS. 698
+                DOSSETSESSION                       = T_SES_  .  14
+                DOSSETMNLOCKTIME                    = DOSCALLS. 700
+                DOSMODEUNDO                         = DOSCALLS. 701
+                DOSSTARTSESSION                     = T_SES_  .  17
+                DOSSMGETSTATUS                      = DOSCALLS. 703
+                DOSMODEWAIT                         = DOSCALLS. 704
+                DOSSMTERMINATE                      = DOSCALLS. 705
+                DOSSMGETAPPREQ                      = DOSCALLS. 706
+                DOSSMINITIALIZE                     = DOSCALLS. 707
+                DOSSMSTART                          = DOSCALLS. 708
+                DOSSMPARENTSWITCH                   = DOSCALLS. 709
+                DOSSMPAUSE                          = DOSCALLS. 710
+                DOSSMHDEINIT                        = DOSCALLS. 711
+                DOSSMPMPRESENT                      = DOSCALLS. 712
+                DOSSMREGISTERDD                     = T_SES_  .  29
+                DOSSMNOTIFYDD                       = DOSCALLS. 714
+                DOSSMNOTIFYDD2                      = DOSCALLS. 715
+                DOSSMOPENDD                         = DOSCALLS. 716
+                DOSSMSETSESSIONTYPE                 = DOSCALLS. 717
+                OS2BASEINIT                         = DOSCALLS. 718
+                MOUGETPTRSHAPE                      = T_MOU___.   1
+                MOUSETPTRSHAPE                      = T_MOU___.   2
+                MOUGETNUMMICKEYS                    = T_MOU___.   3
+                MOUGETTHRESHOLD                     = T_MOU___.  29
+                MOUSHELLINIT                        = DOSCALLS. 723
+                MOUGETSCALEFACT                     = T_MOU___.   6
+                MOUFLUSHQUE                         = T_MOU___.   7
+                MOUGETNUMBUTTONS                    = T_MOU___.   8
+                MOUCLOSE                            = T_MOU___.   9
+                MOUSETTHRESHOLD                     = T_MOU___.  30
+                MOUSETSCALEFACT                     = T_MOU___.  11
+                MOUGETNUMQUEEL                      = T_MOU___.  13
+                MOUDEREGISTER                       = T_MOU___.  14
+                MOUGETEVENTMASK                     = T_MOU___.  15
+                MOUSETEVENTMASK                     = T_MOU___.  16
+                MOUOPEN                             = T_MOU___.  17
+                MOUREMOVEPTR                        = T_MOU___.  18
+                MOUGETPTRPOS                        = T_MOU___.  19
+                MOUREADEVENTQUE                     = T_MOU___.  20
+                MOUSETPTRPOS                        = T_MOU___.  21
+                MOUGETDEVSTATUS                     = T_MOU___.  22
+                MOUSYNCH                            = T_MOU___.  23
+                MOUREGISTER                         = T_MOU___.  24
+                MOUSETDEVSTATUS                     = T_MOU___.  25
+                MOUDRAWPTR                          = T_MOU___.  26
+                MOUINITREAL                         = T_MOU___.  27
+                KBDSETCUSTXT                        = T_KBD___.   1
+                KBDPROCESSINIT                      = DOSCALLS. 746
+                KBDGETCP                            = T_KBD___.   3
+                KBDCHARIN                           = T_KBD___.   4
+                KBDSETCP                            = T_KBD___.   5
+                KBDLOADINSTANCE                     = DOSCALLS. 750
+                KBDSYNCH                            = T_KBD___.   7
+                KBDREGISTER                         = T_KBD___.   8
+                KBDSTRINGIN                         = T_KBD___.   9
+                KBDGETSTATUS                        = T_KBD___.  10
+                KBDSETSTATUS                        = T_KBD___.  11
+                KBDGETFOCUS                         = T_KBD___.  12
+                KBDFLUSHBUFFER                      = T_KBD___.  13
+                KBDXLATE                            = T_KBD___.  14
+                KBDSWITCHFGND                       = DOSCALLS. 759
+                KBDSHELLINIT                        = DOSCALLS. 760
+                KBDCLOSE                            = T_KBD___.  17
+                KBDFREEFOCUS                        = T_KBD___.  18
+                KBDFREE                             = DOSCALLS. 763
+                KBDDEREGISTER                       = T_KBD___.  20
+                KBDSETFGND                          = T_KBD___.  21
+                KBDPEEK                             = T_KBD___.  22
+                KBDOPEN                             = T_KBD___.  23
+                KBDGETHWID                          = T_KBD___.  24
+                KBDSETHWID                          = T_KBD___.  25
+                VIOENDPOPUP                         = T_VIO___.   1
+                VIOGETPHYSBUF                       = T_VIO___.   2
+                VIOGETANSI                          = T_VIO___.   3
+                VIOFREE                             = DOSCALLS. 773
+                VIOSETANSI                          = T_VIO___.   5
+                VIODEREGISTER                       = T_VIO___.   6
+                VIOSCROLLUP                         = T_VIO___.   7
+                VIOPRTSC                            = T_VIO___.   8
+                VIOGETCURPOS                        = T_VIO___.   9
+                VIOWRTCELLSTR                       = T_VIO___.  10
+                VIOPOPUP                            = T_VIO___.  11
+                VIOSCROLLRT                         = T_VIO___.  12
+                VIOWRTCHARSTR                       = T_VIO___.  13
+                AVS_PRTSC                           = DOSCALLS. 783
+                VIOSETCURPOS                        = T_VIO___.  15
+                VIOSRFUNBLOCK                       = DOSCALLS. 785
+                VIOSRFBLOCK                         = DOSCALLS. 786
+                VIOSCRUNLOCK                        = T_VIO___.  18
+                VIOWRTTTY                           = T_VIO___.  19
+                VIOSAVE                             = DOSCALLS. 789
+                VIOGETMODE                          = T_VIO___.  21
+                VIOSETMODE                          = T_VIO___.  22
+                VIOSCRLOCK                          = T_VIO___.  23
+                VIOREADCELLSTR                      = T_VIO___.  24
+                VIOSAVREDRAWWAIT                    = T_VIO___.  25
+                VIOWRTNATTR                         = T_VIO___.  26
+                VIOGETCURTYPE                       = T_VIO___.  27
+                VIOSAVREDRAWUNDO                    = T_VIO___.  28
+                VIOGETFONT                          = T_VIO___.  29
+                VIOREADCHARSTR                      = T_VIO___.  30
+                VIOGETBUF                           = T_VIO___.  31
+                VIOSETCURTYPE                       = T_VIO___.  32
+                VIOSETFONT                          = T_VIO___.  33
+                VIOHETINIT                          = DOSCALLS. 803
+                VIOMODEUNDO                         = T_VIO___.  35
+                VIOSSWSWITCH                        = DOSCALLS. 805
+                VIOMODEWAIT                         = T_VIO___.  37
+                AVS_PRTSCTOGGLE                     = DOSCALLS. 807
+                VIOGETCP                            = T_VIO___.  40
+                VIORESTORE                          = DOSCALLS. 809
+                VIOSETCP                            = T_VIO___.  42
+                VIOSHOWBUF                          = T_VIO___.  43
+                VIOSCROLLLF                         = T_VIO___.  44
+                VIOREGISTER                         = T_VIO___.  45
+                VIOGETCONFIG                        = T_VIO___.  46
+                VIOSCROLLDN                         = T_VIO___.  47
+                VIOWRTCHARSTRATT                    = T_VIO___.  48
+                VIOGETSTATE                         = T_VIO___.  49
+                VIOPRTSCTOGGLE                      = T_VIO___.  50
+                VIOSETSTATE                         = T_VIO___.  51
+                VIOWRTNCELL                         = T_VIO___.  52
+                VIOWRTNCHAR                         = T_VIO___.  53
+                VIOSHELLINIT                        = DOSCALLS. 822
+                VIOASSOCIATE                        = DOSCALLS. 823
+                VIOCREATEPS                         = DOSCALLS. 824
+                VIODELETESETID                      = DOSCALLS. 825
+                VIOGETDEVICECELLSIZE                = DOSCALLS. 826
+                VIOGETORG                           = DOSCALLS. 827
+                VIOCREATELOGFONT                    = DOSCALLS. 828
+                VIODESTROYPS                        = DOSCALLS. 829
+                VIOQUERYSETIDS                      = DOSCALLS. 830
+                VIOSETORG                           = DOSCALLS. 831
+                VIOQUERYFONTS                       = DOSCALLS. 832
+                VIOSETDEVICECELLSIZE                = DOSCALLS. 833
+                VIOSHOWPS                           = DOSCALLS. 834
+                VIOGETPSADDRESS                     = DOSCALLS. 835
+                VIOQUERYCONSOLE                     = DOSCALLS. 836
+                VIOREDRAWSIZE                       = T_VIO___.  69
+                VIOGLOBALREG                        = T_VIO___.  70
+                XVIOSETCASTATE                      = DOSCALLS. 839
+                XVIOCHECKCHARTYPE                   = DOSCALLS. 840
+                XVIODESTROYCA                       = DOSCALLS. 841
+                XVIOCREATECA                        = DOSCALLS. 842
+                VIOCHECKCHARTYPE                    = T_VIO___.  75
+                XVIOGETCASTATE                      = DOSCALLS. 844
+                BVSMAIN                             = DOSCALLS. 845
+                BVSREDRAWSIZE                       = DOSCALLS. 846
+                BVSGETPTRDRAWNAME                   = DOSCALLS. 847
+                ANSIINJECT                          = DOSCALLS. 848
+                ANSIKEYDEF                          = DOSCALLS. 849
+                ANSIINTERP                          = DOSCALLS. 850
+                BKSMAIN                             = DOSCALLS. 851
+                BMSMAIN                             = DOSCALLS. 852
+                MOUGETHOTKEY                        = DOSCALLS. 853
+                MOUSETHOTKEY                        = DOSCALLS. 854
+                DOSSMSYSINIT                        = DOSCALLS. 855
+                QHKEYBDHANDLE                       = DOSCALLS. 856
+                QHMOUSEHANDLE                       = DOSCALLS. 857
+                SMQUEUERAMSEM                       = DOSCALLS. 858
+                SMARRAY                             = DOSCALLS. 859
+                SMPIDARRAY                          = DOSCALLS. 860
+                SMINITIALIZED                       = DOSCALLS. 861
+                SMARRAYSIZE                         = DOSCALLS. 862
+                BVSGLOBAL                           = DOSCALLS. 863
+                SMGINSTANCE                         = DOSCALLS. 864
+                BVHINSTANCE                         = DOSCALLS. 865
+                THK32ALIASMEM                       = DOSCALLS. 866
+                THK32FREEALIAS                      = DOSCALLS. 867
+                THK32ALLOCVARLEN                    = DOSCALLS. 868
+                THK32HANDLEBOUNDARY                 = DOSCALLS. 869
+                THK32HANDLESTRING                   = DOSCALLS. 870
+                THK32DEALLOC                        = DOSCALLS. 871
+                THK32XHNDLR                         = DOSCALLS. 872
+;               DOS32SETEXTLIBPATH                  = DOSCALLS. 873
+;               DOS32QUERYEXTLIBPATH                = DOSCALLS. 874
+                DOS32PM16SEMRST                     = DOSCALLS. 875
+                DOS32SYSCTL                         = DOSCALLS. 876
+;               DOS32QUERYTHREADCONTEXT             = DOSCALLS. 877
+                DOSSGQUERYTOPMOST                   = DOSCALLS. 878
+;               DOS32PERFSYSCALL                    = DOSCALLS. 976
+;               DOS32OPENL                          = DOSCALLS. 981
+;               DOS32PROTECTOPENL                   = DOSCALLS. 982
+;               DOS32PROTECTSETFILELOCKSL           = DOSCALLS. 983
+;               DOS32PROTECTSETFILEPTRL             = DOSCALLS. 984
+;               DOS32PROTECTSETFILESIZEL            = DOSCALLS. 985
+;               DOS32SETFILELOCKSL                  = DOSCALLS. 986
+;               DOS32CANCELLOCKREQUESTL             = DOSCALLS. 987
+;               DOS32SETFILEPTRL                    = DOSCALLS. 988
+;               DOS32SETFILESIZEL                   = DOSCALLS. 989
+;               DOS32LISTIOL                        = DOSCALLS. 990
+;               DOSFSRAMSEMREQUEST2                 = DOSCALLS. 991
+;               DOSFSRAMSEMCLEAR2                   = DOSCALLS. 992
+;               DOS32SYSTEMSERVICE                  = DOSCALLS. 995
+;               DOS32LISTIO                         = DOSCALLS. 996
+;               DOS32CREATETHREAD2                  = DOSCALLS. 997
+;               DOSSETEXTLIBPATH                    = DOSCALLS. 998
+;               DOSQUERYEXTLIBPATH                  = DOSCALLS. 999
+                T32EXITLIST                         = DOSCALLS.1000
+                T32ALLOCPROTECTEDMEM                = DOSCALLS.1001
+                T32ALIASMEM                         = DOSCALLS.1002
+                T32ALLOCMEM                         = DOSCALLS.1003
+                T32ALLOCSHAREDMEM                   = DOSCALLS.1004
+                T32GETNAMEDSHAREDMEM                = DOSCALLS.1005
+                T32GETSHAREDMEM                     = DOSCALLS.1006
+                T32GIVESHAREDMEM                    = DOSCALLS.1007
+                T32FREEMEM                          = DOSCALLS.1008
+                T32SETMEM                           = DOSCALLS.1009
+                T32QUERYMEM                         = DOSCALLS.1010
+                T32QUERYMEMSTATE                    = DOSCALLS.1011
+                T32OPENVDD                          = DOSCALLS.1012
+                T32REQUESTVDD                       = DOSCALLS.1013
+                T32CLOSEVDD                         = DOSCALLS.1014
+                T32CREATETHREAD                     = DOSCALLS.1015
+                T32DYNAMICTRACE                     = DOSCALLS.1016
+                T32DEBUG                            = DOSCALLS.1017
+                T32QUERYPROCADDR                    = DOSCALLS.1018
+                T32CREATEEVENTSEM                   = DOSCALLS.1019
+                T32OPENEVENTSEM                     = DOSCALLS.1020
+                T32CLOSEEVENTSEM                    = DOSCALLS.1021
+                T32RESETEVENTSEM                    = DOSCALLS.1022
+                T32POSTEVENTSEM                     = DOSCALLS.1023
+                T32WAITEVENTSEM                     = DOSCALLS.1024
+                T32QUERYEVENTSEM                    = DOSCALLS.1025
+                T32CREATEMUTEXSEM                   = DOSCALLS.1026
+                T32OPENMUTEXSEM                     = DOSCALLS.1027
+                T32CLOSEMUTEXSEM                    = DOSCALLS.1028
+                T32REQUESTMUTEXSEM                  = DOSCALLS.1029
+                T32RELEASEMUTEXSEM                  = DOSCALLS.1030
+                T32QUERYMUTEXSEM                    = DOSCALLS.1031
+                T32CREATEMUXWAITSEM                 = DOSCALLS.1032
+                T32OPENMUXWAITSEM                   = DOSCALLS.1033
+                T32CLOSEMUXWAITSEM                  = DOSCALLS.1034
+                T32WAITMUXWAITSEM                   = DOSCALLS.1035
+                T32ADDMUXWAITSEM                    = DOSCALLS.1036
+                T32DELETEMUXWAITSEM                 = DOSCALLS.1037
+                T32QUERYMUXWAITSEM                  = DOSCALLS.1038
+                T32QUERYSYSINFO                     = DOSCALLS.1039
+                T32WAITTHREAD                       = DOSCALLS.1040
+                T32GETRESOURCE                      = DOSCALLS.1041
+                T32FREERESOURCE                     = DOSCALLS.1042
+                T32EXCEPTIONCALLBACK                = DOSCALLS.1043
+                T32QUERYPAGEUSAGE                   = DOSCALLS.1044
+                T32FORCESYSTEMDUMP                  = DOSCALLS.1045
+                TI32ASYNCTIMER                      = DOSCALLS.1046
+                TI32STARTTIMER                      = DOSCALLS.1047
+                T32QUERYABIOSSUPPORT                = DOSCALLS.1048
+                T32QUERYMODFROMEIP                  = DOSCALLS.1049
+                T32ALIASPERFCTRS                    = DOSCALLS.1050
+                T32CONFIGUREPERF                    = DOSCALLS.1051
+                T32DECONPERF                        = DOSCALLS.1052
+                T32REGISTERPERFCTRS                 = DOSCALLS.1053
+                T32QUERYSYSSTATE                    = DOSCALLS.1054
+                T32IREAD                            = DOSCALLS.1055
+                T32IWRITE                           = DOSCALLS.1056
+                T32TMRQUERYFREQ                     = DOSCALLS.1057
+                T32TMRQUERYTIME                     = DOSCALLS.1058
+                T32IMONREAD                         = DOSCALLS.1059
+                T32IMONWRITE                        = DOSCALLS.1060
+                T32QUERYRESOURCESIZE                = DOSCALLS.1061
+                T32PROFILE                          = DOSCALLS.1062
+                T32SETSIGNALEXCEPTIONFOCUS          = DOSCALLS.1063
+                T32SENDSIGNALEXCEPTION              = DOSCALLS.1064
+                T32STARTTIMER                       = DOSCALLS.1065
+                T32STOPTIMER                        = DOSCALLS.1066
+                T32ASYNCTIMER                       = DOSCALLS.1067
+                T32INITIALIZEPORTHOLE               = DOSCALLS.1068
+                T32QUERYHEADERINFO                  = DOSCALLS.1069
+                T32QUERYPROCTYPE                    = DOSCALLS.1070
+                T32IEXITMUSTCOMPLETE                = DOSCALLS.1071
+                T32ICACHEMODULE                     = DOSCALLS.1072
+                T32DLLTERM                          = DOSCALLS.1073
+                T32IRAISEEXCEPTION                  = DOSCALLS.1074
+                T32ACKNOWLEDGESIGNALEXCEPTION       = DOSCALLS.1075
+                T32QUERYDOSPROPERTY                 = DOSCALLS.1076
+                T32SETDOSPROPERTY                   = DOSCALLS.1077
+                T32SETFILELOCKS                     = DOSCALLS.1078
+                T32CANCELLOCKREQUEST                = DOSCALLS.1079
+                T32KILLTHREAD                       = DOSCALLS.1080
+                TQUERYRASINFO                       = DOSCALLS.1081
+                T32DUMPPROCESS                      = DOSCALLS.1082
+                T32SUPPRESSPOPUPS                   = DOSCALLS.1083
+                T32IPROTECTWRITE                    = DOSCALLS.1084
+                T32PROTECTSETFILELOCKS              = DOSCALLS.1085
+                T32IPROTECTREAD                     = DOSCALLS.1086
+                T32PMPOSTEVENTSEM                   = DOSCALLS.1087
+                T32PMWAITEVENTSEM                   = DOSCALLS.1088
+                T32PMREQUESTMUTEXSEM                = DOSCALLS.1089
+                T32PMWAITMUXWAITSEM                 = DOSCALLS.1090
+                T32PM16SEMCHK                       = DOSCALLS.1091
+                T32ALLOCTHREADLOCALMEMORY           = DOSCALLS.1092
+                T32FREETHREADLOCALMEMORY            = DOSCALLS.1093
+                T32SETEXTLIBPATH                    = DOSCALLS.1094
+                T32QUERYEXTLIBPATH                  = DOSCALLS.1095
+                T32PM16SEMRST                       = DOSCALLS.1096
+                T32VERIFYPIDTID                     = DOSCALLS.1097
+                T32SYSCTL                           = DOSCALLS.1098
+                T32QUERYTHREADCONTEXT               = DOSCALLS.1099
+                T32PERFSYSCALL                      = DOSCALLS.1101
+                T32LISTIO                           = DOSCALLS.1102
+                T32PMR3WAITEVENTSEM                 = DOSCALLS.1103
+                T32PMR3POSTEVENTSEM                 = DOSCALLS.1104
+                T32CREATETHREAD2                    = DOSCALLS.1105
+                T32PROTECTSETFILELOCKSL             = DOSCALLS.1106
+                T32IPROTECTSETFILEPTRL              = DOSCALLS.1107
+                T32SETFILELOCKSL                    = DOSCALLS.1108
+                T32CANCELLOCKREQUESTL               = DOSCALLS.1109
+                T32ISETFILEPTRL                     = DOSCALLS.1110
+                T32LISTIOL                          = DOSCALLS.1111
+                T32ISETFILEPTR                      = DOSCALLS.1116
+                T32IPROTECTSETFILEPTR               = DOSCALLS.1117

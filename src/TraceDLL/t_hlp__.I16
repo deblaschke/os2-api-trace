@@ -1,0 +1,181 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_HLP__.I16                                                  ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL HELPMGR module definitions file     ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.03 20Jul95 Added 32-bit Win APIs                        ;
+;                 2.30.08 11Aug95 Added 32-bit Ddf APIs                        ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.30.21 13Dec95 Forwarded private entry table ordinals       ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.26 24Jun97 Added 16-bit Win APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_HLP__ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL HELPMGR Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_hlp__0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                WINCREATEHELPINSTANCE      = TRC_WIN16CREATEHELPINSTANCE    @ 1 RESIDENTNAME
+                WINDESTROYHELPINSTANCE     = TRC_WIN16DESTROYHELPINSTANCE   @ 2 RESIDENTNAME
+                WINQUERYHELPINSTANCE       = TRC_WIN16QUERYHELPINSTANCE     @ 3 RESIDENTNAME
+                WINASSOCIATEHELPINSTANCE   = TRC_WIN16ASSOCIATEHELPINSTANCE @ 4 RESIDENTNAME
+                WINLOADHELPTABLE           = TRC_WIN16LOADHELPTABLE         @ 5 RESIDENTNAME
+                WINCREATEHELPTABLE         = TRC_WIN16CREATEHELPTABLE       @ 6 RESIDENTNAME
+                                             HMWINDOWPROC                   @ 7 RESIDENTNAME
+                                             HELPPROCESSOR                  @ 8 RESIDENTNAME
+                                             COVERPAGEFRAMEWINDOWPROC       @ 9 RESIDENTNAME
+                                             COVERPAGEWINDOWPROC            @10 RESIDENTNAME
+                                             PAGEFRAMEWINDOWPROC            @11 RESIDENTNAME
+                                             PAGEWINDOWPROC                 @12 RESIDENTNAME
+                                             FOOTNOTEFRAMEWINDOWPROC        @13 RESIDENTNAME
+                                             FOOTNOTEWINDOWPROC             @14 RESIDENTNAME
+                                             SEARCHDLGPROC                  @15 RESIDENTNAME
+                                             PRTPRINTDLGPROC                @16 RESIDENTNAME
+                                             LISTWINDOWPROC                 @17 RESIDENTNAME
+                                             LISTFRAMEWINDOWPROC            @18 RESIDENTNAME
+                                             INDEXWINDOWPROC                @19 RESIDENTNAME
+                                             INDEXFRAMEWINDOWPROC           @20 RESIDENTNAME
+                                             TOCWINDOWPROC                  @21 RESIDENTNAME
+                                             TOCFRAMEWINDOWPROC             @22 RESIDENTNAME
+                                             BMBOOKMARKDLGPROC              @23 RESIDENTNAME
+                                             HISTORYFRAMEWINDOWPROC         @24 RESIDENTNAME
+                                             HISTORYWINDOWPROC              @25 RESIDENTNAME
+                                             WINCREATEBOOKINSTANCE          @26 RESIDENTNAME
+                                             BMCUALOGODLGPROC               @27 RESIDENTNAME
+                                             IOLOADALLTOC                   @28 RESIDENTNAME
+                                             IOLOADALLINDEX                 @29 RESIDENTNAME
+                                             IOFREEALLTOC                   @30 RESIDENTNAME
+                                             IOFREEALLINDEX                 @31 RESIDENTNAME
+                                             IOFREEIOINFOLIST               @32 RESIDENTNAME
+                                             FINDWILDPATTERN                @33 RESIDENTNAME
+                                             FINDPATTERN                    @34 RESIDENTNAME
+                                             FINDTOKENPATTERN               @35 RESIDENTNAME
+                                             GETSTRTOKEN                    @36 RESIDENTNAME
+                                             HMSETHELPDATABASE              @37 RESIDENTNAME
+                                             MSCCLEANUP                     @38 RESIDENTNAME
+                                             HPFSSPLITPATH                  @39 RESIDENTNAME
+                                             CHOPDOT                        @40 RESIDENTNAME
+                                             MAKEHPFSFILELIST               @41 RESIDENTNAME
+                                             GOODLIST                       @42 RESIDENTNAME
+                                             ISVALIDHPFSNAME                @43 RESIDENTNAME
+                                             HPFSMAKEFULLPATHNAME           @44 RESIDENTNAME
+                                             MSCAPPENDINF                   @45 RESIDENTNAME
+                                             MSCSTRICMP                     @46 RESIDENTNAME
+                                             MSCSTRNICMP                    @47 RESIDENTNAME
+                                             LIBRARYFRAMEWINDOWPROC         @48 RESIDENTNAME
+                                             LIBRARYWINDOWPROC              @49 RESIDENTNAME
+                                             WINXXCREATEHELPINSTANCE        @50 RESIDENTNAME
+                WIN32CREATEHELPINSTANCE    = Trc_Win32CreateHelpInstance    @51 RESIDENTNAME
+                WIN32DESTROYHELPINSTANCE   = Trc_Win32DestroyHelpInstance   @52 RESIDENTNAME
+                WIN32QUERYHELPINSTANCE     = Trc_Win32QueryHelpInstance     @53 RESIDENTNAME
+                WIN32ASSOCIATEHELPINSTANCE = Trc_Win32AssociateHelpInstance @54 RESIDENTNAME
+                WIN32LOADHELPTABLE         = Trc_Win32LoadHelpTable         @55 RESIDENTNAME
+                WIN32CREATEHELPTABLE       = Trc_Win32CreateHelpTable       @56 RESIDENTNAME
+                                             ACVPWINDOWPROC                 @57 RESIDENTNAME
+                                             ACVPFRAMEWINDOWPROC            @58 RESIDENTNAME
+                DDFINITIALIZE              = Trc_Ddf32Initialize            @74 RESIDENTNAME
+                DDFPARA                    = Trc_Ddf32Para                  @75 RESIDENTNAME
+                DDFSETFORMAT               = Trc_Ddf32SetFormat             @76 RESIDENTNAME
+                DDFSETTEXTALIGN            = Trc_Ddf32SetTextAlign          @77 RESIDENTNAME
+                DDFSETCOLOR                = Trc_Ddf32SetColor              @78 RESIDENTNAME
+                DDFINFORM                  = Trc_Ddf32Inform                @79 RESIDENTNAME
+                DDFSETFONTSTYLE            = Trc_Ddf32SetFontStyle          @80 RESIDENTNAME
+                DDFHYPERTEXT               = Trc_Ddf32HyperText             @81 RESIDENTNAME
+                DDFBEGINLIST               = Trc_Ddf32BeginList             @82 RESIDENTNAME
+                DDFLISTITEM                = Trc_Ddf32ListItem              @83 RESIDENTNAME
+                DDFENDLIST                 = Trc_Ddf32EndList               @84 RESIDENTNAME
+                DDFTEXT                    = Trc_Ddf32Text                  @85 RESIDENTNAME
+                DDFMETAFILE                = Trc_Ddf32Metafile              @86 RESIDENTNAME
+                DDFSETFONT                 = Trc_Ddf32SetFont               @87 RESIDENTNAME
+                DDFBITMAP                  = Trc_Ddf32Bitmap                @88 RESIDENTNAME
+                                             SEARCHMINDEX                   @89 RESIDENTNAME
+                                             DBMSTRTOK2                     @90 RESIDENTNAME
+IMPORTS
+                WINCREATEHELPINSTANCE      = HELPMGR. 1
+                WINDESTROYHELPINSTANCE     = HELPMGR. 2
+                WINQUERYHELPINSTANCE       = HELPMGR. 3
+                WINASSOCIATEHELPINSTANCE   = HELPMGR. 4
+                WINLOADHELPTABLE           = HELPMGR. 5
+                WINCREATEHELPTABLE         = HELPMGR. 6
+                HMWINDOWPROC               = HELPMGR. 7
+                HELPPROCESSOR              = HELPMGR. 8
+                COVERPAGEFRAMEWINDOWPROC   = HELPMGR. 9
+                COVERPAGEWINDOWPROC        = HELPMGR.10
+                PAGEFRAMEWINDOWPROC        = HELPMGR.11
+                PAGEWINDOWPROC             = HELPMGR.12
+                FOOTNOTEFRAMEWINDOWPROC    = HELPMGR.13
+                FOOTNOTEWINDOWPROC         = HELPMGR.14
+                SEARCHDLGPROC              = HELPMGR.15
+                PRTPRINTDLGPROC            = HELPMGR.16
+                LISTWINDOWPROC             = HELPMGR.17
+                LISTFRAMEWINDOWPROC        = HELPMGR.18
+                INDEXWINDOWPROC            = HELPMGR.19
+                INDEXFRAMEWINDOWPROC       = HELPMGR.20
+                TOCWINDOWPROC              = HELPMGR.21
+                TOCFRAMEWINDOWPROC         = HELPMGR.22
+                BMBOOKMARKDLGPROC          = HELPMGR.23
+                HISTORYFRAMEWINDOWPROC     = HELPMGR.24
+                HISTORYWINDOWPROC          = HELPMGR.25
+                WINCREATEBOOKINSTANCE      = HELPMGR.26
+                BMCUALOGODLGPROC           = HELPMGR.27
+                IOLOADALLTOC               = HELPMGR.28
+                IOLOADALLINDEX             = HELPMGR.29
+                IOFREEALLTOC               = HELPMGR.30
+                IOFREEALLINDEX             = HELPMGR.31
+                IOFREEIOINFOLIST           = HELPMGR.32
+                FINDWILDPATTERN            = HELPMGR.33
+                FINDPATTERN                = HELPMGR.34
+                FINDTOKENPATTERN           = HELPMGR.35
+                GETSTRTOKEN                = HELPMGR.36
+                HMSETHELPDATABASE          = HELPMGR.37
+                MSCCLEANUP                 = HELPMGR.38
+                HPFSSPLITPATH              = HELPMGR.39
+                CHOPDOT                    = HELPMGR.40
+                MAKEHPFSFILELIST           = HELPMGR.41
+                GOODLIST                   = HELPMGR.42
+                ISVALIDHPFSNAME            = HELPMGR.43
+                HPFSMAKEFULLPATHNAME       = HELPMGR.44
+                MSCAPPENDINF               = HELPMGR.45
+                MSCSTRICMP                 = HELPMGR.46
+                MSCSTRNICMP                = HELPMGR.47
+                LIBRARYFRAMEWINDOWPROC     = HELPMGR.48
+                LIBRARYWINDOWPROC          = HELPMGR.49
+                WINXXCREATEHELPINSTANCE    = HELPMGR.50
+                WIN32CREATEHELPINSTANCE    = HELPMGR.51
+                WIN32DESTROYHELPINSTANCE   = HELPMGR.52
+                WIN32QUERYHELPINSTANCE     = HELPMGR.53
+                WIN32ASSOCIATEHELPINSTANCE = HELPMGR.54
+                WIN32LOADHELPTABLE         = HELPMGR.55
+                WIN32CREATEHELPTABLE       = HELPMGR.56
+                ACVPWINDOWPROC             = HELPMGR.57
+                ACVPFRAMEWINDOWPROC        = HELPMGR.58
+                DDFINITIALIZE              = HELPMGR.74
+                DDFPARA                    = HELPMGR.75
+                DDFSETFORMAT               = HELPMGR.76
+                DDFSETTEXTALIGN            = HELPMGR.77
+                DDFSETCOLOR                = HELPMGR.78
+                DDFINFORM                  = HELPMGR.79
+                DDFSETFONTSTYLE            = HELPMGR.80
+                DDFHYPERTEXT               = HELPMGR.81
+                DDFBEGINLIST               = HELPMGR.82
+                DDFLISTITEM                = HELPMGR.83
+                DDFENDLIST                 = HELPMGR.84
+                DDFTEXT                    = HELPMGR.85
+                DDFMETAFILE                = HELPMGR.86
+                DDFSETFONT                 = HELPMGR.87
+                DDFBITMAP                  = HELPMGR.88
+                SEARCHMINDEX               = HELPMGR.89
+                DBMSTRTOK2                 = HELPMGR.90

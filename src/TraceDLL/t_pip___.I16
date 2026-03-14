@@ -1,0 +1,54 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_PIP___.I16                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL NAMPIPES module definitions file    ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_PIP___ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL NAMPIPES Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_pip___0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                DOSMAKENMPIPE       = TRC_DOS16MAKENMPIPE       @ 1 RESIDENTNAME
+                DOSQNMPIPEINFO      = TRC_DOS16QNMPIPEINFO      @ 2 RESIDENTNAME
+                DOSCONNECTNMPIPE    = TRC_DOS16CONNECTNMPIPE    @ 3 RESIDENTNAME
+                DOSDISCONNECTNMPIPE = TRC_DOS16DISCONNECTNMPIPE @ 4 RESIDENTNAME
+                DOSQNMPHANDSTATE    = TRC_DOS16QNMPHANDSTATE    @ 5 RESIDENTNAME
+                DOSSETNMPHANDSTATE  = TRC_DOS16SETNMPHANDSTATE  @ 6 RESIDENTNAME
+                DOSPEEKNMPIPE       = TRC_DOS16PEEKNMPIPE       @ 7 RESIDENTNAME
+                DOSWAITNMPIPE       = TRC_DOS16WAITNMPIPE       @ 8 RESIDENTNAME
+                DOSTRANSACTNMPIPE   = TRC_DOS16TRANSACTNMPIPE   @ 9 RESIDENTNAME
+                DOSCALLNMPIPE       = TRC_DOS16CALLNMPIPE       @10 RESIDENTNAME
+                DOSRAWREADNMPIPE    = TRC_DOS16RAWREADNMPIPE    @11 RESIDENTNAME
+                DOSRAWWRITENMPIPE   = TRC_DOS16RAWWRITENMPIPE   @12 RESIDENTNAME
+                DOSSETNMPIPESEM     = TRC_DOS16SETNMPIPESEM     @13 RESIDENTNAME
+                DOSQNMPIPESEMSTATE  = TRC_DOS16QNMPIPESEMSTATE  @14 RESIDENTNAME
+IMPORTS
+                DOSMAKENMPIPE       = NAMPIPES. 1
+                DOSQNMPIPEINFO      = NAMPIPES. 2
+                DOSCONNECTNMPIPE    = NAMPIPES. 3
+                DOSDISCONNECTNMPIPE = NAMPIPES. 4
+                DOSQNMPHANDSTATE    = NAMPIPES. 5
+                DOSSETNMPHANDSTATE  = NAMPIPES. 6
+                DOSPEEKNMPIPE       = NAMPIPES. 7
+                DOSWAITNMPIPE       = NAMPIPES. 8
+                DOSTRANSACTNMPIPE   = NAMPIPES. 9
+                DOSCALLNMPIPE       = NAMPIPES.10
+                DOSRAWREADNMPIPE    = NAMPIPES.11
+                DOSRAWWRITENMPIPE   = NAMPIPES.12
+                DOSSETNMPIPESEM     = NAMPIPES.13
+                DOSQNMPIPESEMSTATE  = NAMPIPES.14

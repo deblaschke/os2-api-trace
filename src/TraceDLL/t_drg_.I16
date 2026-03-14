@@ -1,0 +1,182 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_DRG_.I16                                                   ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMDRAG module definitions file      ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.10 13Aug95 Added 32-bit Drg APIs                        ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.40.00 05Sep96 Added new OS/2 2.40 APIs                     ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.29 07Aug97 Added 16-bit Drg APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_DRG_ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMDRAG Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_drg_0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                DRG16ACCESSDRAGINFO             = TRC_DRG16ACCESSDRAGINFO                 @ 1 RESIDENTNAME
+                DRG16ADDSTRHANDLE               = TRC_DRG16ADDSTRHANDLE                   @ 2 RESIDENTNAME
+                DRG16ALLOCDRAGINFO              = TRC_DRG16ALLOCDRAGINFO                  @ 3 RESIDENTNAME
+                DRG16ALLOCDRAGTRANSFER          = TRC_DRG16ALLOCDRAGTRANSFER              @ 4 RESIDENTNAME
+                DRG16DELETEDRAGINFOSTRHANDLES   = TRC_DRG16DELETEDRAGINFOSTRHANDLES       @ 5 RESIDENTNAME
+                DRG16DELETESTRHANDLE            = TRC_DRG16DELETESTRHANDLE                @ 6 RESIDENTNAME
+                DRG16DRAG                       = TRC_DRG16DRAG                           @ 7 RESIDENTNAME
+                DRG16FREEDRAGINFO               = TRC_DRG16FREEDRAGINFO                   @ 8 RESIDENTNAME
+                DRG16FREEDRAGTRANSFER           = TRC_DRG16FREEDRAGTRANSFER               @ 9 RESIDENTNAME
+                DRG16GETPS                      = TRC_DRG16GETPS                          @10 RESIDENTNAME
+                DRG16POSTTRANSFERMSG            = TRC_DRG16POSTTRANSFERMSG                @11 RESIDENTNAME
+                DRG16PUSHDRAGINFO               = TRC_DRG16PUSHDRAGINFO                   @12 RESIDENTNAME
+                DRG16QUERYDRAGITEM              = TRC_DRG16QUERYDRAGITEM                  @13 RESIDENTNAME
+                DRG16QUERYDRAGITEMCOUNT         = TRC_DRG16QUERYDRAGITEMCOUNT             @14 RESIDENTNAME
+                DRG16QUERYDRAGITEMPTR           = TRC_DRG16QUERYDRAGITEMPTR               @15 RESIDENTNAME
+                DRG16QUERYNATIVERMF             = TRC_DRG16QUERYNATIVERMF                 @16 RESIDENTNAME
+                DRG16QUERYNATIVERMFLEN          = TRC_DRG16QUERYNATIVERMFLEN              @17 RESIDENTNAME
+                DRG16QUERYSTRNAME               = TRC_DRG16QUERYSTRNAME                   @18 RESIDENTNAME
+                DRG16QUERYSTRNAMELEN            = TRC_DRG16QUERYSTRNAMELEN                @19 RESIDENTNAME
+                DRG16QUERYTRUETYPE              = TRC_DRG16QUERYTRUETYPE                  @20 RESIDENTNAME
+                DRG16QUERYTRUETYPELEN           = TRC_DRG16QUERYTRUETYPELEN               @21 RESIDENTNAME
+                DRG16RELEASEPS                  = TRC_DRG16RELEASEPS                      @22 RESIDENTNAME
+                DRG16SENDTRANSFERMSG            = TRC_DRG16SENDTRANSFERMSG                @23 RESIDENTNAME
+                DRG16SETDRAGPOINTER             = TRC_DRG16SETDRAGPOINTER                 @24 RESIDENTNAME
+                DRG16SETDRAGIMAGE               = TRC_DRG16SETDRAGIMAGE                   @25 RESIDENTNAME
+                DRG16SETDRAGITEM                = TRC_DRG16SETDRAGITEM                    @26 RESIDENTNAME
+                DRG16VERIFYNATIVERMF            = TRC_DRG16VERIFYNATIVERMF                @27 RESIDENTNAME
+                DRG16VERIFYRMF                  = TRC_DRG16VERIFYRMF                      @28 RESIDENTNAME
+                DRG16VERIFYTRUETYPE             = TRC_DRG16VERIFYTRUETYPE                 @29 RESIDENTNAME
+                DRG16VERIFYTYPE                 = TRC_DRG16VERIFYTYPE                     @30 RESIDENTNAME
+                DRG16VERIFYTYPESET              = TRC_DRG16VERIFYTYPESET                  @31 RESIDENTNAME
+                                                  Trc_Drg32AccessDraginfo                 @32 NONAME
+                                                  Trc_Drg32AddStrHandle                   @33 NONAME
+                                                  Trc_Drg32AllocDraginfo                  @34 NONAME
+                                                  Trc_Drg32AllocDragtransfer              @35 NONAME
+                                                  Trc_Drg32DeleteDraginfoStrHandles       @36 NONAME
+                                                  Trc_Drg32DeleteStrHandle                @37 NONAME
+                                                  Trc_Drg32Drag                           @38 NONAME
+                                                  Trc_Drg32FreeDraginfo                   @39 NONAME
+                                                  Trc_Drg32FreeDragtransfer               @40 NONAME
+                                                  Trc_Drg32GetPS                          @41 NONAME
+                                                  Trc_Drg32PostTransferMsg                @42 NONAME
+                                                  Trc_Drg32PushDraginfo                   @43 NONAME
+                                                  Trc_Drg32QueryDragitem                  @44 NONAME
+                                                  Trc_Drg32QueryDragitemCount             @45 NONAME
+                                                  Trc_Drg32QueryDragitemPtr               @46 NONAME
+                                                  Trc_Drg32QueryNativeRMF                 @47 NONAME
+                                                  Trc_Drg32QueryNativeRMFLen              @48 NONAME
+                                                  Trc_Drg32QueryStrName                   @49 NONAME
+                                                  Trc_Drg32QueryStrNameLen                @50 NONAME
+                                                  Trc_Drg32QueryTrueType                  @51 NONAME
+                                                  Trc_Drg32QueryTrueTypeLen               @52 NONAME
+                                                  Trc_Drg32ReleasePS                      @53 NONAME
+                                                  Trc_Drg32SendTransferMsg                @54 NONAME
+                                                  Trc_Drg32SetDragPointer                 @55 NONAME
+                                                  Trc_Drg32SetDragImage                   @56 NONAME
+                                                  Trc_Drg32SetDragitem                    @57 NONAME
+                                                  Trc_Drg32VerifyNativeRMF                @58 NONAME
+                                                  Trc_Drg32VerifyRMF                      @59 NONAME
+                                                  Trc_Drg32VerifyTrueType                 @60 NONAME
+                                                  Trc_Drg32VerifyType                     @61 NONAME
+                                                  Trc_Drg32VerifyTypeSet                  @62 NONAME
+                DRG16DRAGFILES                  = TRC_DRG16DRAGFILES                      @63 RESIDENTNAME
+                DRG16ACCEPTDROPPEDFILES         = TRC_DRG16ACCEPTDROPPEDFILES             @64 RESIDENTNAME
+                                                  Trc_Drg32DragFiles                      @65 NONAME
+                                                  Trc_Drg32AcceptDroppedFiles             @66 NONAME
+                                                  Trc_Drg32LazyDrag                       @67 NONAME       ; OS2VER 230
+                                                  Trc_Drg32CancelLazyDrag                 @68 NONAME       ; OS2VER 230
+                                                  Trc_Drg32LazyDrop                       @69 NONAME       ; OS2VER 230
+                                                  Trc_Drg32QueryDraginfoPtr               @70 NONAME       ; OS2VER 230
+                                                  Trc_Drg32QueryDraginfoPtrFromHwnd       @71 NONAME       ; OS2VER 230
+                                                  Trc_Drg32QueryDraginfoPtrFromDragitem   @72 NONAME       ; OS2VER 230
+                                                  Trc_Drg32QueryDragStatus                @73 NONAME       ; OS2VER 230
+                                                  Trc_Drg32ReallocDraginfo                @74 NONAME       ; OS2VER 230
+                                                  Trc_Drg32QueryFormat                    @75 NONAME       ; OS2VER 240
+                                                  DRGGETCLIPPS                            @76 NONAME       ; OS2VER 240
+IMPORTS
+                DRG16ACCESSDRAGINFO             = PMDRAG. 1
+                DRG16ADDSTRHANDLE               = PMDRAG. 2
+                DRG16ALLOCDRAGINFO              = PMDRAG. 3
+                DRG16ALLOCDRAGTRANSFER          = PMDRAG. 4
+                DRG16DELETEDRAGINFOSTRHANDLES   = PMDRAG. 5
+                DRG16DELETESTRHANDLE            = PMDRAG. 6
+                DRG16DRAG                       = PMDRAG. 7
+                DRG16FREEDRAGINFO               = PMDRAG. 8
+                DRG16FREEDRAGTRANSFER           = PMDRAG. 9
+                DRG16GETPS                      = PMDRAG.10
+                DRG16POSTTRANSFERMSG            = PMDRAG.11
+                DRG16PUSHDRAGINFO               = PMDRAG.12
+                DRG16QUERYDRAGITEM              = PMDRAG.13
+                DRG16QUERYDRAGITEMCOUNT         = PMDRAG.14
+                DRG16QUERYDRAGITEMPTR           = PMDRAG.15
+                DRG16QUERYNATIVERMF             = PMDRAG.16
+                DRG16QUERYNATIVERMFLEN          = PMDRAG.17
+                DRG16QUERYSTRNAME               = PMDRAG.18
+                DRG16QUERYSTRNAMELEN            = PMDRAG.19
+                DRG16QUERYTRUETYPE              = PMDRAG.20
+                DRG16QUERYTRUETYPELEN           = PMDRAG.21
+                DRG16RELEASEPS                  = PMDRAG.22
+                DRG16SENDTRANSFERMSG            = PMDRAG.23
+                DRG16SETDRAGPOINTER             = PMDRAG.24
+                DRG16SETDRAGIMAGE               = PMDRAG.25
+                DRG16SETDRAGITEM                = PMDRAG.26
+                DRG16VERIFYNATIVERMF            = PMDRAG.27
+                DRG16VERIFYRMF                  = PMDRAG.28
+                DRG16VERIFYTRUETYPE             = PMDRAG.29
+                DRG16VERIFYTYPE                 = PMDRAG.30
+                DRG16VERIFYTYPESET              = PMDRAG.31
+                DRGACCESSDRAGINFO               = PMDRAG.32
+                DRGADDSTRHANDLE                 = PMDRAG.33
+                DRGALLOCDRAGINFO                = PMDRAG.34
+                DRGALLOCDRAGTRANSFER            = PMDRAG.35
+                DRGDELETEDRAGINFOSTRHANDLES     = PMDRAG.36
+                DRGDELETESTRHANDLE              = PMDRAG.37
+                DRGDRAG                         = PMDRAG.38
+                DRGFREEDRAGINFO                 = PMDRAG.39
+                DRGFREEDRAGTRANSFER             = PMDRAG.40
+                DRGGETPS                        = PMDRAG.41
+                DRGPOSTTRANSFERMSG              = PMDRAG.42
+                DRGPUSHDRAGINFO                 = PMDRAG.43
+                DRGQUERYDRAGITEM                = PMDRAG.44
+                DRGQUERYDRAGITEMCOUNT           = PMDRAG.45
+                DRGQUERYDRAGITEMPTR             = PMDRAG.46
+                DRGQUERYNATIVERMF               = PMDRAG.47
+                DRGQUERYNATIVERMFLEN            = PMDRAG.48
+                DRGQUERYSTRNAME                 = PMDRAG.49
+                DRGQUERYSTRNAMELEN              = PMDRAG.50
+                DRGQUERYTRUETYPE                = PMDRAG.51
+                DRGQUERYTRUETYPELEN             = PMDRAG.52
+                DRGRELEASEPS                    = PMDRAG.53
+                DRGSENDTRANSFERMSG              = PMDRAG.54
+                DRGSETDRAGPOINTER               = PMDRAG.55
+                DRGSETDRAGIMAGE                 = PMDRAG.56
+                DRGSETDRAGITEM                  = PMDRAG.57
+                DRGVERIFYNATIVERMF              = PMDRAG.58
+                DRGVERIFYRMF                    = PMDRAG.59
+                DRGVERIFYTRUETYPE               = PMDRAG.60
+                DRGVERIFYTYPE                   = PMDRAG.61
+                DRGVERIFYTYPESET                = PMDRAG.62
+                DRG16DRAGFILES                  = PMDRAG.63
+                DRG16ACCEPTDROPPEDFILES         = PMDRAG.64
+                DRGDRAGFILES                    = PMDRAG.65
+                DRGACCEPTDROPPEDFILES           = PMDRAG.66
+;               DRGLAZYDRAG                     = PMDRAG.67
+;               DRGCANCELLAZYDRAG               = PMDRAG.68
+;               DRGLAZYDROP                     = PMDRAG.69
+;               DRGQUERYDRAGINFOPTR             = PMDRAG.70
+;               DRGQUERYDRAGINFOPTRFROMHWND     = PMDRAG.71
+;               DRGQUERYDRAGINFOPTRFROMDRAGITEM = PMDRAG.72
+;               DRGQUERYDRAGSTATUS              = PMDRAG.73
+;               DRGREALLOCDRAGINFO              = PMDRAG.74
+;               DRGQUERYFORMAT                  = PMDRAG.75
+                DRGGETCLIPPS                    = PMDRAG.76

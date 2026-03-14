@@ -1,0 +1,36 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_MON___.I16                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL MONCALLS module definitions file    ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_MON___ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL MONCALLS Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_mon___0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                DOSMONWRITE = TRC_DOS16MONWRITE @1 RESIDENTNAME
+                DOSMONREAD  = TRC_DOS16MONREAD  @2 RESIDENTNAME
+                DOSMONCLOSE = TRC_DOS16MONCLOSE @3 RESIDENTNAME
+                DOSMONOPEN  = TRC_DOS16MONOPEN  @4 RESIDENTNAME
+                DOSMONREG   = TRC_DOS16MONREG   @5 RESIDENTNAME
+IMPORTS
+                DOSMONWRITE = MONCALLS.1
+                DOSMONREAD  = MONCALLS.2
+                DOSMONCLOSE = MONCALLS.3
+                DOSMONOPEN  = MONCALLS.4
+                DOSMONREG   = MONCALLS.5

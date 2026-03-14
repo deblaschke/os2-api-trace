@@ -1,0 +1,1317 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_GPI.I16                                                    ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMGPI module definitions file       ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.05 04Aug95 Added 32-bit Gpi APIs                        ;
+;                 2.30.09 12Aug95 Added 32-bit Dev APIs                        ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.30.21 13Dec95 Forwarded private entry table ordinals       ;
+;                 2.40.00 05Sep96 Added new OS/2 2.40 APIs                     ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.10 14Mar97 Fixed Dev32StdOpen bug                       ;
+;                 2.40.27 22Jul97 Added 16-bit Gpi APIs                        ;
+;                 2.40.28 06Aug97 Added 16-bit Dev APIs                        ;
+;                 2.45.00 15Apr99 Added new OS/2 2.45 APIs                     ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_GPI INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMGPI Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_gpi0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                DEVOPENDC                        = TRC_DEV16OPENDC                         @  1 RESIDENTNAME
+                DEVCLOSEDC                       = TRC_DEV16CLOSEDC                        @  2 RESIDENTNAME
+                DEVPOSTDEVICEMODES               = TRC_DEV16POSTDEVICEMODES                @  3 RESIDENTNAME
+                DEVESCAPE                        = TRC_DEV16ESCAPE                         @  4 RESIDENTNAME
+                DEVQUERYHARDCOPYCAPS             = TRC_DEV16QUERYHARDCOPYCAPS              @  5 RESIDENTNAME
+                DEVQUERYCAPS                     = TRC_DEV16QUERYCAPS                      @  6 RESIDENTNAME
+                GPICREATEPS                      = TRC_GPI16CREATEPS                       @  7 RESIDENTNAME
+                GPIQUERYPS                       = TRC_GPI16QUERYPS                        @  9 RESIDENTNAME
+                GPIDESTROYPS                     = TRC_GPI16DESTROYPS                      @ 10 RESIDENTNAME
+                GPIRESETPS                       = TRC_GPI16RESETPS                        @ 11 RESIDENTNAME
+                GPISAVEPS                        = TRC_GPI16SAVEPS                         @ 12 RESIDENTNAME
+                GPIRESTOREPS                     = TRC_GPI16RESTOREPS                      @ 13 RESIDENTNAME
+                GPIASSOCIATE                     = TRC_GPI16ASSOCIATE                      @ 14 RESIDENTNAME
+                GPIERRORSEGMENTDATA              = TRC_GPI16ERRORSEGMENTDATA               @ 15 RESIDENTNAME
+                GPIERASE                         = TRC_GPI16ERASE                          @ 16 RESIDENTNAME
+                GPISETDRAWCONTROL                = TRC_GPI16SETDRAWCONTROL                 @ 17 RESIDENTNAME
+                GPIQUERYDRAWCONTROL              = TRC_GPI16QUERYDRAWCONTROL               @ 18 RESIDENTNAME
+                GPIDRAWCHAIN                     = TRC_GPI16DRAWCHAIN                      @ 19 RESIDENTNAME
+                GPIDRAWFROM                      = TRC_GPI16DRAWFROM                       @ 20 RESIDENTNAME
+                GPIDRAWSEGMENT                   = TRC_GPI16DRAWSEGMENT                    @ 21 RESIDENTNAME
+                GPISETSTOPDRAW                   = TRC_GPI16SETSTOPDRAW                    @ 22 RESIDENTNAME
+                GPIQUERYSTOPDRAW                 = TRC_GPI16QUERYSTOPDRAW                  @ 23 RESIDENTNAME
+                GPIREMOVEDYNAMICS                = TRC_GPI16REMOVEDYNAMICS                 @ 24 RESIDENTNAME
+                GPIDRAWDYNAMICS                  = TRC_GPI16DRAWDYNAMICS                   @ 25 RESIDENTNAME
+                GPISETDRAWINGMODE                = TRC_GPI16SETDRAWINGMODE                 @ 26 RESIDENTNAME
+                GPIQUERYDRAWINGMODE              = TRC_GPI16QUERYDRAWINGMODE               @ 27 RESIDENTNAME
+                GPIGETDATA                       = TRC_GPI16GETDATA                        @ 28 RESIDENTNAME
+                GPIPUTDATA                       = TRC_GPI16PUTDATA                        @ 29 RESIDENTNAME
+                GPISETPICKAPERTURESIZE           = TRC_GPI16SETPICKAPERTURESIZE            @ 30 RESIDENTNAME
+                GPIQUERYPICKAPERTURESIZE         = TRC_GPI16QUERYPICKAPERTURESIZE          @ 31 RESIDENTNAME
+                GPISETPICKAPERTUREPOSITION       = TRC_GPI16SETPICKAPERTUREPOSITION        @ 32 RESIDENTNAME
+                GPIQUERYPICKAPERTUREPOSITION     = TRC_GPI16QUERYPICKAPERTUREPOSITION      @ 33 RESIDENTNAME
+                GPISETTAG                        = TRC_GPI16SETTAG                         @ 34 RESIDENTNAME
+                GPIQUERYTAG                      = TRC_GPI16QUERYTAG                       @ 35 RESIDENTNAME
+                GPICORRELATECHAIN                = TRC_GPI16CORRELATECHAIN                 @ 36 RESIDENTNAME
+                GPICORRELATEFROM                 = TRC_GPI16CORRELATEFROM                  @ 37 RESIDENTNAME
+                GPICORRELATESEGMENT              = TRC_GPI16CORRELATESEGMENT               @ 38 RESIDENTNAME
+                GPIRESETBOUNDARYDATA             = TRC_GPI16RESETBOUNDARYDATA              @ 42 RESIDENTNAME
+                GPIQUERYBOUNDARYDATA             = TRC_GPI16QUERYBOUNDARYDATA              @ 43 RESIDENTNAME
+                GPIOPENSEGMENT                   = TRC_GPI16OPENSEGMENT                    @ 44 RESIDENTNAME
+                GPICLOSESEGMENT                  = TRC_GPI16CLOSESEGMENT                   @ 46 RESIDENTNAME
+                GPIDELETESEGMENT                 = TRC_GPI16DELETESEGMENT                  @ 47 RESIDENTNAME
+                GPIDELETESEGMENTS                = TRC_GPI16DELETESEGMENTS                 @ 48 RESIDENTNAME
+                GPIQUERYSEGMENTNAMES             = TRC_GPI16QUERYSEGMENTNAMES              @ 49 RESIDENTNAME
+                GPISETINITIALSEGMENTATTRS        = TRC_GPI16SETINITIALSEGMENTATTRS         @ 51 RESIDENTNAME
+                GPIQUERYINITIALSEGMENTATTRS      = TRC_GPI16QUERYINITIALSEGMENTATTRS       @ 52 RESIDENTNAME
+                GPISETSEGMENTATTRS               = TRC_GPI16SETSEGMENTATTRS                @ 53 RESIDENTNAME
+                GPIQUERYSEGMENTATTRS             = TRC_GPI16QUERYSEGMENTATTRS              @ 54 RESIDENTNAME
+                GPISETSEGMENTPRIORITY            = TRC_GPI16SETSEGMENTPRIORITY             @ 55 RESIDENTNAME
+                GPIQUERYSEGMENTPRIORITY          = TRC_GPI16QUERYSEGMENTPRIORITY           @ 56 RESIDENTNAME
+                GPISETEDITMODE                   = TRC_GPI16SETEDITMODE                    @ 57 RESIDENTNAME
+                GPIQUERYEDITMODE                 = TRC_GPI16QUERYEDITMODE                  @ 58 RESIDENTNAME
+                GPISETELEMENTPOINTER             = TRC_GPI16SETELEMENTPOINTER              @ 59 RESIDENTNAME
+                GPIQUERYELEMENTPOINTER           = TRC_GPI16QUERYELEMENTPOINTER            @ 60 RESIDENTNAME
+                GPIOFFSETELEMENTPOINTER          = TRC_GPI16OFFSETELEMENTPOINTER           @ 61 RESIDENTNAME
+                GPIDELETEELEMENT                 = TRC_GPI16DELETEELEMENT                  @ 62 RESIDENTNAME
+                GPIDELETEELEMENTRANGE            = TRC_GPI16DELETEELEMENTRANGE             @ 63 RESIDENTNAME
+                GPILABEL                         = TRC_GPI16LABEL                          @ 64 RESIDENTNAME
+                GPISETELEMENTPOINTERATLABEL      = TRC_GPI16SETELEMENTPOINTERATLABEL       @ 65 RESIDENTNAME
+                GPIDELETEELEMENTSBETWEENLABELS   = TRC_GPI16DELETEELEMENTSBETWEENLABELS    @ 66 RESIDENTNAME
+                GPIQUERYELEMENTTYPE              = TRC_GPI16QUERYELEMENTTYPE               @ 67 RESIDENTNAME
+                GPIQUERYELEMENT                  = TRC_GPI16QUERYELEMENT                   @ 68 RESIDENTNAME
+                GPIELEMENT                       = TRC_GPI16ELEMENT                        @ 69 RESIDENTNAME
+                GPIBEGINELEMENT                  = TRC_GPI16BEGINELEMENT                   @ 70 RESIDENTNAME
+                GPIENDELEMENT                    = TRC_GPI16ENDELEMENT                     @ 71 RESIDENTNAME
+                GPISETSEGMENTTRANSFORMMATRIX     = TRC_GPI16SETSEGMENTTRANSFORMMATRIX      @ 78 RESIDENTNAME
+                GPIQUERYSEGMENTTRANSFORMMATRIX   = TRC_GPI16QUERYSEGMENTTRANSFORMMATRIX    @ 79 RESIDENTNAME
+                GPISETMODELTRANSFORMMATRIX       = TRC_GPI16SETMODELTRANSFORMMATRIX        @ 80 RESIDENTNAME
+                GPIQUERYMODELTRANSFORMMATRIX     = TRC_GPI16QUERYMODELTRANSFORMMATRIX      @ 81 RESIDENTNAME
+                GPICALLSEGMENTMATRIX             = TRC_GPI16CALLSEGMENTMATRIX              @ 82 RESIDENTNAME
+                GPISETDEFAULTVIEWMATRIX          = TRC_GPI16SETDEFAULTVIEWMATRIX           @ 83 RESIDENTNAME
+                GPIQUERYDEFAULTVIEWMATRIX        = TRC_GPI16QUERYDEFAULTVIEWMATRIX         @ 84 RESIDENTNAME
+                GPISETPAGEVIEWPORT               = TRC_GPI16SETPAGEVIEWPORT                @ 85 RESIDENTNAME
+                GPIQUERYPAGEVIEWPORT             = TRC_GPI16QUERYPAGEVIEWPORT              @ 86 RESIDENTNAME
+                GPISETVIEWINGTRANSFORMMATRIX     = TRC_GPI16SETVIEWINGTRANSFORMMATRIX      @ 87 RESIDENTNAME
+                GPIQUERYVIEWINGTRANSFORMMATRIX   = TRC_GPI16QUERYVIEWINGTRANSFORMMATRIX    @ 88 RESIDENTNAME
+                GPISETGRAPHICSFIELD              = TRC_GPI16SETGRAPHICSFIELD               @ 89 RESIDENTNAME
+                GPIQUERYGRAPHICSFIELD            = TRC_GPI16QUERYGRAPHICSFIELD             @ 90 RESIDENTNAME
+                GPISETVIEWINGLIMITS              = TRC_GPI16SETVIEWINGLIMITS               @ 91 RESIDENTNAME
+                GPIQUERYVIEWINGLIMITS            = TRC_GPI16QUERYVIEWINGLIMITS             @ 92 RESIDENTNAME
+                GPICONVERT                       = TRC_GPI16CONVERT                        @ 93 RESIDENTNAME
+                GPISETATTRMODE                   = TRC_GPI16SETATTRMODE                    @ 94 RESIDENTNAME
+                GPIQUERYATTRMODE                 = TRC_GPI16QUERYATTRMODE                  @ 95 RESIDENTNAME
+                GPIPOP                           = TRC_GPI16POP                            @ 96 RESIDENTNAME
+                GPISETATTRS                      = TRC_GPI16SETATTRS                       @ 97 RESIDENTNAME
+                GPIQUERYATTRS                    = TRC_GPI16QUERYATTRS                     @ 98 RESIDENTNAME
+                GPICREATELOGCOLORTABLE           = TRC_GPI16CREATELOGCOLORTABLE            @ 99 RESIDENTNAME
+                GPIREALIZECOLORTABLE             = TRC_GPI16REALIZECOLORTABLE              @100 RESIDENTNAME
+                GPIUNREALIZECOLORTABLE           = TRC_GPI16UNREALIZECOLORTABLE            @101 RESIDENTNAME
+                GPIQUERYCOLORDATA                = TRC_GPI16QUERYCOLORDATA                 @102 RESIDENTNAME
+                GPIQUERYLOGCOLORTABLE            = TRC_GPI16QUERYLOGCOLORTABLE             @103 RESIDENTNAME
+                GPIQUERYREALCOLORS               = TRC_GPI16QUERYREALCOLORS                @104 RESIDENTNAME
+                GPIQUERYNEARESTCOLOR             = TRC_GPI16QUERYNEARESTCOLOR              @105 RESIDENTNAME
+                GPIQUERYCOLORINDEX               = TRC_GPI16QUERYCOLORINDEX                @106 RESIDENTNAME
+                GPIQUERYRGBCOLOR                 = TRC_GPI16QUERYRGBCOLOR                  @107 RESIDENTNAME
+                GPISETCOLOR                      = TRC_GPI16SETCOLOR                       @108 RESIDENTNAME
+                GPIQUERYCOLOR                    = TRC_GPI16QUERYCOLOR                     @109 RESIDENTNAME
+                GPISETBACKCOLOR                  = TRC_GPI16SETBACKCOLOR                   @110 RESIDENTNAME
+                GPIQUERYBACKCOLOR                = TRC_GPI16QUERYBACKCOLOR                 @111 RESIDENTNAME
+                GPISETMIX                        = TRC_GPI16SETMIX                         @112 RESIDENTNAME
+                GPIQUERYMIX                      = TRC_GPI16QUERYMIX                       @113 RESIDENTNAME
+                GPISETBACKMIX                    = TRC_GPI16SETBACKMIX                     @114 RESIDENTNAME
+                GPIQUERYBACKMIX                  = TRC_GPI16QUERYBACKMIX                   @115 RESIDENTNAME
+                GPISETLINETYPE                   = TRC_GPI16SETLINETYPE                    @116 RESIDENTNAME
+                GPIQUERYLINETYPE                 = TRC_GPI16QUERYLINETYPE                  @117 RESIDENTNAME
+                GPISETLINEWIDTH                  = TRC_GPI16SETLINEWIDTH                   @118 RESIDENTNAME
+                GPIQUERYLINEWIDTH                = TRC_GPI16QUERYLINEWIDTH                 @119 RESIDENTNAME
+                GPISETLINEWIDTHGEOM              = TRC_GPI16SETLINEWIDTHGEOM               @120 RESIDENTNAME
+                GPIQUERYLINEWIDTHGEOM            = TRC_GPI16QUERYLINEWIDTHGEOM             @121 RESIDENTNAME
+                GPISETLINEEND                    = TRC_GPI16SETLINEEND                     @122 RESIDENTNAME
+                GPIQUERYLINEEND                  = TRC_GPI16QUERYLINEEND                   @123 RESIDENTNAME
+                GPISETLINEJOIN                   = TRC_GPI16SETLINEJOIN                    @124 RESIDENTNAME
+                GPIQUERYLINEJOIN                 = TRC_GPI16QUERYLINEJOIN                  @125 RESIDENTNAME
+                GPISETCURRENTPOSITION            = TRC_GPI16SETCURRENTPOSITION             @126 RESIDENTNAME
+                GPIQUERYCURRENTPOSITION          = TRC_GPI16QUERYCURRENTPOSITION           @127 RESIDENTNAME
+                GPIMOVE                          = TRC_GPI16MOVE                           @128 RESIDENTNAME
+                GPILINE                          = TRC_GPI16LINE                           @129 RESIDENTNAME
+                GPIPOLYLINE                      = TRC_GPI16POLYLINE                       @130 RESIDENTNAME
+                GPIBOX                           = TRC_GPI16BOX                            @131 RESIDENTNAME
+                GPIPTVISIBLE                     = TRC_GPI16PTVISIBLE                      @132 RESIDENTNAME
+                GPIRECTVISIBLE                   = TRC_GPI16RECTVISIBLE                    @133 RESIDENTNAME
+                GPISETARCPARAMS                  = TRC_GPI16SETARCPARAMS                   @134 RESIDENTNAME
+                GPIQUERYARCPARAMS                = TRC_GPI16QUERYARCPARAMS                 @135 RESIDENTNAME
+                GPIPOINTARC                      = TRC_GPI16POINTARC                       @136 RESIDENTNAME
+                GPIFULLARC                       = TRC_GPI16FULLARC                        @137 RESIDENTNAME
+                GPIPARTIALARC                    = TRC_GPI16PARTIALARC                     @138 RESIDENTNAME
+                GPIPOLYFILLET                    = TRC_GPI16POLYFILLET                     @139 RESIDENTNAME
+                GPIPOLYFILLETSHARP               = TRC_GPI16POLYFILLETSHARP                @140 RESIDENTNAME
+                GPIPOLYSPLINE                    = TRC_GPI16POLYSPLINE                     @141 RESIDENTNAME
+                GPISETBITMAPID                   = TRC_GPI16SETBITMAPID                    @142 RESIDENTNAME
+                GPIQUERYBITMAPHANDLE             = TRC_GPI16QUERYBITMAPHANDLE              @143 RESIDENTNAME
+                GPISETPATTERNSET                 = TRC_GPI16SETPATTERNSET                  @144 RESIDENTNAME
+                GPIQUERYPATTERNSET               = TRC_GPI16QUERYPATTERNSET                @145 RESIDENTNAME
+                GPISETPATTERN                    = TRC_GPI16SETPATTERN                     @146 RESIDENTNAME
+                GPIQUERYPATTERN                  = TRC_GPI16QUERYPATTERN                   @147 RESIDENTNAME
+                GPISETPATTERNREFPOINT            = TRC_GPI16SETPATTERNREFPOINT             @148 RESIDENTNAME
+                GPIQUERYPATTERNREFPOINT          = TRC_GPI16QUERYPATTERNREFPOINT           @149 RESIDENTNAME
+                GPIBEGINAREA                     = TRC_GPI16BEGINAREA                      @150 RESIDENTNAME
+                GPIENDAREA                       = TRC_GPI16ENDAREA                        @151 RESIDENTNAME
+                GPILOADFONTS                     = TRC_GPI16LOADFONTS                      @152 RESIDENTNAME
+                GPIUNLOADFONTS                   = TRC_GPI16UNLOADFONTS                    @153 RESIDENTNAME
+                GPICREATELOGFONT                 = TRC_GPI16CREATELOGFONT                  @154 RESIDENTNAME
+                GPIDELETESETID                   = TRC_GPI16DELETESETID                    @155 RESIDENTNAME
+                GPIQUERYNUMBERSETIDS             = TRC_GPI16QUERYNUMBERSETIDS              @156 RESIDENTNAME
+                GPIQUERYSETIDS                   = TRC_GPI16QUERYSETIDS                    @157 RESIDENTNAME
+                GPIQUERYFONTS                    = TRC_GPI16QUERYFONTS                     @158 RESIDENTNAME
+                GPIQUERYFONTMETRICS              = TRC_GPI16QUERYFONTMETRICS               @159 RESIDENTNAME
+                GPIQUERYKERNINGPAIRS             = TRC_GPI16QUERYKERNINGPAIRS              @160 RESIDENTNAME
+                GPIQUERYWIDTHTABLE               = TRC_GPI16QUERYWIDTHTABLE                @161 RESIDENTNAME
+                GPISETCP                         = TRC_GPI16SETCP                          @162 RESIDENTNAME
+                GPIQUERYCP                       = TRC_GPI16QUERYCP                        @163 RESIDENTNAME
+                GPIQUERYTEXTBOX                  = TRC_GPI16QUERYTEXTBOX                   @164 RESIDENTNAME
+                DEVQUERYDEVICENAMES              = TRC_DEV16QUERYDEVICENAMES               @165 RESIDENTNAME
+                GPIQUERYDEFCHARBOX               = TRC_GPI16QUERYDEFCHARBOX                @166 RESIDENTNAME
+                GPIQUERYFONTFILEDESCRIPTIONS     = TRC_GPI16QUERYFONTFILEDESCRIPTIONS      @167 RESIDENTNAME
+                GPISETCHARSET                    = TRC_GPI16SETCHARSET                     @168 RESIDENTNAME
+                GPIQUERYCHARSET                  = TRC_GPI16QUERYCHARSET                   @169 RESIDENTNAME
+                GPISETCHARBOX                    = TRC_GPI16SETCHARBOX                     @170 RESIDENTNAME
+                GPIQUERYCHARBOX                  = TRC_GPI16QUERYCHARBOX                   @171 RESIDENTNAME
+                GPISETCHARANGLE                  = TRC_GPI16SETCHARANGLE                   @172 RESIDENTNAME
+                GPIQUERYCHARANGLE                = TRC_GPI16QUERYCHARANGLE                 @173 RESIDENTNAME
+                GPISETCHARSHEAR                  = TRC_GPI16SETCHARSHEAR                   @174 RESIDENTNAME
+                GPIQUERYCHARSHEAR                = TRC_GPI16QUERYCHARSHEAR                 @175 RESIDENTNAME
+                GPISETCHARDIRECTION              = TRC_GPI16SETCHARDIRECTION               @176 RESIDENTNAME
+                GPIQUERYCHARDIRECTION            = TRC_GPI16QUERYCHARDIRECTION             @177 RESIDENTNAME
+                GPISETCHARMODE                   = TRC_GPI16SETCHARMODE                    @178 RESIDENTNAME
+                GPIQUERYCHARMODE                 = TRC_GPI16QUERYCHARMODE                  @179 RESIDENTNAME
+                GPICHARSTRING                    = TRC_GPI16CHARSTRING                     @180 RESIDENTNAME
+                GPICHARSTRINGAT                  = TRC_GPI16CHARSTRINGAT                   @181 RESIDENTNAME
+                GPICHARSTRINGPOS                 = TRC_GPI16CHARSTRINGPOS                  @182 RESIDENTNAME
+                GPICHARSTRINGPOSAT               = TRC_GPI16CHARSTRINGPOSAT                @183 RESIDENTNAME
+                GPISETMARKERSET                  = TRC_GPI16SETMARKERSET                   @184 RESIDENTNAME
+                GPIQUERYMARKERSET                = TRC_GPI16QUERYMARKERSET                 @185 RESIDENTNAME
+                GPISETMARKER                     = TRC_GPI16SETMARKER                      @186 RESIDENTNAME
+                GPIQUERYMARKER                   = TRC_GPI16QUERYMARKER                    @187 RESIDENTNAME
+                GPISETMARKERBOX                  = TRC_GPI16SETMARKERBOX                   @188 RESIDENTNAME
+                GPIQUERYMARKERBOX                = TRC_GPI16QUERYMARKERBOX                 @189 RESIDENTNAME
+                GPIMARKER                        = TRC_GPI16MARKER                         @190 RESIDENTNAME
+                GPIPOLYMARKER                    = TRC_GPI16POLYMARKER                     @191 RESIDENTNAME
+                GPIIMAGE                         = TRC_GPI16IMAGE                          @192 RESIDENTNAME
+                GPICREATEBITMAP                  = TRC_GPI16CREATEBITMAP                   @196 RESIDENTNAME
+                GPIDELETEBITMAP                  = TRC_GPI16DELETEBITMAP                   @197 RESIDENTNAME
+                GPISETBITMAP                     = TRC_GPI16SETBITMAP                      @198 RESIDENTNAME
+                GPISETBITMAPDIMENSION            = TRC_GPI16SETBITMAPDIMENSION             @199 RESIDENTNAME
+                GPIQUERYBITMAPDIMENSION          = TRC_GPI16QUERYBITMAPDIMENSION           @200 RESIDENTNAME
+                GPIQUERYDEVICEBITMAPFORMATS      = TRC_GPI16QUERYDEVICEBITMAPFORMATS       @201 RESIDENTNAME
+                GPIQUERYBITMAPPARAMETERS         = TRC_GPI16QUERYBITMAPPARAMETERS          @202 RESIDENTNAME
+                GPISETBITMAPBITS                 = TRC_GPI16SETBITMAPBITS                  @203 RESIDENTNAME
+                GPIQUERYBITMAPBITS               = TRC_GPI16QUERYBITMAPBITS                @204 RESIDENTNAME
+                GPIBITBLT                        = TRC_GPI16BITBLT                         @205 RESIDENTNAME
+                GPISETPEL                        = TRC_GPI16SETPEL                         @206 RESIDENTNAME
+                GPIQUERYPEL                      = TRC_GPI16QUERYPEL                       @207 RESIDENTNAME
+                GPICREATEREGION                  = TRC_GPI16CREATEREGION                   @208 RESIDENTNAME
+                GPISETREGION                     = TRC_GPI16SETREGION                      @209 RESIDENTNAME
+                GPIDESTROYREGION                 = TRC_GPI16DESTROYREGION                  @210 RESIDENTNAME
+                GPICOMBINEREGION                 = TRC_GPI16COMBINEREGION                  @211 RESIDENTNAME
+                GPIEQUALREGION                   = TRC_GPI16EQUALREGION                    @212 RESIDENTNAME
+                GPIOFFSETREGION                  = TRC_GPI16OFFSETREGION                   @213 RESIDENTNAME
+                GPIPTINREGION                    = TRC_GPI16PTINREGION                     @214 RESIDENTNAME
+                GPIRECTINREGION                  = TRC_GPI16RECTINREGION                   @215 RESIDENTNAME
+                GPIQUERYREGIONBOX                = TRC_GPI16QUERYREGIONBOX                 @216 RESIDENTNAME
+                GPIQUERYREGIONRECTS              = TRC_GPI16QUERYREGIONRECTS               @217 RESIDENTNAME
+                GPISETCLIPREGION                 = TRC_GPI16SETCLIPREGION                  @218 RESIDENTNAME
+                GPIQUERYCLIPREGION               = TRC_GPI16QUERYCLIPREGION                @219 RESIDENTNAME
+                GPIQUERYCLIPBOX                  = TRC_GPI16QUERYCLIPBOX                   @220 RESIDENTNAME
+                GPIINTERSECTCLIPRECTANGLE        = TRC_GPI16INTERSECTCLIPRECTANGLE         @221 RESIDENTNAME
+                GPIEXCLUDECLIPRECTANGLE          = TRC_GPI16EXCLUDECLIPRECTANGLE           @222 RESIDENTNAME
+                GPIOFFSETCLIPREGION              = TRC_GPI16OFFSETCLIPREGION               @223 RESIDENTNAME
+                GPIPAINTREGION                   = TRC_GPI16PAINTREGION                    @224 RESIDENTNAME
+                GPILOADMETAFILE                  = TRC_GPI16LOADMETAFILE                   @225 RESIDENTNAME
+                GPICOPYMETAFILE                  = TRC_GPI16COPYMETAFILE                   @226 RESIDENTNAME
+                GPIPLAYMETAFILE                  = TRC_GPI16PLAYMETAFILE                   @227 RESIDENTNAME
+                GPISAVEMETAFILE                  = TRC_GPI16SAVEMETAFILE                   @228 RESIDENTNAME
+                GPIDELETEMETAFILE                = TRC_GPI16DELETEMETAFILE                 @229 RESIDENTNAME
+                GPIQUERYMETAFILEBITS             = TRC_GPI16QUERYMETAFILEBITS              @230 RESIDENTNAME
+                GPISETMETAFILEBITS               = TRC_GPI16SETMETAFILEBITS                @231 RESIDENTNAME
+                GPIQUERYMETAFILELENGTH           = TRC_GPI16QUERYMETAFILELENGTH            @232 RESIDENTNAME
+                GPISETCLIPPATH                   = TRC_GPI16SETCLIPPATH                    @233 RESIDENTNAME
+                GPIBEGINPATH                     = TRC_GPI16BEGINPATH                      @234 RESIDENTNAME
+                GPIENDPATH                       = TRC_GPI16ENDPATH                        @235 RESIDENTNAME
+                GPICLOSEFIGURE                   = TRC_GPI16CLOSEFIGURE                    @236 RESIDENTNAME
+                GPIMODIFYPATH                    = TRC_GPI16MODIFYPATH                     @237 RESIDENTNAME
+                GPIFILLPATH                      = TRC_GPI16FILLPATH                       @238 RESIDENTNAME
+                                                   GPISTARTREQUEST                         @239 RESIDENTNAME ; Removed OS2VER 210
+                GPIQUERYDEVICE                   = TRC_GPI16QUERYDEVICE                    @240 RESIDENTNAME
+                                                   GPIVECTORSYMBOL                         @241 RESIDENTNAME
+                                                   GPIOPENMETAFILE                         @242 RESIDENTNAME
+                                                   GPICLOSEMETAFILE                        @243 RESIDENTNAME
+                DEVSTDOPEN                       = TRC_DEV16STDOPEN                        @244 RESIDENTNAME ; OS2VER 210
+                GPIQUERYCHARSTRINGPOS            = TRC_GPI16QUERYCHARSTRINGPOS             @245 RESIDENTNAME
+                GPIQUERYCHARSTRINGPOSAT          = TRC_GPI16QUERYCHARSTRINGPOSAT           @246 RESIDENTNAME
+                                                   GPICONVPSH                              @247 RESIDENTNAME
+                GPISETPS                         = TRC_GPI16SETPS                          @248 RESIDENTNAME
+                                                   SEGSGWOPENSEGMENTWINDOW                 @249 RESIDENTNAME
+                                                   MTENDREADREQUEST                        @250 RESIDENTNAME
+                                                   MTGETDESCRIPTION                        @251 RESIDENTNAME
+                                                   FMTORDERTABLE                           @252 RESIDENTNAME ; Removed OS2VER 210
+                                                   MTGETCODEPAGE                           @253 RESIDENTNAME
+                                                   MTGETLCT                                @254 RESIDENTNAME
+                                                   MTGETGDDINFO                            @255 RESIDENTNAME
+                                                   FMTCONVERTGOCAPOLY                      @256 RESIDENTNAME
+                                                   MTGETFIRSTFONT                          @257 RESIDENTNAME
+                                                   SEGSGWNEWPARTDATA                       @258 RESIDENTNAME
+                                                   MTSTARTREADREQUEST                      @259 RESIDENTNAME
+                                                   MTGETFIRSTGRAPHICSDATA                  @260 RESIDENTNAME
+                                                   MTGETNEXTFONT                           @261 RESIDENTNAME
+                                                   MTGETNEXTGRAPHICSDATA                   @262 RESIDENTNAME
+                GPILOADPUBLICFONTS               = TRC_GPI16LOADPUBLICFONTS                @263 RESIDENTNAME
+                GPIUNLOADPUBLICFONTS             = TRC_GPI16UNLOADPUBLICFONTS              @264 RESIDENTNAME
+                                                   GPIACCESSMETAFILE                       @265 RESIDENTNAME
+                                                   GPIMTASSOCIATE                          @266 RESIDENTNAME
+                                                   GPIMTDISASSOCIATE                       @267 RESIDENTNAME
+                GPICOMMENT                       = TRC_GPI16COMMENT                        @268 RESIDENTNAME
+                GPIWCBITBLT                      = TRC_GPI16WCBITBLT                       @269 RESIDENTNAME
+                GPISTROKEPATH                    = TRC_GPI16STROKEPATH                     @270 RESIDENTNAME
+                                                   SEGSGWNEXTORDERF                        @271 RESIDENTNAME
+                GPISUSPENDPLAY                   = TRC_GPI16SUSPENDPLAY                    @272 RESIDENTNAME
+                GPIRESUMEPLAY                    = TRC_GPI16RESUMEPLAY                     @273 RESIDENTNAME
+                GPIOUTLINEPATH                   = TRC_GPI16OUTLINEPATH                    @274 RESIDENTNAME
+                GPISETDEFTAG                     = TRC_GPI16SETDEFTAG                      @275 RESIDENTNAME
+                GPIQUERYDEFTAG                   = TRC_GPI16QUERYDEFTAG                    @276 RESIDENTNAME
+                GPISETDEFATTRS                   = TRC_GPI16SETDEFATTRS                    @277 RESIDENTNAME
+                GPIQUERYDEFATTRS                 = TRC_GPI16QUERYDEFATTRS                  @278 RESIDENTNAME
+                GPISETDEFVIEWINGLIMITS           = TRC_GPI16SETDEFVIEWINGLIMITS            @279 RESIDENTNAME
+                GPIQUERYDEFVIEWINGLIMITS         = TRC_GPI16QUERYDEFVIEWINGLIMITS          @280 RESIDENTNAME
+                GPISETDEFARCPARAMS               = TRC_GPI16SETDEFARCPARAMS                @281 RESIDENTNAME
+                GPIQUERYDEFARCPARAMS             = TRC_GPI16QUERYDEFARCPARAMS              @282 RESIDENTNAME
+                GPITRANSLATE                     = TRC_GPI16TRANSLATE                      @283 RESIDENTNAME
+                GPISCALE                         = TRC_GPI16SCALE                          @284 RESIDENTNAME
+                GPIROTATE                        = TRC_GPI16ROTATE                         @285 RESIDENTNAME
+                GPIPOLYLINEDISJOINT              = TRC_GPI16POLYLINEDISJOINT               @286 RESIDENTNAME
+                GPIPATHTOREGION                  = TRC_GPI16PATHTOREGION                   @287 RESIDENTNAME
+                GPIFLOODFILL                     = TRC_GPI16FLOODFILL                      @289 RESIDENTNAME
+                GPIDRAWBITS                      = TRC_GPI16DRAWBITS                       @290 RESIDENTNAME
+                GPIQUERYBITMAPINFOHEADER         = TRC_GPI16QUERYBITMAPINFOHEADER          @291 RESIDENTNAME
+                GPIQUERYLOGICALFONT              = TRC_GPI16QUERYLOGICALFONT               @292 RESIDENTNAME
+                GPIQUERYFACESTRING               = TRC_GPI16QUERYFACESTRING                @293 RESIDENTNAME
+                GPIQUERYFONTACTION               = TRC_GPI16QUERYFONTACTION                @294 RESIDENTNAME
+                GPICREATEPALETTE                 = TRC_GPI16CREATEPALETTE                  @295 RESIDENTNAME
+                GPIDELETEPALETTE                 = TRC_GPI16DELETEPALETTE                  @296 RESIDENTNAME
+                GPISELECTPALETTE                 = TRC_GPI16SELECTPALETTE                  @297 RESIDENTNAME
+                GPIANIMATEPALETTE                = TRC_GPI16ANIMATEPALETTE                 @298 RESIDENTNAME
+                GPISETPALETTEENTRIES             = TRC_GPI16SETPALETTEENTRIES              @299 RESIDENTNAME
+                GPIQUERYPALETTE                  = TRC_GPI16QUERYPALETTE                   @300 RESIDENTNAME
+                GPIQUERYPALETTEINFO              = TRC_GPI16QUERYPALETTEINFO               @301 RESIDENTNAME
+                GPIQUERYCHAREXTRA                = TRC_GPI16QUERYCHAREXTRA                 @302 RESIDENTNAME
+                GPISETCHAREXTRA                  = TRC_GPI16SETCHAREXTRA                   @303 RESIDENTNAME
+                GPIQUERYCHARBREAKEXTRA           = TRC_GPI16QUERYCHARBREAKEXTRA            @304 RESIDENTNAME
+                GPISETCHARBREAKEXTRA             = TRC_GPI16SETCHARBREAKEXTRA              @305 RESIDENTNAME
+                GPIFRAMEREGION                   = TRC_GPI16FRAMEREGION                    @306 RESIDENTNAME
+                GPICONVERTWITHMATRIX             = TRC_GPI16CONVERTWITHMATRIX              @307 RESIDENTNAME
+                                                   GPISETDCOWNER                           @308 RESIDENTNAME
+                                                   GPISETBITMAPOWNER                       @309 RESIDENTNAME
+                                                   GPISETREGIONOWNER                       @310 RESIDENTNAME
+                                                   GPIINSTALLIFIFONT                       @311 RESIDENTNAME
+                                                   DSPINITSYSTEMDRIVERNAME                 @312 RESIDENTNAME
+                                                   GPI16OVAL                               @313 NONAME       ; Not in entry table, OS2VER 245
+                                                   Trc_Gpi32Associate                      @351 NONAME
+                                                   Trc_Gpi32BeginArea                      @352 NONAME
+                                                   Trc_Gpi32BeginElement                   @353 NONAME
+                                                   Trc_Gpi32BeginPath                      @354 NONAME
+                                                   Trc_Gpi32BitBlt                         @355 NONAME
+                                                   Trc_Gpi32Box                            @356 NONAME
+                                                   Trc_Gpi32CallSegmentMatrix              @357 NONAME
+                                                   Trc_Gpi32CharString                     @358 NONAME
+                                                   Trc_Gpi32CharStringAt                   @359 NONAME
+                                                   Trc_Gpi32CloseFigure                    @360 NONAME
+                                                   Trc_Gpi32CloseSegment                   @361 NONAME
+                                                   Trc_Gpi32CombineRegion                  @362 NONAME
+                                                   Trc_Gpi32Comment                        @363 NONAME
+                                                   Trc_Gpi32Convert                        @364 NONAME
+                                                   Trc_Gpi32CopyMetaFile                   @365 NONAME
+                                                   Trc_Gpi32CorrelateChain                 @366 NONAME
+                                                   Trc_Gpi32CorrelateFrom                  @367 NONAME
+                                                   Trc_Gpi32CreateLogFont                  @368 NONAME
+                                                   Trc_Gpi32CreatePS                       @369 NONAME
+                                                   Trc_Gpi32CreateRegion                   @370 NONAME
+                                                   Trc_Gpi32DeleteBitmap                   @371 NONAME
+                                                   Trc_Gpi32DeleteElement                  @372 NONAME
+                                                   Trc_Gpi32DeleteElementRange             @373 NONAME
+                                                   Trc_Gpi32DeleteElementsBetweenLabels    @374 NONAME
+                                                   Trc_Gpi32DeleteMetaFile                 @375 NONAME
+                                                   Trc_Gpi32DeleteSegment                  @376 NONAME
+                                                   Trc_Gpi32DeleteSegments                 @377 NONAME
+                                                   Trc_Gpi32DeleteSetId                    @378 NONAME
+                                                   Trc_Gpi32DestroyPS                      @379 NONAME
+                                                   Trc_Gpi32DrawChain                      @380 NONAME
+                                                   Trc_Gpi32DrawDynamics                   @381 NONAME
+                                                   Trc_Gpi32DrawFrom                       @382 NONAME
+                                                   Trc_Gpi32DrawSegment                    @383 NONAME
+                                                   Trc_Gpi32Element                        @384 NONAME
+                                                   Trc_Gpi32EndArea                        @385 NONAME
+                                                   Trc_Gpi32EndElement                     @386 NONAME
+                                                   Trc_Gpi32EndPath                        @387 NONAME
+                                                   Trc_Gpi32EqualRegion                    @388 NONAME
+                                                   Trc_Gpi32Erase                          @389 NONAME
+                                                   Trc_Gpi32ErrorSegmentData               @390 NONAME
+                                                   Trc_Gpi32ExcludeClipRectangle           @391 NONAME
+                                                   Trc_Gpi32FillPath                       @392 NONAME
+                                                   Trc_Gpi32FullArc                        @393 NONAME
+                                                   Trc_Gpi32GetData                        @394 NONAME
+                                                   Trc_Gpi32Image                          @395 NONAME
+                                                   Trc_Gpi32IntersectClipRectangle         @396 NONAME
+                                                   Trc_Gpi32Label                          @397 NONAME
+                                                   Trc_Gpi32Line                           @398 NONAME
+                                                   Trc_Gpi32LoadBitmap                     @399 NONAME
+                                                   Trc_Gpi32LoadFonts                      @400 NONAME
+                                                   Trc_Gpi32LoadMetaFile                   @401 NONAME
+                                                   Trc_Gpi32Marker                         @402 NONAME
+                                                   Trc_Gpi32ModifyPath                     @403 NONAME
+                                                   Trc_Gpi32Move                           @404 NONAME
+                                                   Trc_Gpi32OffsetClipRegion               @405 NONAME
+                                                   Trc_Gpi32OffsetElementPointer           @406 NONAME
+                                                   Trc_Gpi32OffsetRegion                   @407 NONAME
+                                                   Trc_Gpi32OpenSegment                    @408 NONAME
+                                                   Trc_Gpi32PaintRegion                    @409 NONAME
+                                                   Trc_Gpi32PlayMetaFile                   @411 NONAME
+                                                   Trc_Gpi32PointArc                       @412 NONAME
+                                                   Trc_Gpi32PolyFillet                     @413 NONAME
+                                                   Trc_Gpi32PolyFilletSharp                @414 NONAME
+                                                   Trc_Gpi32PolyLine                       @415 NONAME
+                                                   Trc_Gpi32PolyMarker                     @416 NONAME
+                                                   Trc_Gpi32PolySpline                     @417 NONAME
+                                                   Trc_Gpi32Pop                            @418 NONAME
+                                                   Trc_Gpi32PtInRegion                     @419 NONAME
+                                                   Trc_Gpi32PtVisible                      @420 NONAME
+                                                   Trc_Gpi32PutData                        @421 NONAME
+                                                   Trc_Gpi32QueryArcParams                 @422 NONAME
+                                                   Trc_Gpi32QueryAttrMode                  @423 NONAME
+                                                   Trc_Gpi32QueryBackColor                 @424 NONAME
+                                                   Trc_Gpi32QueryBackMix                   @425 NONAME
+                                                   Trc_Gpi32QueryBitmapDimension           @426 NONAME
+                                                   Trc_Gpi32QueryBitmapHandle              @427 NONAME
+                                                   Trc_Gpi32QueryBoundaryData              @428 NONAME
+                                                   Trc_Gpi32QueryCharAngle                 @429 NONAME
+                                                   Trc_Gpi32QueryCharBox                   @430 NONAME
+                                                   Trc_Gpi32QueryCharDirection             @431 NONAME
+                                                   Trc_Gpi32QueryCharMode                  @432 NONAME
+                                                   Trc_Gpi32QueryCharSet                   @433 NONAME
+                                                   Trc_Gpi32QueryCharShear                 @434 NONAME
+                                                   Trc_Gpi32QueryClipBox                   @435 NONAME
+                                                   Trc_Gpi32QueryClipRegion                @436 NONAME
+                                                   Trc_Gpi32QueryColor                     @437 NONAME
+                                                   Trc_Gpi32QueryColorData                 @438 NONAME
+                                                   Trc_Gpi32QueryColorIndex                @439 NONAME
+                                                   Trc_Gpi32QueryCp                        @440 NONAME
+                                                   Trc_Gpi32QueryCurrentPosition           @441 NONAME
+                                                   Trc_Gpi32QueryDefCharBox                @442 NONAME
+                                                   Trc_Gpi32QueryDefaultViewMatrix         @443 NONAME
+                                                   Trc_Gpi32QueryDevice                    @444 NONAME
+                                                   Trc_Gpi32QueryDeviceBitmapFormats       @445 NONAME
+                                                   Trc_Gpi32QueryDrawControl               @446 NONAME
+                                                   Trc_Gpi32QueryDrawingMode               @447 NONAME
+                                                   Trc_Gpi32QueryEditMode                  @448 NONAME
+                                                   Trc_Gpi32QueryElement                   @449 NONAME
+                                                   Trc_Gpi32QueryElementPointer            @450 NONAME
+                                                   Trc_Gpi32QueryElementType               @451 NONAME
+                                                   Trc_Gpi32QueryFontFileDescriptions      @452 NONAME
+                                                   Trc_Gpi32QueryFontMetrics               @453 NONAME
+                                                   Trc_Gpi32QueryGraphicsField             @454 NONAME
+                                                   Trc_Gpi32QueryInitialSegmentAttrs       @455 NONAME
+                                                   Trc_Gpi32QueryKerningPairs              @456 NONAME
+                                                   Trc_Gpi32QueryLineEnd                   @457 NONAME
+                                                   Trc_Gpi32QueryLineJoin                  @458 NONAME
+                                                   Trc_Gpi32QueryLineType                  @459 NONAME
+                                                   Trc_Gpi32QueryLineWidth                 @460 NONAME
+                                                   Trc_Gpi32QueryLineWidthGeom             @461 NONAME
+                                                   Trc_Gpi32QueryMarker                    @462 NONAME
+                                                   Trc_Gpi32QueryMarkerBox                 @463 NONAME
+                                                   Trc_Gpi32QueryMarkerSet                 @464 NONAME
+                                                   Trc_Gpi32QueryMetaFileBits              @465 NONAME
+                                                   Trc_Gpi32QueryMetaFileLength            @466 NONAME
+                                                   Trc_Gpi32QueryMix                       @467 NONAME
+                                                   Trc_Gpi32QueryModelTransformMatrix      @468 NONAME
+                                                   Trc_Gpi32QueryNearestColor              @469 NONAME
+                                                   Trc_Gpi32QueryNumberSetIds              @470 NONAME
+                                                   Trc_Gpi32QueryPS                        @471 NONAME
+                                                   Trc_Gpi32QueryPageViewport              @472 NONAME
+                                                   Trc_Gpi32QueryPattern                   @473 NONAME
+                                                   Trc_Gpi32QueryPatternRefPoint           @474 NONAME
+                                                   Trc_Gpi32QueryPatternSet                @475 NONAME
+                                                   Trc_Gpi32QueryPel                       @476 NONAME
+                                                   Trc_Gpi32QueryPickAperturePosition      @477 NONAME
+                                                   Trc_Gpi32QueryPickApertureSize          @478 NONAME
+                                                   Trc_Gpi32QueryRGBColor                  @479 NONAME
+                                                   Trc_Gpi32QueryRealColors                @480 NONAME
+                                                   Trc_Gpi32QueryRegionBox                 @481 NONAME
+                                                   Trc_Gpi32QuerySegmentAttrs              @482 NONAME
+                                                   Trc_Gpi32QuerySegmentNames              @483 NONAME
+                                                   Trc_Gpi32QuerySegmentPriority           @484 NONAME
+                                                   Trc_Gpi32QuerySegmentTransformMatrix    @485 NONAME
+                                                   Trc_Gpi32QuerySetIds                    @486 NONAME
+                                                   Trc_Gpi32QueryStopDraw                  @487 NONAME
+                                                   Trc_Gpi32QueryTag                       @488 NONAME
+                                                   Trc_Gpi32QueryTextBox                   @489 NONAME
+                                                   Trc_Gpi32QueryViewingLimits             @490 NONAME
+                                                   Trc_Gpi32QueryViewingTransformMatrix    @491 NONAME
+                                                   Trc_Gpi32QueryWidthTable                @492 NONAME
+                                                   Trc_Gpi32RectInRegion                   @494 NONAME
+                                                   Trc_Gpi32RectVisible                    @495 NONAME
+                                                   Trc_Gpi32RemoveDynamics                 @496 NONAME
+                                                   Trc_Gpi32ResetBoundaryData              @497 NONAME
+                                                   Trc_Gpi32ResetPS                        @498 NONAME
+                                                   Trc_Gpi32RestorePS                      @499 NONAME
+                                                   Trc_Gpi32SaveMetaFile                   @500 NONAME
+                                                   Trc_Gpi32SavePS                         @501 NONAME
+                                                   Trc_Gpi32SetArcParams                   @502 NONAME
+                                                   Trc_Gpi32SetAttrMode                    @503 NONAME
+                                                   Trc_Gpi32SetBackColor                   @504 NONAME
+                                                   Trc_Gpi32SetBackMix                     @505 NONAME
+                                                   Trc_Gpi32SetBitmap                      @506 NONAME
+                                                   Trc_Gpi32SetBitmapDimension             @507 NONAME
+                                                   Trc_Gpi32SetBitmapId                    @508 NONAME
+                                                   Trc_Gpi32SetCharAngle                   @509 NONAME
+                                                   Trc_Gpi32SetCharBox                     @510 NONAME
+                                                   Trc_Gpi32SetCharDirection               @511 NONAME
+                                                   Trc_Gpi32SetCharMode                    @512 NONAME
+                                                   Trc_Gpi32SetCharSet                     @513 NONAME
+                                                   Trc_Gpi32SetCharShear                   @514 NONAME
+                                                   Trc_Gpi32SetClipPath                    @515 NONAME
+                                                   Trc_Gpi32SetClipRegion                  @516 NONAME
+                                                   Trc_Gpi32SetColor                       @517 NONAME
+                                                   Trc_Gpi32SetCp                          @518 NONAME
+                                                   Trc_Gpi32SetCurrentPosition             @519 NONAME
+                                                   Trc_Gpi32SetDefaultViewMatrix           @520 NONAME
+                                                   Trc_Gpi32SetDrawControl                 @521 NONAME
+                                                   Trc_Gpi32SetDrawingMode                 @522 NONAME
+                                                   Trc_Gpi32SetEditMode                    @523 NONAME
+                                                   Trc_Gpi32SetElementPointer              @524 NONAME
+                                                   Trc_Gpi32SetElementPointerAtLabel       @525 NONAME
+                                                   Trc_Gpi32SetGraphicsField               @526 NONAME
+                                                   Trc_Gpi32SetInitialSegmentAttrs         @527 NONAME
+                                                   Trc_Gpi32SetLineEnd                     @528 NONAME
+                                                   Trc_Gpi32SetLineJoin                    @529 NONAME
+                                                   Trc_Gpi32SetLineType                    @530 NONAME
+                                                   Trc_Gpi32SetLineWidth                   @531 NONAME
+                                                   Trc_Gpi32SetLineWidthGeom               @532 NONAME
+                                                   Trc_Gpi32SetMarker                      @533 NONAME
+                                                   Trc_Gpi32SetMarkerBox                   @534 NONAME
+                                                   Trc_Gpi32SetMarkerSet                   @535 NONAME
+                                                   Trc_Gpi32SetMetaFileBits                @536 NONAME
+                                                   Trc_Gpi32SetMix                         @537 NONAME
+                                                   Trc_Gpi32SetModelTransformMatrix        @538 NONAME
+                                                   Trc_Gpi32SetPS                          @539 NONAME
+                                                   Trc_Gpi32SetPageViewport                @540 NONAME
+                                                   Trc_Gpi32SetPattern                     @541 NONAME
+                                                   Trc_Gpi32SetPatternRefPoint             @542 NONAME
+                                                   Trc_Gpi32SetPatternSet                  @543 NONAME
+                                                   Trc_Gpi32SetPel                         @544 NONAME
+                                                   Trc_Gpi32SetPickAperturePosition        @545 NONAME
+                                                   Trc_Gpi32SetRegion                      @546 NONAME
+                                                   Trc_Gpi32SetSegmentAttrs                @547 NONAME
+                                                   Trc_Gpi32SetSegmentPriority             @548 NONAME
+                                                   Trc_Gpi32SetSegmentTransformMatrix      @549 NONAME
+                                                   Trc_Gpi32SetStopDraw                    @550 NONAME
+                                                   Trc_Gpi32SetTag                         @551 NONAME
+                                                   Trc_Gpi32SetViewingLimits               @552 NONAME
+                                                   Trc_Gpi32SetViewingTransformMatrix      @553 NONAME
+                                                   Trc_Gpi32StrokePath                     @554 NONAME
+                                                   Trc_Gpi32UnloadFonts                    @555 NONAME
+                                                   Trc_Gpi32WCBitBlt                       @557 NONAME
+                                                   Trc_Gpi32PolyLineDisjoint               @558 NONAME
+                                                   Trc_Gpi32PathToRegion                   @559 NONAME
+                                                   Trc_Gpi32FloodFill                      @560 NONAME
+                                                   Trc_Gpi32SuspendPlay                    @561 NONAME
+                                                   Trc_Gpi32ResumePlay                     @562 NONAME
+                                                   Trc_Gpi32OutlinePath                    @563 NONAME
+                                                   Trc_Gpi32Translate                      @564 NONAME
+                                                   Trc_Gpi32Scale                          @565 NONAME
+                                                   Trc_Gpi32Rotate                         @566 NONAME
+                                                   Trc_Gpi32QueryDefArcParams              @567 NONAME
+                                                   Trc_Gpi32QueryDefTag                    @568 NONAME
+                                                   Trc_Gpi32QueryDefViewingLimits          @569 NONAME
+                                                   Trc_Gpi32SetDefArcParams                @570 NONAME
+                                                   Trc_Gpi32SetDefTag                      @571 NONAME
+                                                   Trc_Gpi32SetDefViewingLimits            @572 NONAME
+                                                   Trc_Gpi32QueryBitmapParameters          @573 NONAME
+                                                   Trc_Gpi32QueryLogicalFont               @574 NONAME
+                                                   Trc_Gpi32QueryFaceString                @575 NONAME
+                                                   Trc_Gpi32QueryFontAction                @576 NONAME
+                                                   Trc_Gpi32DeletePalette                  @577 NONAME
+                                                   Trc_Gpi32SelectPalette                  @578 NONAME
+                                                   Trc_Gpi32QueryPalette                   @579 NONAME
+                                                   Trc_Gpi32CharStringPos                  @580 NONAME
+                                                   Trc_Gpi32CharStringPosAt                @581 NONAME
+                                                   Trc_Gpi32CorrelateSegment               @582 NONAME
+                                                   Trc_Gpi32QueryAttrs                     @583 NONAME
+                                                   Trc_Gpi32QueryCharStringPos             @584 NONAME
+                                                   Trc_Gpi32QueryCharStringPosAt           @585 NONAME
+                                                   Trc_Gpi32QueryFonts                     @586 NONAME
+                                                   Trc_Gpi32QueryRegionRects               @587 NONAME
+                                                   Trc_Gpi32SetAttrs                       @588 NONAME
+                                                   Trc_Gpi32SetPickApertureSize            @589 NONAME
+                                                   Trc_Gpi32QueryDefAttrs                  @590 NONAME
+                                                   Trc_Gpi32SetDefAttrs                    @591 NONAME
+                                                   Trc_Gpi32CreateLogColorTable            @592 NONAME
+                                                   Trc_Gpi32QueryLogColorTable             @593 NONAME
+                                                   Trc_Gpi32CreatePalette                  @594 NONAME
+                                                   Trc_Gpi32AnimatePalette                 @595 NONAME
+                                                   Trc_Gpi32SetPaletteEntries              @596 NONAME
+                                                   Trc_Gpi32QueryPaletteInfo               @597 NONAME
+                                                   Trc_Gpi32CreateBitmap                   @598 NONAME
+                                                   Trc_Gpi32QueryBitmapBits                @599 NONAME
+                                                   Trc_Gpi32QueryBitmapInfoHeader          @601 NONAME
+                                                   Trc_Gpi32SetBitmapBits                  @602 NONAME
+                                                   Trc_Gpi32DrawBits                       @603 NONAME
+                                                   Trc_Dev32CloseDC                        @604 NONAME
+                                                   Trc_Dev32Escape                         @605 NONAME
+                                                   Trc_Dev32QueryCaps                      @606 NONAME
+                                                   Trc_Dev32QueryDeviceNames               @607 NONAME
+                                                   Trc_Dev32QueryHardcopyCaps              @608 NONAME
+                                                   Trc_Dev32PostDeviceModes                @609 NONAME
+                                                   Trc_Dev32OpenDC                         @610 NONAME
+                                                   Trc_Gpi32DestroyRegion                  @611 NONAME
+                                                   Trc_Gpi32PartialArc                     @612 NONAME
+                                                   Trc_Gpi32QueryCharExtra                 @613 NONAME
+                                                   Trc_Gpi32SetCharExtra                   @614 NONAME
+                                                   Trc_Gpi32QueryCharBreakExtra            @615 NONAME
+                                                   Trc_Gpi32SetCharBreakExtra              @616 NONAME
+                                                   Trc_Gpi32FrameRegion                    @617 NONAME
+                                                   Trc_Gpi32ConvertWithMatrix              @618 NONAME
+                                                   GPI32SETDCOWNER                         @619 NONAME
+                                                   GPI32SETBITMAPOWNER                     @620 NONAME
+                                                   GPI32SETREGIONOWNER                     @621 NONAME
+                                                   Trc_Gpi32LoadPublicFonts                @622 NONAME
+                                                   Trc_Gpi32UnloadPublicFonts              @623 NONAME
+                                                   GPI32INSTALLIFIFONT                     @624 NONAME
+                                                   Trc_Dev32StdOpen                        @625 NONAME       ; OS2VER 210
+                                                   GPI32VECTORSYMBOL                       @626 NONAME       ; OS2VER 210
+                                                   GPI32OPENMETAFILE                       @627 NONAME       ; OS2VER 210
+                                                   GPI32CLOSEMETAFILE                      @628 NONAME       ; OS2VER 210
+                                                   GPI32CONVPSH                            @629 NONAME       ; OS2VER 210
+                                                   SEG32SGWOPENSEGMENTWINDOW               @630 NONAME       ; OS2VER 210
+                                                   MT32ENDREADREQUEST                      @631 NONAME       ; OS2VER 210
+                                                   MT32GETDESCRIPTION                      @632 NONAME       ; OS2VER 210
+                                                   MT32GETCODEPAGE                         @633 NONAME       ; OS2VER 210
+                                                   MT32GETLCT                              @634 NONAME       ; OS2VER 210
+                                                   MT32GETGDDINFO                          @635 NONAME       ; OS2VER 210
+                                                   FMT32CONVERTGOCAPOLY                    @636 NONAME       ; OS2VER 210
+                                                   MT32GETFIRSTFONT                        @637 NONAME       ; OS2VER 210
+                                                   SEG32SGWNEWPARTDATA                     @638 NONAME       ; OS2VER 210
+                                                   MT32STARTREADREQUEST                    @639 NONAME       ; OS2VER 210
+                                                   MT32GETFIRSTGRAPHICSDATA                @640 NONAME       ; OS2VER 210
+                                                   MT32GETNEXTFONT                         @641 NONAME       ; OS2VER 210
+                                                   MT32GETNEXTGRAPHICSDATA                 @642 NONAME       ; OS2VER 210
+                                                   GPI32ACCESSMETAFILE                     @643 NONAME       ; OS2VER 210
+                                                   GPI32MTASSOCIATE                        @644 NONAME       ; OS2VER 210
+                                                   GPI32MTDISASSOCIATE                     @645 NONAME       ; OS2VER 210
+                                                   SEG32SGWNEXTORDERF                      @646 NONAME       ; OS2VER 210
+                                                   Trc_Gpi32QueryTextAlignment             @648 NONAME
+                                                   Trc_Gpi32SetTextAlignment               @649 NONAME
+                                                   Trc_Gpi32Polygons                       @650 NONAME
+                                                   DSP32SETDRIVERINFO                      @651 NONAME       ; OS2VER 210
+                                                   DSP32QUERYDRIVERINFO                    @652 NONAME       ; OS2VER 210
+                                                   DSP32QUERYDRIVERNAMES                   @653 NONAME       ; OS2VER 210
+                                                   DSP32DEFAULTRESOLUTION                  @654 NONAME
+                                                   DEV32QUERYDISPLAYRESOLUTIONS            @655 NONAME
+                                                   DSP32INITSYSTEMDRIVERNAME               @656 NONAME
+                                                   Trc_Gpi32QueryFullFontFileDescs         @657 NONAME
+                                                   Trc_Gpi32QueryTabbedTextExtent          @658 NONAME       ; OS2VER 240
+                                                   Trc_Gpi32TabbedCharStringAt             @659 NONAME       ; OS2VER 240
+                                                   Trc_Gpi32QueryRasterizerCaps            @660 NONAME       ; OS2VER 240
+                                                   Trc_Gpi32CreateRoundRectRegion          @661 NONAME       ; OS2VER 240
+                                                   Trc_Gpi32CreateEllipticRegion           @662 NONAME       ; OS2VER 240
+                                                   Trc_Gpi32CreatePolygonRegion            @663 NONAME       ; OS2VER 240
+                                                   GPI32ALLOCATEDCDATA                     @664 NONAME       ; OS2VER 240
+                                                   GPI32QUERYDCDATA                        @665 NONAME       ; OS2VER 240
+                                                   Trc_Gpi32ResizePalette                  @666 NONAME       ; OS2VER 240
+                                                   Trc_Gpi32QueryNearestPaletteIndex       @667 NONAME       ; OS2VER 240
+                                                   Trc_Gpi32SetFontMappingFlags            @668 NONAME       ; OS2VER 240
+                                                   Trc_Gpi32QueryFontMappingFlags          @669 NONAME       ; OS2VER 240
+                GPIBEGININKPATH                  = Trc_Gpi32BeginInkPath                   @670 RESIDENTNAME ; OS2VER 240
+                GPIENDINKPATH                    = Trc_Gpi32EndInkPath                     @671 RESIDENTNAME ; OS2VER 240
+                GPISTROKEINKPATH                 = Trc_Gpi32StrokeInkPath                  @672 RESIDENTNAME ; OS2VER 240
+                                                   PAXGETPOLYFILLMODE                      @700 NONAME       ; OS2VER 240
+                                                   PAXSETPOLYFILLMODE                      @701 NONAME       ; OS2VER 240
+                                                   PAXBEGINPATH                            @703 NONAME       ; OS2VER 240
+                                                   PAXCLOSEFIGURE                          @704 NONAME       ; OS2VER 240
+                                                   PAXENDPATH                              @705 NONAME       ; OS2VER 240
+                                                   PAXFILLPATH                             @706 NONAME       ; OS2VER 240
+                                                   PAXFLATTENPATH                          @707 NONAME       ; OS2VER 240
+                                                   PAXPATHTOREGION                         @710 NONAME       ; OS2VER 240
+                                                   PAXSTROKEANDFILLPATH                    @712 NONAME       ; OS2VER 240
+                                                   PAXSTROKEPATH                           @713 NONAME       ; OS2VER 240
+                                                   PAXWIDENPATH                            @714 NONAME       ; OS2VER 240
+                                                   PAXARC                                  @715 NONAME       ; OS2VER 240
+                                                   PAXCHORD                                @716 NONAME       ; OS2VER 240
+                                                   PAXELLIPSE                              @717 NONAME       ; OS2VER 240
+                                                   PAXLINEDDA                              @718 NONAME       ; OS2VER 240
+                                                   PAXPIE                                  @719 NONAME       ; OS2VER 240
+                                                   PAXPOLYBEZIER                           @720 NONAME       ; OS2VER 240
+                                                   PAXPOLYBEZIERAT                         @721 NONAME       ; OS2VER 240
+                                                   GPI32ABORTPATH                          @722 NONAME       ; OS2VER 240
+                                                   GPI32ENABLEYINVERSION                   @723 NONAME       ; OS2VER 240
+                                                   GPI32QUERYMITRELIMIT                    @724 NONAME       ; OS2VER 240
+                                                   GPI32QUERYPATH                          @725 NONAME       ; OS2VER 240
+                                                   GPI32QUERYYINVERSION                    @726 NONAME       ; OS2VER 240
+                                                   GPI32SETMITRELIMIT                      @727 NONAME       ; OS2VER 240
+                                                   GPI32SAVEMETAFILE2                      @728 NONAME       ; OS2VER 240
+                DEVPOSTESCAPE                    = Trc_Dev32PostEscape                     @729 RESIDENTNAME ; OS2VER 240
+                                                   Trc_Gpi32Oval                           @730 NONAME       ; OS2VER 245
+IMPORTS
+                DEVOPENDC                        = PMGPI.  1
+                DEVCLOSEDC                       = PMGPI.  2
+                DEVPOSTDEVICEMODES               = PMGPI.  3
+                DEVESCAPE                        = PMGPI.  4
+                DEVQUERYHARDCOPYCAPS             = PMGPI.  5
+                DEVQUERYCAPS                     = PMGPI.  6
+                GPICREATEPS                      = PMGPI.  7
+                GPIQUERYPS                       = PMGPI.  9
+                GPIDESTROYPS                     = PMGPI. 10
+                GPIRESETPS                       = PMGPI. 11
+                GPISAVEPS                        = PMGPI. 12
+                GPIRESTOREPS                     = PMGPI. 13
+                GPIASSOCIATE                     = PMGPI. 14
+                GPIERRORSEGMENTDATA              = PMGPI. 15
+                GPIERASE                         = PMGPI. 16
+                GPISETDRAWCONTROL                = PMGPI. 17
+                GPIQUERYDRAWCONTROL              = PMGPI. 18
+                GPIDRAWCHAIN                     = PMGPI. 19
+                GPIDRAWFROM                      = PMGPI. 20
+                GPIDRAWSEGMENT                   = PMGPI. 21
+                GPISETSTOPDRAW                   = PMGPI. 22
+                GPIQUERYSTOPDRAW                 = PMGPI. 23
+                GPIREMOVEDYNAMICS                = PMGPI. 24
+                GPIDRAWDYNAMICS                  = PMGPI. 25
+                GPISETDRAWINGMODE                = PMGPI. 26
+                GPIQUERYDRAWINGMODE              = PMGPI. 27
+                GPIGETDATA                       = PMGPI. 28
+                GPIPUTDATA                       = PMGPI. 29
+                GPISETPICKAPERTURESIZE           = PMGPI. 30
+                GPIQUERYPICKAPERTURESIZE         = PMGPI. 31
+                GPISETPICKAPERTUREPOSITION       = PMGPI. 32
+                GPIQUERYPICKAPERTUREPOSITION     = PMGPI. 33
+                GPISETTAG                        = PMGPI. 34
+                GPIQUERYTAG                      = PMGPI. 35
+                GPICORRELATECHAIN                = PMGPI. 36
+                GPICORRELATEFROM                 = PMGPI. 37
+                GPICORRELATESEGMENT              = PMGPI. 38
+                GPIRESETBOUNDARYDATA             = PMGPI. 42
+                GPIQUERYBOUNDARYDATA             = PMGPI. 43
+                GPIOPENSEGMENT                   = PMGPI. 44
+                GPICLOSESEGMENT                  = PMGPI. 46
+                GPIDELETESEGMENT                 = PMGPI. 47
+                GPIDELETESEGMENTS                = PMGPI. 48
+                GPIQUERYSEGMENTNAMES             = PMGPI. 49
+                GPISETINITIALSEGMENTATTRS        = PMGPI. 51
+                GPIQUERYINITIALSEGMENTATTRS      = PMGPI. 52
+                GPISETSEGMENTATTRS               = PMGPI. 53
+                GPIQUERYSEGMENTATTRS             = PMGPI. 54
+                GPISETSEGMENTPRIORITY            = PMGPI. 55
+                GPIQUERYSEGMENTPRIORITY          = PMGPI. 56
+                GPISETEDITMODE                   = PMGPI. 57
+                GPIQUERYEDITMODE                 = PMGPI. 58
+                GPISETELEMENTPOINTER             = PMGPI. 59
+                GPIQUERYELEMENTPOINTER           = PMGPI. 60
+                GPIOFFSETELEMENTPOINTER          = PMGPI. 61
+                GPIDELETEELEMENT                 = PMGPI. 62
+                GPIDELETEELEMENTRANGE            = PMGPI. 63
+                GPILABEL                         = PMGPI. 64
+                GPISETELEMENTPOINTERATLABEL      = PMGPI. 65
+                GPIDELETEELEMENTSBETWEENLABELS   = PMGPI. 66
+                GPIQUERYELEMENTTYPE              = PMGPI. 67
+                GPIQUERYELEMENT                  = PMGPI. 68
+                GPIELEMENT                       = PMGPI. 69
+                GPIBEGINELEMENT                  = PMGPI. 70
+                GPIENDELEMENT                    = PMGPI. 71
+                GPISETSEGMENTTRANSFORMMATRIX     = PMGPI. 78
+                GPIQUERYSEGMENTTRANSFORMMATRIX   = PMGPI. 79
+                GPISETMODELTRANSFORMMATRIX       = PMGPI. 80
+                GPIQUERYMODELTRANSFORMMATRIX     = PMGPI. 81
+                GPICALLSEGMENTMATRIX             = PMGPI. 82
+                GPISETDEFAULTVIEWMATRIX          = PMGPI. 83
+                GPIQUERYDEFAULTVIEWMATRIX        = PMGPI. 84
+                GPISETPAGEVIEWPORT               = PMGPI. 85
+                GPIQUERYPAGEVIEWPORT             = PMGPI. 86
+                GPISETVIEWINGTRANSFORMMATRIX     = PMGPI. 87
+                GPIQUERYVIEWINGTRANSFORMMATRIX   = PMGPI. 88
+                GPISETGRAPHICSFIELD              = PMGPI. 89
+                GPIQUERYGRAPHICSFIELD            = PMGPI. 90
+                GPISETVIEWINGLIMITS              = PMGPI. 91
+                GPIQUERYVIEWINGLIMITS            = PMGPI. 92
+                GPICONVERT                       = PMGPI. 93
+                GPISETATTRMODE                   = PMGPI. 94
+                GPIQUERYATTRMODE                 = PMGPI. 95
+                GPIPOP                           = PMGPI. 96
+                GPISETATTRS                      = PMGPI. 97
+                GPIQUERYATTRS                    = PMGPI. 98
+                GPICREATELOGCOLORTABLE           = PMGPI. 99
+                GPIREALIZECOLORTABLE             = PMGPI.100
+                GPIUNREALIZECOLORTABLE           = PMGPI.101
+                GPIQUERYCOLORDATA                = PMGPI.102
+                GPIQUERYLOGCOLORTABLE            = PMGPI.103
+                GPIQUERYREALCOLORS               = PMGPI.104
+                GPIQUERYNEARESTCOLOR             = PMGPI.105
+                GPIQUERYCOLORINDEX               = PMGPI.106
+                GPIQUERYRGBCOLOR                 = PMGPI.107
+                GPISETCOLOR                      = PMGPI.108
+                GPIQUERYCOLOR                    = PMGPI.109
+                GPISETBACKCOLOR                  = PMGPI.110
+                GPIQUERYBACKCOLOR                = PMGPI.111
+                GPISETMIX                        = PMGPI.112
+                GPIQUERYMIX                      = PMGPI.113
+                GPISETBACKMIX                    = PMGPI.114
+                GPIQUERYBACKMIX                  = PMGPI.115
+                GPISETLINETYPE                   = PMGPI.116
+                GPIQUERYLINETYPE                 = PMGPI.117
+                GPISETLINEWIDTH                  = PMGPI.118
+                GPIQUERYLINEWIDTH                = PMGPI.119
+                GPISETLINEWIDTHGEOM              = PMGPI.120
+                GPIQUERYLINEWIDTHGEOM            = PMGPI.121
+                GPISETLINEEND                    = PMGPI.122
+                GPIQUERYLINEEND                  = PMGPI.123
+                GPISETLINEJOIN                   = PMGPI.124
+                GPIQUERYLINEJOIN                 = PMGPI.125
+                GPISETCURRENTPOSITION            = PMGPI.126
+                GPIQUERYCURRENTPOSITION          = PMGPI.127
+                GPIMOVE                          = PMGPI.128
+                GPILINE                          = PMGPI.129
+                GPIPOLYLINE                      = PMGPI.130
+                GPIBOX                           = PMGPI.131
+                GPIPTVISIBLE                     = PMGPI.132
+                GPIRECTVISIBLE                   = PMGPI.133
+                GPISETARCPARAMS                  = PMGPI.134
+                GPIQUERYARCPARAMS                = PMGPI.135
+                GPIPOINTARC                      = PMGPI.136
+                GPIFULLARC                       = PMGPI.137
+                GPIPARTIALARC                    = PMGPI.138
+                GPIPOLYFILLET                    = PMGPI.139
+                GPIPOLYFILLETSHARP               = PMGPI.140
+                GPIPOLYSPLINE                    = PMGPI.141
+                GPISETBITMAPID                   = PMGPI.142
+                GPIQUERYBITMAPHANDLE             = PMGPI.143
+                GPISETPATTERNSET                 = PMGPI.144
+                GPIQUERYPATTERNSET               = PMGPI.145
+                GPISETPATTERN                    = PMGPI.146
+                GPIQUERYPATTERN                  = PMGPI.147
+                GPISETPATTERNREFPOINT            = PMGPI.148
+                GPIQUERYPATTERNREFPOINT          = PMGPI.149
+                GPIBEGINAREA                     = PMGPI.150
+                GPIENDAREA                       = PMGPI.151
+                GPILOADFONTS                     = PMGPI.152
+                GPIUNLOADFONTS                   = PMGPI.153
+                GPICREATELOGFONT                 = PMGPI.154
+                GPIDELETESETID                   = PMGPI.155
+                GPIQUERYNUMBERSETIDS             = PMGPI.156
+                GPIQUERYSETIDS                   = PMGPI.157
+                GPIQUERYFONTS                    = PMGPI.158
+                GPIQUERYFONTMETRICS              = PMGPI.159
+                GPIQUERYKERNINGPAIRS             = PMGPI.160
+                GPIQUERYWIDTHTABLE               = PMGPI.161
+                GPISETCP                         = PMGPI.162
+                GPIQUERYCP                       = PMGPI.163
+                GPIQUERYTEXTBOX                  = PMGPI.164
+                DEVQUERYDEVICENAMES              = PMGPI.165
+                GPIQUERYDEFCHARBOX               = PMGPI.166
+                GPIQUERYFONTFILEDESCRIPTIONS     = PMGPI.167
+                GPISETCHARSET                    = PMGPI.168
+                GPIQUERYCHARSET                  = PMGPI.169
+                GPISETCHARBOX                    = PMGPI.170
+                GPIQUERYCHARBOX                  = PMGPI.171
+                GPISETCHARANGLE                  = PMGPI.172
+                GPIQUERYCHARANGLE                = PMGPI.173
+                GPISETCHARSHEAR                  = PMGPI.174
+                GPIQUERYCHARSHEAR                = PMGPI.175
+                GPISETCHARDIRECTION              = PMGPI.176
+                GPIQUERYCHARDIRECTION            = PMGPI.177
+                GPISETCHARMODE                   = PMGPI.178
+                GPIQUERYCHARMODE                 = PMGPI.179
+                GPICHARSTRING                    = PMGPI.180
+                GPICHARSTRINGAT                  = PMGPI.181
+                GPICHARSTRINGPOS                 = PMGPI.182
+                GPICHARSTRINGPOSAT               = PMGPI.183
+                GPISETMARKERSET                  = PMGPI.184
+                GPIQUERYMARKERSET                = PMGPI.185
+                GPISETMARKER                     = PMGPI.186
+                GPIQUERYMARKER                   = PMGPI.187
+                GPISETMARKERBOX                  = PMGPI.188
+                GPIQUERYMARKERBOX                = PMGPI.189
+                GPIMARKER                        = PMGPI.190
+                GPIPOLYMARKER                    = PMGPI.191
+                GPIIMAGE                         = PMGPI.192
+                GPICREATEBITMAP                  = PMGPI.196
+                GPIDELETEBITMAP                  = PMGPI.197
+                GPISETBITMAP                     = PMGPI.198
+                GPISETBITMAPDIMENSION            = PMGPI.199
+                GPIQUERYBITMAPDIMENSION          = PMGPI.200
+                GPIQUERYDEVICEBITMAPFORMATS      = PMGPI.201
+                GPIQUERYBITMAPPARAMETERS         = PMGPI.202
+                GPISETBITMAPBITS                 = PMGPI.203
+                GPIQUERYBITMAPBITS               = PMGPI.204
+                GPIBITBLT                        = PMGPI.205
+                GPISETPEL                        = PMGPI.206
+                GPIQUERYPEL                      = PMGPI.207
+                GPICREATEREGION                  = PMGPI.208
+                GPISETREGION                     = PMGPI.209
+                GPIDESTROYREGION                 = PMGPI.210
+                GPICOMBINEREGION                 = PMGPI.211
+                GPIEQUALREGION                   = PMGPI.212
+                GPIOFFSETREGION                  = PMGPI.213
+                GPIPTINREGION                    = PMGPI.214
+                GPIRECTINREGION                  = PMGPI.215
+                GPIQUERYREGIONBOX                = PMGPI.216
+                GPIQUERYREGIONRECTS              = PMGPI.217
+                GPISETCLIPREGION                 = PMGPI.218
+                GPIQUERYCLIPREGION               = PMGPI.219
+                GPIQUERYCLIPBOX                  = PMGPI.220
+                GPIINTERSECTCLIPRECTANGLE        = PMGPI.221
+                GPIEXCLUDECLIPRECTANGLE          = PMGPI.222
+                GPIOFFSETCLIPREGION              = PMGPI.223
+                GPIPAINTREGION                   = PMGPI.224
+                GPILOADMETAFILE                  = PMGPI.225
+                GPICOPYMETAFILE                  = PMGPI.226
+                GPIPLAYMETAFILE                  = PMGPI.227
+                GPISAVEMETAFILE                  = PMGPI.228
+                GPIDELETEMETAFILE                = PMGPI.229
+                GPIQUERYMETAFILEBITS             = PMGPI.230
+                GPISETMETAFILEBITS               = PMGPI.231
+                GPIQUERYMETAFILELENGTH           = PMGPI.232
+                GPISETCLIPPATH                   = PMGPI.233
+                GPIBEGINPATH                     = PMGPI.234
+                GPIENDPATH                       = PMGPI.235
+                GPICLOSEFIGURE                   = PMGPI.236
+                GPIMODIFYPATH                    = PMGPI.237
+                GPIFILLPATH                      = PMGPI.238
+                GPISTARTREQUEST                  = PMGPI.239
+                GPIQUERYDEVICE                   = PMGPI.240
+                GPIVECTORSYMBOL                  = PMGPI.241
+                GPIOPENMETAFILE                  = PMGPI.242
+                GPICLOSEMETAFILE                 = PMGPI.243
+;               DEVSTDOPEN                       = PMGPI.244
+                GPIQUERYCHARSTRINGPOS            = PMGPI.245
+                GPIQUERYCHARSTRINGPOSAT          = PMGPI.246
+                GPICONVPSH                       = PMGPI.247
+                GPISETPS                         = PMGPI.248
+                SEGSGWOPENSEGMENTWINDOW          = PMGPI.249
+                MTENDREADREQUEST                 = PMGPI.250
+                MTGETDESCRIPTION                 = PMGPI.251
+                FMTORDERTABLE                    = PMGPI.252
+                MTGETCODEPAGE                    = PMGPI.253
+                MTGETLCT                         = PMGPI.254
+                MTGETGDDINFO                     = PMGPI.255
+                FMTCONVERTGOCAPOLY               = PMGPI.256
+                MTGETFIRSTFONT                   = PMGPI.257
+                SEGSGWNEWPARTDATA                = PMGPI.258
+                MTSTARTREADREQUEST               = PMGPI.259
+                MTGETFIRSTGRAPHICSDATA           = PMGPI.260
+                MTGETNEXTFONT                    = PMGPI.261
+                MTGETNEXTGRAPHICSDATA            = PMGPI.262
+                GPILOADPUBLICFONTS               = PMGPI.263
+                GPIUNLOADPUBLICFONTS             = PMGPI.264
+                GPIACCESSMETAFILE                = PMGPI.265
+                GPIMTASSOCIATE                   = PMGPI.266
+                GPIMTDISASSOCIATE                = PMGPI.267
+                GPICOMMENT                       = PMGPI.268
+                GPIWCBITBLT                      = PMGPI.269
+                GPISTROKEPATH                    = PMGPI.270
+                SEGSGWNEXTORDERF                 = PMGPI.271
+                GPISUSPENDPLAY                   = PMGPI.272
+                GPIRESUMEPLAY                    = PMGPI.273
+                GPIOUTLINEPATH                   = PMGPI.274
+                GPISETDEFTAG                     = PMGPI.275
+                GPIQUERYDEFTAG                   = PMGPI.276
+                GPISETDEFATTRS                   = PMGPI.277
+                GPIQUERYDEFATTRS                 = PMGPI.278
+                GPISETDEFVIEWINGLIMITS           = PMGPI.279
+                GPIQUERYDEFVIEWINGLIMITS         = PMGPI.280
+                GPISETDEFARCPARAMS               = PMGPI.281
+                GPIQUERYDEFARCPARAMS             = PMGPI.282
+                GPITRANSLATE                     = PMGPI.283
+                GPISCALE                         = PMGPI.284
+                GPIROTATE                        = PMGPI.285
+                GPIPOLYLINEDISJOINT              = PMGPI.286
+                GPIPATHTOREGION                  = PMGPI.287
+                GPIFLOODFILL                     = PMGPI.289
+                GPIDRAWBITS                      = PMGPI.290
+                GPIQUERYBITMAPINFOHEADER         = PMGPI.291
+                GPIQUERYLOGICALFONT              = PMGPI.292
+                GPIQUERYFACESTRING               = PMGPI.293
+                GPIQUERYFONTACTION               = PMGPI.294
+                GPICREATEPALETTE                 = PMGPI.295
+                GPIDELETEPALETTE                 = PMGPI.296
+                GPISELECTPALETTE                 = PMGPI.297
+                GPIANIMATEPALETTE                = PMGPI.298
+                GPISETPALETTEENTRIES             = PMGPI.299
+                GPIQUERYPALETTE                  = PMGPI.300
+                GPIQUERYPALETTEINFO              = PMGPI.301
+                GPIQUERYCHAREXTRA                = PMGPI.302
+                GPISETCHAREXTRA                  = PMGPI.303
+                GPIQUERYCHARBREAKEXTRA           = PMGPI.304
+                GPISETCHARBREAKEXTRA             = PMGPI.305
+                GPIFRAMEREGION                   = PMGPI.306
+                GPICONVERTWITHMATRIX             = PMGPI.307
+                GPISETDCOWNER                    = PMGPI.308
+                GPISETBITMAPOWNER                = PMGPI.309
+                GPISETREGIONOWNER                = PMGPI.310
+                GPIINSTALLIFIFONT                = PMGPI.311
+                DSPINITSYSTEMDRIVERNAME          = PMGPI.312
+                GPI16OVAL                        = PMGPI.313
+                GPI32ASSOCIATE                   = PMGPI.351
+                GPI32BEGINAREA                   = PMGPI.352
+                GPI32BEGINELEMENT                = PMGPI.353
+                GPI32BEGINPATH                   = PMGPI.354
+                GPI32BITBLT                      = PMGPI.355
+                GPI32BOX                         = PMGPI.356
+                GPI32CALLSEGMENTMATRIX           = PMGPI.357
+                GPI32CHARSTRING                  = PMGPI.358
+                GPI32CHARSTRINGAT                = PMGPI.359
+                GPI32CLOSEFIGURE                 = PMGPI.360
+                GPI32CLOSESEGMENT                = PMGPI.361
+                GPI32COMBINEREGION               = PMGPI.362
+                GPI32COMMENT                     = PMGPI.363
+                GPI32CONVERT                     = PMGPI.364
+                GPI32COPYMETAFILE                = PMGPI.365
+                GPI32CORRELATECHAIN              = PMGPI.366
+                GPI32CORRELATEFROM               = PMGPI.367
+                GPI32CREATELOGFONT               = PMGPI.368
+                GPI32CREATEPS                    = PMGPI.369
+                GPI32CREATEREGION                = PMGPI.370
+                GPI32DELETEBITMAP                = PMGPI.371
+                GPI32DELETEELEMENT               = PMGPI.372
+                GPI32DELETEELEMENTRANGE          = PMGPI.373
+                GPI32DELETEELEMENTSBETWEENLABELS = PMGPI.374
+                GPI32DELETEMETAFILE              = PMGPI.375
+                GPI32DELETESEGMENT               = PMGPI.376
+                GPI32DELETESEGMENTS              = PMGPI.377
+                GPI32DELETESETID                 = PMGPI.378
+                GPI32DESTROYPS                   = PMGPI.379
+                GPI32DRAWCHAIN                   = PMGPI.380
+                GPI32DRAWDYNAMICS                = PMGPI.381
+                GPI32DRAWFROM                    = PMGPI.382
+                GPI32DRAWSEGMENT                 = PMGPI.383
+                GPI32ELEMENT                     = PMGPI.384
+                GPI32ENDAREA                     = PMGPI.385
+                GPI32ENDELEMENT                  = PMGPI.386
+                GPI32ENDPATH                     = PMGPI.387
+                GPI32EQUALREGION                 = PMGPI.388
+                GPI32ERASE                       = PMGPI.389
+                GPI32ERRORSEGMENTDATA            = PMGPI.390
+                GPI32EXCLUDECLIPRECTANGLE        = PMGPI.391
+                GPI32FILLPATH                    = PMGPI.392
+                GPI32FULLARC                     = PMGPI.393
+                GPI32GETDATA                     = PMGPI.394
+                GPI32IMAGE                       = PMGPI.395
+                GPI32INTERSECTCLIPRECTANGLE      = PMGPI.396
+                GPI32LABEL                       = PMGPI.397
+                GPI32LINE                        = PMGPI.398
+                GPI32LOADBITMAP                  = PMGPI.399
+                GPI32LOADFONTS                   = PMGPI.400
+                GPI32LOADMETAFILE                = PMGPI.401
+                GPI32MARKER                      = PMGPI.402
+                GPI32MODIFYPATH                  = PMGPI.403
+                GPI32MOVE                        = PMGPI.404
+                GPI32OFFSETCLIPREGION            = PMGPI.405
+                GPI32OFFSETELEMENTPOINTER        = PMGPI.406
+                GPI32OFFSETREGION                = PMGPI.407
+                GPI32OPENSEGMENT                 = PMGPI.408
+                GPI32PAINTREGION                 = PMGPI.409
+                GPI32PLAYMETAFILE                = PMGPI.411
+                GPI32POINTARC                    = PMGPI.412
+                GPI32POLYFILLET                  = PMGPI.413
+                GPI32POLYFILLETSHARP             = PMGPI.414
+                GPI32POLYLINE                    = PMGPI.415
+                GPI32POLYMARKER                  = PMGPI.416
+                GPI32POLYSPLINE                  = PMGPI.417
+                GPI32POP                         = PMGPI.418
+                GPI32PTINREGION                  = PMGPI.419
+                GPI32PTVISIBLE                   = PMGPI.420
+                GPI32PUTDATA                     = PMGPI.421
+                GPI32QUERYARCPARAMS              = PMGPI.422
+                GPI32QUERYATTRMODE               = PMGPI.423
+                GPI32QUERYBACKCOLOR              = PMGPI.424
+                GPI32QUERYBACKMIX                = PMGPI.425
+                GPI32QUERYBITMAPDIMENSION        = PMGPI.426
+                GPI32QUERYBITMAPHANDLE           = PMGPI.427
+                GPI32QUERYBOUNDARYDATA           = PMGPI.428
+                GPI32QUERYCHARANGLE              = PMGPI.429
+                GPI32QUERYCHARBOX                = PMGPI.430
+                GPI32QUERYCHARDIRECTION          = PMGPI.431
+                GPI32QUERYCHARMODE               = PMGPI.432
+                GPI32QUERYCHARSET                = PMGPI.433
+                GPI32QUERYCHARSHEAR              = PMGPI.434
+                GPI32QUERYCLIPBOX                = PMGPI.435
+                GPI32QUERYCLIPREGION             = PMGPI.436
+                GPI32QUERYCOLOR                  = PMGPI.437
+                GPI32QUERYCOLORDATA              = PMGPI.438
+                GPI32QUERYCOLORINDEX             = PMGPI.439
+                GPI32QUERYCP                     = PMGPI.440
+                GPI32QUERYCURRENTPOSITION        = PMGPI.441
+                GPI32QUERYDEFCHARBOX             = PMGPI.442
+                GPI32QUERYDEFAULTVIEWMATRIX      = PMGPI.443
+                GPI32QUERYDEVICE                 = PMGPI.444
+                GPI32QUERYDEVICEBITMAPFORMATS    = PMGPI.445
+                GPI32QUERYDRAWCONTROL            = PMGPI.446
+                GPI32QUERYDRAWINGMODE            = PMGPI.447
+                GPI32QUERYEDITMODE               = PMGPI.448
+                GPI32QUERYELEMENT                = PMGPI.449
+                GPI32QUERYELEMENTPOINTER         = PMGPI.450
+                GPI32QUERYELEMENTTYPE            = PMGPI.451
+                GPI32QUERYFONTFILEDESCRIPTIONS   = PMGPI.452
+                GPI32QUERYFONTMETRICS            = PMGPI.453
+                GPI32QUERYGRAPHICSFIELD          = PMGPI.454
+                GPI32QUERYINITIALSEGMENTATTRS    = PMGPI.455
+                GPI32QUERYKERNINGPAIRS           = PMGPI.456
+                GPI32QUERYLINEEND                = PMGPI.457
+                GPI32QUERYLINEJOIN               = PMGPI.458
+                GPI32QUERYLINETYPE               = PMGPI.459
+                GPI32QUERYLINEWIDTH              = PMGPI.460
+                GPI32QUERYLINEWIDTHGEOM          = PMGPI.461
+                GPI32QUERYMARKER                 = PMGPI.462
+                GPI32QUERYMARKERBOX              = PMGPI.463
+                GPI32QUERYMARKERSET              = PMGPI.464
+                GPI32QUERYMETAFILEBITS           = PMGPI.465
+                GPI32QUERYMETAFILELENGTH         = PMGPI.466
+                GPI32QUERYMIX                    = PMGPI.467
+                GPI32QUERYMODELTRANSFORMMATRIX   = PMGPI.468
+                GPI32QUERYNEARESTCOLOR           = PMGPI.469
+                GPI32QUERYNUMBERSETIDS           = PMGPI.470
+                GPI32QUERYPS                     = PMGPI.471
+                GPI32QUERYPAGEVIEWPORT           = PMGPI.472
+                GPI32QUERYPATTERN                = PMGPI.473
+                GPI32QUERYPATTERNREFPOINT        = PMGPI.474
+                GPI32QUERYPATTERNSET             = PMGPI.475
+                GPI32QUERYPEL                    = PMGPI.476
+                GPI32QUERYPICKAPERTUREPOSITION   = PMGPI.477
+                GPI32QUERYPICKAPERTURESIZE       = PMGPI.478
+                GPI32QUERYRGBCOLOR               = PMGPI.479
+                GPI32QUERYREALCOLORS             = PMGPI.480
+                GPI32QUERYREGIONBOX              = PMGPI.481
+                GPI32QUERYSEGMENTATTRS           = PMGPI.482
+                GPI32QUERYSEGMENTNAMES           = PMGPI.483
+                GPI32QUERYSEGMENTPRIORITY        = PMGPI.484
+                GPI32QUERYSEGMENTTRANSFORMMATRIX = PMGPI.485
+                GPI32QUERYSETIDS                 = PMGPI.486
+                GPI32QUERYSTOPDRAW               = PMGPI.487
+                GPI32QUERYTAG                    = PMGPI.488
+                GPI32QUERYTEXTBOX                = PMGPI.489
+                GPI32QUERYVIEWINGLIMITS          = PMGPI.490
+                GPI32QUERYVIEWINGTRANSFORMMATRIX = PMGPI.491
+                GPI32QUERYWIDTHTABLE             = PMGPI.492
+                GPI32RECTINREGION                = PMGPI.494
+                GPI32RECTVISIBLE                 = PMGPI.495
+                GPI32REMOVEDYNAMICS              = PMGPI.496
+                GPI32RESETBOUNDARYDATA           = PMGPI.497
+                GPI32RESETPS                     = PMGPI.498
+                GPI32RESTOREPS                   = PMGPI.499
+                GPI32SAVEMETAFILE                = PMGPI.500
+                GPI32SAVEPS                      = PMGPI.501
+                GPI32SETARCPARAMS                = PMGPI.502
+                GPI32SETATTRMODE                 = PMGPI.503
+                GPI32SETBACKCOLOR                = PMGPI.504
+                GPI32SETBACKMIX                  = PMGPI.505
+                GPI32SETBITMAP                   = PMGPI.506
+                GPI32SETBITMAPDIMENSION          = PMGPI.507
+                GPI32SETBITMAPID                 = PMGPI.508
+                GPI32SETCHARANGLE                = PMGPI.509
+                GPI32SETCHARBOX                  = PMGPI.510
+                GPI32SETCHARDIRECTION            = PMGPI.511
+                GPI32SETCHARMODE                 = PMGPI.512
+                GPI32SETCHARSET                  = PMGPI.513
+                GPI32SETCHARSHEAR                = PMGPI.514
+                GPI32SETCLIPPATH                 = PMGPI.515
+                GPI32SETCLIPREGION               = PMGPI.516
+                GPI32SETCOLOR                    = PMGPI.517
+                GPI32SETCP                       = PMGPI.518
+                GPI32SETCURRENTPOSITION          = PMGPI.519
+                GPI32SETDEFAULTVIEWMATRIX        = PMGPI.520
+                GPI32SETDRAWCONTROL              = PMGPI.521
+                GPI32SETDRAWINGMODE              = PMGPI.522
+                GPI32SETEDITMODE                 = PMGPI.523
+                GPI32SETELEMENTPOINTER           = PMGPI.524
+                GPI32SETELEMENTPOINTERATLABEL    = PMGPI.525
+                GPI32SETGRAPHICSFIELD            = PMGPI.526
+                GPI32SETINITIALSEGMENTATTRS      = PMGPI.527
+                GPI32SETLINEEND                  = PMGPI.528
+                GPI32SETLINEJOIN                 = PMGPI.529
+                GPI32SETLINETYPE                 = PMGPI.530
+                GPI32SETLINEWIDTH                = PMGPI.531
+                GPI32SETLINEWIDTHGEOM            = PMGPI.532
+                GPI32SETMARKER                   = PMGPI.533
+                GPI32SETMARKERBOX                = PMGPI.534
+                GPI32SETMARKERSET                = PMGPI.535
+                GPI32SETMETAFILEBITS             = PMGPI.536
+                GPI32SETMIX                      = PMGPI.537
+                GPI32SETMODELTRANSFORMMATRIX     = PMGPI.538
+                GPI32SETPS                       = PMGPI.539
+                GPI32SETPAGEVIEWPORT             = PMGPI.540
+                GPI32SETPATTERN                  = PMGPI.541
+                GPI32SETPATTERNREFPOINT          = PMGPI.542
+                GPI32SETPATTERNSET               = PMGPI.543
+                GPI32SETPEL                      = PMGPI.544
+                GPI32SETPICKAPERTUREPOSITION     = PMGPI.545
+                GPI32SETREGION                   = PMGPI.546
+                GPI32SETSEGMENTATTRS             = PMGPI.547
+                GPI32SETSEGMENTPRIORITY          = PMGPI.548
+                GPI32SETSEGMENTTRANSFORMMATRIX   = PMGPI.549
+                GPI32SETSTOPDRAW                 = PMGPI.550
+                GPI32SETTAG                      = PMGPI.551
+                GPI32SETVIEWINGLIMITS            = PMGPI.552
+                GPI32SETVIEWINGTRANSFORMMATRIX   = PMGPI.553
+                GPI32STROKEPATH                  = PMGPI.554
+                GPI32UNLOADFONTS                 = PMGPI.555
+                GPI32WCBITBLT                    = PMGPI.557
+                GPI32POLYLINEDISJOINT            = PMGPI.558
+                GPI32PATHTOREGION                = PMGPI.559
+                GPI32FLOODFILL                   = PMGPI.560
+                GPI32SUSPENDPLAY                 = PMGPI.561
+                GPI32RESUMEPLAY                  = PMGPI.562
+                GPI32OUTLINEPATH                 = PMGPI.563
+                GPI32TRANSLATE                   = PMGPI.564
+                GPI32SCALE                       = PMGPI.565
+                GPI32ROTATE                      = PMGPI.566
+                GPI32QUERYDEFARCPARAMS           = PMGPI.567
+                GPI32QUERYDEFTAG                 = PMGPI.568
+                GPI32QUERYDEFVIEWINGLIMITS       = PMGPI.569
+                GPI32SETDEFARCPARAMS             = PMGPI.570
+                GPI32SETDEFTAG                   = PMGPI.571
+                GPI32SETDEFVIEWINGLIMITS         = PMGPI.572
+                GPI32QUERYBITMAPPARAMETERS       = PMGPI.573
+                GPI32QUERYLOGICALFONT            = PMGPI.574
+                GPI32QUERYFACESTRING             = PMGPI.575
+                GPI32QUERYFONTACTION             = PMGPI.576
+                GPI32DELETEPALETTE               = PMGPI.577
+                GPI32SELECTPALETTE               = PMGPI.578
+                GPI32QUERYPALETTE                = PMGPI.579
+                GPI32CHARSTRINGPOS               = PMGPI.580
+                GPI32CHARSTRINGPOSAT             = PMGPI.581
+                GPI32CORRELATESEGMENT            = PMGPI.582
+                GPI32QUERYATTRS                  = PMGPI.583
+                GPI32QUERYCHARSTRINGPOS          = PMGPI.584
+                GPI32QUERYCHARSTRINGPOSAT        = PMGPI.585
+                GPI32QUERYFONTS                  = PMGPI.586
+                GPI32QUERYREGIONRECTS            = PMGPI.587
+                GPI32SETATTRS                    = PMGPI.588
+                GPI32SETPICKAPERTURESIZE         = PMGPI.589
+                GPI32QUERYDEFATTRS               = PMGPI.590
+                GPI32SETDEFATTRS                 = PMGPI.591
+                GPI32CREATELOGCOLORTABLE         = PMGPI.592
+                GPI32QUERYLOGCOLORTABLE          = PMGPI.593
+                GPI32CREATEPALETTE               = PMGPI.594
+                GPI32ANIMATEPALETTE              = PMGPI.595
+                GPI32SETPALETTEENTRIES           = PMGPI.596
+                GPI32QUERYPALETTEINFO            = PMGPI.597
+                GPI32CREATEBITMAP                = PMGPI.598
+                GPI32QUERYBITMAPBITS             = PMGPI.599
+                GPI32QUERYBITMAPINFOHEADER       = PMGPI.601
+                GPI32SETBITMAPBITS               = PMGPI.602
+                GPI32DRAWBITS                    = PMGPI.603
+                DEV32CLOSEDC                     = PMGPI.604
+                DEV32ESCAPE                      = PMGPI.605
+                DEV32QUERYCAPS                   = PMGPI.606
+                DEV32QUERYDEVICENAMES            = PMGPI.607
+                DEV32QUERYHARDCOPYCAPS           = PMGPI.608
+                DEV32POSTDEVICEMODES             = PMGPI.609
+                DEV32OPENDC                      = PMGPI.610
+                GPI32DESTROYREGION               = PMGPI.611
+                GPI32PARTIALARC                  = PMGPI.612
+                GPI32QUERYCHAREXTRA              = PMGPI.613
+                GPI32SETCHAREXTRA                = PMGPI.614
+                GPI32QUERYCHARBREAKEXTRA         = PMGPI.615
+                GPI32SETCHARBREAKEXTRA           = PMGPI.616
+                GPI32FRAMEREGION                 = PMGPI.617
+                GPI32CONVERTWITHMATRIX           = PMGPI.618
+                GPI32SETDCOWNER                  = PMGPI.619
+                GPI32SETBITMAPOWNER              = PMGPI.620
+                GPI32SETREGIONOWNER              = PMGPI.621
+                GPI32LOADPUBLICFONTS             = PMGPI.622
+                GPI32UNLOADPUBLICFONTS           = PMGPI.623
+                GPI32INSTALLIFIFONT              = PMGPI.624
+;               DEV32STDOPEN                     = PMGPI.625
+                GPI32VECTORSYMBOL                = PMGPI.626
+                GPI32OPENMETAFILE                = PMGPI.627
+                GPI32CLOSEMETAFILE               = PMGPI.628
+                GPI32CONVPSH                     = PMGPI.629
+                SEG32SGWOPENSEGMENTWINDOW        = PMGPI.630
+                MT32ENDREADREQUEST               = PMGPI.631
+                MT32GETDESCRIPTION               = PMGPI.632
+                MT32GETCODEPAGE                  = PMGPI.633
+                MT32GETLCT                       = PMGPI.634
+                MT32GETGDDINFO                   = PMGPI.635
+                FMT32CONVERTGOCAPOLY             = PMGPI.636
+                MT32GETFIRSTFONT                 = PMGPI.637
+                SEG32SGWNEWPARTDATA              = PMGPI.638
+                MT32STARTREADREQUEST             = PMGPI.639
+                MT32GETFIRSTGRAPHICSDATA         = PMGPI.640
+                MT32GETNEXTFONT                  = PMGPI.641
+                MT32GETNEXTGRAPHICSDATA          = PMGPI.642
+                GPI32ACCESSMETAFILE              = PMGPI.643
+                GPI32MTASSOCIATE                 = PMGPI.644
+                GPI32MTDISASSOCIATE              = PMGPI.645
+                SEG32SGWNEXTORDERF               = PMGPI.646
+                GPI32QUERYTEXTALIGNMENT          = PMGPI.648
+                GPI32SETTEXTALIGNMENT            = PMGPI.649
+                GPI32POLYGONS                    = PMGPI.650
+                DSP32SETDRIVERINFO               = PMGPI.651
+                DSP32QUERYDRIVERINFO             = PMGPI.652
+                DSP32QUERYDRIVERNAMES            = PMGPI.653
+                DSP32DEFAULTRESOLUTION           = PMGPI.654
+                DEV32QUERYDISPLAYRESOLUTIONS     = PMGPI.655
+                DSP32INITSYSTEMDRIVERNAME        = PMGPI.656
+                GPI32QUERYFULLFONTFILEDESCS      = PMGPI.657
+;               GPI32QUERYTABBEDTEXTEXTENT       = PMGPI.658
+;               GPI32TABBEDCHARSTRINGAT          = PMGPI.659
+;               GPI32QUERYRASTERIZERCAPS         = PMGPI.660
+;               GPI32CREATEROUNDRECTREGION       = PMGPI.661
+;               GPI32CREATEELLIPTICREGION        = PMGPI.662
+;               GPI32CREATEPOLYGONREGION         = PMGPI.663
+                GPI32ALLOCATEDCDATA              = PMGPI.664
+                GPI32QUERYDCDATA                 = PMGPI.665
+;               GPI32RESIZEPALETTE               = PMGPI.666
+;               GPI32QUERYNEARESTPALETTEINDEX    = PMGPI.667
+;               GPI32SETFONTMAPPINGFLAGS         = PMGPI.668
+;               GPI32QUERYFONTMAPPINGFLAGS       = PMGPI.669
+;               GPIBEGININKPATH                  = PMGPI.670
+;               GPIENDINKPATH                    = PMGPI.671
+;               GPISTROKEINKPATH                 = PMGPI.672
+                PAXGETPOLYFILLMODE               = PMGPI.700
+                PAXSETPOLYFILLMODE               = PMGPI.701
+                PAXBEGINPATH                     = PMGPI.703
+                PAXCLOSEFIGURE                   = PMGPI.704
+                PAXENDPATH                       = PMGPI.705
+                PAXFILLPATH                      = PMGPI.706
+                PAXFLATTENPATH                   = PMGPI.707
+                PAXPATHTOREGION                  = PMGPI.710
+                PAXSTROKEANDFILLPATH             = PMGPI.712
+                PAXSTROKEPATH                    = PMGPI.713
+                PAXWIDENPATH                     = PMGPI.714
+                PAXARC                           = PMGPI.715
+                PAXCHORD                         = PMGPI.716
+                PAXELLIPSE                       = PMGPI.717
+                PAXLINEDDA                       = PMGPI.718
+                PAXPIE                           = PMGPI.719
+                PAXPOLYBEZIER                    = PMGPI.720
+                PAXPOLYBEZIERAT                  = PMGPI.721
+                GPI32ABORTPATH                   = PMGPI.722
+                GPI32ENABLEYINVERSION            = PMGPI.723
+                GPI32QUERYMITRELIMIT             = PMGPI.724
+                GPI32QUERYPATH                   = PMGPI.725
+                GPI32QUERYYINVERSION             = PMGPI.726
+                GPI32SETMITRELIMIT               = PMGPI.727
+                GPI32SAVEMETAFILE2               = PMGPI.728
+;               DEVPOSTESCAPE                    = PMGPI.729
+;               GPI32OVAL                        = PMGPI.730

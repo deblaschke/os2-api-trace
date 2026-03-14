@@ -1,0 +1,82 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_MOU___.I16                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL MOUCALLS module definitions file    ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.19 01May97 Added 16-bit Mou APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_MOU___ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL MOUCALLS Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_mou___0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                MOUGETPTRSHAPE   = TRC_MOU16GETPTRSHAPE   @ 1 RESIDENTNAME
+                MOUSETPTRSHAPE   = TRC_MOU16SETPTRSHAPE   @ 2 RESIDENTNAME
+                MOUGETNUMMICKEYS = TRC_MOU16GETNUMMICKEYS @ 3 RESIDENTNAME
+                                   MOUGETHOTKEY           @ 4 RESIDENTNAME
+                                   MOUSHELLINIT           @ 5 NONAME
+                MOUGETSCALEFACT  = TRC_MOU16GETSCALEFACT  @ 6 RESIDENTNAME
+                MOUFLUSHQUE      = TRC_MOU16FLUSHQUE      @ 7 RESIDENTNAME
+                MOUGETNUMBUTTONS = TRC_MOU16GETNUMBUTTONS @ 8 RESIDENTNAME
+                MOUCLOSE         = TRC_MOU16CLOSE         @ 9 RESIDENTNAME
+                                   MOUSETHOTKEY           @10 RESIDENTNAME
+                MOUSETSCALEFACT  = TRC_MOU16SETSCALEFACT  @11 RESIDENTNAME
+                MOUGETNUMQUEEL   = TRC_MOU16GETNUMQUEEL   @13 RESIDENTNAME
+                MOUDEREGISTER    = TRC_MOU16DEREGISTER    @14 RESIDENTNAME
+                MOUGETEVENTMASK  = TRC_MOU16GETEVENTMASK  @15 RESIDENTNAME
+                MOUSETEVENTMASK  = TRC_MOU16SETEVENTMASK  @16 RESIDENTNAME
+                MOUOPEN          = TRC_MOU16OPEN          @17 RESIDENTNAME
+                MOUREMOVEPTR     = TRC_MOU16REMOVEPTR     @18 RESIDENTNAME
+                MOUGETPTRPOS     = TRC_MOU16GETPTRPOS     @19 RESIDENTNAME
+                MOUREADEVENTQUE  = TRC_MOU16READEVENTQUE  @20 RESIDENTNAME
+                MOUSETPTRPOS     = TRC_MOU16SETPTRPOS     @21 RESIDENTNAME
+                MOUGETDEVSTATUS  = TRC_MOU16GETDEVSTATUS  @22 RESIDENTNAME
+                MOUSYNCH         = TRC_MOU16SYNCH         @23 RESIDENTNAME
+                MOUREGISTER      = TRC_MOU16REGISTER      @24 RESIDENTNAME
+                MOUSETDEVSTATUS  = TRC_MOU16SETDEVSTATUS  @25 RESIDENTNAME
+                MOUDRAWPTR       = TRC_MOU16DRAWPTR       @26 RESIDENTNAME
+                MOUINITREAL      = TRC_MOU16INITREAL      @27 RESIDENTNAME
+                MOUGETTHRESHOLD  = TRC_MOU16GETTHRESHOLD  @29 RESIDENTNAME
+                MOUSETTHRESHOLD  = TRC_MOU16SETTHRESHOLD  @30 RESIDENTNAME
+IMPORTS
+                MOUGETPTRSHAPE   = MOUCALLS. 1
+                MOUSETPTRSHAPE   = MOUCALLS. 2
+                MOUGETNUMMICKEYS = MOUCALLS. 3
+                MOUGETHOTKEY     = MOUCALLS. 4
+                MOUSHELLINIT     = MOUCALLS. 5
+                MOUGETSCALEFACT  = MOUCALLS. 6
+                MOUFLUSHQUE      = MOUCALLS. 7
+                MOUGETNUMBUTTONS = MOUCALLS. 8
+                MOUCLOSE         = MOUCALLS. 9
+                MOUSETHOTKEY     = MOUCALLS.10
+                MOUSETSCALEFACT  = MOUCALLS.11
+                MOUGETNUMQUEEL   = MOUCALLS.13
+                MOUDEREGISTER    = MOUCALLS.14
+                MOUGETEVENTMASK  = MOUCALLS.15
+                MOUSETEVENTMASK  = MOUCALLS.16
+                MOUOPEN          = MOUCALLS.17
+                MOUREMOVEPTR     = MOUCALLS.18
+                MOUGETPTRPOS     = MOUCALLS.19
+                MOUREADEVENTQUE  = MOUCALLS.20
+                MOUSETPTRPOS     = MOUCALLS.21
+                MOUGETDEVSTATUS  = MOUCALLS.22
+                MOUSYNCH         = MOUCALLS.23
+                MOUREGISTER      = MOUCALLS.24
+                MOUSETDEVSTATUS  = MOUCALLS.25
+                MOUDRAWPTR       = MOUCALLS.26
+                MOUINITREAL      = MOUCALLS.27
+                MOUGETTHRESHOLD  = MOUCALLS.29
+                MOUSETTHRESHOLD  = MOUCALLS.30

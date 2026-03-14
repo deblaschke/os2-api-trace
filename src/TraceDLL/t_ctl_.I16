@@ -1,0 +1,601 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_CTL_.I16                                                   ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMCTLS module definitions file      ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.03 20Jul95 Added 32-bit Win APIs                        ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.30.21 13Dec95 Forwarded private entry table ordinals       ;
+;                 2.40.00 05Sep96 Added new OS/2 2.40 APIs                     ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.45.03 02May99 Added   support  for   Drg  APIs  in  PMDRAG ;
+;                                 exported by PMCTLS                           ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_CTL_ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMCTLS Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+EXPORTS
+                                                  PMCTLSORD1                              @  1 RESIDENTNAME
+                WINFONTDLG                      = Trc_Win32FontDlg                        @  2 RESIDENTNAME
+                WINDEFFONTDLGPROC               = Trc_Win32DefFontDlgProc                 @  3 RESIDENTNAME
+                WINFILEDLG                      = Trc_Win32FileDlg                        @  4 RESIDENTNAME
+                WINDEFFILEDLGPROC               = Trc_Win32DefFileDlgProc                 @  5 RESIDENTNAME
+                WINFREEFILEDLGLIST              = Trc_Win32FreeFileDlgList                @  6 RESIDENTNAME
+                                                  REGISTERBOOK                            @  7 RESIDENTNAME
+                                                  REGISTERVALUESET                        @  8 RESIDENTNAME
+                                                  REGISTERSLIDER                          @  9 RESIDENTNAME
+                                                  INITCONTAINER                           @ 10 RESIDENTNAME
+                                                  REGISTERSPINBUTTON                      @ 11 RESIDENTNAME
+                                                  BOOKWNDPROC                             @ 12 RESIDENTNAME
+                                                  CNRGATEPROC                             @ 13 RESIDENTNAME
+                                                  VALUESETWNDPROC                         @ 14 RESIDENTNAME
+                                                  SLIDERWNDPROC                           @ 15 RESIDENTNAME
+                                                  SPINBUTTONWNDPROC                       @ 16 RESIDENTNAME
+                                                  ALLOCHEAPMEM                            @ 17 RESIDENTNAME
+                                                  FREEHEAPMEM                             @ 18 RESIDENTNAME
+                                                  CNRCREATENLSDATESTRING                  @ 19 RESIDENTNAME
+                                                  CNRCREATENLSTIMESTRING                  @ 20 RESIDENTNAME
+                                                  CNRCREATENLSNUMBERSTRING                @ 21 RESIDENTNAME
+                                                  XALLOCHEAPMEM                           @ 22 RESIDENTNAME
+                                                  REGISTERDIAL                            @ 23 RESIDENTNAME ; OS2VER 230
+                WINREGISTERCIRCULARSLIDER       = Trc_Win32RegisterCircularSlider         @ 24 RESIDENTNAME ; OS2VER 230
+                                                  MLE_INITIALIZE                          @ 31 NONAME       ; OS2VER 230
+                                                  MULTILINEEDITPROC                       @ 32 NONAME       ; OS2VER 230
+                                                  BDMULTILINEEDITPROC                     @ 33 NONAME       ; OS2VER 240
+                                                  DRG16ACCESSDRAGINFO                     @ 41 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16ADDSTRHANDLE                       @ 42 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16ALLOCDRAGINFO                      @ 43 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16ALLOCDRAGTRANSFER                  @ 44 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16DELETEDRAGINFOSTRHANDLES           @ 45 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16DELETESTRHANDLE                    @ 46 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16DRAG                               @ 47 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16FREEDRAGINFO                       @ 48 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16FREEDRAGTRANSFER                   @ 49 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16GETPS                              @ 50 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16POSTTRANSFERMSG                    @ 51 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16PUSHDRAGINFO                       @ 52 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16QUERYDRAGITEM                      @ 53 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16QUERYDRAGITEMCOUNT                 @ 54 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16QUERYDRAGITEMPTR                   @ 55 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16QUERYNATIVERMF                     @ 56 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16QUERYNATIVERMFLEN                  @ 57 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16QUERYSTRNAME                       @ 58 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16QUERYSTRNAMELEN                    @ 59 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16QUERYTRUETYPE                      @ 60 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16QUERYTRUETYPELEN                   @ 61 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16RELEASEPS                          @ 62 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16SENDTRANSFERMSG                    @ 63 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16SETDRAGPOINTER                     @ 64 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16SETDRAGIMAGE                       @ 65 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16SETDRAGITEM                        @ 66 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16VERIFYNATIVERMF                    @ 67 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16VERIFYRMF                          @ 68 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16VERIFYTRUETYPE                     @ 69 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16VERIFYTYPE                         @ 70 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16VERIFYTYPESET                      @ 71 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16DRAGFILES                          @ 72 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRG16ACCEPTDROPPEDFILES                 @ 73 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGACCESSDRAGINFO                       @ 74 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGADDSTRHANDLE                         @ 75 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGALLOCDRAGINFO                        @ 76 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGALLOCDRAGTRANSFER                    @ 77 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGDELETEDRAGINFOSTRHANDLES             @ 78 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGDELETESTRHANDLE                      @ 79 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGDRAG                                 @ 80 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGFREEDRAGINFO                         @ 81 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGFREEDRAGTRANSFER                     @ 82 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGGETPS                                @ 83 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGPOSTTRANSFERMSG                      @ 84 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGPUSHDRAGINFO                         @ 85 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYDRAGITEM                        @ 86 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYDRAGITEMCOUNT                   @ 87 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYDRAGITEMPTR                     @ 88 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYNATIVERMF                       @ 89 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYNATIVERMFLEN                    @ 90 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYSTRNAME                         @ 91 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYSTRNAMELEN                      @ 92 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYTRUETYPE                        @ 93 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYTRUETYPELEN                     @ 94 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGRELEASEPS                            @ 95 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGSENDTRANSFERMSG                      @ 96 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGSETDRAGPOINTER                       @ 97 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGSETDRAGIMAGE                         @ 98 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGSETDRAGITEM                          @ 99 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGVERIFYNATIVERMF                      @100 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGVERIFYRMF                            @101 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGVERIFYTRUETYPE                       @102 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGVERIFYTYPE                           @103 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGVERIFYTYPESET                        @104 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGDRAGFILES                            @105 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGACCEPTDROPPEDFILES                   @106 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYFORMAT                          @107 NONAME       ; OS2VER 240 Forwarded to PMDRAG
+                                                  DRGGETCLIPPS                            @108 NONAME       ; OS2VER 240
+                                                  DM_CHLOCTOIPT                           @110 NONAME       ; OS2VER 230
+                                                  DM_CHECKHORZLIMIT                       @111 NONAME       ; OS2VER 230
+                                                  DM_CHECKVERTLIMIT                       @112 NONAME       ; OS2VER 230
+                                                  DM_DISPLAY                              @113 NONAME       ; OS2VER 230
+                                                  DM_DRAWBORDER                           @114 NONAME       ; OS2VER 230
+                                                  DM_FILLMARGINS                          @115 NONAME       ; OS2VER 230
+                                                  DM_GETERRLIMIT                          @116 NONAME       ; OS2VER 230
+                                                  DM_GETFONTINFO                          @117 NONAME       ; OS2VER 230
+                                                  DM_GETFORMATLEN                         @118 NONAME       ; OS2VER 230
+                                                  DM_GETLINEPELS                          @119 NONAME       ; OS2VER 230
+                                                  DM_GETPRINTSTRING                       @120 NONAME       ; OS2VER 230
+                                                  DM_HSCROLL                              @121 NONAME       ; OS2VER 230
+                                                  DM_HILITSEL                             @122 NONAME       ; OS2VER 230
+                                                  DM_INIT                                 @123 NONAME       ; OS2VER 230
+                                                  DM_ISNEWTEXTFIT                         @124 NONAME       ; OS2VER 230
+                                                  DM_ISSELECTED                           @125 NONAME       ; OS2VER 230
+                                                  DM_LOLITSEL                             @126 NONAME       ; OS2VER 230
+                                                  DM_PAINT                                @127 NONAME       ; OS2VER 230
+                                                  DM_PRINT                                @128 NONAME       ; OS2VER 230
+                                                  DM_PRINTALINE                           @129 NONAME       ; OS2VER 230
+                                                  DM_PRINTLINES                           @130 NONAME       ; OS2VER 230
+                                                  DM_QUERYSELECTION                       @131 NONAME       ; OS2VER 230
+                                                  DM_REFLOWDISPLAY                        @132 NONAME       ; OS2VER 230
+                                                  DM_REFLOWTHEREST                        @133 NONAME       ; OS2VER 230
+                                                  DM_REMOVEDELLINES                       @134 NONAME       ; OS2VER 230
+                                                  DM_RETURNPAINT                          @135 NONAME       ; OS2VER 230
+                                                  DM_SELVIEWCHECK                         @136 NONAME       ; OS2VER 230
+                                                  DM_SETCLIPREGION                        @137 NONAME       ; OS2VER 230
+                                                  DM_SETFORMATRECT                        @138 NONAME       ; OS2VER 230
+                                                  DM_SETSELECTION                         @139 NONAME       ; OS2VER 230
+                                                  DM_SETWORDWRAP                          @140 NONAME       ; OS2VER 230
+                                                  DM_UPDATESEL                            @141 NONAME       ; OS2VER 230
+                                                  DM_UPDATEVIEW                           @142 NONAME       ; OS2VER 230
+                                                  DM_VSCROLL                              @143 NONAME       ; OS2VER 230
+                                                  DM_VSHIFT                               @144 NONAME       ; OS2VER 230
+                                                  DM_WIPESELECTION                        @145 NONAME       ; OS2VER 230
+                                                  DM_XFORMAT                              @146 NONAME       ; OS2VER 230
+                                                  DT_ADDLINE                              @147 NONAME       ; OS2VER 230
+                                                  DT_ADJUSTANCHOR                         @148 NONAME       ; OS2VER 230
+                                                  DT_ADJUSTBREAKPOINT                     @149 NONAME       ; OS2VER 230
+                                                  DT_ASSERT                               @150 NONAME       ; OS2VER 230
+                                                  DT_CHFROMLINE                           @151 NONAME       ; OS2VER 230
+                                                  DT_CMPLOC                               @152 NONAME       ; OS2VER 230
+                                                  DT_DLTOIPT                              @153 NONAME       ; OS2VER 230
+                                                  DT_DROPLINE                             @154 NONAME       ; OS2VER 230
+                                                  DT_ENDSEL                               @155 NONAME       ; OS2VER 230
+                                                  DT_FIRSTDLOFNEXTEL                      @156 NONAME       ; OS2VER 230
+                                                  DT_FLUSHDISPLAYTEXT                     @157 NONAME       ; OS2VER 230
+                                                  DT_GETBOTFROMTOP                        @158 NONAME       ; OS2VER 230
+                                                  DT_GETDLFROMNUM                         @159 NONAME       ; OS2VER 230
+                                                  DT_GETDLFROMOFFSET                      @160 NONAME       ; OS2VER 230
+                                                  DT_GETLASTDLOFEL                        @161 NONAME       ; OS2VER 230
+                                                  DT_GETLINE                              @162 NONAME       ; OS2VER 230
+                                                  DT_GETTOKEN                             @163 NONAME       ; OS2VER 230
+                                                  DT_GETTOPFROMDL                         @164 NONAME       ; OS2VER 230
+                                                  DT_HORZMOVECURSOR                       @165 NONAME       ; OS2VER 230
+                                                  DT_IPTTODL                              @166 NONAME       ; OS2VER 230
+                                                  DT_INIT                                 @167 NONAME       ; OS2VER 230
+                                                  DT_ISEQUAL                              @168 NONAME       ; OS2VER 230
+                                                  DT_LINEFROMCHAR                         @169 NONAME       ; OS2VER 230
+                                                  DT_PATCHLINES                           @170 NONAME       ; OS2VER 230
+                                                  DT_POPDL                                @171 NONAME       ; OS2VER 230
+                                                  DT_PUSHDL                               @172 NONAME       ; OS2VER 230
+                                                  DT_QUERYFIRSTCH                         @173 NONAME       ; OS2VER 230
+                                                  DT_QUERYLINELEN                         @174 NONAME       ; OS2VER 230
+                                                  DT_QUERYSELTEXT                         @175 NONAME       ; OS2VER 230
+                                                  DT_REFLOWALINE                          @176 NONAME       ; OS2VER 230
+                                                  DT_REFLOWLINES                          @177 NONAME       ; OS2VER 230
+                                                  DT_REMOVESELECTION                      @178 NONAME       ; OS2VER 230
+                                                  DT_RESTOREDTSTAT                        @179 NONAME       ; OS2VER 230
+                                                  DT_SAVEDTSTAT                           @180 NONAME       ; OS2VER 230
+                                                  DT_SETFIRSTCH                           @181 NONAME       ; OS2VER 230
+                                                  DT_SETTEXTLIMIT                         @182 NONAME       ; OS2VER 230
+                                                  DT_STARTSEL                             @183 NONAME       ; OS2VER 230
+                                                  DT_SWAP                                 @184 NONAME       ; OS2VER 230
+                                                  DT_UPDATECURSOR                         @185 NONAME       ; OS2VER 230
+                                                  DT_UPDATEDL                             @186 NONAME       ; OS2VER 230
+                                                  DT_UPDATEEDITNUM                        @187 NONAME       ; OS2VER 230
+                                                  ET_ADDLINE                              @188 NONAME       ; OS2VER 230
+                                                  ET_DROPLINE                             @189 NONAME       ; OS2VER 230
+                                                  ET_FLUSHEDITTEXT                        @190 NONAME       ; OS2VER 230
+                                                  ET_GETLINE                              @191 NONAME       ; OS2VER 230
+                                                  ET_GETLINELEN                           @192 NONAME       ; OS2VER 230
+                                                  ET_INIT                                 @193 NONAME       ; OS2VER 230
+                                                  ET_INSERT                               @194 NONAME       ; OS2VER 230
+                                                  ET_PATCHLINES                           @195 NONAME       ; OS2VER 230
+                                                  ET_POPEL                                @196 NONAME       ; OS2VER 230
+                                                  ET_PUSHEL                               @197 NONAME       ; OS2VER 230
+                                                  ET_REMOVE                               @198 NONAME       ; OS2VER 230
+                                                  ET_SETTEXT                              @199 NONAME       ; OS2VER 230
+                                                  ET_UPDATEEL                             @200 NONAME       ; OS2VER 230
+                                                  IE_ADDTEXT                              @201 NONAME       ; OS2VER 230
+                                                  IE_COMPACTWINFMT                        @202 NONAME       ; OS2VER 230
+                                                  IE_DELETE                               @203 NONAME       ; OS2VER 230
+                                                  IE_EXPORT                               @204 NONAME       ; OS2VER 230
+                                                  IE_EXPORTWINFMT                         @205 NONAME       ; OS2VER 230
+                                                  IE_GETLINELEN                           @206 NONAME       ; OS2VER 230
+                                                  IE_GETSTARTPOS                          @207 NONAME       ; OS2VER 230
+                                                  IE_IPTTOEL                              @208 NONAME       ; OS2VER 230
+                                                  IE_IMPORT                               @209 NONAME       ; OS2VER 230
+                                                  IE_INSERTSTRING                         @210 NONAME       ; OS2VER 230
+                                                  IE_INSERTTEXT                           @211 NONAME       ; OS2VER 230
+                                                  IE_ISCREMBEDDED                         @212 NONAME       ; OS2VER 230
+                                                  IE_ISSLB                                @213 NONAME       ; OS2VER 230
+                                                  IE_NONWWLINE                            @214 NONAME       ; OS2VER 230
+                                                  IE_QUERYLINELEN                         @215 NONAME       ; OS2VER 230
+                                                  IE_QUERYTEXTLEN                         @216 NONAME       ; OS2VER 230
+                                                  MLEC_ADJUSTOFFSET                       @217 NONAME       ; OS2VER 230
+                                                  MLEC_BACKSPACE                          @218 NONAME       ; OS2VER 230
+                                                  MLEC_CHTOCX                             @219 NONAME       ; OS2VER 230
+                                                  MLEC_CHTOCY                             @220 NONAME       ; OS2VER 230
+                                                  MLEC_CHTOPT                             @221 NONAME       ; OS2VER 230
+                                                  MLEC_CLEAR                              @222 NONAME       ; OS2VER 230
+                                                  MLEC_COPY                               @223 NONAME       ; OS2VER 230
+                                                  MLEC_CREATECURSOR                       @224 NONAME       ; OS2VER 230
+                                                  MLEC_CREATEINSTANCE                     @225 NONAME       ; OS2VER 230
+                                                  MLEC_CXTOCH                             @226 NONAME       ; OS2VER 230
+                                                  MLEC_CYTODL                             @227 NONAME       ; OS2VER 230
+                                                  MLEC_DELKEY                             @228 NONAME       ; OS2VER 230
+                                                  MLEC_DESTROYCURSOR                      @229 NONAME       ; OS2VER 230
+                                                  MLEC_ENDHOMEKEYS                        @230 NONAME       ; OS2VER 230
+                                                  MLEC_GENTABS                            @231 NONAME       ; OS2VER 230
+                                                  MLEC_INIT                               @232 NONAME       ; OS2VER 230
+                                                  MLEC_INITDBCSEV                         @233 NONAME       ; OS2VER 230
+                                                  MLEC_INITPEN                            @234 NONAME       ; OS2VER 230
+                                                  MLEC_INITUNDO                           @235 NONAME       ; OS2VER 230
+                                                  MLEC_INSERTKEY                          @236 NONAME       ; OS2VER 230
+                                                  MLEC_ISDBCSBYTE                         @237 NONAME       ; OS2VER 230
+                                                  MLEC_ISMOUSEINMLE                       @238 NONAME       ; OS2VER 230
+                                                  MLEC_ISMOUSEINVIEW                      @239 NONAME       ; OS2VER 230
+                                                  MLEC_ISPTINMARGIN                       @240 NONAME       ; OS2VER 230
+                                                  MLEC_ISPTINRECT                         @241 NONAME       ; OS2VER 230
+                                                  MLEC_KEYBOARD                           @242 NONAME       ; OS2VER 230
+                                                  MLEC_LARROWKEY                          @243 NONAME       ; OS2VER 230
+                                                  MLEC_NBYTES                             @244 NONAME       ; OS2VER 230
+                                                  MLEC_NCHARS                             @245 NONAME       ; OS2VER 230
+                                                  MLEC_NEWLINE                            @246 NONAME       ; OS2VER 230
+                                                  MLEC_NEXTCHAR                           @247 NONAME       ; OS2VER 230
+                                                  MLEC_OTHERKEYS                          @248 NONAME       ; OS2VER 230
+                                                  MLEC_OVERTYPEDMODE                      @249 NONAME       ; OS2VER 230
+                                                  MLEC_PAGESCRL                           @250 NONAME       ; OS2VER 230
+                                                  MLEC_PASTE                              @251 NONAME       ; OS2VER 230
+                                                  MLEC_PERFORMUNDO                        @252 NONAME       ; OS2VER 230
+                                                  MLEC_POSTOWNERMSG                       @253 NONAME       ; OS2VER 230
+                                                  MLEC_PRESPARAMCHANGED                   @254 NONAME       ; OS2VER 230
+                                                  MLEC_PREVCHAR                           @255 NONAME       ; OS2VER 230
+                                                  MLEC_PTTOCH                             @256 NONAME       ; OS2VER 230
+                                                  MLEC_QUERYFONT                          @257 NONAME       ; OS2VER 230
+                                                  MLEC_QUERYPARAMS                        @258 NONAME       ; OS2VER 230
+                                                  MLEC_QUERYTEXT                          @259 NONAME       ; OS2VER 230
+                                                  MLEC_RARROWKEY                          @260 NONAME       ; OS2VER 230
+                                                  MLEC_SAVEREDO                           @261 NONAME       ; OS2VER 230
+                                                  MLEC_SAVEUNDO                           @262 NONAME       ; OS2VER 230
+                                                  MLEC_SEARCH                             @263 NONAME       ; OS2VER 230
+                                                  MLEC_SENDOWNERMSG                       @264 NONAME       ; OS2VER 230
+                                                  MLEC_SETFOCUS                           @265 NONAME       ; OS2VER 230
+                                                  MLEC_SETFONT                            @266 NONAME       ; OS2VER 230
+                                                  MLEC_SETPPFONT                          @267 NONAME       ; OS2VER 230
+                                                  MLEC_SETPARAMS                          @268 NONAME       ; OS2VER 230
+                                                  MLEC_SETRECT                            @269 NONAME       ; OS2VER 230
+                                                  MLEC_SETSYSVALUES                       @270 NONAME       ; OS2VER 230
+                                                  MLEC_SIZE                               @271 NONAME       ; OS2VER 230
+                                                  MLEC_STRLEN                             @272 NONAME       ; OS2VER 230
+                                                  MLEC_STRTOPIX                           @273 NONAME       ; OS2VER 230
+                                                  MLEC_STRWIDTH                           @274 NONAME       ; OS2VER 230
+                                                  MLEC_TRACKMOUSE                         @275 NONAME       ; OS2VER 230
+                                                  MLEC_UDARROWKEYS                        @276 NONAME       ; OS2VER 230
+                                                  MLEC_UPDATEHSB                          @277 NONAME       ; OS2VER 230
+                                                  MLEC_UPDATEVSB                          @278 NONAME       ; OS2VER 230
+                                                  REMOVENEWTEXT                           @279 NONAME       ; OS2VER 230
+                                                  REMOVEOLDTEXT                           @280 NONAME       ; OS2VER 230
+                                                  RESETREDO                               @281 NONAME       ; OS2VER 230
+                                                  RESTORENEWTEXT                          @282 NONAME       ; OS2VER 230
+                                                  RESTOREOLDTEXT                          @283 NONAME       ; OS2VER 230
+                                                  DRGLAZYDRAG                             @284 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGCANCELLAZYDRAG                       @285 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGLAZYDROP                             @286 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYDRAGINFOPTR                     @287 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYDRAGINFOPTRFROMHWND             @288 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYDRAGINFOPTRFROMDRAGITEM         @289 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGQUERYDRAGSTATUS                      @290 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  DRGREALLOCDRAGINFO                      @291 NONAME       ; OS2VER 230 Forwarded to PMDRAG
+                                                  PAXCHOOSEFONT                           @292 NONAME       ; OS2VER 240
+                                                  WINDEFCOLORDLGPROC                      @293 NONAME       ; OS2VER 240
+                                                  WINCOLORDLG                             @294 NONAME       ; OS2VER 240
+                                                  DAXOPENSAVE                             @295 NONAME       ; OS2VER 240
+                                                  WINFINDDLG                              @296 NONAME       ; OS2VER 240
+                                                  WINDEFFINDDLGPROC                       @297 NONAME       ; OS2VER 240
+                                                  WINREPLACEDLG                           @298 NONAME       ; OS2VER 240
+                                                  WINDEFREPLACEDLGPROC                    @299 NONAME       ; OS2VER 240
+                                                  WINPRINTDLG                             @300 NONAME       ; OS2VER 240
+                                                  WINDEFPRINTDLGPROC                      @301 NONAME       ; OS2VER 240
+IMPORTS
+                PMCTLSORD1                      = PMCTLS.  1
+                WINFONTDLG                      = PMCTLS.  2
+                WINDEFFONTDLGPROC               = PMCTLS.  3
+                WINFILEDLG                      = PMCTLS.  4
+                WINDEFFILEDLGPROC               = PMCTLS.  5
+                WINFREEFILEDLGLIST              = PMCTLS.  6
+                REGISTERBOOK                    = PMCTLS.  7
+                REGISTERVALUESET                = PMCTLS.  8
+                REGISTERSLIDER                  = PMCTLS.  9
+                INITCONTAINER                   = PMCTLS. 10
+                REGISTERSPINBUTTON              = PMCTLS. 11
+                BOOKWNDPROC                     = PMCTLS. 12
+                CNRGATEPROC                     = PMCTLS. 13
+                VALUESETWNDPROC                 = PMCTLS. 14
+                SLIDERWNDPROC                   = PMCTLS. 15
+                SPINBUTTONWNDPROC               = PMCTLS. 16
+                ALLOCHEAPMEM                    = PMCTLS. 17
+                FREEHEAPMEM                     = PMCTLS. 18
+                CNRCREATENLSDATESTRING          = PMCTLS. 19
+                CNRCREATENLSTIMESTRING          = PMCTLS. 20
+                CNRCREATENLSNUMBERSTRING        = PMCTLS. 21
+                XALLOCHEAPMEM                   = PMCTLS. 22
+                REGISTERDIAL                    = PMCTLS. 23
+;               WINREGISTERCIRCULARSLIDER       = PMCTLS. 24
+                MLE_INITIALIZE                  = PMCTLS. 31
+                MULTILINEEDITPROC               = PMCTLS. 32
+                BDMULTILINEEDITPROC             = PMCTLS. 33
+                DRG16ACCESSDRAGINFO             = T_DRG_.  1
+                DRG16ADDSTRHANDLE               = T_DRG_.  2
+                DRG16ALLOCDRAGINFO              = T_DRG_.  3
+                DRG16ALLOCDRAGTRANSFER          = T_DRG_.  4
+                DRG16DELETEDRAGINFOSTRHANDLES   = T_DRG_.  5
+                DRG16DELETESTRHANDLE            = T_DRG_.  6
+                DRG16DRAG                       = T_DRG_.  7
+                DRG16FREEDRAGINFO               = T_DRG_.  8
+                DRG16FREEDRAGTRANSFER           = T_DRG_.  9
+                DRG16GETPS                      = T_DRG_. 10
+                DRG16POSTTRANSFERMSG            = T_DRG_. 11
+                DRG16PUSHDRAGINFO               = T_DRG_. 12
+                DRG16QUERYDRAGITEM              = T_DRG_. 13
+                DRG16QUERYDRAGITEMCOUNT         = T_DRG_. 14
+                DRG16QUERYDRAGITEMPTR           = T_DRG_. 15
+                DRG16QUERYNATIVERMF             = T_DRG_. 16
+                DRG16QUERYNATIVERMFLEN          = T_DRG_. 17
+                DRG16QUERYSTRNAME               = T_DRG_. 18
+                DRG16QUERYSTRNAMELEN            = T_DRG_. 19
+                DRG16QUERYTRUETYPE              = T_DRG_. 20
+                DRG16QUERYTRUETYPELEN           = T_DRG_. 21
+                DRG16RELEASEPS                  = T_DRG_. 22
+                DRG16SENDTRANSFERMSG            = T_DRG_. 23
+                DRG16SETDRAGPOINTER             = T_DRG_. 24
+                DRG16SETDRAGIMAGE               = T_DRG_. 25
+                DRG16SETDRAGITEM                = T_DRG_. 26
+                DRG16VERIFYNATIVERMF            = T_DRG_. 27
+                DRG16VERIFYRMF                  = T_DRG_. 28
+                DRG16VERIFYTRUETYPE             = T_DRG_. 29
+                DRG16VERIFYTYPE                 = T_DRG_. 30
+                DRG16VERIFYTYPESET              = T_DRG_. 31
+                DRG16DRAGFILES                  = T_DRG_. 63
+                DRG16ACCEPTDROPPEDFILES         = T_DRG_. 64
+                DRGACCESSDRAGINFO               = T_DRG_. 32
+                DRGADDSTRHANDLE                 = T_DRG_. 33
+                DRGALLOCDRAGINFO                = T_DRG_. 34
+                DRGALLOCDRAGTRANSFER            = T_DRG_. 35
+                DRGDELETEDRAGINFOSTRHANDLES     = T_DRG_. 36
+                DRGDELETESTRHANDLE              = T_DRG_. 37
+                DRGDRAG                         = T_DRG_. 38
+                DRGFREEDRAGINFO                 = T_DRG_. 39
+                DRGFREEDRAGTRANSFER             = T_DRG_. 40
+                DRGGETPS                        = T_DRG_. 41
+                DRGPOSTTRANSFERMSG              = T_DRG_. 42
+                DRGPUSHDRAGINFO                 = T_DRG_. 43
+                DRGQUERYDRAGITEM                = T_DRG_. 44
+                DRGQUERYDRAGITEMCOUNT           = T_DRG_. 45
+                DRGQUERYDRAGITEMPTR             = T_DRG_. 46
+                DRGQUERYNATIVERMF               = T_DRG_. 47
+                DRGQUERYNATIVERMFLEN            = T_DRG_. 48
+                DRGQUERYSTRNAME                 = T_DRG_. 49
+                DRGQUERYSTRNAMELEN              = T_DRG_. 50
+                DRGQUERYTRUETYPE                = T_DRG_. 51
+                DRGQUERYTRUETYPELEN             = T_DRG_. 52
+                DRGRELEASEPS                    = T_DRG_. 53
+                DRGSENDTRANSFERMSG              = T_DRG_. 54
+                DRGSETDRAGPOINTER               = T_DRG_. 55
+                DRGSETDRAGIMAGE                 = T_DRG_. 56
+                DRGSETDRAGITEM                  = T_DRG_. 57
+                DRGVERIFYNATIVERMF              = T_DRG_. 58
+                DRGVERIFYRMF                    = T_DRG_. 59
+                DRGVERIFYTRUETYPE               = T_DRG_. 60
+                DRGVERIFYTYPE                   = T_DRG_. 61
+                DRGVERIFYTYPESET                = T_DRG_. 62
+                DRGDRAGFILES                    = T_DRG_. 65
+                DRGACCEPTDROPPEDFILES           = T_DRG_. 66
+                DRGQUERYFORMAT                  = T_DRG_. 75
+                DRGGETCLIPPS                    = PMCTLS.108
+                DM_CHLOCTOIPT                   = PMCTLS.110
+                DM_CHECKHORZLIMIT               = PMCTLS.111
+                DM_CHECKVERTLIMIT               = PMCTLS.112
+                DM_DISPLAY                      = PMCTLS.113
+                DM_DRAWBORDER                   = PMCTLS.114
+                DM_FILLMARGINS                  = PMCTLS.115
+                DM_GETERRLIMIT                  = PMCTLS.116
+                DM_GETFONTINFO                  = PMCTLS.117
+                DM_GETFORMATLEN                 = PMCTLS.118
+                DM_GETLINEPELS                  = PMCTLS.119
+                DM_GETPRINTSTRING               = PMCTLS.120
+                DM_HSCROLL                      = PMCTLS.121
+                DM_HILITSEL                     = PMCTLS.122
+                DM_INIT                         = PMCTLS.123
+                DM_ISNEWTEXTFIT                 = PMCTLS.124
+                DM_ISSELECTED                   = PMCTLS.125
+                DM_LOLITSEL                     = PMCTLS.126
+                DM_PAINT                        = PMCTLS.127
+                DM_PRINT                        = PMCTLS.128
+                DM_PRINTALINE                   = PMCTLS.129
+                DM_PRINTLINES                   = PMCTLS.130
+                DM_QUERYSELECTION               = PMCTLS.131
+                DM_REFLOWDISPLAY                = PMCTLS.132
+                DM_REFLOWTHEREST                = PMCTLS.133
+                DM_REMOVEDELLINES               = PMCTLS.134
+                DM_RETURNPAINT                  = PMCTLS.135
+                DM_SELVIEWCHECK                 = PMCTLS.136
+                DM_SETCLIPREGION                = PMCTLS.137
+                DM_SETFORMATRECT                = PMCTLS.138
+                DM_SETSELECTION                 = PMCTLS.139
+                DM_SETWORDWRAP                  = PMCTLS.140
+                DM_UPDATESEL                    = PMCTLS.141
+                DM_UPDATEVIEW                   = PMCTLS.142
+                DM_VSCROLL                      = PMCTLS.143
+                DM_VSHIFT                       = PMCTLS.144
+                DM_WIPESELECTION                = PMCTLS.145
+                DM_XFORMAT                      = PMCTLS.146
+                DT_ADDLINE                      = PMCTLS.147
+                DT_ADJUSTANCHOR                 = PMCTLS.148
+                DT_ADJUSTBREAKPOINT             = PMCTLS.149
+                DT_ASSERT                       = PMCTLS.150
+                DT_CHFROMLINE                   = PMCTLS.151
+                DT_CMPLOC                       = PMCTLS.152
+                DT_DLTOIPT                      = PMCTLS.153
+                DT_DROPLINE                     = PMCTLS.154
+                DT_ENDSEL                       = PMCTLS.155
+                DT_FIRSTDLOFNEXTEL              = PMCTLS.156
+                DT_FLUSHDISPLAYTEXT             = PMCTLS.157
+                DT_GETBOTFROMTOP                = PMCTLS.158
+                DT_GETDLFROMNUM                 = PMCTLS.159
+                DT_GETDLFROMOFFSET              = PMCTLS.160
+                DT_GETLASTDLOFEL                = PMCTLS.161
+                DT_GETLINE                      = PMCTLS.162
+                DT_GETTOKEN                     = PMCTLS.163
+                DT_GETTOPFROMDL                 = PMCTLS.164
+                DT_HORZMOVECURSOR               = PMCTLS.165
+                DT_IPTTODL                      = PMCTLS.166
+                DT_INIT                         = PMCTLS.167
+                DT_ISEQUAL                      = PMCTLS.168
+                DT_LINEFROMCHAR                 = PMCTLS.169
+                DT_PATCHLINES                   = PMCTLS.170
+                DT_POPDL                        = PMCTLS.171
+                DT_PUSHDL                       = PMCTLS.172
+                DT_QUERYFIRSTCH                 = PMCTLS.173
+                DT_QUERYLINELEN                 = PMCTLS.174
+                DT_QUERYSELTEXT                 = PMCTLS.175
+                DT_REFLOWALINE                  = PMCTLS.176
+                DT_REFLOWLINES                  = PMCTLS.177
+                DT_REMOVESELECTION              = PMCTLS.178
+                DT_RESTOREDTSTAT                = PMCTLS.179
+                DT_SAVEDTSTAT                   = PMCTLS.180
+                DT_SETFIRSTCH                   = PMCTLS.181
+                DT_SETTEXTLIMIT                 = PMCTLS.182
+                DT_STARTSEL                     = PMCTLS.183
+                DT_SWAP                         = PMCTLS.184
+                DT_UPDATECURSOR                 = PMCTLS.185
+                DT_UPDATEDL                     = PMCTLS.186
+                DT_UPDATEEDITNUM                = PMCTLS.187
+                ET_ADDLINE                      = PMCTLS.188
+                ET_DROPLINE                     = PMCTLS.189
+                ET_FLUSHEDITTEXT                = PMCTLS.190
+                ET_GETLINE                      = PMCTLS.191
+                ET_GETLINELEN                   = PMCTLS.192
+                ET_INIT                         = PMCTLS.193
+                ET_INSERT                       = PMCTLS.194
+                ET_PATCHLINES                   = PMCTLS.195
+                ET_POPEL                        = PMCTLS.196
+                ET_PUSHEL                       = PMCTLS.197
+                ET_REMOVE                       = PMCTLS.198
+                ET_SETTEXT                      = PMCTLS.199
+                ET_UPDATEEL                     = PMCTLS.200
+                IE_ADDTEXT                      = PMCTLS.201
+                IE_COMPACTWINFMT                = PMCTLS.202
+                IE_DELETE                       = PMCTLS.203
+                IE_EXPORT                       = PMCTLS.204
+                IE_EXPORTWINFMT                 = PMCTLS.205
+                IE_GETLINELEN                   = PMCTLS.206
+                IE_GETSTARTPOS                  = PMCTLS.207
+                IE_IPTTOEL                      = PMCTLS.208
+                IE_IMPORT                       = PMCTLS.209
+                IE_INSERTSTRING                 = PMCTLS.210
+                IE_INSERTTEXT                   = PMCTLS.211
+                IE_ISCREMBEDDED                 = PMCTLS.212
+                IE_ISSLB                        = PMCTLS.213
+                IE_NONWWLINE                    = PMCTLS.214
+                IE_QUERYLINELEN                 = PMCTLS.215
+                IE_QUERYTEXTLEN                 = PMCTLS.216
+                MLEC_ADJUSTOFFSET               = PMCTLS.217
+                MLEC_BACKSPACE                  = PMCTLS.218
+                MLEC_CHTOCX                     = PMCTLS.219
+                MLEC_CHTOCY                     = PMCTLS.220
+                MLEC_CHTOPT                     = PMCTLS.221
+                MLEC_CLEAR                      = PMCTLS.222
+                MLEC_COPY                       = PMCTLS.223
+                MLEC_CREATECURSOR               = PMCTLS.224
+                MLEC_CREATEINSTANCE             = PMCTLS.225
+                MLEC_CXTOCH                     = PMCTLS.226
+                MLEC_CYTODL                     = PMCTLS.227
+                MLEC_DELKEY                     = PMCTLS.228
+                MLEC_DESTROYCURSOR              = PMCTLS.229
+                MLEC_ENDHOMEKEYS                = PMCTLS.230
+                MLEC_GENTABS                    = PMCTLS.231
+                MLEC_INIT                       = PMCTLS.232
+                MLEC_INITDBCSEV                 = PMCTLS.233
+                MLEC_INITPEN                    = PMCTLS.234
+                MLEC_INITUNDO                   = PMCTLS.235
+                MLEC_INSERTKEY                  = PMCTLS.236
+                MLEC_ISDBCSBYTE                 = PMCTLS.237
+                MLEC_ISMOUSEINMLE               = PMCTLS.238
+                MLEC_ISMOUSEINVIEW              = PMCTLS.239
+                MLEC_ISPTINMARGIN               = PMCTLS.240
+                MLEC_ISPTINRECT                 = PMCTLS.241
+                MLEC_KEYBOARD                   = PMCTLS.242
+                MLEC_LARROWKEY                  = PMCTLS.243
+                MLEC_NBYTES                     = PMCTLS.244
+                MLEC_NCHARS                     = PMCTLS.245
+                MLEC_NEWLINE                    = PMCTLS.246
+                MLEC_NEXTCHAR                   = PMCTLS.247
+                MLEC_OTHERKEYS                  = PMCTLS.248
+                MLEC_OVERTYPEDMODE              = PMCTLS.249
+                MLEC_PAGESCRL                   = PMCTLS.250
+                MLEC_PASTE                      = PMCTLS.251
+                MLEC_PERFORMUNDO                = PMCTLS.252
+                MLEC_POSTOWNERMSG               = PMCTLS.253
+                MLEC_PRESPARAMCHANGED           = PMCTLS.254
+                MLEC_PREVCHAR                   = PMCTLS.255
+                MLEC_PTTOCH                     = PMCTLS.256
+                MLEC_QUERYFONT                  = PMCTLS.257
+                MLEC_QUERYPARAMS                = PMCTLS.258
+                MLEC_QUERYTEXT                  = PMCTLS.259
+                MLEC_RARROWKEY                  = PMCTLS.260
+                MLEC_SAVEREDO                   = PMCTLS.261
+                MLEC_SAVEUNDO                   = PMCTLS.262
+                MLEC_SEARCH                     = PMCTLS.263
+                MLEC_SENDOWNERMSG               = PMCTLS.264
+                MLEC_SETFOCUS                   = PMCTLS.265
+                MLEC_SETFONT                    = PMCTLS.266
+                MLEC_SETPPFONT                  = PMCTLS.267
+                MLEC_SETPARAMS                  = PMCTLS.268
+                MLEC_SETRECT                    = PMCTLS.269
+                MLEC_SETSYSVALUES               = PMCTLS.270
+                MLEC_SIZE                       = PMCTLS.271
+                MLEC_STRLEN                     = PMCTLS.272
+                MLEC_STRTOPIX                   = PMCTLS.273
+                MLEC_STRWIDTH                   = PMCTLS.274
+                MLEC_TRACKMOUSE                 = PMCTLS.275
+                MLEC_UDARROWKEYS                = PMCTLS.276
+                MLEC_UPDATEHSB                  = PMCTLS.277
+                MLEC_UPDATEVSB                  = PMCTLS.278
+                REMOVENEWTEXT                   = PMCTLS.279
+                REMOVEOLDTEXT                   = PMCTLS.280
+                RESETREDO                       = PMCTLS.281
+                RESTORENEWTEXT                  = PMCTLS.282
+                RESTOREOLDTEXT                  = PMCTLS.283
+                DRGLAZYDRAG                     = T_DRG_. 67
+                DRGCANCELLAZYDRAG               = T_DRG_. 68
+                DRGLAZYDROP                     = T_DRG_. 69
+                DRGQUERYDRAGINFOPTR             = T_DRG_. 70
+                DRGQUERYDRAGINFOPTRFROMHWND     = T_DRG_. 71
+                DRGQUERYDRAGINFOPTRFROMDRAGITEM = T_DRG_. 72
+                DRGQUERYDRAGSTATUS              = T_DRG_. 73
+                DRGREALLOCDRAGINFO              = T_DRG_. 74
+                PAXCHOOSEFONT                   = PMCTLS.292
+                WINDEFCOLORDLGPROC              = PMCTLS.293
+                WINCOLORDLG                     = PMCTLS.294
+                DAXOPENSAVE                     = PMCTLS.295
+                WINFINDDLG                      = PMCTLS.296
+                WINDEFFINDDLGPROC               = PMCTLS.297
+                WINREPLACEDLG                   = PMCTLS.298
+                WINDEFREPLACEDLGPROC            = PMCTLS.299
+                WINPRINTDLG                     = PMCTLS.300
+                WINDEFPRINTDLGPROC              = PMCTLS.301

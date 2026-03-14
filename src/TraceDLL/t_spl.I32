@@ -1,0 +1,519 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_SPL.I32                                                    ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMSPL module definitions file       ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.14 29Aug95 Added 32-bit Prt and Spl APIs                ;
+;                 2.30.21 13Dec95 Forwarded private entry table ordinals       ;
+;                 2.40.00 05Sep96 Added new OS/2 2.40 APIs                     ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.33 11Aug97 Added 16-bit Prt APIs                        ;
+;                 2.40.34 13Aug97 Added 16-bit DosPrint and Spl APIs           ;
+;                 2.40.69 21Oct98 Forwarded removed entry table ordinals       ;
+;                 2.45.00 15Apr99 Added new OS/2 2.45 APIs                     ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.31 26Jun01 Added  capability  of building  32-bit  only ;
+;                                 trace DLLs                                   ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_SPL INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMSPL Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+EXPORTS
+                SPLQMOPEN                                                @  1 RESIDENTNAME
+                SPLQMSTARTDOC                                            @  2 RESIDENTNAME
+                SPLQMENDDOC                                              @  3 RESIDENTNAME
+                SPLQMWRITE                                               @  4 RESIDENTNAME
+                SPLQMABORT                                               @  5 RESIDENTNAME
+                SPLQMCLOSE                                               @  6 RESIDENTNAME
+                SPLMESSAGEBOX                                            @  7 RESIDENTNAME
+                SPLQMABORTDOC                                            @  8 RESIDENTNAME
+                                           SPLQMSPOOLERPRESENT           @ 10 RESIDENTNAME
+                                           SPLQMCHOOSELOGADDR            @ 11 RESIDENTNAME
+                                           SPLQMINITIALIZE               @ 12 RESIDENTNAME
+                                           SPLQMTERMINATE                @ 13 RESIDENTNAME
+                                           SPLPRMSPOOL                   @ 15 RESIDENTNAME
+                                           SPLQMCANCELWAITINGJOBS        @ 16 RESIDENTNAME
+                                           SPLQMCANCELPRINTINGJOB        @ 17 RESIDENTNAME
+                                           SPLVQIFINIT                   @ 19 RESIDENTNAME
+                                           SPLINIT                       @ 20 RESIDENTNAME
+                                           SPLQMLISTQUEUES               @ 21 RESIDENTNAME
+                                           SPLQMQUERYQINFO               @ 22 RESIDENTNAME
+                                           SPLQMLISTJOBS                 @ 23 RESIDENTNAME
+                                           SPLQMQUERYJINFO               @ 24 RESIDENTNAME
+                                           SPLQMHOLDQUEUE                @ 25 RESIDENTNAME
+                                           SPLQMRELEASEQUEUE             @ 26 RESIDENTNAME
+                                           SPLQMHOLDJOB                  @ 27 RESIDENTNAME
+                                           SPLQMRELEASEJOB               @ 28 RESIDENTNAME
+                                           SPLQMCANCELJOB                @ 29 RESIDENTNAME
+                                           SPLQMRESTARTJOB               @ 30 RESIDENTNAME
+                                           SPLQMREPEATJOB                @ 31 RESIDENTNAME
+                                           SPLQMPRINTJOBNEXT             @ 32 RESIDENTNAME
+                                           SPLQMQUERYPINFO               @ 33 RESIDENTNAME
+                                           SPLQMCHANGEJOBPRTY            @ 34 RESIDENTNAME
+                                           SPLQMWRITEFILE                @ 35 RESIDENTNAME
+                                           SPLQMSETSTATUS                @ 36 RESIDENTNAME
+                SPLSTDOPEN                                               @ 50 RESIDENTNAME
+                SPLSTDCLOSE                                              @ 51 RESIDENTNAME
+                SPLSTDSTART                                              @ 52 RESIDENTNAME
+                SPLSTDSTOP                                               @ 53 RESIDENTNAME
+                SPLSTDDELETE                                             @ 54 RESIDENTNAME
+                SPLSTDGETBITS                                            @ 55 RESIDENTNAME
+                SPLSTDQUERYLENGTH                                        @ 56 RESIDENTNAME
+                                           SPLPROFILEWRITECHECK          @ 68 RESIDENTNAME ; Removed OS2VER 230
+                                           PROFILEVALIDATIONHOOK         @ 69 NONAME       ; Not in entry table
+                PRTOPEN                                                  @ 70 RESIDENTNAME
+                PRTWRITE                                                 @ 71 RESIDENTNAME
+                PRTDEVIOCTL                                              @ 72 RESIDENTNAME
+                PRTCLOSE                                                 @ 73 RESIDENTNAME
+                PRTABORT                                                 @ 75 RESIDENTNAME
+                PRT16QUERY                                               @ 76 RESIDENTNAME ; OS2VER 240
+                PRT16SET                                                 @ 77 RESIDENTNAME ; OS2VER 240
+                PRT16ABORTDOC                                            @ 78 RESIDENTNAME ; OS2VER 230
+                PRT16RESETABORT                                          @ 79 RESIDENTNAME ; OS2VER 230
+                DOSPRINTDESTCONTROL                                      @ 80 RESIDENTNAME
+                DOSPRINTDESTGETINFO                                      @ 81 RESIDENTNAME
+                DOSPRINTDESTENUM                                         @ 82 RESIDENTNAME
+                DOSPRINTJOBCONTINUE                                      @ 84 RESIDENTNAME
+                DOSPRINTJOBPAUSE                                         @ 85 RESIDENTNAME
+                DOSPRINTJOBDEL                                           @ 86 RESIDENTNAME
+                                           DOSPRINTJOBSCHEDULE           @ 87 RESIDENTNAME
+                                           DOSPRINTJOBADD                @ 88 RESIDENTNAME
+                                           DOSPRINTJOBADD2               @ 89 RESIDENTNAME
+                DOSPRINTJOBGETINFO                                       @ 90 RESIDENTNAME
+                DOSPRINTJOBSETINFO                                       @ 91 RESIDENTNAME
+                DOSPRINTJOBENUM                                          @ 92 RESIDENTNAME
+                DOSPRINTQADD                                             @ 93 RESIDENTNAME
+                DOSPRINTQPAUSE                                           @ 94 RESIDENTNAME
+                DOSPRINTQCONTINUE                                        @ 95 RESIDENTNAME
+                DOSPRINTQDEL                                             @ 96 RESIDENTNAME
+                DOSPRINTQGETINFO                                         @ 97 RESIDENTNAME
+                DOSPRINTQSETINFO                                         @ 98 RESIDENTNAME
+                DOSPRINTQENUM                                            @ 99 RESIDENTNAME
+                DOSPRINTDESTADD                                          @101 RESIDENTNAME
+                DOSPRINTDESTSETINFO                                      @102 RESIDENTNAME
+                DOSPRINTDESTDEL                                          @103 RESIDENTNAME
+                DOSPRINTQPURGE                                           @104 RESIDENTNAME
+                DOSPRINTJOBGETID                                         @105 RESIDENTNAME
+                DOSPRINTDRIVERENUM                                       @106 RESIDENTNAME
+                DOSPRINTQPROCESSORENUM                                   @107 RESIDENTNAME
+                DOSPRINTPORTENUM                                         @108 RESIDENTNAME
+                                           WPRINTDESTCONTROL             @110 RESIDENTNAME
+                                           WPRINTDESTGETINFO             @111 RESIDENTNAME
+                                           WPRINTDESTENUM                @112 RESIDENTNAME
+                                           WPRINTJOBCONTINUE             @113 RESIDENTNAME
+                                           WPRINTJOBPAUSE                @114 RESIDENTNAME
+                                           WPRINTJOBDEL                  @115 RESIDENTNAME
+                                           WPRINTJOBGETINFO              @116 RESIDENTNAME
+                                           WPRINTJOBSETINFO              @117 RESIDENTNAME
+                                           WPRINTJOBENUM                 @118 RESIDENTNAME
+                                           WPRINTQADD                    @119 RESIDENTNAME
+                                           WPRINTQPAUSE                  @120 RESIDENTNAME
+                                           WPRINTQCONTINUE               @121 RESIDENTNAME
+                                           WPRINTQDEL                    @122 RESIDENTNAME
+                                           WPRINTQGETINFO                @123 RESIDENTNAME
+                                           WPRINTQSETINFO                @124 RESIDENTNAME
+                                           WPRINTQENUM                   @125 RESIDENTNAME
+                                           WPRINTDESTADD                 @126 RESIDENTNAME
+                                           WPRINTDESTSETINFO             @127 RESIDENTNAME
+                                           WPRINTDESTDEL                 @128 RESIDENTNAME
+                                           WPRINTQPURGE                  @129 RESIDENTNAME
+                                           WPRINTDRIVERENUM              @130 RESIDENTNAME
+                                           WPRINTQPROCESSORENUM          @131 RESIDENTNAME
+                                           WPRINTPORTENUM                @132 RESIDENTNAME
+                                           WPRINTJOBCOPY                 @133 RESIDENTNAME
+                                           WPRINTDRIVERGETINFO           @134 RESIDENTNAME
+                                           WPRINTDRIVERSETINFO           @135 RESIDENTNAME
+                                           WPRINTJOBMOVE                 @136 RESIDENTNAME ; OS2VER 240
+                                           WPRINTJOBMOVEALL              @137 RESIDENTNAME ; OS2VER 245
+                                           WPRT16SET                     @138 RESIDENTNAME ; OS2VER 245
+                                           SPL16QMQUERYPRINTRES          @140 NONAME       ; Removed OS2VER 230
+                                           SPL16ENUMPRINTER              @141 NONAME       ; Removed OS2VER 230
+                                           SPL16COPYJOB                  @142 NONAME       ; Removed OS2VER 230
+                                           SPL16QMSETUP                  @143 NONAME       ; Removed OS2VER 230
+                                           SPLFILEDLGPROC                @144 NONAME       ; Removed OS2VER 230
+                                           SPL32PROFILEWRITECHECK        @168 RESIDENTNAME ; OS2VER 210
+                                           NETSPLQMOPEN                  @200 RESIDENTNAME
+                                           NETSPLQMSTARTDOC              @201 RESIDENTNAME
+                                           NETSPLQMWRITE                 @202 RESIDENTNAME
+                                           NETSPLQMENDDOC                @203 RESIDENTNAME
+                                           NETSPLQMCLOSE                 @204 RESIDENTNAME
+                                           NETSPLQMABORT                 @205 RESIDENTNAME
+                                           NETSPLQMABORTDOC              @206 RESIDENTNAME
+                SPL32QMOPEN              = Trc_Spl32QmOpen               @301 RESIDENTNAME
+                SPL32QMSTARTDOC          = Trc_Spl32QmStartDoc           @302 RESIDENTNAME
+                SPL32QMENDDOC            = Trc_Spl32QmEndDoc             @303 RESIDENTNAME
+                SPL32QMWRITE             = Trc_Spl32QmWrite              @304 RESIDENTNAME
+                SPL32QMABORT             = Trc_Spl32QmAbort              @305 RESIDENTNAME
+                SPL32QMCLOSE             = Trc_Spl32QmClose              @306 RESIDENTNAME
+                SPL32MESSAGEBOX          = Trc_Spl32MessageBox           @307 RESIDENTNAME
+                SPL32QMABORTDOC          = Trc_Spl32QmAbortDoc           @308 RESIDENTNAME
+                                           SPL32QMSPOOLERPRESENT         @310 RESIDENTNAME
+                                           SPL32QMCHOOSELOGADDR          @311 RESIDENTNAME
+                                           SPL32QMINITIALIZE             @312 RESIDENTNAME
+                                           SPL32QMTERMINATE              @313 RESIDENTNAME
+                                           SPL32PRMSPOOL                 @315 RESIDENTNAME
+                                           SPL32QMCANCELWAITINGJOBS      @316 RESIDENTNAME
+                                           SPL32QMCANCELPRINTINGJOB      @317 RESIDENTNAME
+                                           SPL32VQIFINIT                 @319 RESIDENTNAME
+                                           SPL32INIT                     @320 RESIDENTNAME
+                SPL32STDOPEN             = Trc_Spl32StdOpen              @350 RESIDENTNAME
+                SPL32STDCLOSE            = Trc_Spl32StdClose             @351 RESIDENTNAME
+                SPL32STDSTART            = Trc_Spl32StdStart             @352 RESIDENTNAME
+                SPL32STDSTOP             = Trc_Spl32StdStop              @353 RESIDENTNAME
+                SPL32STDDELETE           = Trc_Spl32StdDelete            @354 RESIDENTNAME
+                SPL32STDGETBITS          = Trc_Spl32StdGetBits           @355 RESIDENTNAME
+                SPL32STDQUERYLENGTH      = Trc_Spl32StdQueryLength       @356 RESIDENTNAME
+                PRT32OPEN                = Trc_Prt32Open                 @370 RESIDENTNAME
+                PRT32WRITE               = Trc_Prt32Write                @371 RESIDENTNAME
+                PRT32DEVIOCTL            = Trc_Prt32DevIOCtl             @372 RESIDENTNAME
+                PRT32CLOSE               = Trc_Prt32Close                @373 RESIDENTNAME
+                PRT32ABORT               = Trc_Prt32Abort                @375 RESIDENTNAME
+                SPLCONTROLDEVICE         = Trc_Spl32ControlDevice        @380 RESIDENTNAME
+                SPLQUERYDEVICE           = Trc_Spl32QueryDevice          @381 RESIDENTNAME
+                SPLENUMDEVICE            = Trc_Spl32EnumDevice           @382 RESIDENTNAME
+                SPLRELEASEJOB            = Trc_Spl32ReleaseJob           @384 RESIDENTNAME
+                SPLHOLDJOB               = Trc_Spl32HoldJob              @385 RESIDENTNAME
+                SPLDELETEJOB             = Trc_Spl32DeleteJob            @386 RESIDENTNAME
+                SPLQUERYJOB              = Trc_Spl32QueryJob             @390 RESIDENTNAME
+                SPLSETJOB                = Trc_Spl32SetJob               @391 RESIDENTNAME
+                SPLENUMJOB               = Trc_Spl32EnumJob              @392 RESIDENTNAME
+                SPLCREATEQUEUE           = Trc_Spl32CreateQueue          @393 RESIDENTNAME
+                SPLHOLDQUEUE             = Trc_Spl32HoldQueue            @394 RESIDENTNAME
+                SPLRELEASEQUEUE          = Trc_Spl32ReleaseQueue         @395 RESIDENTNAME
+                SPLDELETEQUEUE           = Trc_Spl32DeleteQueue          @396 RESIDENTNAME
+                SPLQUERYQUEUE            = Trc_Spl32QueryQueue           @397 RESIDENTNAME
+                SPLSETQUEUE              = Trc_Spl32SetQueue             @398 RESIDENTNAME
+                SPLENUMQUEUE             = Trc_Spl32EnumQueue            @399 RESIDENTNAME
+                SPLCREATEDEVICE          = Trc_Spl32CreateDevice         @401 RESIDENTNAME
+                SPLSETDEVICE             = Trc_Spl32SetDevice            @402 RESIDENTNAME
+                SPLDELETEDEVICE          = Trc_Spl32DeleteDevice         @403 RESIDENTNAME
+                SPLPURGEQUEUE            = Trc_Spl32PurgeQueue           @404 RESIDENTNAME
+                                           SPLQUERYJOBID                 @405 NONAME       ; Not in entry table
+                SPLENUMDRIVER            = Trc_Spl32EnumDriver           @406 RESIDENTNAME
+                SPLENUMQUEUEPROCESSOR    = Trc_Spl32EnumQueueProcessor   @407 RESIDENTNAME
+                SPLENUMPORT              = Trc_Spl32EnumPort             @408 RESIDENTNAME
+                SPLQUERYPORT             = Trc_Spl32QueryPort            @410 RESIDENTNAME ; OS2VER 240
+                SPLSETPORT               = Trc_Spl32SetPort              @411 RESIDENTNAME ; OS2VER 240
+                SPLQUERYPATH             = Trc_Spl32QueryPath            @412 RESIDENTNAME ; OS2VER 240
+                SPLCREATEPORT            = Trc_Spl32CreatePort           @413 RESIDENTNAME ; OS2VER 240
+                SPLDELETEPORT            = Trc_Spl32DeletePort           @414 RESIDENTNAME ; OS2VER 240
+                                           SPL32QMQUERYPRINTRES          @440 RESIDENTNAME
+                SPLENUMPRINTER           = Trc_Spl32EnumPrinter          @441 RESIDENTNAME
+                SPLCOPYJOB               = Trc_Spl32CopyJob              @442 RESIDENTNAME
+                                           SPLQMSETUP                    @443 RESIDENTNAME
+                                           SPLQUERYJOBFILE               @444 RESIDENTNAME
+                                           SPLRENAMEQUEUE                @445 RESIDENTNAME
+                SPLQUERYDRIVER           = Trc_Spl32QueryDriver          @446 RESIDENTNAME
+                SPLSETDRIVER             = Trc_Spl32SetDriver            @447 RESIDENTNAME
+                                           SPLMOVEJOB                    @448 RESIDENTNAME ; OS2VER 240
+                                           SPLMOVEALLJOBS                @449 RESIDENTNAME ; OS2VER 245
+                                           SPLTHKCONTROLDEVICE           @480 RESIDENTNAME
+                                           SPLTHKQUERYDEVICE             @481 RESIDENTNAME
+                                           SPLTHKENUMDEVICE              @482 RESIDENTNAME
+                                           SPLTHKRELEASEJOB              @483 RESIDENTNAME
+                                           SPLTHKHOLDJOB                 @484 RESIDENTNAME
+                                           SPLTHKDELETEJOB               @485 RESIDENTNAME
+                                           SPLTHKQUERYJOB                @486 RESIDENTNAME
+                                           SPLTHKSETJOB                  @487 RESIDENTNAME
+                                           SPLTHKENUMJOB                 @488 RESIDENTNAME
+                                           SPLTHKCREATEQUEUE             @489 RESIDENTNAME
+                                           SPLTHKHOLDQUEUE               @490 RESIDENTNAME
+                                           SPLTHKRELEASEQUEUE            @491 RESIDENTNAME
+                                           SPLTHKDELETEQUEUE             @492 RESIDENTNAME
+                                           SPLTHKQUERYQUEUE              @493 RESIDENTNAME
+                                           SPLTHKSETQUEUE                @494 RESIDENTNAME
+                                           SPLTHKENUMQUEUE               @495 RESIDENTNAME
+                                           SPLTHKCREATEDEVICE            @496 RESIDENTNAME
+                                           SPLTHKSETDEVICE               @497 RESIDENTNAME
+                                           SPLTHKDELETEDEVICE            @498 RESIDENTNAME
+                                           SPLTHKPURGEQUEUE              @499 RESIDENTNAME
+                                           SPLTHKENUMDRIVER              @501 RESIDENTNAME
+                                           SPLTHKENUMQUEUEPROCESSOR      @502 RESIDENTNAME
+                                           SPLTHKENUMPORT                @503 RESIDENTNAME
+                                           SPLTHKENUMPRINTER             @504 NONAME       ; Removed OS2VER 230
+                                           SPLTHKCOPYJOB                 @505 RESIDENTNAME
+                                           SPLTHKQUERYJOBFILE            @506 NONAME       ; Removed OS2VER 230
+                                           SPLTHKQUERYDRIVER             @507 RESIDENTNAME
+                                           SPLTHKSETDRIVER               @508 RESIDENTNAME
+                                           SPLTHKMOVEJOB                 @509 RESIDENTNAME ; OS2VER 240
+                                           SPLTHKMOVEALLJOBS             @510 RESIDENTNAME ; OS2VER 245
+                PRTRESETABORT            = Trc_Prt32ResetAbort           @600 RESIDENTNAME ; OS2VER 230
+                PRTABORTDOC              = Trc_Prt32AbortDoc             @601 RESIDENTNAME ; OS2VER 230
+                PRTNEWPAGE               = Trc_Prt32NewPage              @602 RESIDENTNAME ; OS2VER 240
+                PRTQUERY                 = Trc_Prt32Query                @603 RESIDENTNAME ; OS2VER 240
+                PRTSET                   = Trc_Prt32Set                  @604 RESIDENTNAME ; OS2VER 240
+                SPLPROTSENDCMD           = Trc_Spl32ProtSendCmd          @605 RESIDENTNAME ; OS2VER 240
+                SPLPROTXLATECMD          = Trc_Spl32ProtXlateCmd         @606 RESIDENTNAME ; OS2VER 240
+                SPLQMNEWPAGE             = Trc_Spl32QmNewPage            @607 RESIDENTNAME ; OS2VER 230
+                SPLQMGETJOBID            = Trc_Spl32QmGetJobID           @608 RESIDENTNAME ; OS2VER 230
+                                           SPLALERT                      @609 RESIDENTNAME ; OS2VER 240
+                SPLDISABLE               = Trc_Spl32Disable              @610 RESIDENTNAME ; OS2VER 240
+                SPLENABLE                = Trc_Spl32Enable               @611 RESIDENTNAME ; OS2VER 240
+                SPLREGISTER              = Trc_Spl32Register             @612 RESIDENTNAME ; OS2VER 240
+                SPLUNREGISTER            = Trc_Spl32UnRegister           @613 RESIDENTNAME ; OS2VER 240
+                SPLREGISTERCONTROLPANEL  = Trc_Spl32RegisterControlPanel @614 RESIDENTNAME ; OS2VER 240
+                SPLQUERYCONTROLPANEL     = Trc_Spl32QueryControlPanel    @615 RESIDENTNAME ; OS2VER 240
+                SPLDISPLAYCONTROLPANEL   = Trc_Spl32DisplayControlPanel  @616 RESIDENTNAME ; OS2VER 240
+                SPLGETPORTFROMQ          = Trc_Spl32GetPortFromQ         @617 RESIDENTNAME ; OS2VER 240
+                SPLGETCONTROLPANELLIST   = Trc_Spl32GetControlPanelList  @618 RESIDENTNAME ; OS2VER 240
+                                           SPLPRINTEROPEN                @619 RESIDENTNAME ; OS2VER 240
+                                           SPLNOTIFYLOGON                @620 RESIDENTNAME ; OS2VER 240
+                                           SPLPRINTERCLOSE               @621 RESIDENTNAME ; OS2VER 240
+                                           SPLPRINTERWRITE               @622 RESIDENTNAME ; OS2VER 240
+                                           SPLPRINTERPRINTFILE           @623 RESIDENTNAME ; OS2VER 240
+                                           SPLSYNCHDRIVERS               @625 RESIDENTNAME ; OS2VER 240
+IMPORTS
+                SPLQMOPEN                = PMSPL.  1
+                SPLQMSTARTDOC            = PMSPL.  2
+                SPLQMENDDOC              = PMSPL.  3
+                SPLQMWRITE               = PMSPL.  4
+                SPLQMABORT               = PMSPL.  5
+                SPLQMCLOSE               = PMSPL.  6
+                SPLMESSAGEBOX            = PMSPL.  7
+                SPLQMABORTDOC            = PMSPL.  8
+                SPLQMSPOOLERPRESENT      = PMSPL. 10
+                SPLQMCHOOSELOGADDR       = PMSPL. 11
+                SPLQMINITIALIZE          = PMSPL. 12
+                SPLQMTERMINATE           = PMSPL. 13
+                SPLPRMSPOOL              = PMSPL. 15
+                SPLQMCANCELWAITINGJOBS   = PMSPL. 16
+                SPLQMCANCELPRINTINGJOB   = PMSPL. 17
+                SPLVQIFINIT              = PMSPL. 19
+                SPLINIT                  = PMSPL. 20
+                SPLQMLISTQUEUES          = PMSPL. 21
+                SPLQMQUERYQINFO          = PMSPL. 22
+                SPLQMLISTJOBS            = PMSPL. 23
+                SPLQMQUERYJINFO          = PMSPL. 24
+                SPLQMHOLDQUEUE           = PMSPL. 25
+                SPLQMRELEASEQUEUE        = PMSPL. 26
+                SPLQMHOLDJOB             = PMSPL. 27
+                SPLQMRELEASEJOB          = PMSPL. 28
+                SPLQMCANCELJOB           = PMSPL. 29
+                SPLQMRESTARTJOB          = PMSPL. 30
+                SPLQMREPEATJOB           = PMSPL. 31
+                SPLQMPRINTJOBNEXT        = PMSPL. 32
+                SPLQMQUERYPINFO          = PMSPL. 33
+                SPLQMCHANGEJOBPRTY       = PMSPL. 34
+                SPLQMWRITEFILE           = PMSPL. 35
+                SPLQMSETSTATUS           = PMSPL. 36
+                SPLSTDOPEN               = PMSPL. 50
+                SPLSTDCLOSE              = PMSPL. 51
+                SPLSTDSTART              = PMSPL. 52
+                SPLSTDSTOP               = PMSPL. 53
+                SPLSTDDELETE             = PMSPL. 54
+                SPLSTDGETBITS            = PMSPL. 55
+                SPLSTDQUERYLENGTH        = PMSPL. 56
+                SPLPROFILEWRITECHECK     = PMSPL. 68
+                PROFILEVALIDATIONHOOK    = PMSPL. 69
+                PRTOPEN                  = PMSPL. 70
+                PRTWRITE                 = PMSPL. 71
+                PRTDEVIOCTL              = PMSPL. 72
+                PRTCLOSE                 = PMSPL. 73
+                PRTABORT                 = PMSPL. 75
+                PRT16QUERY               = PMSPL. 76
+                PRT16SET                 = PMSPL. 77
+                PRT16ABORTDOC            = PMSPL. 78
+                PRT16RESETABORT          = PMSPL. 79
+                DOSPRINTDESTCONTROL      = PMSPL. 80
+                DOSPRINTDESTGETINFO      = PMSPL. 81
+                DOSPRINTDESTENUM         = PMSPL. 82
+                DOSPRINTJOBCONTINUE      = PMSPL. 84
+                DOSPRINTJOBPAUSE         = PMSPL. 85
+                DOSPRINTJOBDEL           = PMSPL. 86
+                DOSPRINTJOBSCHEDULE      = PMSPL. 87
+                DOSPRINTJOBADD           = PMSPL. 88
+                DOSPRINTJOBADD2          = PMSPL. 89
+                DOSPRINTJOBGETINFO       = PMSPL. 90
+                DOSPRINTJOBSETINFO       = PMSPL. 91
+                DOSPRINTJOBENUM          = PMSPL. 92
+                DOSPRINTQADD             = PMSPL. 93
+                DOSPRINTQPAUSE           = PMSPL. 94
+                DOSPRINTQCONTINUE        = PMSPL. 95
+                DOSPRINTQDEL             = PMSPL. 96
+                DOSPRINTQGETINFO         = PMSPL. 97
+                DOSPRINTQSETINFO         = PMSPL. 98
+                DOSPRINTQENUM            = PMSPL. 99
+                DOSPRINTDESTADD          = PMSPL.101
+                DOSPRINTDESTSETINFO      = PMSPL.102
+                DOSPRINTDESTDEL          = PMSPL.103
+                DOSPRINTQPURGE           = PMSPL.104
+                DOSPRINTJOBGETID         = PMSPL.105
+                DOSPRINTDRIVERENUM       = PMSPL.106
+                DOSPRINTQPROCESSORENUM   = PMSPL.107
+                DOSPRINTPORTENUM         = PMSPL.108
+                WPRINTDESTCONTROL        = PMSPL.110
+                WPRINTDESTGETINFO        = PMSPL.111
+                WPRINTDESTENUM           = PMSPL.112
+                WPRINTJOBCONTINUE        = PMSPL.113
+                WPRINTJOBPAUSE           = PMSPL.114
+                WPRINTJOBDEL             = PMSPL.115
+                WPRINTJOBGETINFO         = PMSPL.116
+                WPRINTJOBSETINFO         = PMSPL.117
+                WPRINTJOBENUM            = PMSPL.118
+                WPRINTQADD               = PMSPL.119
+                WPRINTQPAUSE             = PMSPL.120
+                WPRINTQCONTINUE          = PMSPL.121
+                WPRINTQDEL               = PMSPL.122
+                WPRINTQGETINFO           = PMSPL.123
+                WPRINTQSETINFO           = PMSPL.124
+                WPRINTQENUM              = PMSPL.125
+                WPRINTDESTADD            = PMSPL.126
+                WPRINTDESTSETINFO        = PMSPL.127
+                WPRINTDESTDEL            = PMSPL.128
+                WPRINTQPURGE             = PMSPL.129
+                WPRINTDRIVERENUM         = PMSPL.130
+                WPRINTQPROCESSORENUM     = PMSPL.131
+                WPRINTPORTENUM           = PMSPL.132
+                WPRINTJOBCOPY            = PMSPL.133
+                WPRINTDRIVERGETINFO      = PMSPL.134
+                WPRINTDRIVERSETINFO      = PMSPL.135
+                WPRINTJOBMOVE            = PMSPL.136
+                WPRINTJOBMOVEALL         = PMSPL.137
+                WPRT16SET                = PMSPL.138
+                SPL16QMQUERYPRINTRES     = PMSPL.140
+                SPL16ENUMPRINTER         = PMSPL.141
+                SPL16COPYJOB             = PMSPL.142
+                SPL16QMSETUP             = PMSPL.143
+                SPLFILEDLGPROC           = PMSPL.144
+                SPL32PROFILEWRITECHECK   = PMSPL.168
+                NETSPLQMOPEN             = PMSPL.200
+                NETSPLQMSTARTDOC         = PMSPL.201
+                NETSPLQMWRITE            = PMSPL.202
+                NETSPLQMENDDOC           = PMSPL.203
+                NETSPLQMCLOSE            = PMSPL.204
+                NETSPLQMABORT            = PMSPL.205
+                NETSPLQMABORTDOC         = PMSPL.206
+                SPL32QMOPEN              = PMSPL.301
+                SPL32QMSTARTDOC          = PMSPL.302
+                SPL32QMENDDOC            = PMSPL.303
+                SPL32QMWRITE             = PMSPL.304
+                SPL32QMABORT             = PMSPL.305
+                SPL32QMCLOSE             = PMSPL.306
+                SPL32MESSAGEBOX          = PMSPL.307
+                SPL32QMABORTDOC          = PMSPL.308
+                SPL32QMSPOOLERPRESENT    = PMSPL.310
+                SPL32QMCHOOSELOGADDR     = PMSPL.311
+                SPL32QMINITIALIZE        = PMSPL.312
+                SPL32QMTERMINATE         = PMSPL.313
+                SPL32PRMSPOOL            = PMSPL.315
+                SPL32QMCANCELWAITINGJOBS = PMSPL.316
+                SPL32QMCANCELPRINTINGJOB = PMSPL.317
+                SPL32VQIFINIT            = PMSPL.319
+                SPL32INIT                = PMSPL.320
+                SPL32STDOPEN             = PMSPL.350
+                SPL32STDCLOSE            = PMSPL.351
+                SPL32STDSTART            = PMSPL.352
+                SPL32STDSTOP             = PMSPL.353
+                SPL32STDDELETE           = PMSPL.354
+                SPL32STDGETBITS          = PMSPL.355
+                SPL32STDQUERYLENGTH      = PMSPL.356
+                PRT32OPEN                = PMSPL.370
+                PRT32WRITE               = PMSPL.371
+                PRT32DEVIOCTL            = PMSPL.372
+                PRT32CLOSE               = PMSPL.373
+                PRT32ABORT               = PMSPL.375
+                SPLCONTROLDEVICE         = PMSPL.380
+                SPLQUERYDEVICE           = PMSPL.381
+                SPLENUMDEVICE            = PMSPL.382
+                SPLRELEASEJOB            = PMSPL.384
+                SPLHOLDJOB               = PMSPL.385
+                SPLDELETEJOB             = PMSPL.386
+                SPLQUERYJOB              = PMSPL.390
+                SPLSETJOB                = PMSPL.391
+                SPLENUMJOB               = PMSPL.392
+                SPLCREATEQUEUE           = PMSPL.393
+                SPLHOLDQUEUE             = PMSPL.394
+                SPLRELEASEQUEUE          = PMSPL.395
+                SPLDELETEQUEUE           = PMSPL.396
+                SPLQUERYQUEUE            = PMSPL.397
+                SPLSETQUEUE              = PMSPL.398
+                SPLENUMQUEUE             = PMSPL.399
+                SPLCREATEDEVICE          = PMSPL.401
+                SPLSETDEVICE             = PMSPL.402
+                SPLDELETEDEVICE          = PMSPL.403
+                SPLPURGEQUEUE            = PMSPL.404
+                SPLQUERYJOBID            = PMSPL.405
+                SPLENUMDRIVER            = PMSPL.406
+                SPLENUMQUEUEPROCESSOR    = PMSPL.407
+                SPLENUMPORT              = PMSPL.408
+;               SPLQUERYPORT             = PMSPL.410
+;               SPLSETPORT               = PMSPL.411
+;               SPLQUERYPATH             = PMSPL.412
+;               SPLCREATEPORT            = PMSPL.413
+;               SPLDELETEPORT            = PMSPL.414
+                SPL32QMQUERYPRINTRES     = PMSPL.440
+                SPLENUMPRINTER           = PMSPL.441
+                SPLCOPYJOB               = PMSPL.442
+                SPLQMSETUP               = PMSPL.443
+                SPLQUERYJOBFILE          = PMSPL.444
+                SPLRENAMEQUEUE           = PMSPL.445
+                SPLQUERYDRIVER           = PMSPL.446
+                SPLSETDRIVER             = PMSPL.447
+                SPLMOVEJOB               = PMSPL.448
+                SPLMOVEALLJOBS           = PMSPL.449
+                SPLTHKCONTROLDEVICE      = PMSPL.480
+                SPLTHKQUERYDEVICE        = PMSPL.481
+                SPLTHKENUMDEVICE         = PMSPL.482
+                SPLTHKRELEASEJOB         = PMSPL.483
+                SPLTHKHOLDJOB            = PMSPL.484
+                SPLTHKDELETEJOB          = PMSPL.485
+                SPLTHKQUERYJOB           = PMSPL.486
+                SPLTHKSETJOB             = PMSPL.487
+                SPLTHKENUMJOB            = PMSPL.488
+                SPLTHKCREATEQUEUE        = PMSPL.489
+                SPLTHKHOLDQUEUE          = PMSPL.490
+                SPLTHKRELEASEQUEUE       = PMSPL.491
+                SPLTHKDELETEQUEUE        = PMSPL.492
+                SPLTHKQUERYQUEUE         = PMSPL.493
+                SPLTHKSETQUEUE           = PMSPL.494
+                SPLTHKENUMQUEUE          = PMSPL.495
+                SPLTHKCREATEDEVICE       = PMSPL.496
+                SPLTHKSETDEVICE          = PMSPL.497
+                SPLTHKDELETEDEVICE       = PMSPL.498
+                SPLTHKPURGEQUEUE         = PMSPL.499
+                SPLTHKENUMDRIVER         = PMSPL.501
+                SPLTHKENUMQUEUEPROCESSOR = PMSPL.502
+                SPLTHKENUMPORT           = PMSPL.503
+                SPLTHKENUMPRINTER        = PMSPL.504
+                SPLTHKCOPYJOB            = PMSPL.505
+                SPLTHKQUERYJOBFILE       = PMSPL.506
+                SPLTHKQUERYDRIVER        = PMSPL.507
+                SPLTHKSETDRIVER          = PMSPL.508
+                SPLTHKMOVEJOB            = PMSPL.509
+                SPLTHKMOVEALLJOBS        = PMSPL.510
+;               PRTRESETABORT            = PMSPL.600
+;               PRTABORTDOC              = PMSPL.601
+;               PRTNEWPAGE               = PMSPL.602
+;               PRTQUERY                 = PMSPL.603
+;               PRTSET                   = PMSPL.604
+;               SPLPROTSENDCMD           = PMSPL.605
+;               SPLPROTXLATECMD          = PMSPL.606
+;               SPLQMNEWPAGE             = PMSPL.607
+;               SPLQMGETJOBID            = PMSPL.608
+                SPLALERT                 = PMSPL.609
+;               SPLDISABLE               = PMSPL.610
+;               SPLENABLE                = PMSPL.611
+;               SPLREGISTER              = PMSPL.612
+;               SPLUNREGISTER            = PMSPL.613
+;               SPLREGISTERCONTROLPANEL  = PMSPL.614
+;               SPLQUERYCONTROLPANEL     = PMSPL.615
+;               SPLDISPLAYCONTROLPANEL   = PMSPL.616
+;               SPLGETPORTFROMQ          = PMSPL.617
+;               SPLGETCONTROLPANELLIST   = PMSPL.618
+                SPLPRINTEROPEN           = PMSPL.619
+                SPLNOTIFYLOGON           = PMSPL.620
+                SPLPRINTERCLOSE          = PMSPL.621
+                SPLPRINTERWRITE          = PMSPL.622
+                SPLPRINTERPRINTFILE      = PMSPL.623
+                SPLSYNCHDRIVERS          = PMSPL.625

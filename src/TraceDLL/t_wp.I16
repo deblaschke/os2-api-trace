@@ -1,0 +1,783 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_WP.I16                                                     ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMWP module definitions file        ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.03 20Jul95 Added 32-bit Win APIs                        ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.40.00 05Sep96 Added new OS/2 2.40 APIs                     ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.45.00 15Apr99 Added new OS/2 2.45 APIs                     ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_WP INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMWP Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+EXPORTS
+                                                LOADPMWP                            @  1 NONAME
+                                                FsQueryDriveData                    @  2 RESIDENTNAME ; OS2VER 245
+                                                WPFILESYSTEMCCLASSDATA              @ 10 NONAME
+                                                WPFILESYSTEMCLASSDATA               @ 11 NONAME
+                                                WPFILESYSTEMNEWCLASS                @ 12 NONAME
+                                                WPFOLDERCCLASSDATA                  @ 13 NONAME
+                                                WPFOLDERCLASSDATA                   @ 14 NONAME
+                                                WPFOLDERNEWCLASS                    @ 15 NONAME
+                                                WPDATAFILECCLASSDATA                @ 16 NONAME
+                                                WPDATAFILECLASSDATA                 @ 17 NONAME
+                                                WPDATAFILENEWCLASS                  @ 18 NONAME
+                                                WPOBJECTCCLASSDATA                  @ 22 NONAME
+                                                WPOBJECTCLASSDATA                   @ 23 NONAME
+                                                WPOBJECTNEWCLASS                    @ 24 NONAME
+                                                WPABSTRACTCCLASSDATA                @ 25 NONAME
+                                                WPABSTRACTCLASSDATA                 @ 26 NONAME
+                                                WPABSTRACTNEWCLASS                  @ 27 NONAME
+                                                WPTEMPLATESCCLASSDATA               @ 28 NONAME       ; OS2VER 230
+                                                WPTEMPLATESCLASSDATA                @ 29 NONAME       ; OS2VER 230
+                                                WPTEMPLATESNEWCLASS                 @ 30 NONAME       ; OS2VER 230
+                                                WPSHADOWCCLASSDATA                  @ 31 NONAME
+                                                WPSHADOWCLASSDATA                   @ 32 NONAME
+                                                WPSHADOWNEWCLASS                    @ 33 NONAME
+                                                WPDISKCCLASSDATA                    @ 34 NONAME
+                                                WPDISKCLASSDATA                     @ 35 NONAME
+                                                WPDISKNEWCLASS                      @ 36 NONAME
+                                                WPSTARTUPCCLASSDATA                 @ 37 NONAME
+                                                WPSTARTUPCLASSDATA                  @ 38 NONAME
+                                                WPSTARTUPNEWCLASS                   @ 39 NONAME
+                                                WPTRANSIENTCCLASSDATA               @ 40 NONAME
+                                                WPTRANSIENTCLASSDATA                @ 41 NONAME
+                                                WPTRANSIENTNEWCLASS                 @ 42 NONAME
+                                                WPDRIVESCCLASSDATA                  @ 43 NONAME
+                                                WPDRIVESCLASSDATA                   @ 44 NONAME
+                                                WPDRIVESNEWCLASS                    @ 45 NONAME
+                                                WPPROGRAMCCLASSDATA                 @ 46 NONAME
+                                                WPPROGRAMCLASSDATA                  @ 47 NONAME
+                                                WPPROGRAMNEWCLASS                   @ 48 NONAME
+                                                WPPROGRAMFILECCLASSDATA             @ 49 NONAME
+                                                WPPROGRAMFILECLASSDATA              @ 50 NONAME
+                                                WPPROGRAMFILENEWCLASS               @ 51 NONAME
+                                                WPSHREDDERCCLASSDATA                @ 52 NONAME
+                                                WPSHREDDERCLASSDATA                 @ 53 NONAME
+                                                WPSHREDDERNEWCLASS                  @ 54 NONAME
+                                                WPDESKTOPCCLASSDATA                 @ 55 NONAME       ; OS2VER 210
+                                                WPDESKTOPCLASSDATA                  @ 56 NONAME       ; OS2VER 210
+                                                WPDESKTOPNEWCLASS                   @ 57 NONAME       ; OS2VER 210
+                                                WPROOTFOLDERCCLASSDATA              @ 58 NONAME       ; OS2VER 210
+                                                WPROOTFOLDERCLASSDATA               @ 59 NONAME       ; OS2VER 210
+                                                WPROOTFOLDERNEWCLASS                @ 60 NONAME       ; OS2VER 210
+                                                WPICONCCLASSDATA                    @ 61 NONAME       ; OS2VER 210
+                                                WPICONCLASSDATA                     @ 62 NONAME       ; OS2VER 210
+                                                WPICONNEWCLASS                      @ 63 NONAME       ; OS2VER 210
+                                                WPPOINTERCCLASSDATA                 @ 64 NONAME       ; OS2VER 210
+                                                WPPOINTERCLASSDATA                  @ 65 NONAME       ; OS2VER 210
+                                                WPPOINTERNEWCLASS                   @ 66 NONAME       ; OS2VER 210
+                                                WPBITMAPCCLASSDATA                  @ 67 NONAME       ; OS2VER 210
+                                                WPBITMAPCLASSDATA                   @ 68 NONAME       ; OS2VER 210
+                                                WPBITMAPNEWCLASS                    @ 69 NONAME       ; OS2VER 210
+                                                WPCOMMANDFILECCLASSDATA             @ 85 NONAME       ; OS2VER 230
+                                                WPCOMMANDFILECLASSDATA              @ 86 NONAME       ; OS2VER 230
+                                                WPCOMMANDFILENEWCLASS               @ 87 NONAME       ; OS2VER 230
+                                                WPCLASSMANAGERCCLASSDATA            @ 88 NONAME
+                                                WPCLASSMANAGERCLASSDATA             @ 89 NONAME
+                                                WPCLASSMANAGERNEWCLASS              @ 90 NONAME
+                                                WPPIFCCLASSDATA                     @ 91 NONAME       ; OS2VER 210
+                                                WPPIFCLASSDATA                      @ 92 NONAME       ; OS2VER 210
+                                                WPPIFNEWCLASS                       @ 93 NONAME       ; OS2VER 210
+                                                WPMETCCLASSDATA                     @ 94 NONAME       ; OS2VER 210
+                                                WPMETCLASSDATA                      @ 95 NONAME       ; OS2VER 210
+                                                WPMETNEWCLASS                       @ 96 NONAME       ; OS2VER 210
+                                                RESTOREDESKTOP                      @101 NONAME
+                                                SHCRT_STRCAT                        @102 NONAME
+                                                SHCRT_MEMSET                        @103 NONAME
+                                                SHCRT_STRCPY                        @105 NONAME
+                                                SHCRT_STRLEN                        @106 NONAME
+                                                SHCRT_ITOA                          @107 NONAME
+                                                SHCRT_STRCHR                        @108 NONAME
+                                                SHCRT_STRRCHR                       @109 NONAME
+                                                SHCRT_MEMCPY                        @110 NONAME
+                                                SHCRT_STRCMP                        @111 NONAME
+                                                SHCRT_ATOI                          @112 NONAME
+                                                SHCRT_ULTOA                         @113 NONAME
+                                                ISDBCS                              @114 NONAME
+                                                NEXTPCH                             @115 NONAME
+                                                PREVPCH                             @116 NONAME
+                                                SHCRT_STRCMPI                       @117 NONAME
+                                                SHCRT_STRNCMPI                      @118 NONAME
+                                                STRNCAT_TRUNC                       @119 NONAME
+                                                SHCRT_STRNCAT                       @120 NONAME
+                                                STRNCPY_TRUNC                       @121 NONAME
+                                                SHCRT_STRNCPY                       @122 NONAME
+                                                SHCRT_STRSTR                        @123 NONAME
+                                                SHCRT_STRUPR                        @124 NONAME
+                                                XLATBLANK                           @125 NONAME
+                                                SHCRT_ATOL                          @126 NONAME
+                                                SHCRT_STRNCMP                       @127 NONAME
+                                                SHCRT_STRPBRK                       @128 NONAME
+                                                SHCRT_STRIPBLANKS                   @129 NONAME
+                                                CLEANUPDESKTOP                      @130 NONAME
+                                                WINSTARTSHELL                       @145 NONAME
+                                                SHLINSERTCONTEXTMENUITEMS           @147 NONAME
+                                                SHLINSERTSETTINGSPAGE               @148 NONAME
+                                                Trc_Win32ShutdownSystem             @149 NONAME
+                                                ALLOCMEM                            @150 NONAME
+                                                FREEMEM                             @151 NONAME
+                                                WINSHUTDOWNANDREBOOT                @152 NONAME       ; OS2VER 240
+                                                WINSHUTDOWN                         @153 NONAME       ; OS2VER 245
+                                                Trc_Win32RegisterObjectClass        @200 NONAME
+                                                Trc_Win32DeregisterObjectClass      @201 NONAME
+                                                OLDWINCREATEOBJECT                  @202 NONAME
+                                                MRILOADRESOURCE                     @203 NONAME
+                                                SHLCREATECONTEXTMENU                @204 NONAME
+                                                Trc_Win32EnumObjectClasses          @205 NONAME
+                                                SHLQUERYFOLDERFROMPATH              @206 NONAME
+                                                Trc_Win32StoreWindowPos             @207 NONAME
+                                                Trc_Win32RestoreWindowPos           @208 NONAME
+                                                Trc_Win32LoadFileIcon               @209 NONAME
+                                                Trc_Win32SetFileIcon                @210 NONAME
+                                                SHLSTARTWORKPLACE                   @211 NONAME
+                                                SHLEXCEPTIONHANDLER                 @212 NONAME
+                                                SHLSAVEENV                          @213 NONAME
+                                                SHLRESTOREENV                       @214 NONAME
+                                                SHCRT_MEMCMP                        @215 NONAME
+                                                Trc_Win32FreeFileIcon               @216 NONAME
+                                                SHLQUERYICONGIVENFEAL2              @217 NONAME
+                                                SHLLOADICON                         @218 NONAME
+                                                Trc_Win32ReplaceObjectClass         @219 NONAME
+                                                DISKFILTER                          @220 NONAME
+                                                WINRESTARTWORKPLACE                 @221 NONAME
+                                                REPORTMESSAGE                       @223 NONAME
+                                                SHLGETUSERWORDPTR                   @224 NONAME
+                                                DONETLOGON                          @225 NONAME
+                                                DONETLOGOFF                         @226 NONAME
+                                                DONETERROR                          @227 NONAME
+                                                DONETCONNECT                        @228 NONAME
+                                                DONETDISCONNECT                     @229 NONAME
+                                                NWIENUMCACHE                        @230 NONAME
+                                                NWIENUMNETWORK                      @231 NONAME
+                                                NWIQUERYCACHE                       @232 NONAME
+                                                NWIQUERYNETWORK                     @233 NONAME
+                                                NWIGETNEWNAME                       @234 NONAME
+                                                NWIAUTHDEFAULTS                     @235 NONAME
+                                                NWIAUTHENTICATE                     @236 NONAME
+                                                NWIUNAUTHENTICATE                   @237 NONAME
+                                                NWICONNECT                          @238 NONAME
+                                                NWIDISCONNECT                       @239 NONAME
+                                                NWIALLOCUNC                         @240 NONAME
+                                                NWIFREEUNC                          @241 NONAME
+                                                NWIGETCONNLIST                      @242 NONAME
+                                                NWIIL                               @243 NONAME
+                                                NWIIP                               @244 NONAME
+                                                NWTFILLCOMBOBOX                     @245 NONAME
+                                                NWIQUERYNETCAPS                     @246 NONAME
+                                                NWIQUERYSERVERVERSION               @247 NONAME
+                                                NWIENUMINFO                         @248 NONAME
+                                                NWIQUERYINFO                        @249 NONAME
+                                                Trc_Win32SetObjectData              @250 NONAME
+                                                Trc_Win32DestroyObject              @251 NONAME
+                                                Trc_Win32QueryObject                @252 NONAME
+                                                VAPSZ                               @253 NONAME
+                                                ADDRUNNINGPROGRAM                   @254 NONAME
+                                                CREATEDUPLICATEPOINTER              @255 NONAME
+                                                GETFRAMEHANDLE                      @256 NONAME
+                                                RELOCATEOBJECTMINWINDOWS            @257 NONAME
+                                                SETSYSMENU                          @258 NONAME
+                                                SETUPFONTSAMPLE                     @260 NONAME
+                                                SUBSTITUTESTRINGS                   @261 NONAME
+                                                Trc_Win32QueryActiveDesktopPathname @262 NONAME       ; OS2VER 230
+                                                Trc_Win32QueryObjectPath            @263 NONAME       ; OS2VER 230
+                                                PSZDATA                             @264 NONAME
+                                                VBUTTONTYPE                         @265 NONAME
+                                                VDEFBUTTONTYPE                      @266 NONAME
+                                                VDEFMINWINDOWS                      @267 NONAME
+                                                VMINWINDOWS                         @268 NONAME
+                                                VCXICON                             @269 NONAME
+                                                VCXSCREEN                           @270 NONAME
+                                                VCXSCROLL                           @271 NONAME
+                                                VCYICON                             @272 NONAME
+                                                VCYSCREEN                           @273 NONAME
+                                                VCYSCROLL                           @274 NONAME
+                                                VHMODMRI                            @276 NONAME
+                                                VHWNDDESKTOP                        @277 NONAME
+                                                VHWNDDESKTOPFRAME                   @278 NONAME
+                                                VHWNDHELPINSTANCE                   @279 NONAME
+                                                VHWNDTASKLIST                       @280 NONAME
+                                                Trc_Win32CreateObject               @281 NONAME
+                                                Trc_Win32UnlockSystem               @282 NONAME       ; OS2VER 210
+                                                Trc_Win32LockupSystem               @283 NONAME       ; OS2VER 210
+                                                MESSAGELOOPPROC                     @284 NONAME       ; OS2VER 230
+                                                Trc_Win32SaveObject                 @285 NONAME       ; OS2VER 230
+                                                Trc_Win32OpenObject                 @286 NONAME       ; OS2VER 230
+                                                Trc_Win32MoveObject                 @287 NONAME       ; OS2VER 230
+                                                Trc_Win32CopyObject                 @288 NONAME       ; OS2VER 230
+                                                Trc_Win32CreateShadow               @289 NONAME       ; OS2VER 230
+                                                M_WPFILESYSTEMCCLASSDATA            @310 NONAME
+                                                M_WPFILESYSTEMCLASSDATA             @311 NONAME
+                                                M_WPFILESYSTEMNEWCLASS              @312 NONAME
+                                                M_WPFOLDERCCLASSDATA                @313 NONAME
+                                                M_WPFOLDERCLASSDATA                 @314 NONAME
+                                                M_WPFOLDERNEWCLASS                  @315 NONAME
+                                                M_WPDATAFILECCLASSDATA              @316 NONAME
+                                                M_WPDATAFILECLASSDATA               @317 NONAME
+                                                M_WPDATAFILENEWCLASS                @318 NONAME
+                                                M_WPTEMPLATESCCLASSDATA             @319 NONAME       ; OS2VER 230
+                                                M_WPTEMPLATESCLASSDATA              @320 NONAME       ; OS2VER 230
+                                                M_WPTEMPLATESNEWCLASS               @321 NONAME       ; OS2VER 230
+                                                M_WPOBJECTCCLASSDATA                @322 NONAME
+                                                M_WPOBJECTCLASSDATA                 @323 NONAME
+                                                M_WPOBJECTNEWCLASS                  @324 NONAME
+                                                M_WPABSTRACTCCLASSDATA              @325 NONAME
+                                                M_WPABSTRACTCLASSDATA               @326 NONAME
+                                                M_WPABSTRACTNEWCLASS                @327 NONAME
+                                                M_WPSHADOWCCLASSDATA                @328 NONAME
+                                                M_WPSHADOWCLASSDATA                 @329 NONAME
+                                                M_WPSHADOWNEWCLASS                  @330 NONAME
+                                                M_WPDISKCCLASSDATA                  @331 NONAME
+                                                M_WPDISKCLASSDATA                   @332 NONAME
+                                                M_WPDISKNEWCLASS                    @333 NONAME
+                                                M_WPSTARTUPCCLASSDATA               @334 NONAME
+                                                M_WPSTARTUPCLASSDATA                @335 NONAME
+                                                M_WPSTARTUPNEWCLASS                 @336 NONAME
+                                                M_WPTRANSIENTCCLASSDATA             @337 NONAME
+                                                M_WPTRANSIENTCLASSDATA              @338 NONAME
+                                                M_WPTRANSIENTNEWCLASS               @339 NONAME
+                                                M_WPDRIVESCCLASSDATA                @340 NONAME
+                                                M_WPDRIVESCLASSDATA                 @341 NONAME
+                                                M_WPDRIVESNEWCLASS                  @342 NONAME
+                                                M_WPPROGRAMCCLASSDATA               @343 NONAME
+                                                M_WPPROGRAMCLASSDATA                @344 NONAME
+                                                M_WPPROGRAMNEWCLASS                 @345 NONAME
+                                                M_WPPROGRAMFILECCLASSDATA           @346 NONAME
+                                                M_WPPROGRAMFILECLASSDATA            @347 NONAME
+                                                M_WPPROGRAMFILENEWCLASS             @348 NONAME
+                                                M_WPSHREDDERCCLASSDATA              @349 NONAME
+                                                M_WPSHREDDERCLASSDATA               @350 NONAME
+                                                M_WPSHREDDERNEWCLASS                @351 NONAME
+                                                M_WPDESKTOPCCLASSDATA               @355 NONAME       ; OS2VER 210
+                                                M_WPDESKTOPCLASSDATA                @356 NONAME       ; OS2VER 210
+                                                M_WPDESKTOPNEWCLASS                 @357 NONAME       ; OS2VER 210
+                                                M_WPROOTFOLDERCCLASSDATA            @358 NONAME       ; OS2VER 210
+                                                M_WPROOTFOLDERCLASSDATA             @359 NONAME       ; OS2VER 210
+                                                M_WPROOTFOLDERNEWCLASS              @360 NONAME       ; OS2VER 210
+                                                M_WPICONCCLASSDATA                  @361 NONAME       ; OS2VER 210
+                                                M_WPICONCLASSDATA                   @362 NONAME       ; OS2VER 210
+                                                M_WPICONNEWCLASS                    @363 NONAME       ; OS2VER 210
+                                                M_WPPOINTERCCLASSDATA               @364 NONAME       ; OS2VER 210
+                                                M_WPPOINTERCLASSDATA                @365 NONAME       ; OS2VER 210
+                                                M_WPPOINTERNEWCLASS                 @366 NONAME       ; OS2VER 210
+                                                M_WPBITMAPCCLASSDATA                @367 NONAME       ; OS2VER 210
+                                                M_WPBITMAPCLASSDATA                 @368 NONAME       ; OS2VER 210
+                                                M_WPBITMAPNEWCLASS                  @369 NONAME       ; OS2VER 210
+                                                M_WPCOMMANDFILECCLASSDATA           @385 NONAME
+                                                M_WPCOMMANDFILECLASSDATA            @386 NONAME
+                                                M_WPCOMMANDFILENEWCLASS             @387 NONAME
+                                                M_WPNETWORKCCLASSDATA               @388 NONAME
+                                                M_WPNETWORKCLASSDATA                @389 NONAME
+                                                M_WPNETWORKNEWCLASS                 @390 NONAME
+                                                M_WPNETGRPCCLASSDATA                @391 NONAME
+                                                M_WPNETGRPCLASSDATA                 @392 NONAME
+                                                M_WPNETGRPNEWCLASS                  @393 NONAME
+                                                M_WPSERVERCCLASSDATA                @394 NONAME
+                                                M_WPSERVERCLASSDATA                 @395 NONAME
+                                                M_WPSERVERNEWCLASS                  @396 NONAME
+                                                M_WPSHAREDDIRCCLASSDATA             @397 NONAME
+                                                M_WPSHAREDDIRCLASSDATA              @398 NONAME
+                                                M_WPSHAREDDIRNEWCLASS               @399 NONAME
+                                                M_WPNETLINKCCLASSDATA               @400 NONAME
+                                                M_WPNETLINKCLASSDATA                @401 NONAME
+                                                M_WPNETLINKNEWCLASS                 @402 NONAME
+                                                M_WPPIFCCLASSDATA                   @403 NONAME       ; OS2VER 210
+                                                M_WPPIFCLASSDATA                    @404 NONAME       ; OS2VER 210
+                                                M_WPPIFNEWCLASS                     @405 NONAME       ; OS2VER 210
+                                                M_WPMETCCLASSDATA                   @406 NONAME       ; OS2VER 210
+                                                M_WPMETCLASSDATA                    @407 NONAME       ; OS2VER 210
+                                                M_WPMETNEWCLASS                     @408 NONAME       ; OS2VER 210
+                                                WPNETWORKCCLASSDATA                 @409 NONAME       ; OS2VER 210
+                                                WPNETWORKCLASSDATA                  @410 NONAME       ; OS2VER 210
+                                                WPNETWORKNEWCLASS                   @411 NONAME       ; OS2VER 210
+                                                WPSHAREDDIRCCLASSDATA               @412 NONAME       ; OS2VER 210
+                                                WPSHAREDDIRCLASSDATA                @413 NONAME       ; OS2VER 210
+                                                WPSHAREDDIRNEWCLASS                 @414 NONAME       ; OS2VER 210
+                                                WPSERVERCCLASSDATA                  @415 NONAME       ; OS2VER 210
+                                                WPSERVERCLASSDATA                   @416 NONAME       ; OS2VER 210
+                                                WPSERVERNEWCLASS                    @417 NONAME       ; OS2VER 210
+                                                WPNETLINKCCLASSDATA                 @418 NONAME       ; OS2VER 210
+                                                WPNETLINKCLASSDATA                  @419 NONAME       ; OS2VER 210
+                                                WPNETLINKNEWCLASS                   @420 NONAME       ; OS2VER 210
+                                                WPNETGRPCCLASSDATA                  @421 NONAME       ; OS2VER 210
+                                                WPNETGRPCLASSDATA                   @422 NONAME       ; OS2VER 210
+                                                WPNETGRPNEWCLASS                    @423 NONAME       ; OS2VER 210
+                                                VPIDWORKPLACE                       @424 NONAME       ; OS2VER 210
+                                                SCHEMEBACKGROUNDDLGPROC             @427 NONAME       ; OS2VER 230
+                                                SHLSTORESTRING                      @428 NONAME       ; OS2VER 230
+                                                SHLFREESTRING                       @429 NONAME       ; OS2VER 230
+                                                ENCODEBACKGROUNDDATA                @430 NONAME       ; OS2VER 230
+                                                DECODEBACKGROUNDDATA                @431 NONAME       ; OS2VER 230
+                                                UNLOADUNITBITMAP                    @432 NONAME       ; OS2VER 230
+                                                WPMINWINDOWCCLASSDATA               @433 NONAME       ; OS2VER 230
+                                                WPMINWINDOWCLASSDATA                @434 NONAME       ; OS2VER 230
+                                                M_WPMINWINDOWNEWCLASS               @435 NONAME       ; OS2VER 230
+                                                WPMINWINDOWNEWCLASS                 @436 NONAME       ; OS2VER 230
+                                                WPCNRVIEWCCLASSDATA                 @437 NONAME       ; OS2VER 230
+                                                WPCNRVIEWCLASSDATA                  @438 NONAME       ; OS2VER 230
+                                                M_WPCNRVIEWNEWCLASS                 @439 NONAME       ; OS2VER 230
+                                                WPCNRVIEWNEWCLASS                   @440 NONAME       ; OS2VER 230
+                                                M_WPFINDFOLDERNEWCLASS              @441 NONAME       ; OS2VER 230
+                                                WPFINDFOLDERNEWCLASS                @442 NONAME       ; OS2VER 230
+                                                M_WPPROGRAMGROUPNEWCLASS            @443 NONAME       ; OS2VER 230
+                                                WPDISKCVNEWCLASS                    @444 NONAME       ; OS2VER 230
+                                                RWMONITORCCLASSDATA                 @445 NONAME       ; OS2VER 230
+                                                RWMONITORCLASSDATA                  @446 NONAME       ; OS2VER 230
+                                                RWMONITORNEWCLASS                   @447 NONAME       ; OS2VER 230
+                                                WPFILTERCCLASSDATA                  @448 NONAME       ; OS2VER 230
+                                                WPFILTERCLASSDATA                   @449 NONAME       ; OS2VER 230
+                                                WPFILTERNEWCLASS                    @450 NONAME       ; OS2VER 230
+                                                M_WPFILTERNEWCLASS                  @451 NONAME       ; OS2VER 230
+                                                WPFINDERCCLASSDATA                  @452 NONAME       ; OS2VER 230
+                                                WPFINDERCLASSDATA                   @453 NONAME       ; OS2VER 230
+                                                WPFINDERNEWCLASS                    @454 NONAME       ; OS2VER 230
+                                                M_WPFINDERNEWCLASS                  @455 NONAME       ; OS2VER 230
+                                                WPMINWINVIEWERCCLASSDATA            @456 NONAME       ; OS2VER 230
+                                                WPMINWINVIEWERCLASSDATA             @457 NONAME       ; OS2VER 230
+                                                WPMINWINVIEWERNEWCLASS              @458 NONAME       ; OS2VER 230
+                                                M_WPMINWINVIEWERNEWCLASS            @459 NONAME       ; OS2VER 230
+                                                WPPROGRAMGROUPCCLASSDATA            @460 NONAME       ; OS2VER 230
+                                                WPPROGRAMGROUPCLASSDATA             @461 NONAME       ; OS2VER 230
+                                                WPPROGRAMGROUPNEWCLASS              @462 NONAME       ; OS2VER 230
+                                                Trc_Win32RestartWPDServer           @463 NONAME       ; OS2VER 230
+                                                Trc_Win32RestartSOMDD               @464 NONAME       ; OS2VER 230
+                                                Trc_Win32IsWPDServerReady           @465 NONAME       ; OS2VER 230
+                                                VHWNDWORKPLACEWINDOW                @466 NONAME       ; OS2VER 230
+                                                WPLAUNCHPADCCLASSDATA               @467 NONAME       ; OS2VER 230
+                                                WPLAUNCHPADCLASSDATA                @468 NONAME       ; OS2VER 230
+                                                WPLAUNCHPADNEWCLASS                 @469 NONAME       ; OS2VER 230
+                                                M_WPLAUNCHPADCCLASSDATA             @470 NONAME       ; OS2VER 230
+                                                M_WPLAUNCHPADCLASSDATA              @471 NONAME       ; OS2VER 230
+                                                M_WPLAUNCHPADNEWCLASS               @472 NONAME       ; OS2VER 230
+                                                SHLREALIZEDEFAULTPALETTE            @473 NONAME       ; OS2VER 230
+                                                VHPALDEFAULTCOLORS                  @474 NONAME       ; OS2VER 230
+                                                VFPALETTEMANAGEDDISPLAY             @475 NONAME       ; OS2VER 230
+                                                FINDONEOBJECT                       @476 NONAME       ; OS2VER 230
+                                                SHLCREATETEMPFILE                   @477 NONAME       ; OS2VER 230
+                                                SHLDELETETEMPFILE                   @478 NONAME       ; OS2VER 230
+                                                VSZDESKTOPFOLDER                    @479 NONAME       ; OS2VER 230
+                                                Trc_Win32IsSOMDDReady               @480 NONAME       ; OS2VER 230
+                                                SHLUNLOADSERVER                     @481 NONAME       ; OS2VER 230
+                                                NOTIFYOBJECTINCNROPENED             @482 NONAME       ; OS2VER 230
+                                                PMWPDATETOSTRING                    @483 NONAME       ; OS2VER 230
+                                                M_WPCNRVIEWCCLASSDATA               @484 NONAME       ; OS2VER 230
+                                                M_WPCNRVIEWCLASSDATA                @485 NONAME       ; OS2VER 230
+                                                VFCONFIRMATIONS                     @486 NONAME       ; OS2VER 230
+                                                VFCONFIRMATIONSLOADED               @487 NONAME       ; OS2VER 230
+                                                VULWPSDSOMTHREADID                  @488 NONAME       ; OS2VER 230
+                                                LWPDOPENEDONWPDSERVER               @489 NONAME       ; OS2VER 230
+                                                SHLSTARTAPP                         @490 NONAME       ; OS2VER 240
+                                                WPIMAGEFILECCLASSDATA               @491 NONAME       ; OS2VER 240
+                                                WPIMAGEFILECLASSDATA                @492 NONAME       ; OS2VER 240
+                                                WPIMAGEFILENEWCLASS                 @493 NONAME       ; OS2VER 240
+                                                M_WPIMAGEFILECCLASSDATA             @494 NONAME       ; OS2VER 240
+                                                M_WPIMAGEFILECLASSDATA              @495 NONAME       ; OS2VER 240
+                                                M_WPIMAGEFILENEWCLASS               @496 NONAME       ; OS2VER 240
+                                                ODWPSCCLASSDATA                     @497 NONAME       ; OS2VER 240
+                                                ODWPSCLASSDATA                      @498 NONAME       ; OS2VER 240
+                                                ODWPSNEWCLASS                       @499 NONAME       ; OS2VER 240
+                                                M_ODWPSCCLASSDATA                   @500 NONAME       ; OS2VER 240
+                                                M_ODWPSCLASSDATA                    @501 NONAME       ; OS2VER 240
+                                                M_ODWPSNEWCLASS                     @502 NONAME       ; OS2VER 240
+                                                FILESYSQUERYAWAKEOBJECT             @503 NONAME       ; OS2VER 240
+                                                NODEMOVEDNOTIFY                     @504 NONAME       ; OS2VER 240
+                                                ULTOAH                              @505 NONAME       ; OS2VER 240
+                                                RUNONTHREAD                         @506 NONAME       ; OS2VER 240
+                                                SHCRT_TOUPPER                       @507 NONAME       ; OS2VER 240
+                                                SUBSTITUTESTRING                    @508 NONAME       ; OS2VER 240
+                                                BUILDSHORTFILENAME                  @509 NONAME       ; OS2VER 240
+                                                BUILDNAMEFROMNUMBER                 @510 NONAME       ; OS2VER 240
+                                                WINNOTEBOOKBUTTONFROMID             @511 NONAME       ; OS2VER 240
+                                                WINWAITFORSHELL                     @512 NONAME       ; OS2VER 240
+                                                VDRIVEDATA                          @513 NONAME       ; OS2VER 240
+IMPORTS
+                LOADPMWP                      = PMWP.  1
+                FsQueryDriveData              = PMWP.  2
+                WPFILESYSTEMCCLASSDATA        = PMWP. 10
+                WPFILESYSTEMCLASSDATA         = PMWP. 11
+                WPFILESYSTEMNEWCLASS          = PMWP. 12
+                WPFOLDERCCLASSDATA            = PMWP. 13
+                WPFOLDERCLASSDATA             = PMWP. 14
+                WPFOLDERNEWCLASS              = PMWP. 15
+                WPDATAFILECCLASSDATA          = PMWP. 16
+                WPDATAFILECLASSDATA           = PMWP. 17
+                WPDATAFILENEWCLASS            = PMWP. 18
+                WPOBJECTCCLASSDATA            = PMWP. 22
+                WPOBJECTCLASSDATA             = PMWP. 23
+                WPOBJECTNEWCLASS              = PMWP. 24
+                WPABSTRACTCCLASSDATA          = PMWP. 25
+                WPABSTRACTCLASSDATA           = PMWP. 26
+                WPABSTRACTNEWCLASS            = PMWP. 27
+                WPTEMPLATESCCLASSDATA         = PMWP. 28
+                WPTEMPLATESCLASSDATA          = PMWP. 29
+                WPTEMPLATESNEWCLASS           = PMWP. 30
+                WPSHADOWCCLASSDATA            = PMWP. 31
+                WPSHADOWCLASSDATA             = PMWP. 32
+                WPSHADOWNEWCLASS              = PMWP. 33
+                WPDISKCCLASSDATA              = PMWP. 34
+                WPDISKCLASSDATA               = PMWP. 35
+                WPDISKNEWCLASS                = PMWP. 36
+                WPSTARTUPCCLASSDATA           = PMWP. 37
+                WPSTARTUPCLASSDATA            = PMWP. 38
+                WPSTARTUPNEWCLASS             = PMWP. 39
+                WPTRANSIENTCCLASSDATA         = PMWP. 40
+                WPTRANSIENTCLASSDATA          = PMWP. 41
+                WPTRANSIENTNEWCLASS           = PMWP. 42
+                WPDRIVESCCLASSDATA            = PMWP. 43
+                WPDRIVESCLASSDATA             = PMWP. 44
+                WPDRIVESNEWCLASS              = PMWP. 45
+                WPPROGRAMCCLASSDATA           = PMWP. 46
+                WPPROGRAMCLASSDATA            = PMWP. 47
+                WPPROGRAMNEWCLASS             = PMWP. 48
+                WPPROGRAMFILECCLASSDATA       = PMWP. 49
+                WPPROGRAMFILECLASSDATA        = PMWP. 50
+                WPPROGRAMFILENEWCLASS         = PMWP. 51
+                WPSHREDDERCCLASSDATA          = PMWP. 52
+                WPSHREDDERCLASSDATA           = PMWP. 53
+                WPSHREDDERNEWCLASS            = PMWP. 54
+                WPDESKTOPCCLASSDATA           = PMWP. 55
+                WPDESKTOPCLASSDATA            = PMWP. 56
+                WPDESKTOPNEWCLASS             = PMWP. 57
+                WPROOTFOLDERCCLASSDATA        = PMWP. 58
+                WPROOTFOLDERCLASSDATA         = PMWP. 59
+                WPROOTFOLDERNEWCLASS          = PMWP. 60
+                WPICONCCLASSDATA              = PMWP. 61
+                WPICONCLASSDATA               = PMWP. 62
+                WPICONNEWCLASS                = PMWP. 63
+                WPPOINTERCCLASSDATA           = PMWP. 64
+                WPPOINTERCLASSDATA            = PMWP. 65
+                WPPOINTERNEWCLASS             = PMWP. 66
+                WPBITMAPCCLASSDATA            = PMWP. 67
+                WPBITMAPCLASSDATA             = PMWP. 68
+                WPBITMAPNEWCLASS              = PMWP. 69
+                WPCOMMANDFILECCLASSDATA       = PMWP. 85
+                WPCOMMANDFILECLASSDATA        = PMWP. 86
+                WPCOMMANDFILENEWCLASS         = PMWP. 87
+                WPCLASSMANAGERCCLASSDATA      = PMWP. 88
+                WPCLASSMANAGERCLASSDATA       = PMWP. 89
+                WPCLASSMANAGERNEWCLASS        = PMWP. 90
+                WPPIFCCLASSDATA               = PMWP. 91
+                WPPIFCLASSDATA                = PMWP. 92
+                WPPIFNEWCLASS                 = PMWP. 93
+                WPMETCCLASSDATA               = PMWP. 94
+                WPMETCLASSDATA                = PMWP. 95
+                WPMETNEWCLASS                 = PMWP. 96
+                RESTOREDESKTOP                = PMWP.101
+                SHCRT_STRCAT                  = PMWP.102
+                SHCRT_MEMSET                  = PMWP.103
+                SHCRT_STRCPY                  = PMWP.105
+                SHCRT_STRLEN                  = PMWP.106
+                SHCRT_ITOA                    = PMWP.107
+                SHCRT_STRCHR                  = PMWP.108
+                SHCRT_STRRCHR                 = PMWP.109
+                SHCRT_MEMCPY                  = PMWP.110
+                SHCRT_STRCMP                  = PMWP.111
+                SHCRT_ATOI                    = PMWP.112
+                SHCRT_ULTOA                   = PMWP.113
+                ISDBCS                        = PMWP.114
+                NEXTPCH                       = PMWP.115
+                PREVPCH                       = PMWP.116
+                SHCRT_STRCMPI                 = PMWP.117
+                SHCRT_STRNCMPI                = PMWP.118
+                STRNCAT_TRUNC                 = PMWP.119
+                SHCRT_STRNCAT                 = PMWP.120
+                STRNCPY_TRUNC                 = PMWP.121
+                SHCRT_STRNCPY                 = PMWP.122
+                SHCRT_STRSTR                  = PMWP.123
+                SHCRT_STRUPR                  = PMWP.124
+                XLATBLANK                     = PMWP.125
+                SHCRT_ATOL                    = PMWP.126
+                SHCRT_STRNCMP                 = PMWP.127
+                SHCRT_STRPBRK                 = PMWP.128
+                SHCRT_STRIPBLANKS             = PMWP.129
+                CLEANUPDESKTOP                = PMWP.130
+                WINSTARTSHELL                 = PMWP.145
+                SHLINSERTCONTEXTMENUITEMS     = PMWP.147
+                SHLINSERTSETTINGSPAGE         = PMWP.148
+                WINSHUTDOWNSYSTEM             = PMWP.149
+                ALLOCMEM                      = PMWP.150
+                FREEMEM                       = PMWP.151
+                WINSHUTDOWNANDREBOOT          = PMWP.152
+                WINSHUTDOWN                   = PMWP.153
+                WINREGISTEROBJECTCLASS        = PMWP.200
+                WINDEREGISTEROBJECTCLASS      = PMWP.201
+                OLDWINCREATEOBJECT            = PMWP.202
+                MRILOADRESOURCE               = PMWP.203
+                SHLCREATECONTEXTMENU          = PMWP.204
+                WINENUMOBJECTCLASSES          = PMWP.205
+                SHLQUERYFOLDERFROMPATH        = PMWP.206
+                WINSTOREWINDOWPOS             = PMWP.207
+                WINRESTOREWINDOWPOS           = PMWP.208
+                WINLOADFILEICON               = PMWP.209
+                WINSETFILEICON                = PMWP.210
+                SHLSTARTWORKPLACE             = PMWP.211
+                SHLEXCEPTIONHANDLER           = PMWP.212
+                SHLSAVEENV                    = PMWP.213
+                SHLRESTOREENV                 = PMWP.214
+                SHCRT_MEMCMP                  = PMWP.215
+                WINFREEFILEICON               = PMWP.216
+                SHLQUERYICONGIVENFEAL2        = PMWP.217
+                SHLLOADICON                   = PMWP.218
+                WINREPLACEOBJECTCLASS         = PMWP.219
+                DISKFILTER                    = PMWP.220
+                WINRESTARTWORKPLACE           = PMWP.221
+                REPORTMESSAGE                 = PMWP.223
+                SHLGETUSERWORDPTR             = PMWP.224
+                DONETLOGON                    = PMWP.225
+                DONETLOGOFF                   = PMWP.226
+                DONETERROR                    = PMWP.227
+                DONETCONNECT                  = PMWP.228
+                DONETDISCONNECT               = PMWP.229
+                NWIENUMCACHE                  = PMWP.230
+                NWIENUMNETWORK                = PMWP.231
+                NWIQUERYCACHE                 = PMWP.232
+                NWIQUERYNETWORK               = PMWP.233
+                NWIGETNEWNAME                 = PMWP.234
+                NWIAUTHDEFAULTS               = PMWP.235
+                NWIAUTHENTICATE               = PMWP.236
+                NWIUNAUTHENTICATE             = PMWP.237
+                NWICONNECT                    = PMWP.238
+                NWIDISCONNECT                 = PMWP.239
+                NWIALLOCUNC                   = PMWP.240
+                NWIFREEUNC                    = PMWP.241
+                NWIGETCONNLIST                = PMWP.242
+                NWIIL                         = PMWP.243
+                NWIIP                         = PMWP.244
+                NWTFILLCOMBOBOX               = PMWP.245
+                NWIQUERYNETCAPS               = PMWP.246
+                NWIQUERYSERVERVERSION         = PMWP.247
+                NWIENUMINFO                   = PMWP.248
+                NWIQUERYINFO                  = PMWP.249
+                WINSETOBJECTDATA              = PMWP.250
+                WINDESTROYOBJECT              = PMWP.251
+                WINQUERYOBJECT                = PMWP.252
+                VAPSZ                         = PMWP.253
+                ADDRUNNINGPROGRAM             = PMWP.254
+                CREATEDUPLICATEPOINTER        = PMWP.255
+                GETFRAMEHANDLE                = PMWP.256
+                RELOCATEOBJECTMINWINDOWS      = PMWP.257
+                SETSYSMENU                    = PMWP.258
+                SETUPFONTSAMPLE               = PMWP.260
+                SUBSTITUTESTRINGS             = PMWP.261
+;               WINQUERYACTIVEDESKTOPPATHNAME = PMWP.262
+;               WINQUERYOBJECTPATH            = PMWP.263
+                PSZDATA                       = PMWP.264
+                VBUTTONTYPE                   = PMWP.265
+                VDEFBUTTONTYPE                = PMWP.266
+                VDEFMINWINDOWS                = PMWP.267
+                VMINWINDOWS                   = PMWP.268
+                VCXICON                       = PMWP.269
+                VCXSCREEN                     = PMWP.270
+                VCXSCROLL                     = PMWP.271
+                VCYICON                       = PMWP.272
+                VCYSCREEN                     = PMWP.273
+                VCYSCROLL                     = PMWP.274
+                VHMODMRI                      = PMWP.276
+                VHWNDDESKTOP                  = PMWP.277
+                VHWNDDESKTOPFRAME             = PMWP.278
+                VHWNDHELPINSTANCE             = PMWP.279
+                VHWNDTASKLIST                 = PMWP.280
+                WINCREATEOBJECT               = PMWP.281
+;               WINUNLOCKSYSTEM               = PMWP.282
+;               WINLOCKUPSYSTEM               = PMWP.283
+                MESSAGELOOPPROC               = PMWP.284
+;               WINSAVEOBJECT                 = PMWP.285
+;               WINOPENOBJECT                 = PMWP.286
+;               WINMOVEOBJECT                 = PMWP.287
+;               WINCOPYOBJECT                 = PMWP.288
+;               WINCREATESHADOW               = PMWP.289
+                M_WPFILESYSTEMCCLASSDATA      = PMWP.310
+                M_WPFILESYSTEMCLASSDATA       = PMWP.311
+                M_WPFILESYSTEMNEWCLASS        = PMWP.312
+                M_WPFOLDERCCLASSDATA          = PMWP.313
+                M_WPFOLDERCLASSDATA           = PMWP.314
+                M_WPFOLDERNEWCLASS            = PMWP.315
+                M_WPDATAFILECCLASSDATA        = PMWP.316
+                M_WPDATAFILECLASSDATA         = PMWP.317
+                M_WPDATAFILENEWCLASS          = PMWP.318
+                M_WPTEMPLATESCCLASSDATA       = PMWP.319
+                M_WPTEMPLATESCLASSDATA        = PMWP.320
+                M_WPTEMPLATESNEWCLASS         = PMWP.321
+                M_WPOBJECTCCLASSDATA          = PMWP.322
+                M_WPOBJECTCLASSDATA           = PMWP.323
+                M_WPOBJECTNEWCLASS            = PMWP.324
+                M_WPABSTRACTCCLASSDATA        = PMWP.325
+                M_WPABSTRACTCLASSDATA         = PMWP.326
+                M_WPABSTRACTNEWCLASS          = PMWP.327
+                M_WPSHADOWCCLASSDATA          = PMWP.328
+                M_WPSHADOWCLASSDATA           = PMWP.329
+                M_WPSHADOWNEWCLASS            = PMWP.330
+                M_WPDISKCCLASSDATA            = PMWP.331
+                M_WPDISKCLASSDATA             = PMWP.332
+                M_WPDISKNEWCLASS              = PMWP.333
+                M_WPSTARTUPCCLASSDATA         = PMWP.334
+                M_WPSTARTUPCLASSDATA          = PMWP.335
+                M_WPSTARTUPNEWCLASS           = PMWP.336
+                M_WPTRANSIENTCCLASSDATA       = PMWP.337
+                M_WPTRANSIENTCLASSDATA        = PMWP.338
+                M_WPTRANSIENTNEWCLASS         = PMWP.339
+                M_WPDRIVESCCLASSDATA          = PMWP.340
+                M_WPDRIVESCLASSDATA           = PMWP.341
+                M_WPDRIVESNEWCLASS            = PMWP.342
+                M_WPPROGRAMCCLASSDATA         = PMWP.343
+                M_WPPROGRAMCLASSDATA          = PMWP.344
+                M_WPPROGRAMNEWCLASS           = PMWP.345
+                M_WPPROGRAMFILECCLASSDATA     = PMWP.346
+                M_WPPROGRAMFILECLASSDATA      = PMWP.347
+                M_WPPROGRAMFILENEWCLASS       = PMWP.348
+                M_WPSHREDDERCCLASSDATA        = PMWP.349
+                M_WPSHREDDERCLASSDATA         = PMWP.350
+                M_WPSHREDDERNEWCLASS          = PMWP.351
+                M_WPDESKTOPCCLASSDATA         = PMWP.355
+                M_WPDESKTOPCLASSDATA          = PMWP.356
+                M_WPDESKTOPNEWCLASS           = PMWP.357
+                M_WPROOTFOLDERCCLASSDATA      = PMWP.358
+                M_WPROOTFOLDERCLASSDATA       = PMWP.359
+                M_WPROOTFOLDERNEWCLASS        = PMWP.360
+                M_WPICONCCLASSDATA            = PMWP.361
+                M_WPICONCLASSDATA             = PMWP.362
+                M_WPICONNEWCLASS              = PMWP.363
+                M_WPPOINTERCCLASSDATA         = PMWP.364
+                M_WPPOINTERCLASSDATA          = PMWP.365
+                M_WPPOINTERNEWCLASS           = PMWP.366
+                M_WPBITMAPCCLASSDATA          = PMWP.367
+                M_WPBITMAPCLASSDATA           = PMWP.368
+                M_WPBITMAPNEWCLASS            = PMWP.369
+                M_WPCOMMANDFILECCLASSDATA     = PMWP.385
+                M_WPCOMMANDFILECLASSDATA      = PMWP.386
+                M_WPCOMMANDFILENEWCLASS       = PMWP.387
+                M_WPNETWORKCCLASSDATA         = PMWP.388
+                M_WPNETWORKCLASSDATA          = PMWP.389
+                M_WPNETWORKNEWCLASS           = PMWP.390
+                M_WPNETGRPCCLASSDATA          = PMWP.391
+                M_WPNETGRPCLASSDATA           = PMWP.392
+                M_WPNETGRPNEWCLASS            = PMWP.393
+                M_WPSERVERCCLASSDATA          = PMWP.394
+                M_WPSERVERCLASSDATA           = PMWP.395
+                M_WPSERVERNEWCLASS            = PMWP.396
+                M_WPSHAREDDIRCCLASSDATA       = PMWP.397
+                M_WPSHAREDDIRCLASSDATA        = PMWP.398
+                M_WPSHAREDDIRNEWCLASS         = PMWP.399
+                M_WPNETLINKCCLASSDATA         = PMWP.400
+                M_WPNETLINKCLASSDATA          = PMWP.401
+                M_WPNETLINKNEWCLASS           = PMWP.402
+                M_WPPIFCCLASSDATA             = PMWP.403
+                M_WPPIFCLASSDATA              = PMWP.404
+                M_WPPIFNEWCLASS               = PMWP.405
+                M_WPMETCCLASSDATA             = PMWP.406
+                M_WPMETCLASSDATA              = PMWP.407
+                M_WPMETNEWCLASS               = PMWP.408
+                WPNETWORKCCLASSDATA           = PMWP.409
+                WPNETWORKCLASSDATA            = PMWP.410
+                WPNETWORKNEWCLASS             = PMWP.411
+                WPSHAREDDIRCCLASSDATA         = PMWP.412
+                WPSHAREDDIRCLASSDATA          = PMWP.413
+                WPSHAREDDIRNEWCLASS           = PMWP.414
+                WPSERVERCCLASSDATA            = PMWP.415
+                WPSERVERCLASSDATA             = PMWP.416
+                WPSERVERNEWCLASS              = PMWP.417
+                WPNETLINKCCLASSDATA           = PMWP.418
+                WPNETLINKCLASSDATA            = PMWP.419
+                WPNETLINKNEWCLASS             = PMWP.420
+                WPNETGRPCCLASSDATA            = PMWP.421
+                WPNETGRPCLASSDATA             = PMWP.422
+                WPNETGRPNEWCLASS              = PMWP.423
+                VPIDWORKPLACE                 = PMWP.424
+                SCHEMEBACKGROUNDDLGPROC       = PMWP.427
+                SHLSTORESTRING                = PMWP.428
+                SHLFREESTRING                 = PMWP.429
+                ENCODEBACKGROUNDDATA          = PMWP.430
+                DECODEBACKGROUNDDATA          = PMWP.431
+                UNLOADUNITBITMAP              = PMWP.432
+                WPMINWINDOWCCLASSDATA         = PMWP.433
+                WPMINWINDOWCLASSDATA          = PMWP.434
+                M_WPMINWINDOWNEWCLASS         = PMWP.435
+                WPMINWINDOWNEWCLASS           = PMWP.436
+                WPCNRVIEWCCLASSDATA           = PMWP.437
+                WPCNRVIEWCLASSDATA            = PMWP.438
+                M_WPCNRVIEWNEWCLASS           = PMWP.439
+                WPCNRVIEWNEWCLASS             = PMWP.440
+                M_WPFINDFOLDERNEWCLASS        = PMWP.441
+                WPFINDFOLDERNEWCLASS          = PMWP.442
+                M_WPPROGRAMGROUPNEWCLASS      = PMWP.443
+                WPDISKCVNEWCLASS              = PMWP.444
+                RWMONITORCCLASSDATA           = PMWP.445
+                RWMONITORCLASSDATA            = PMWP.446
+                RWMONITORNEWCLASS             = PMWP.447
+                WPFILTERCCLASSDATA            = PMWP.448
+                WPFILTERCLASSDATA             = PMWP.449
+                WPFILTERNEWCLASS              = PMWP.450
+                M_WPFILTERNEWCLASS            = PMWP.451
+                WPFINDERCCLASSDATA            = PMWP.452
+                WPFINDERCLASSDATA             = PMWP.453
+                WPFINDERNEWCLASS              = PMWP.454
+                M_WPFINDERNEWCLASS            = PMWP.455
+                WPMINWINVIEWERCCLASSDATA      = PMWP.456
+                WPMINWINVIEWERCLASSDATA       = PMWP.457
+                WPMINWINVIEWERNEWCLASS        = PMWP.458
+                M_WPMINWINVIEWERNEWCLASS      = PMWP.459
+                WPPROGRAMGROUPCCLASSDATA      = PMWP.460
+                WPPROGRAMGROUPCLASSDATA       = PMWP.461
+                WPPROGRAMGROUPNEWCLASS        = PMWP.462
+;               WINRESTARTWPDSERVER           = PMWP.463
+;               WINRESTARTSOMDD               = PMWP.464
+;               WINISWPDSERVERREADY           = PMWP.465
+                VHWNDWORKPLACEWINDOW          = PMWP.466
+                WPLAUNCHPADCCLASSDATA         = PMWP.467
+                WPLAUNCHPADCLASSDATA          = PMWP.468
+                WPLAUNCHPADNEWCLASS           = PMWP.469
+                M_WPLAUNCHPADCCLASSDATA       = PMWP.470
+                M_WPLAUNCHPADCLASSDATA        = PMWP.471
+                M_WPLAUNCHPADNEWCLASS         = PMWP.472
+                SHLREALIZEDEFAULTPALETTE      = PMWP.473
+                VHPALDEFAULTCOLORS            = PMWP.474
+                VFPALETTEMANAGEDDISPLAY       = PMWP.475
+                FINDONEOBJECT                 = PMWP.476
+                SHLCREATETEMPFILE             = PMWP.477
+                SHLDELETETEMPFILE             = PMWP.478
+                VSZDESKTOPFOLDER              = PMWP.479
+;               WINISSOMDDREADY               = PMWP.480
+                SHLUNLOADSERVER               = PMWP.481
+                NOTIFYOBJECTINCNROPENED       = PMWP.482
+                PMWPDATETOSTRING              = PMWP.483
+                M_WPCNRVIEWCCLASSDATA         = PMWP.484
+                M_WPCNRVIEWCLASSDATA          = PMWP.485
+                VFCONFIRMATIONS               = PMWP.486
+                VFCONFIRMATIONSLOADED         = PMWP.487
+                VULWPSDSOMTHREADID            = PMWP.488
+                LWPDOPENEDONWPDSERVER         = PMWP.489
+                SHLSTARTAPP                   = PMWP.490
+                WPIMAGEFILECCLASSDATA         = PMWP.491
+                WPIMAGEFILECLASSDATA          = PMWP.492
+                WPIMAGEFILENEWCLASS           = PMWP.493
+                M_WPIMAGEFILECCLASSDATA       = PMWP.494
+                M_WPIMAGEFILECLASSDATA        = PMWP.495
+                M_WPIMAGEFILENEWCLASS         = PMWP.496
+                ODWPSCCLASSDATA               = PMWP.497
+                ODWPSCLASSDATA                = PMWP.498
+                ODWPSNEWCLASS                 = PMWP.499
+                M_ODWPSCCLASSDATA             = PMWP.500
+                M_ODWPSCLASSDATA              = PMWP.501
+                M_ODWPSNEWCLASS               = PMWP.502
+                FILESYSQUERYAWAKEOBJECT       = PMWP.503
+                NODEMOVEDNOTIFY               = PMWP.504
+                ULTOAH                        = PMWP.505
+                RUNONTHREAD                   = PMWP.506
+                SHCRT_TOUPPER                 = PMWP.507
+                SUBSTITUTESTRING              = PMWP.508
+                BUILDSHORTFILENAME            = PMWP.509
+                BUILDNAMEFROMNUMBER           = PMWP.510
+                WINNOTEBOOKBUTTONFROMID       = PMWP.511
+                WINWAITFORSHELL               = PMWP.512
+                VDRIVEDATA                    = PMWP.513

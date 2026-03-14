@@ -1,0 +1,18 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : STRIPAPI.DEF                                                 ;
+;                                                                              ;
+;  Title        : OS/2  API  trace   information  file  API   stripper  module ;
+;                 definitions file                                             ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.45.25 03Jun00 Added trace information file API stripper    ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+NAME            STRIPAPI WINDOWCOMPAT
+DESCRIPTION     'OS/2 API Trace Information File API Stripper'
+EXETYPE         OS2
+PROTMODE

@@ -1,0 +1,36 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_MON___.I32                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL MONCALLS module definitions file    ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.31 26Jun01 Added  capability  of building  32-bit  only ;
+;                                 trace DLLs                                   ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_MON___ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL MONCALLS Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+EXPORTS
+                DOSMONWRITE                     @1 RESIDENTNAME
+                DOSMONREAD                      @2 RESIDENTNAME
+                DOSMONCLOSE                     @3 RESIDENTNAME
+                DOSMONOPEN                      @4 RESIDENTNAME
+                DOSMONREG                       @5 RESIDENTNAME
+IMPORTS
+                DOSMONWRITE = MONCALLS.1
+                DOSMONREAD  = MONCALLS.2
+                DOSMONCLOSE = MONCALLS.3
+                DOSMONOPEN  = MONCALLS.4
+                DOSMONREG   = MONCALLS.5

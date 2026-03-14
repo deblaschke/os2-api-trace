@@ -1,0 +1,174 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_PVP_.I16                                                   ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMVIOP module definitions file      ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.47 29Jan98 Added Win16DefAVioWindowProc                 ;
+;                 2.40.69 21Oct98 Forwarded removed entry table ordinals       ;
+;                 2.45.00 15Apr99 Added new OS/2 2.45 APIs                     ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_PVP_ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMVIOP Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_pvp_0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                                                 WINCREATECONSOLE               @  1 RESIDENTNAME
+                                                 WINDESTROYCONSOLE              @  2 RESIDENTNAME
+                                                 WINSYNCWITHPS                  @  3 RESIDENTNAME
+                                                 WINCONSOLEOPENKBD              @  4 RESIDENTNAME
+                                                 WINCONSOLECLOSEKBD             @  5 RESIDENTNAME
+                                                 WINCONSOLESETSTATUS            @  6 RESIDENTNAME
+                                                 WINCONSOLEGETSTATUS            @  7 RESIDENTNAME
+                                                 WINCONSOLESETCP                @  8 RESIDENTNAME
+                                                 WINCONSOLEGETCP                @ 10 RESIDENTNAME
+                                                 WINCONSOLEKBDXLATE             @ 11 RESIDENTNAME
+                                                 WINCONSOLESETCUSTXT            @ 12 RESIDENTNAME
+                                                 WINCONSOLEGETFOCUS             @ 13 RESIDENTNAME
+                                                 WINCONSOLEFREEFOCUS            @ 14 RESIDENTNAME
+                                                 WINCONSOLEREADKEYEVENT         @ 15 RESIDENTNAME
+                                                 WINCONSOLEFLUSHKEYEVENTS       @ 16 RESIDENTNAME
+                                                 WINCONSOLEQUEUEDPOINTEREVENTS  @ 17 RESIDENTNAME
+                                                 WINCONSOLEREADPOINTEREVENT     @ 18 RESIDENTNAME
+                                                 WINCONSOLEFLUSHPOINTEREVENTS   @ 19 RESIDENTNAME
+                                                 WINCONSOLEGETPOINTERFILTERMASK @ 20 RESIDENTNAME
+                                                 WINCONSOLESETPOINTERFILTERMASK @ 21 RESIDENTNAME
+                                                 WINCONSOLEGETPTRPOS            @ 22 RESIDENTNAME
+                                                 WINCONSOLESETPTRPOS            @ 23 RESIDENTNAME
+                                                 WINSHIELDABORT                 @ 24 RESIDENTNAME
+                                                 SHIELDFRAMEPROC                @ 25 RESIDENTNAME
+                                                 VIOSHIELDWINDOWPROC            @ 26 RESIDENTNAME
+                                                 LOCKVIOPS                      @ 27 RESIDENTNAME
+                                                 UNLOCKVIOPS                    @ 28 RESIDENTNAME
+                                                 MARKINGWINDOWPROC              @ 29 RESIDENTNAME
+                WINDEFAVIOWINDOWPROC           = TRC_WIN16DEFAVIOWINDOWPROC     @ 30 RESIDENTNAME
+                                                 WINCONSOLEGETKBDHANDLE         @ 31 RESIDENTNAME
+                                                 WINCONSOLEATTACHMOUSEUSER      @ 32 RESIDENTNAME
+                                                 WINCONSOLEDETACHMOUSEUSER      @ 33 RESIDENTNAME
+                                                 TASKMGRSUBCLASSPROC            @ 34 RESIDENTNAME
+                                                 WINSHIELDPRETHAW               @ 35 RESIDENTNAME
+                                                 WININITSHIELD                  @ 36 RESIDENTNAME
+                                                 MORTICIAN                      @ 37 RESIDENTNAME
+                                                 UNLOCKSEMAPHORES               @ 39 RESIDENTNAME
+                                                 CLEARDATA                      @ 40 RESIDENTNAME
+                                                 QUERYCONSOLE                   @ 41 RESIDENTNAME
+                                                 MAKEVISIBLE                    @ 42 RESIDENTNAME
+                                                 GETPASTECHAR                   @ 43 RESIDENTNAME
+                                                 SEAMLESSCOMMONVDM              @ 44 RESIDENTNAME ; Removed OS2VER 230
+                                                 SEAMLESSCONTROLPROC            @ 45 RESIDENTNAME ; Removed OS2VER 230
+                                                 TERMINATECLIPDDE               @ 46 RESIDENTNAME ; OS2VER 210
+                                                 VDMCLIPDDENOTIFY               @ 47 RESIDENTNAME ; OS2VER 210
+                                                 PM32CLIPDDENOTIFY              @ 49 RESIDENTNAME ; OS2VER 210
+                                                 SEAMLESS32REGISTEROBJECT       @ 50 RESIDENTNAME ; OS2VER 210, removed OS2VER 230
+                                                 SEAMLESS32ACTIVATEWINDOW       @ 51 RESIDENTNAME ; OS2VER 210, removed OS2VER 230
+                                                 NOTIFYALLVDMS                  @ 52 RESIDENTNAME ; OS2VER 210
+                                                 VDMSWAPBUTTONNOTIFY            @ 53 RESIDENTNAME ; OS2VER 210
+                                                 GET32DISPLAYTYPE               @ 54 RESIDENTNAME ; OS2VER 210
+                                                 SEAMLESS32REGISTERASSOCOBJ     @ 55 RESIDENTNAME ; OS2VER 210, removed OS2VER 230
+                                                 VDMREGISTERHOOK                @ 56 RESIDENTNAME ; OS2VER 210
+                                                 VDMDEREGISTERHOOK              @ 57 RESIDENTNAME ; OS2VER 210
+                                                 SCREENGROUPTOFPCONSOLE         @101 RESIDENTNAME ; OS2VER 230
+                                                 APFNVDMSERV                    @102 RESIDENTNAME ; OS2VER 230
+                                                 GETSELACCESS                   @103 RESIDENTNAME ; OS2VER 230
+                                                 NPSZSTRINGS                    @104 RESIDENTNAME ; OS2VER 230
+                                                 KEYBOARDEVENT                  @105 RESIDENTNAME ; OS2VER 230
+                                                 ESTABLISHKBDENVIRONMENT        @106 RESIDENTNAME ; OS2VER 230
+                                                 HMYMODULEHANDLE                @107 RESIDENTNAME ; OS2VER 230
+                                                 FSEAMLESSCAPTURED              @108 RESIDENTNAME ; OS2VER 230
+                                                 HMQTASKMGR                     @110 RESIDENTNAME ; OS2VER 230
+                                                 PCHARXLATETBLDEFAULT           @111 RESIDENTNAME ; OS2VER 230
+                                                 HAPPSEAMLESSCOMMONVDM          @112 RESIDENTNAME ; OS2VER 230
+                                                 HAPPSEAMLESSCOMMONVDM31        @114 RESIDENTNAME ; OS2VER 230
+                                                 HAPPSEAMLESSCOMMONVDM31ENH     @116 RESIDENTNAME ; OS2VER 230
+                                                 FKBDHOOK                       @117 RESIDENTNAME ; OS2VER 230
+                                                 FMOUHOOK                       @118 RESIDENTNAME ; OS2VER 230
+                                                 SELCOMMONLIST                  @119 RESIDENTNAME ; OS2VER 230
+                                                 USCOMMONSEGSIZE                @120 RESIDENTNAME ; OS2VER 230
+                                                 HMODSEAMLESS                   @121 RESIDENTNAME ; OS2VER 230
+                                                 HFRAMEWINDOWFROMCONSOLE        @122 RESIDENTNAME ; OS2VER 245
+IMPORTS
+                WINCREATECONSOLE               = PMVIOP.  1
+                WINDESTROYCONSOLE              = PMVIOP.  2
+                WINSYNCWITHPS                  = PMVIOP.  3
+                WINCONSOLEOPENKBD              = PMVIOP.  4
+                WINCONSOLECLOSEKBD             = PMVIOP.  5
+                WINCONSOLESETSTATUS            = PMVIOP.  6
+                WINCONSOLEGETSTATUS            = PMVIOP.  7
+                WINCONSOLESETCP                = PMVIOP.  8
+                WINCONSOLEGETCP                = PMVIOP. 10
+                WINCONSOLEKBDXLATE             = PMVIOP. 11
+                WINCONSOLESETCUSTXT            = PMVIOP. 12
+                WINCONSOLEGETFOCUS             = PMVIOP. 13
+                WINCONSOLEFREEFOCUS            = PMVIOP. 14
+                WINCONSOLEREADKEYEVENT         = PMVIOP. 15
+                WINCONSOLEFLUSHKEYEVENTS       = PMVIOP. 16
+                WINCONSOLEQUEUEDPOINTEREVENTS  = PMVIOP. 17
+                WINCONSOLEREADPOINTEREVENT     = PMVIOP. 18
+                WINCONSOLEFLUSHPOINTEREVENTS   = PMVIOP. 19
+                WINCONSOLEGETPOINTERFILTERMASK = PMVIOP. 20
+                WINCONSOLESETPOINTERFILTERMASK = PMVIOP. 21
+                WINCONSOLEGETPTRPOS            = PMVIOP. 22
+                WINCONSOLESETPTRPOS            = PMVIOP. 23
+                WINSHIELDABORT                 = PMVIOP. 24
+                SHIELDFRAMEPROC                = PMVIOP. 25
+                VIOSHIELDWINDOWPROC            = PMVIOP. 26
+                LOCKVIOPS                      = PMVIOP. 27
+                UNLOCKVIOPS                    = PMVIOP. 28
+                MARKINGWINDOWPROC              = PMVIOP. 29
+                WINDEFAVIOWINDOWPROC           = PMVIOP. 30
+                WINCONSOLEGETKBDHANDLE         = PMVIOP. 31
+                WINCONSOLEATTACHMOUSEUSER      = PMVIOP. 32
+                WINCONSOLEDETACHMOUSEUSER      = PMVIOP. 33
+                TASKMGRSUBCLASSPROC            = PMVIOP. 34
+                WINSHIELDPRETHAW               = PMVIOP. 35
+                WININITSHIELD                  = PMVIOP. 36
+                MORTICIAN                      = PMVIOP. 37
+                UNLOCKSEMAPHORES               = PMVIOP. 39
+                CLEARDATA                      = PMVIOP. 40
+                QUERYCONSOLE                   = PMVIOP. 41
+                MAKEVISIBLE                    = PMVIOP. 42
+                GETPASTECHAR                   = PMVIOP. 43
+                SEAMLESSCOMMONVDM              = PMVIOP. 44
+                SEAMLESSCONTROLPROC            = PMVIOP. 45
+                TERMINATECLIPDDE               = PMVIOP. 46
+                VDMCLIPDDENOTIFY               = PMVIOP. 47
+                PM32CLIPDDENOTIFY              = PMVIOP. 49
+                SEAMLESS32REGISTEROBJECT       = PMVIOP. 50
+                SEAMLESS32ACTIVATEWINDOW       = PMVIOP. 51
+                NOTIFYALLVDMS                  = PMVIOP. 52
+                VDMSWAPBUTTONNOTIFY            = PMVIOP. 53
+                GET32DISPLAYTYPE               = PMVIOP. 54
+                SEAMLESS32REGISTERASSOCOBJ     = PMVIOP. 55
+                VDMREGISTERHOOK                = PMVIOP. 56
+                VDMDEREGISTERHOOK              = PMVIOP. 57
+                SCREENGROUPTOFPCONSOLE         = PMVIOP.101
+                APFNVDMSERV                    = PMVIOP.102
+                GETSELACCESS                   = PMVIOP.103
+                NPSZSTRINGS                    = PMVIOP.104
+                KEYBOARDEVENT                  = PMVIOP.105
+                ESTABLISHKBDENVIRONMENT        = PMVIOP.106
+                HMYMODULEHANDLE                = PMVIOP.107
+                FSEAMLESSCAPTURED              = PMVIOP.108
+                HMQTASKMGR                     = PMVIOP.110
+                PCHARXLATETBLDEFAULT           = PMVIOP.111
+                HAPPSEAMLESSCOMMONVDM          = PMVIOP.112
+                HAPPSEAMLESSCOMMONVDM31        = PMVIOP.114
+                HAPPSEAMLESSCOMMONVDM31ENH     = PMVIOP.116
+                FKBDHOOK                       = PMVIOP.117
+                FMOUHOOK                       = PMVIOP.118
+                SELCOMMONLIST                  = PMVIOP.119
+                USCOMMONSEGSIZE                = PMVIOP.120
+                HMODSEAMLESS                   = PMVIOP.121
+                HFRAMEWINDOWFROMCONSOLE        = PMVIOP.122

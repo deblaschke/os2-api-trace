@@ -1,0 +1,2103 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_MRG__.I32                                                  ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMMERGE module definitions file     ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.00 05Sep96 Added new OS/2 2.40 APIs                     ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.45.00 15Apr99 Added new OS/2 2.45 APIs                     ;
+;                 2.45.01 02May99 Added  support  for  Gpi/Win APIs  in PMGPI, ;
+;                                 PMSHAPI, and PMWIN exported by PMMERGE       ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_MRG__ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMMERGE Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+EXPORTS
+                                                SHEPIINITIALISE               @ 2000 RESIDENTNAME ; OS2VER 230
+                                                WINQUERYPROFILEINT            @ 2001 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYPROFILESTRING         @ 2002 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINWRITEPROFILESTRING         @ 2003 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYPROFILESIZE           @ 2004 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYPROFILEDATA           @ 2005 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINWRITEPROFILEDATA           @ 2006 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFCHANGEWRITETHRU            @ 2007 RESIDENTNAME ; OS2VER 230
+                                                PMEXECREGISTER                @ 2008 RESIDENTNAME ; OS2VER 230
+                                                SHEPIINITINIFILES             @ 2009 RESIDENTNAME ; OS2VER 230
+                                                SHECONVERT190PROGRAMLISTTO300 @ 2010 RESIDENTNAME ; OS2VER 230
+                                                PRFQUERYPROFILEINT            @ 2011 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFQUERYPROFILESTRING         @ 2012 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFWRITEPROFILESTRING         @ 2013 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFQUERYPROFILESIZE           @ 2014 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFQUERYPROFILEDATA           @ 2015 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFWRITEPROFILEDATA           @ 2016 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFOPENPROFILE                @ 2017 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFCLOSEPROFILE               @ 2018 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFRESET                      @ 2019 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFQUERYPROFILE               @ 2020 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFADDPROGRAM                 @ 2021 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFREMOVEPROGRAM              @ 2022 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFCHANGEPROGRAM              @ 2023 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFQUERYDEFINITION            @ 2024 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFQUERYPROGRAMTITLES         @ 2025 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFCREATEGROUP                @ 2026 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFQUERYPROGRAMHANDLE         @ 2027 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFQUERYPROGRAMCATEGORY       @ 2028 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFDESTROYGROUP               @ 2029 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                SHEPROFILEHOOK                @ 2030 RESIDENTNAME ; OS2VER 230
+                                                SHEINITIALIZEINIFILE          @ 2031 RESIDENTNAME ; OS2VER 230
+                                                SHPPI16LOCKINIFILE            @ 2032 RESIDENTNAME ; OS2VER 230
+                                                SHPPI16SHUTDOWN               @ 2033 RESIDENTNAME ; OS2VER 230
+                                                ENABLEPMPRE                   @ 2034 RESIDENTNAME ; OS2VER 230
+                                                INNERGREENTRY                 @ 2035 RESIDENTNAME ; OS2VER 230
+                                                GREINITIALIZE                 @ 2036 RESIDENTNAME ; OS2VER 230
+                                                GREENTRY2                     @ 2037 RESIDENTNAME ; OS2VER 230
+                                                GREENTRY3                     @ 2038 RESIDENTNAME ; OS2VER 230
+                                                GREENTRY4                     @ 2039 RESIDENTNAME ; OS2VER 230
+                                                GREENTRY5                     @ 2040 RESIDENTNAME ; OS2VER 230
+                                                GREENTRY6                     @ 2041 RESIDENTNAME ; OS2VER 230
+                                                GREENTRY7                     @ 2042 RESIDENTNAME ; OS2VER 230
+                                                GREENTRY8                     @ 2043 RESIDENTNAME ; OS2VER 230
+                                                GREENTRY9                     @ 2044 RESIDENTNAME ; OS2VER 230
+                                                GREENTRY10                    @ 2045 RESIDENTNAME ; OS2VER 230
+                                                GETDRIVERINFO                 @ 2046 RESIDENTNAME ; OS2VER 230
+                                                SETDRIVERINFO                 @ 2047 RESIDENTNAME ; OS2VER 230
+                                                POSTDEVICEMODES               @ 2048 RESIDENTNAME ; OS2VER 230
+                                                BITMAPLIMITWARNING            @ 2049 RESIDENTNAME ; OS2VER 230
+                                                PMWINGREENTRY2                @ 2050 RESIDENTNAME ; OS2VER 230
+                                                PMWINGREENTRY3                @ 2051 RESIDENTNAME ; OS2VER 230
+                                                PMWINGREENTRY4                @ 2052 RESIDENTNAME ; OS2VER 230
+                                                PMWINGREENTRY5                @ 2053 RESIDENTNAME ; OS2VER 230
+                                                PMWINGREENTRY6                @ 2054 RESIDENTNAME ; OS2VER 230
+                                                PMWINGREENTRY7                @ 2055 RESIDENTNAME ; OS2VER 230
+                                                PMWINGREENTRY8                @ 2056 RESIDENTNAME ; OS2VER 230
+                                                PMWINGREENTRY9                @ 2057 RESIDENTNAME ; OS2VER 230
+                                                PMWINGREENTRY10               @ 2058 RESIDENTNAME ; OS2VER 230
+                                                SSALLOCSEG                    @ 2059 RESIDENTNAME ; OS2VER 230
+                                                SSALLOCHUGE                   @ 2060 RESIDENTNAME ; OS2VER 230
+                                                SSFREESEG                     @ 2061 RESIDENTNAME ; OS2VER 230
+                                                SSFLUSHSEGS                   @ 2062 RESIDENTNAME ; OS2VER 230
+                                                RAMSEMREQUEST16               @ 2063 RESIDENTNAME ; OS2VER 230
+                                                RAMSEMCLEAR16                 @ 2064 RESIDENTNAME ; OS2VER 230
+                                                WINQUERYCLASSINFO             @ 2065 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINMULTWINDOWFROMIDS          @ 2066 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16LOCKWINDOW               @ 2067 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYWINDOWLOCKCOUNT       @ 2068 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOADPOINTER                @ 2069 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCREATEPOINTER              @ 2070 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16DESTROYPOINTER           @ 2071 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                OLDWINQUERYPOINTERINFO        @ 2072 NONAME       ; OS2VER 230
+                                                WINQUERYSYSPOINTER            @ 2073 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETSYSBITMAP               @ 2074 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYCURSORINFO            @ 2075 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOADACCELTABLE             @ 2076 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCREATEACCELTABLE           @ 2077 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDESTROYACCELTABLE          @ 2078 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCOPYACCELTABLE             @ 2079 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETCLIPBRDDATA             @ 2080 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYCLIPBRDFMTINFO        @ 2081 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                GPILOADBITMAP                 @ 2082 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16LOADSTRING               @ 2083 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOADMESSAGE                @ 2084 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETRECTEMPTY               @ 2085 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETRECT                    @ 2086 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCOPYRECT                   @ 2087 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINISRECTEMPTY                @ 2088 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINPTINRECT                   @ 2089 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINOFFSETRECT                 @ 2090 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WININFLATERECT                @ 2091 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINMAKERECT                   @ 2092 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINMAKEPOINTS                 @ 2093 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16DEFWINDOWPROC            @ 2094 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16DEFDLGPROC               @ 2095 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYHUNGPROCESS         @ 2096 NONAME       ; OS2VER 230
+                                                WINLOADSTRINGTABLE            @ 2097 NONAME       ; OS2VER 230
+                                                WINLOADVKEYGLYPHXLATETBL      @ 2098 NONAME       ; OS2VER 230
+                                                WINLOADCHARXLATETBL           @ 2099 NONAME       ; OS2VER 230
+                                                WINSETVKEYGLYPHXLATETBL       @ 2100 NONAME       ; OS2VER 230
+                                                WINQUERYVKEYGLYPHXLATETBL     @ 2101 NONAME       ; OS2VER 230
+                                                WINVKEYTOSCANID               @ 2102 NONAME       ; OS2VER 230
+                                                WINQUERYPROCESSCP             @ 2103 NONAME       ; OS2VER 230
+                                                WIN16GETKEYSTATE              @ 2104 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETCP                      @ 2105 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYCP                    @ 2106 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYCPLIST                @ 2107 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCPTRANSLATESTRING          @ 2108 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCPTRANSLATECHAR            @ 2109 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCOMPARESTRINGS             @ 2110 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16UPPER                    @ 2111 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16UPPERCHAR                @ 2112 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINNEXTCHAR                   @ 2113 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINPREVCHAR                   @ 2114 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16CREATEHEAP               @ 2115 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16DESTROYHEAP              @ 2116 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINAVAILMEM                   @ 2117 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16ALLOCMEM                 @ 2118 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINREALLOCMEM                 @ 2119 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16FREEMEM                  @ 2120 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOCKHEAP                   @ 2121 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCREATEATOMTABLE            @ 2122 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDESTROYATOMTABLE           @ 2123 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINADDATOM                    @ 2124 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINFINDATOM                   @ 2125 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDELETEATOM                 @ 2126 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYATOMUSAGE             @ 2127 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYATOMLENGTH            @ 2128 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYATOMNAME              @ 2129 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYSYSTEMATOMTABLE       @ 2130 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETLASTERROR               @ 2131 NONAME       ; OS2VER 230
+                                                WIN16GETLASTERROR             @ 2132 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETERRORINFO               @ 2133 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINFREEERRORINFO              @ 2134 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16INITIALIZE               @ 2135 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16TERMINATE                @ 2136 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCATCH                      @ 2137 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINTHROW                      @ 2138 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYVERSION               @ 2139 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                FSRSEMEXIT                    @ 2140 NONAME       ; OS2VER 230
+                                                FSRSEMCHECK                   @ 2141 NONAME       ; OS2VER 230
+                                                AABGETREG                     @ 2142 NONAME       ; OS2VER 230
+                                                AABSETREG                     @ 2143 NONAME       ; OS2VER 230
+                                                VALIDATESELECTOR              @ 2144 NONAME       ; OS2VER 230
+                                                LOADMODULEHANDLE              @ 2145 NONAME       ; OS2VER 230
+                                                GETSCREENSELECTOR             @ 2146 NONAME       ; OS2VER 230
+                                                IDENTIFYCODESELECTOR          @ 2147 NONAME       ; OS2VER 230
+                                                _WINSETERRORINFO              @ 2148 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WINTERMINATESYSTEM            @ 2149 NONAME       ; OS2VER 230
+                                                WINDEFQUEUEPROC               @ 2150 NONAME       ; OS2VER 230
+                                                WINVISREGIONNOTIFY            @ 2151 NONAME       ; OS2VER 230
+                                                WINQUERYKBDLAYOUT             @ 2152 NONAME       ; OS2VER 230
+                                                WINSETKBDLAYOUT               @ 2153 NONAME       ; OS2VER 230
+                                                WIN16BUILDPTRHANDLE           @ 2154 RESIDENTNAME ; OS2VER 230
+                                                DUMWINCREATEHELPINSTANCE      @ 2155 NONAME       ; OS2VER 230
+                                                DUMWINDESTROYHELPINSTANCE     @ 2156 NONAME       ; OS2VER 230
+                                                DUMWINASSOCIATEHELPINSTANCE   @ 2157 NONAME       ; OS2VER 230
+                                                DUMWINCREATEHELPTABLE         @ 2158 NONAME       ; OS2VER 230
+                                                DUMWINLOADHELPTABLE           @ 2159 NONAME       ; OS2VER 230
+                                                DUMWINQUERYHELPINSTANCE       @ 2160 NONAME       ; OS2VER 230
+                                                DUMMYHELPENTRY                @ 2161 NONAME       ; OS2VER 230
+                                                GETPMDDCODESELECTOR           @ 2162 NONAME       ; OS2VER 230
+                                                WINQUERYPWND                  @ 2163 NONAME       ; OS2VER 230
+                                                WINENUMVKEYSCANIDS            @ 2164 NONAME       ; OS2VER 230
+                                                WINLOADTRANSLATIONTABLE       @ 2165 NONAME       ; OS2VER 230
+                                                WINSETKBDLAYOUT2              @ 2166 NONAME       ; OS2VER 230
+                                                DEBUGINPUTENABLE              @ 2167 NONAME       ; OS2VER 230
+                                                DEBUGINPUT                    @ 2168 NONAME       ; OS2VER 230
+                                                DEBUGOUTPUT                   @ 2169 NONAME       ; OS2VER 230
+                                                DEBUGCURPOS                   @ 2170 NONAME       ; OS2VER 230
+                                                DEBUGCLS                      @ 2171 NONAME       ; OS2VER 230
+                                                DEBUGREDIRECT                 @ 2172 NONAME       ; OS2VER 230
+                                                WINLANGSUPWINDOWPROC          @ 2173 NONAME       ; OS2VER 230
+                                                WINLANGSUPDLGPROC             @ 2174 NONAME       ; OS2VER 230
+                                                WINCREATEPOINTERINDIRECT      @ 2175 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYPOINTERINFO         @ 2176 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINPORTHOLEUTIL               @ 2177 NONAME       ; OS2VER 230
+                                                WINCREATEFARHEAP              @ 2178 NONAME       ; OS2VER 230
+                                                WINDESTROYFARHEAP             @ 2179 NONAME       ; OS2VER 230
+                                                WINALLOCFARMEM                @ 2180 NONAME       ; OS2VER 230
+                                                WINFREEFARMEM                 @ 2181 NONAME       ; OS2VER 230
+                                                WINREALLOCFARMEM              @ 2182 NONAME       ; OS2VER 230
+                                                WINSETQUEUEPROC               @ 2183 NONAME       ; OS2VER 230
+                                                FARFLUSHBUFHOOK               @ 3000 NONAME       ; OS2VER 230
+                                                FNBADAPPDLGPROC               @ 3001 RESIDENTNAME ; OS2VER 230
+                                                INPUTGETDEVICEINFO16          @ 3002 NONAME       ; OS2VER 230
+                                                LPFNICONWNDPROC               @ 3003 RESIDENTNAME ; OS2VER 230
+                                                LPFNSHELLWNDPROC              @ 3004 RESIDENTNAME ; OS2VER 230
+                                                SHESTARTLONGPROGRAM           @ 3005 RESIDENTNAME ; OS2VER 230
+                                                SHESYSTEMSHUTDOWN             @ 3006 RESIDENTNAME ; OS2VER 230
+                                                SHEUPDATEINIFILE              @ 3007 RESIDENTNAME ; OS2VER 230
+                                                SHLLOADPUBLICFONTS            @ 3008 RESIDENTNAME ; OS2VER 230
+                                                SHLUNLOADPUBLICFONTS          @ 3009 RESIDENTNAME ; OS2VER 230
+                                                SHPLOCKPROGRAMLIST            @ 3010 RESIDENTNAME ; OS2VER 230
+                                                SHPUNLOCKPROGRAMLIST          @ 3011 RESIDENTNAME ; OS2VER 230
+                                                STARTSTARTUPDOTCMD            @ 3012 RESIDENTNAME ; OS2VER 230
+                                                STARTSYSTEMEXECUTABLES        @ 3013 RESIDENTNAME ; OS2VER 230
+                                                WIN16ALARM                    @ 3014 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16BEGINENUMWINDOWS         @ 3015 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16BEGINPAINT               @ 3016 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16BROADCASTMSG             @ 3017 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16CANCELMODE               @ 3018 NONAME       ; OS2VER 230
+                                                WIN16CANCELSHUTDOWN           @ 3019 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16CREATEMSGQUEUE           @ 3020 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16CREATESTDWINDOW          @ 3021 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16CREATEWINDOW             @ 3022 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16DESTROYMSGQUEUE          @ 3023 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16DESTROYWINDOW            @ 3024 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16DISPATCHMSG              @ 3025 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16DRAWTEXT                 @ 3026 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16ENDPAINT                 @ 3027 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16FILLRECT                 @ 3028 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16GETMINWINDOWVIEWER       @ 3029 NONAME       ; OS2VER 230
+                                                WIN16GETMSG                   @ 3030 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16GETNEXTWINDOW            @ 3031 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16INITIALIZESYSTEM         @ 3032 NONAME       ; OS2VER 230
+                                                WIN16INVALIDATERECT           @ 3033 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16ISCHILD                  @ 3034 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16ISWINDOW                 @ 3035 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16ISWINDOWVISIBLE          @ 3036 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16LOADDLG                  @ 3037 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16LOCKSTARTINPUT           @ 3038 NONAME       ; OS2VER 230
+                                                WIN16MESSAGEBOX               @ 3039 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16MSGSEMWAIT               @ 3040 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16OPENWINDOWDC             @ 3041 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16PEEKMSG                  @ 3042 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16POSTMSG                  @ 3043 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16PROCESSDLG               @ 3044 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYACTIVEWINDOW        @ 3045 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYANCHORBLOCK         @ 3046 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYDESKTOPWINDOW       @ 3047 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYFOCUS               @ 3048 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYQUEUEINFO           @ 3049 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYSYSMODALWINDOW      @ 3050 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYSYSVALUE            @ 3051 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYWINDOW              @ 3052 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYWINDOWPOS           @ 3053 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYWINDOWPROCESS       @ 3054 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYWINDOWRECT          @ 3055 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYWINDOWULONG         @ 3056 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16QUERYWINDOWUSHORT        @ 3057 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16REGISTERCLASS            @ 3058 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16RESETSYSTEM              @ 3059 NONAME       ; OS2VER 230
+                                                WIN16SCREENSWITCH             @ 3060 NONAME       ; OS2VER 230
+                                                WIN16SENDDLGITEMMSG           @ 3061 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SENDMSG                  @ 3062 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETACTIVEWINDOW          @ 3063 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETDLGITEMTEXT           @ 3064 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETFOCUS                 @ 3065 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETMULTWINDOWPOS         @ 3066 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETPARENT                @ 3067 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETPRESPARAM             @ 3068 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETSYSMODALWINDOW        @ 3069 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETSYSVALUE              @ 3070 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETWINDOWBITS            @ 3071 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETWINDOWPOS             @ 3072 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SETWINDOWTEXT            @ 3073 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SHOWWINDOW               @ 3074 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16SUBCLASSWINDOW           @ 3075 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16TERMINATESHUTDOWN        @ 3076 NONAME       ; OS2VER 230
+                                                WIN16TRACKRECT                @ 3077 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WIN16WINDOWFROMID             @ 3078 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINADDPROGRAM                 @ 3079 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINADDSWITCHENTRY             @ 3080 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINADDTOGROUP                 @ 3081 RESIDENTNAME ; OS2VER 230
+                                                WINCALCFRAMERECT              @ 3082 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCALLHELPHOOK               @ 3083 NONAME       ; OS2VER 230
+                                                WINCALLMSGFILTER              @ 3084 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCANTERMINATE               @ 3085 RESIDENTNAME ; OS2VER 230
+                                                WINCHANGEPROGRAM              @ 3086 RESIDENTNAME ; OS2VER 230
+                                                WINCHANGESWITCHENTRY          @ 3087 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINCHECKINPUT                 @ 3088 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCLOSECLIPBRD               @ 3089 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCPLREGISTER                @ 3090 RESIDENTNAME ; OS2VER 230
+                                                WINCREATECURSOR               @ 3091 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCREATEDLG                  @ 3092 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCREATEFRAMECONTROLS        @ 3093 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCREATEGROUP                @ 3094 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINCREATEMENU                 @ 3095 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINCREATESWITCHENTRY          @ 3096 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINDDEINITIATE                @ 3097 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDDEPOSTMSG                 @ 3098 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDDERESPOND                 @ 3099 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDEBUGBREAK                 @ 3100 NONAME       ; OS2VER 230
+                                                WINDELETELIBRARY              @ 3101 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDELETEPROCEDURE            @ 3102 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDESTROYANIPOINTER          @ 3103 NONAME       ; OS2VER 230
+                                                WINDESTROYCURSOR              @ 3104 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDESTROYGROUP               @ 3105 RESIDENTNAME ; OS2VER 230
+                                                WINDISMISSDLG                 @ 3106 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDLGBOX                     @ 3107 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDRAWBITMAP                 @ 3108 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDRAWBORDER                 @ 3109 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINDRAWPOINTER                @ 3110 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINEMPTYCLIPBRD               @ 3111 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINENABLEPHYSINPUT            @ 3112 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINENABLEWINDOW               @ 3113 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINENABLEWINDOWUPDATE         @ 3114 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINENDENUMWINDOWS             @ 3115 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINENDPROGRAM                 @ 3116 RESIDENTNAME ; OS2VER 230
+                                                WINENDSESSION                 @ 3117 RESIDENTNAME ; OS2VER 230
+                                                WINENDWINDOWSESSION           @ 3118 RESIDENTNAME ; OS2VER 230
+                                                WINENUMCLIPBRDFMTS            @ 3119 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINENUMDLGITEM                @ 3120 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINEQUALRECT                  @ 3121 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINEXCLUDEUPDATEREGION        @ 3122 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINEXPLODEWINDOW              @ 3123 NONAME       ; OS2VER 230
+                                                WINFLASHWINDOW                @ 3124 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINFOCUSCHANGE                @ 3125 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINFORCEMENUREDRAW            @ 3126 NONAME       ; OS2VER 230
+                                                WINFORMATFRAME                @ 3127 NONAME       ; OS2VER 230
+                                                WINGETCLIPPS                  @ 3128 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETCURRENTTIME             @ 3129 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETDLGMSG                  @ 3130 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETERASEPS                 @ 3131 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETFRAMETREEPPS            @ 3132 NONAME       ; OS2VER 230
+                                                WINGETFRAMETREEPPSIZE         @ 3133 NONAME       ; OS2VER 230
+                                                WINGETMAXPOSITION             @ 3134 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETMINPOSITION             @ 3135 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETPHYSKEYSTATE            @ 3136 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETPS                      @ 3137 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINGETSCANSTATE               @ 3138 NONAME       ; OS2VER 230
+                                                WINGETSCREENPS                @ 3139 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINHAPPFROMPID                @ 3140 RESIDENTNAME ; OS2VER 230
+                                                WINHSWITCHFROMHAPP            @ 3141 RESIDENTNAME ; OS2VER 230
+                                                WININITIALIZEPL               @ 3142 RESIDENTNAME ; OS2VER 230
+                                                WININITSESSION                @ 3143 RESIDENTNAME ; OS2VER 230
+                                                WININITSESSIONMGR             @ 3144 RESIDENTNAME ; OS2VER 230
+                                                WININITSWENTRY                @ 3145 RESIDENTNAME ; OS2VER 230
+                                                WININSENDMSG                  @ 3146 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WININSTSTARTAPP               @ 3147 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WININTERSECTRECT              @ 3148 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WININVALIDATEREGION           @ 3149 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WININVERTRECT                 @ 3150 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINISPHYSINPUTENABLED         @ 3151 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINISSHUTTINGDOWN             @ 3152 NONAME       ; OS2VER 230
+                                                WINISTHREADACTIVE             @ 3153 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINISWINDOWENABLED            @ 3154 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINISWINDOWSHOWING            @ 3155 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINJIGGLEMOUSE                @ 3156 NONAME       ; OS2VER 230
+                                                WINLOADANIPOINTER             @ 3157 NONAME       ; OS2VER 230
+                                                WINLOADLIBRARY                @ 3158 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOADMENU                   @ 3159 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOADPROCEDURE              @ 3160 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOCKINPUT                  @ 3161 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOCKPOINTERUPDATE          @ 3162 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOCKVISREGIONS             @ 3163 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINLOCKWINDOWUPDATE           @ 3164 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINMAPDLGPOINTS               @ 3165 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINMAPWINDOWPOINTS            @ 3166 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINMENUINDEXFROMID            @ 3167 NONAME       ; OS2VER 230
+                                                WINMSGMUXSEMWAIT              @ 3168 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINNOSHUTDOWN                 @ 3169 RESIDENTNAME ; OS2VER 230
+                                                WINOPENCLIPBRD                @ 3170 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINPMFILEREGISTER             @ 3171 RESIDENTNAME ; OS2VER 230
+                                                WINPOPUPMENU                  @ 3172 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINPOSTQUEUEMSG               @ 3173 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYACCELTABLE            @ 3174 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYACCELTABLEVALUE       @ 3175 NONAME       ; OS2VER 230
+                                                WINQUERYCAPTURE               @ 3176 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYCHARXLATETBL          @ 3177 NONAME       ; OS2VER 230
+                                                WINQUERYCLASSNAME             @ 3178 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYCLASSTHUNKPROC        @ 3179 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYCLIPBRDDATA           @ 3180 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYCLIPBRDOWNER          @ 3181 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYCLIPBRDVIEWER         @ 3182 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYDEFINITION            @ 3183 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYDESKTOPBKGND          @ 3184 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYDLGITEMSHORT          @ 3185 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYDLGITEMTEXT           @ 3186 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYDLGITEMTEXTLENGTH     @ 3187 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYEXTIDFOCUS            @ 3188 RESIDENTNAME ; OS2VER 230
+                                                WINQUERYFILEEXTOPTS           @ 3189 RESIDENTNAME ; OS2VER 230
+                                                WINQUERYMENUDATA              @ 3190 NONAME       ; OS2VER 230
+                                                WINQUERYMSGPOS                @ 3191 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYMSGTIME               @ 3192 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYOBJECTWINDOW          @ 3193 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYPOINTER               @ 3194 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYPOINTERPOS            @ 3195 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYPRESPARAM             @ 3196 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYPROGRAMTITLES         @ 3197 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYPROGRAMTYPE           @ 3198 RESIDENTNAME ; OS2VER 230
+                                                WINQUERYPROGRAMUSE            @ 3199 RESIDENTNAME ; OS2VER 230
+                                                WINQUERYQUEUESTATUS           @ 3200 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYSENDMSG               @ 3201 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYSESSIONTITLE          @ 3202 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYSTATE                 @ 3203 NONAME       ; OS2VER 230
+                                                WINQUERYSWITCHENTRY           @ 3204 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYSWITCHHANDLE          @ 3205 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYSWITCHLIST            @ 3206 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYSYSCOLOR              @ 3207 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYTASKSIZEPOS           @ 3208 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYTASKTITLE             @ 3209 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINQUERYUPDATERECT            @ 3210 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYUPDATEREGION          @ 3211 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYWINDOWDC              @ 3212 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYWINDOWMODEL           @ 3213 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYWINDOWPTR             @ 3214 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYWINDOWSGID            @ 3215 NONAME       ; OS2VER 230
+                                                WINQUERYWINDOWTEXT            @ 3216 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYWINDOWTEXTLENGTH      @ 3217 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYWINDOWTHUNKPROC       @ 3218 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINQUERYWORKPLACEWINDOW       @ 3219 NONAME       ; OS2VER 230
+                                                WINQUEUEFROMID                @ 3220 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WINREALIZEPALETTE             @ 3221 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINREGISTERSEAMLESSPROC       @ 3222 NONAME       ; OS2VER 230
+                                                WINREGISTERUSERDATATYPE       @ 3223 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINREGISTERUSERMSG            @ 3224 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINREGISTERWINDOWDESTROY      @ 3225 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINRELEASEERASEPS             @ 3226 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINRELEASEHOOK                @ 3227 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINRELEASEPS                  @ 3228 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINREMOVEFROMGROUP            @ 3229 RESIDENTNAME ; OS2VER 230
+                                                WINREMOVEPRESPARAM            @ 3230 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINREMOVEPROGRAM              @ 3231 RESIDENTNAME ; OS2VER 230
+                                                WINREMOVESWITCHENTRY          @ 3232 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINREPLYMSG                   @ 3233 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WINSAVEWINDOWPOS              @ 3234 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSCROLLWINDOW               @ 3235 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSEAMLESSBOX                @ 3236 NONAME       ; OS2VER 230
+                                                WINSEMENTER                   @ 3237 NONAME       ; OS2VER 230
+                                                WINSEMLEAVE                   @ 3238 NONAME       ; OS2VER 230
+                                                WINSEMQUERY                   @ 3239 NONAME       ; OS2VER 230
+                                                WINSENDQUEUEMSG               @ 3240 NONAME       ; OS2VER 230
+                                                WINSETACCELTABLE              @ 3241 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETACCELTABLEVALUE         @ 3242 NONAME       ; OS2VER 230
+                                                WINSETANIPOINTER              @ 3243 NONAME       ; OS2VER 230
+                                                WINSETATOMTABLEOWNER          @ 3244 NONAME       ; OS2VER 230
+                                                WINSETCAPTURE                 @ 3245 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETCHARXLATETBL            @ 3246 NONAME       ; OS2VER 230
+                                                WINSETCLASSMSGINTEREST        @ 3247 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETCLASSTHUNKPROC          @ 3248 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETCLIPBRDOWNER            @ 3249 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETCLIPBRDVIEWER           @ 3250 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETDESKTOPBKGND            @ 3251 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETDLGITEMSHORT            @ 3252 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETEXTIDFOCUS              @ 3253 RESIDENTNAME ; OS2VER 230
+                                                WINSETFGNDWINDOW              @ 3254 RESIDENTNAME ; OS2VER 230
+                                                WINSETFILEEXTOPTS             @ 3255 RESIDENTNAME ; OS2VER 230
+                                                WINSETFRAMETREEPPS            @ 3256 NONAME       ; OS2VER 230
+                                                WINSETHOOK                    @ 3257 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETKEYBOARDSTATETABLE      @ 3258 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETMENUDATA                @ 3259 NONAME       ; OS2VER 230
+                                                WINSETMSGINTEREST             @ 3260 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETMSGMODE                 @ 3261 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETOWNER                   @ 3262 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETPOINTER                 @ 3263 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETPOINTEROWNER            @ 3264 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETPOINTERPOS              @ 3265 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETSCANSTATETABLE          @ 3266 NONAME       ; OS2VER 230
+                                                WINSETSWENTRY                 @ 3267 RESIDENTNAME ; OS2VER 230
+                                                WINSETSYNCHROMODE             @ 3268 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETSYSCLIPBRDVIEWER        @ 3269 NONAME       ; OS2VER 230
+                                                WINSETSYSCOLORS               @ 3270 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETTITLE                   @ 3271 RESIDENTNAME ; OS2VER 230
+                                                WINSETTITLEANDICON            @ 3272 RESIDENTNAME ; OS2VER 230
+                                                WINSETWINDOWDC                @ 3273 NONAME       ; OS2VER 230
+                                                WINSETWINDOWPTR               @ 3274 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETWINDOWTHUNKPROC         @ 3275 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETWINDOWULONG             @ 3276 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETWINDOWUSHORT            @ 3277 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSHOWCURSOR                 @ 3278 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSHOWPOINTER                @ 3279 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSHOWTRACKRECT              @ 3280 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSTARTAPP                   @ 3281 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINSTARTTIMER                 @ 3282 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSTOPPROGRAM                @ 3283 RESIDENTNAME ; OS2VER 230
+                                                WINSTOPTIMER                  @ 3284 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSTPREGISTER                @ 3285 RESIDENTNAME ; OS2VER 230
+                                                WINSTRETCHPOINTER             @ 3286 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSUBSTITUTESTRINGS          @ 3287 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSUBTRACTRECT               @ 3288 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSWITCHPROGRAMREGISTER      @ 3289 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINSWITCHTOPROGRAM2           @ 3290 RESIDENTNAME ; OS2VER 230
+                                                WINSWITCHTOPROGRAM            @ 3291 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINSWITCHTOTASKMANAGER        @ 3292 RESIDENTNAME ; OS2VER 230
+                                                WINSYNCSTARTPGM               @ 3293 NONAME       ; OS2VER 230
+                                                WINSYSTEMSHUTDOWN             @ 3294 NONAME       ; OS2VER 230
+                                                WINTERMINATEAPP               @ 3295 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WINTHREADASSOCQUEUE           @ 3296 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WINTRACKSEAMLESS              @ 3297 NONAME       ; OS2VER 230
+                                                WINTRANSLATEACCEL             @ 3298 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINTRANSLATECHAR              @ 3299 NONAME       ; OS2VER 230
+                                                WINUNIONRECT                  @ 3300 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINUPDATEWINDOW               @ 3301 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINVALIDATERECT               @ 3302 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINVALIDATEREGION             @ 3303 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINVKEYGLYPHCHARXLATE         @ 3304 NONAME       ; OS2VER 230
+                                                WINWAITMSG                    @ 3305 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINWAKETHREAD                 @ 3306 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WINWINDOWFROMDC               @ 3307 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINWINDOWFROMPOINT            @ 3308 RESIDENTNAME ; OS2VER 230 Forwarded to PMWIN
+                                                WINSETTITLEANDHWNDICON        @ 3309 RESIDENTNAME ; OS2VER 230
+                                                WINTRACKWINDOW                @ 3310 NONAME       ; OS2VER 240
+                                                WINSETLANGINFO                @ 3500 RESIDENTNAME ; OS2VER 240
+                                                WINQUERYLANGINFO              @ 3501 RESIDENTNAME ; OS2VER 240
+                                                WINSETKBDLAYER                @ 3502 RESIDENTNAME ; OS2VER 240
+                                                WINQUERYKBDLAYER              @ 3503 RESIDENTNAME ; OS2VER 240
+                                                WINSETLANGVIEWER              @ 3504 RESIDENTNAME ; OS2VER 240
+                                                WINQUERYLANGVIEWER            @ 3505 RESIDENTNAME ; OS2VER 240
+                                                WINPOUREVENT                  @ 3600 NONAME       ; OS2VER 245
+                                                WINSETMSGQIMINFO              @ 3601 NONAME       ; OS2VER 245
+                                                WINQUERYMSGQIMINFO            @ 3602 NONAME       ; OS2VER 245
+                                                DEVMODE_CALL_16               @ 4000 RESIDENTNAME ; OS2VER 230
+                                                DEVNAME_CALL_16               @ 4001 RESIDENTNAME ; OS2VER 230
+                                                DISPATCH16GATE10              @ 4002 RESIDENTNAME ; OS2VER 230
+                                                DISPATCH16GATE3               @ 4003 RESIDENTNAME ; OS2VER 230
+                                                DISPATCH16GATE4               @ 4004 RESIDENTNAME ; OS2VER 230
+                                                DISPATCH16GATE5               @ 4005 RESIDENTNAME ; OS2VER 230
+                                                DISPATCH16GATE6               @ 4006 RESIDENTNAME ; OS2VER 230
+                                                DISPATCH16GATE7               @ 4007 RESIDENTNAME ; OS2VER 230
+                                                DISPATCH16GATE8               @ 4008 RESIDENTNAME ; OS2VER 230
+                                                DISPATCH16GATE9               @ 4009 RESIDENTNAME ; OS2VER 230
+                                                ENABLE_CALL_16                @ 4010 RESIDENTNAME ; OS2VER 230
+                                                FSRSEMENTER                   @ 4011 NONAME       ; OS2VER 230
+                                                FSRSEMENTERP                  @ 4012 NONAME       ; OS2VER 230
+                                                FSRSEMLEAVE                   @ 4013 NONAME       ; OS2VER 230
+                                                PFN10R2                       @ 4014 RESIDENTNAME ; OS2VER 230
+                                                PFN4R2                        @ 4015 RESIDENTNAME ; OS2VER 230
+                                                PFN5R2                        @ 4016 RESIDENTNAME ; OS2VER 230
+                                                PFN6R2                        @ 4017 RESIDENTNAME ; OS2VER 230
+                                                PFN7R2                        @ 4018 RESIDENTNAME ; OS2VER 230
+                                                PFN8R2                        @ 4019 RESIDENTNAME ; OS2VER 230
+                                                PFN9R2                        @ 4020 RESIDENTNAME ; OS2VER 230
+                                                DELETEBITMAP16CALL            @ 4021 RESIDENTNAME ; OS2VER 230
+                                                DO16CLI                       @ 4022 NONAME       ; OS2VER 230
+                                                DO16STI                       @ 4023 NONAME       ; OS2VER 230
+                                                GRE16CALLBACK                 @ 4024 NONAME       ; OS2VER 230
+                                                DISPATCH32GATE                @ 4025 NONAME       ; OS2VER 230
+                                                GRE16CALLFORWARDRETURN        @ 4026 NONAME       ; OS2VER 230
+                                                FIREPSPROBE                   @ 4027 NONAME       ; OS2VER 240
+                                                AAB32GETREG                   @ 5000 NONAME       ; OS2VER 230
+                                                AAB32SETREG                   @ 5001 NONAME       ; OS2VER 230
+                                                ABNORMALPROCESSEXIT           @ 5002 NONAME       ; OS2VER 230
+                                                DEBUG32CLS                    @ 5003 NONAME       ; OS2VER 230
+                                                DEBUG32CURPOS                 @ 5004 NONAME       ; OS2VER 230
+                                                DEBUG32INPUT                  @ 5005 NONAME       ; OS2VER 230
+                                                DEBUG32OUTPUT                 @ 5006 NONAME       ; OS2VER 230
+                                                DESTROYTIMERS                 @ 5007 NONAME       ; OS2VER 230
+                                                EDITALLOCSPACE                @ 5008 NONAME       ; OS2VER 230
+                                                EDITAUTOSIZE                  @ 5009 NONAME       ; OS2VER 230
+                                                EDITBACKSPACE                 @ 5010 NONAME       ; OS2VER 230
+                                                EDITCHANGEFOCUS               @ 5011 NONAME       ; OS2VER 230
+                                                EDITCHANGESELECTION           @ 5012 NONAME       ; OS2VER 230
+                                                EDITCHAR                      @ 5013 NONAME       ; OS2VER 230
+                                                EDITCHECKSCROLL               @ 5014 NONAME       ; OS2VER 230
+                                                EDITCLEAR                     @ 5015 NONAME       ; OS2VER 230
+                                                EDITCOPY                      @ 5016 NONAME       ; OS2VER 230
+                                                EDITCREATE                    @ 5017 NONAME       ; OS2VER 230
+                                                EDITCREATECURSOR              @ 5018 NONAME       ; OS2VER 230
+                                                EDITCREATEPASSWORD            @ 5019 NONAME       ; OS2VER 230
+                                                EDITCUT                       @ 5020 NONAME       ; OS2VER 230
+                                                EDITCXFROMICH                 @ 5021 NONAME       ; OS2VER 230
+                                                EDITDRAWSUBSTRING             @ 5022 NONAME       ; OS2VER 230
+                                                EDITGETFLAGS                  @ 5023 NONAME       ; OS2VER 230
+                                                EDITGETWINDOWRECT             @ 5024 NONAME       ; OS2VER 230
+                                                EDITICHFROMPT                 @ 5025 NONAME       ; OS2VER 230
+                                                EDITNOTIFY                    @ 5026 NONAME       ; OS2VER 230
+                                                EDITPAINT                     @ 5027 NONAME       ; OS2VER 230
+                                                EDITPASTE                     @ 5028 NONAME       ; OS2VER 230
+                                                EDITPTFROMICH                 @ 5029 NONAME       ; OS2VER 230
+                                                EDITQUERYPRESPARAMS           @ 5030 NONAME       ; OS2VER 230
+                                                EDITREPLACE                   @ 5031 NONAME       ; OS2VER 230
+                                                EDITSETCURSORPOS              @ 5032 NONAME       ; OS2VER 230
+                                                EDITSETFIRSTINDEX             @ 5033 NONAME       ; OS2VER 230
+                                                EDITSETINSERTMODE             @ 5034 NONAME       ; OS2VER 230
+                                                EDITSETSELECTION              @ 5035 NONAME       ; OS2VER 230
+                                                EDITSETTEXT                   @ 5036 NONAME       ; OS2VER 230
+                                                EDITSETWINDOWPARAMS           @ 5037 NONAME       ; OS2VER 230
+                                                EDITSHOWCHANGE                @ 5038 NONAME       ; OS2VER 230
+                                                EDITSTOPMOUSETRACKING         @ 5039 NONAME       ; OS2VER 230
+                                                EDITTIMERSCROLL               @ 5040 NONAME       ; OS2VER 230
+                                                EDITTRACKMOUSE                @ 5041 NONAME       ; OS2VER 230
+                                                EDITVIRTUALKEY                @ 5042 NONAME       ; OS2VER 230
+                                                EDITWMCHAR                    @ 5043 NONAME       ; OS2VER 230
+                                                FAR32LOCKUPHOOK               @ 5044 NONAME       ; OS2VER 230
+                                                FARCALLHOOK                   @ 5045 NONAME       ; OS2VER 230
+                                                GETDRIVERINFO32               @ 5046 RESIDENTNAME ; OS2VER 230
+                                                GPI32LOADBITMAP               @ 5047 NONAME       ; OS2VER 230 Forwarded to PMGPI
+                                                GRE32ENTRY10                  @ 5048 RESIDENTNAME ; OS2VER 230
+                                                GRE32ENTRY2                   @ 5049 RESIDENTNAME ; OS2VER 230
+                                                GRE32ENTRY3                   @ 5050 RESIDENTNAME ; OS2VER 230
+                                                GRE32ENTRY4                   @ 5051 RESIDENTNAME ; OS2VER 230
+                                                GRE32ENTRY5                   @ 5052 RESIDENTNAME ; OS2VER 230
+                                                GRE32ENTRY6                   @ 5053 RESIDENTNAME ; OS2VER 230
+                                                GRE32ENTRY7                   @ 5054 RESIDENTNAME ; OS2VER 230
+                                                GRE32ENTRY8                   @ 5055 RESIDENTNAME ; OS2VER 230
+                                                GRE32ENTRY9                   @ 5056 RESIDENTNAME ; OS2VER 230
+                                                GETICONWINDOWSEXE             @ 5057 NONAME       ; OS2VER 230
+                                                GETICONWINDOWSICO             @ 5058 NONAME       ; OS2VER 230
+                                                INNERGRE32ENTRY10             @ 5059 RESIDENTNAME ; OS2VER 230
+                                                INNERGRE32ENTRY2              @ 5060 RESIDENTNAME ; OS2VER 230
+                                                INNERGRE32ENTRY3              @ 5061 RESIDENTNAME ; OS2VER 230
+                                                INNERGRE32ENTRY4              @ 5062 RESIDENTNAME ; OS2VER 230
+                                                INNERGRE32ENTRY5              @ 5063 RESIDENTNAME ; OS2VER 230
+                                                INNERGRE32ENTRY6              @ 5064 RESIDENTNAME ; OS2VER 230
+                                                INNERGRE32ENTRY7              @ 5065 RESIDENTNAME ; OS2VER 230
+                                                INNERGRE32ENTRY8              @ 5066 RESIDENTNAME ; OS2VER 230
+                                                INNERGRE32ENTRY9              @ 5067 RESIDENTNAME ; OS2VER 230
+                                                INPUTGETDEVICEINFO            @ 5068 NONAME       ; OS2VER 230
+                                                PM32EXECREGISTER              @ 5069 RESIDENTNAME ; OS2VER 230
+                                                PMRELEASEMUTEXSEM             @ 5070 NONAME       ; OS2VER 230
+                                                PMREQUESTMUTEXSEM             @ 5071 NONAME       ; OS2VER 230
+                                                PMREQUESTMUTEXSEMSETWAIT      @ 5072 NONAME       ; OS2VER 230
+                                                POSTDEVICEMODES32             @ 5073 RESIDENTNAME ; OS2VER 230
+                                                PRF32ADDPROGRAM               @ 5074 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32CHANGEPROGRAM            @ 5075 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32CHANGEWRITETHRU          @ 5076 RESIDENTNAME ; OS2VER 230
+                                                PRF32CLOSEPROFILE             @ 5077 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32CREATEGROUP              @ 5078 RESIDENTNAME ; OS2VER 230
+                                                PRF32DESTROYGROUP             @ 5079 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32OPENPROFILE              @ 5080 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32QUERYDEFINITION          @ 5081 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32QUERYPROFILE             @ 5082 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32QUERYPROFILEDATA         @ 5083 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32QUERYPROFILEINT          @ 5084 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32QUERYPROFILESIZE         @ 5085 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32QUERYPROFILESTRING       @ 5086 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32QUERYPROGRAMCATEGORY     @ 5087 RESIDENTNAME ; OS2VER 230
+                                                PRF32QUERYPROGRAMHANDLE       @ 5088 RESIDENTNAME ; OS2VER 230
+                                                PRF32QUERYPROGRAMTITLES       @ 5089 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32REMOVEPROGRAM            @ 5090 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32RESET                    @ 5091 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32WRITEPROFILEDATA         @ 5092 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRF32WRITEPROFILESTRING       @ 5093 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                PRFSUSPENDWRITETODISK         @ 5094 NONAME       ; OS2VER 230
+                                                PRFWRITETODISK                @ 5095 NONAME       ; OS2VER 230
+                                                RAMSEMCLEAR32                 @ 5096 RESIDENTNAME ; OS2VER 230
+                                                RAMSEMREQUEST32               @ 5097 RESIDENTNAME ; OS2VER 230
+                                                SETDRIVERINFO32               @ 5098 RESIDENTNAME ; OS2VER 230
+                                                SHE32PIINITINIFILES           @ 5099 RESIDENTNAME ; OS2VER 230
+                                                SHE32SYSTEMSHUTDOWN           @ 5100 RESIDENTNAME ; OS2VER 230
+                                                SHPPILOCKINIFILE              @ 5101 RESIDENTNAME ; OS2VER 230
+                                                SHPPISHUTDOWN                 @ 5102 RESIDENTNAME ; OS2VER 230
+                                                SLEC_INITPEN                  @ 5103 NONAME       ; OS2VER 230
+                                                SSALLOCMEM                    @ 5104 RESIDENTNAME ; OS2VER 230
+                                                SSFREEMEM                     @ 5105 RESIDENTNAME ; OS2VER 230
+                                                START32SYSTEMEXECUTABLES      @ 5106 RESIDENTNAME ; OS2VER 230
+                                                STARTTIMER                    @ 5107 NONAME       ; OS2VER 230
+                                                SETDEVICESURFACE              @ 5108 RESIDENTNAME ; OS2VER 230
+                                                THKDOS16SETFGND               @ 5109 NONAME       ; OS2VER 230
+                                                TIDCURRENT                    @ 5110 NONAME       ; OS2VER 230
+                                                WIN32ADDATOM                  @ 5111 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ADDSWITCHENTRY           @ 5112 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32ALARM                    @ 5113 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32BEGINENUMWINDOWS         @ 5114 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32BEGINPAINT               @ 5115 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32BROADCASTMSG             @ 5116 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32BUILDPTRHANDLE           @ 5117 NONAME       ; OS2VER 230
+                                                WIN32CALCFRAMERECT            @ 5118 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CALLHELPHOOK             @ 5119 NONAME       ; OS2VER 230
+                                                WIN32CALLMSGFILTER            @ 5120 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CANCELSHUTDOWN           @ 5121 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CHANGESWITCHENTRY        @ 5122 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32CHECKINPUT               @ 5123 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CLOSECLIPBRD             @ 5124 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32COMPARESTRINGS           @ 5125 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32COPYACCELTABLE           @ 5126 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32COPYRECT                 @ 5127 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CPTRANSLATECHAR          @ 5128 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CPTRANSLATESTRING        @ 5129 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATEACCELTABLE         @ 5130 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATEATOMTABLE          @ 5131 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATECURSOR             @ 5132 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATEDLG                @ 5133 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATEFRAMECONTROLS      @ 5134 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATEMENU               @ 5135 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATEMSGQUEUE           @ 5136 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATEPOINTER            @ 5137 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATEPOINTERINDIRECT    @ 5138 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATESTDWINDOW          @ 5139 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32CREATESWITCHENTRY        @ 5140 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32CREATEWINDOW             @ 5141 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DDEINITIATE              @ 5142 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DDEPOSTMSG               @ 5143 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DDERESPOND               @ 5144 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DEBUGBREAK               @ 5145 NONAME       ; OS2VER 230
+                                                WIN32DEFDLGPROC               @ 5146 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DEFWINDOWPROC            @ 5147 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DELETEATOM               @ 5148 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DELETELIBRARY            @ 5149 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DELETEPROCEDURE          @ 5150 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DESTROYACCELTABLE        @ 5151 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DESTROYATOMTABLE         @ 5152 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DESTROYCURSOR            @ 5153 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DESTROYMSGQUEUE          @ 5154 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DESTROYPOINTER           @ 5155 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DESTROYWINDOW            @ 5156 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DISMISSDLG               @ 5157 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DISPATCHMSG              @ 5158 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DLGBOX                   @ 5159 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DRAWBITMAP               @ 5160 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DRAWBORDER               @ 5161 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DRAWPOINTER              @ 5162 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32DRAWTEXT                 @ 5163 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32EMPTYCLIPBRD             @ 5164 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ENABLEPHYSINPUT          @ 5165 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ENABLEWINDOW             @ 5166 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ENABLEWINDOWUPDATE       @ 5167 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ENDENUMWINDOWS           @ 5168 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ENDPAINT                 @ 5169 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ENDPROGRAM               @ 5170 RESIDENTNAME ; OS2VER 230
+                                                WIN32ENUMCLIPBRDFMTS          @ 5171 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ENUMDLGITEM              @ 5172 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32EQUALRECT                @ 5173 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32EXCLUDEUPDATEREGION      @ 5174 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32EXPLODEWINDOW            @ 5175 NONAME       ; OS2VER 230
+                                                WIN32FILLRECT                 @ 5176 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32FINDATOM                 @ 5177 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32FLASHWINDOW              @ 5178 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32FOCUSCHANGE              @ 5179 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32FREEERRORINFO            @ 5180 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETCLIPPS                @ 5181 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETCURRENTTIME           @ 5182 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETDLGMSG                @ 5183 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETERASEPS               @ 5184 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETERRORINFO             @ 5185 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETFRAMETREEPPS          @ 5186 NONAME       ; OS2VER 230
+                                                WIN32GETFRAMETREEPPSIZE       @ 5187 NONAME       ; OS2VER 230
+                                                WIN32GETKEYSTATE              @ 5188 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETLASTERROR             @ 5189 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETMAXPOSITION           @ 5190 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETMINPOSITION           @ 5191 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETMSG                   @ 5192 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETNEXTWINDOW            @ 5193 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETPHYSKEYSTATE          @ 5194 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETPS                    @ 5195 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETSCREENPS              @ 5196 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32GETSYSBITMAP             @ 5197 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32HAPPFROMPID              @ 5198 RESIDENTNAME ; OS2VER 230
+                                                WIN32HSWITCHFROMHAPP          @ 5199 RESIDENTNAME ; OS2VER 230
+                                                WIN32INFLATERECT              @ 5200 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32INITIALIZE               @ 5201 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32INSENDMSG                @ 5202 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32INTERSECTRECT            @ 5203 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32INVALIDATERECT           @ 5204 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32INVALIDATEREGION         @ 5205 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32INVERTRECT               @ 5206 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ISCHILD                  @ 5207 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ISPHYSINPUTENABLED       @ 5208 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ISRECTEMPTY              @ 5209 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ISTHREADACTIVE           @ 5210 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ISWINDOW                 @ 5211 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ISWINDOWENABLED          @ 5212 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ISWINDOWSHOWING          @ 5213 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32ISWINDOWVISIBLE          @ 5214 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32JIGGLEMOUSE              @ 5215 NONAME       ; OS2VER 230
+                                                WIN32LOADACCELTABLE           @ 5216 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOADCHARXLATETBL         @ 5217 NONAME       ; OS2VER 230
+                                                WIN32LOADDLG                  @ 5218 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOADLIBRARY              @ 5219 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOADMENU                 @ 5220 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOADMESSAGE              @ 5221 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOADPOINTER              @ 5222 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOADPROCEDURE            @ 5223 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOADSTRING               @ 5224 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOCKINPUT                @ 5225 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOCKPOINTERUPDATE        @ 5226 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOCKVISREGIONS           @ 5227 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32LOCKWINDOWUPDATE         @ 5228 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32MAKEPOINTS               @ 5229 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32MAKERECT                 @ 5230 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32MAPDLGPOINTS             @ 5231 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32MAPWINDOWPOINTS          @ 5232 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32MESSAGEBOX               @ 5233 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32MOVECURSOR               @ 5234 NONAME       ; OS2VER 230
+                                                WIN32MSGMUXSEMWAIT            @ 5235 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32MSGSEMWAIT               @ 5236 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32MULTWINDOWFROMIDS        @ 5237 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32NEXTCHAR                 @ 5238 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32OFFSETRECT               @ 5239 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32OPENCLIPBRD              @ 5240 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32OPENWINDOWDC             @ 5241 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32PEEKMSG                  @ 5242 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32POPUPMENU                @ 5243 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32POSTMSG                  @ 5244 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32POSTQUEUEMSG             @ 5245 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32PREVCHAR                 @ 5246 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32PROCESSDLG               @ 5247 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32PTINRECT                 @ 5248 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYACCELTABLE          @ 5249 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYACCELTABLEVALUE     @ 5250 NONAME       ; OS2VER 230
+                                                WIN32QUERYACTIVEWINDOW        @ 5251 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYANCHORBLOCK         @ 5252 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYATOMLENGTH          @ 5253 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYATOMNAME            @ 5254 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYATOMUSAGE           @ 5255 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCAPTURE             @ 5256 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCLASSINFO           @ 5257 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCLASSNAME           @ 5258 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCLASSTHUNKPROC      @ 5259 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCLIPBRDDATA         @ 5260 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCLIPBRDFMTINFO      @ 5261 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCLIPBRDOWNER        @ 5262 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCLIPBRDVIEWER       @ 5263 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCP                  @ 5264 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCPLIST              @ 5265 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYCURSORINFO          @ 5266 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYDESKTOPBKGND        @ 5267 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYDESKTOPWINDOW       @ 5268 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYDLGITEMSHORT        @ 5269 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYDLGITEMTEXT         @ 5270 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYDLGITEMTEXTLENGTH   @ 5271 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYFOCUS               @ 5272 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYMSGPOS              @ 5273 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYMSGTIME             @ 5274 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYOBJECTWINDOW        @ 5275 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYPALETTEMODE         @ 5276 NONAME       ; OS2VER 230
+                                                WIN32QUERYPOINTER             @ 5277 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYPOINTERINFO         @ 5278 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYPOINTERPOS          @ 5279 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYPRESPARAM           @ 5280 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYPROCESSCP           @ 5281 NONAME       ; OS2VER 230
+                                                WIN32QUERYQUEUEINFO           @ 5282 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYQUEUESTATUS         @ 5283 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYSENDMSG             @ 5284 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYSESSIONTITLE        @ 5285 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32QUERYSWITCHENTRY         @ 5286 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32QUERYSWITCHHANDLE        @ 5287 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32QUERYSWITCHLIST          @ 5288 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32QUERYSYSCOLOR            @ 5289 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYSYSMODALWINDOW      @ 5290 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYSYSPOINTER          @ 5291 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYSYSPOINTERDATA      @ 5292 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYSYSTEMATOMTABLE     @ 5293 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYSYSVALUE            @ 5294 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYTASKSIZEPOS         @ 5295 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32QUERYTASKTITLE           @ 5296 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32QUERYUPDATERECT          @ 5297 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYUPDATEREGION        @ 5298 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYVERSION             @ 5299 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYVISIBLEREGION       @ 5300 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOW              @ 5301 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWDC            @ 5302 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWMODEL         @ 5303 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWPOS           @ 5304 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWPROCESS       @ 5305 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWPTR           @ 5306 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWRECT          @ 5307 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWTEXT          @ 5308 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWTEXTLENGTH    @ 5309 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWTHUNKPROC     @ 5310 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWULONG         @ 5311 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUERYWINDOWUSHORT        @ 5312 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32QUEUEFROMID              @ 5313 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32REALIZEPALETTE           @ 5314 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32REGISTERCLASS            @ 5315 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32REGISTERPEN              @ 5316 NONAME       ; OS2VER 230
+                                                WIN32REGISTERSEAMLESSPROC     @ 5317 NONAME       ; OS2VER 230
+                                                WIN32REGISTERUSERDATATYPE     @ 5318 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32REGISTERUSERMSG          @ 5319 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32RELEASEERASEPS           @ 5320 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32RELEASEHOOK              @ 5321 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32RELEASEPS                @ 5322 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32REMOVEPRESPARAM          @ 5323 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32REMOVESWITCHENTRY        @ 5324 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32REPLYMSG                 @ 5325 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32REQUESTMUTEXSEM          @ 5326 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SAVEWINDOWPOS            @ 5327 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SCROLLWINDOW             @ 5328 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SEAMLESSBOX              @ 5329 NONAME       ; OS2VER 230
+                                                WIN32SEMENTER                 @ 5330 NONAME       ; OS2VER 230
+                                                WIN32SEMLEAVE                 @ 5331 NONAME       ; OS2VER 230
+                                                WIN32SEMQUERY                 @ 5332 NONAME       ; OS2VER 230
+                                                WIN32SENDDLGITEMMSG           @ 5333 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SENDMSG                  @ 5334 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETACCELTABLE            @ 5335 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETACCELTABLEVALUE       @ 5336 NONAME       ; OS2VER 230
+                                                WIN32SETACTIVEWINDOW          @ 5337 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETCAPTURE               @ 5338 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETCHARXLATETBL          @ 5339 NONAME       ; OS2VER 230
+                                                WIN32SETCLASSMSGINTEREST      @ 5340 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETCLASSTHUNKPROC        @ 5341 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETCLIPBRDDATA           @ 5342 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETCLIPBRDOWNER          @ 5343 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETCLIPBRDVIEWER         @ 5344 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETCP                    @ 5345 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETDESKTOPBKGND          @ 5346 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETDLGITEMSHORT          @ 5347 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETDLGITEMTEXT           @ 5348 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETERRORINFO             @ 5349 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETFOCUS                 @ 5350 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETFRAMETREEPPS          @ 5351 NONAME       ; OS2VER 230
+                                                WIN32SETHOOK                  @ 5352 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETKEYBOARDSTATETABLE    @ 5353 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETMSGINTEREST           @ 5354 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETMSGMODE               @ 5355 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETMULTWINDOWPOS         @ 5356 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETOWNER                 @ 5357 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETPALETTEMODE           @ 5358 NONAME       ; OS2VER 230
+                                                WIN32SETPARENT                @ 5359 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETPOINTER               @ 5360 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETPOINTEROWNER          @ 5361 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETPOINTERPOS            @ 5362 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETPRESPARAM             @ 5363 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETRECT                  @ 5364 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETRECTEMPTY             @ 5365 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETSYNCHROMODE           @ 5366 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETSYSCLIPBRDVIEWER      @ 5367 NONAME       ; OS2VER 230
+                                                WIN32SETSYSCOLORS             @ 5368 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETSYSFONT               @ 5369 NONAME       ; OS2VER 230
+                                                WIN32SETSYSMODALWINDOW        @ 5370 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETSYSPOINTERDATA        @ 5371 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETSYSVALUE              @ 5372 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETVISIBLEREGIONNOTIFY   @ 5373 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETWINDOWBITS            @ 5374 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETWINDOWPOS             @ 5375 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETWINDOWPTR             @ 5376 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETWINDOWTEXT            @ 5377 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETWINDOWTHUNKPROC       @ 5378 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETWINDOWULONG           @ 5379 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SETWINDOWUSHORT          @ 5380 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SHOWCURSOR               @ 5381 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SHOWPOINTER              @ 5382 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SHOWTRACKRECT            @ 5383 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SHOWWINDOW               @ 5384 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32STARTAPP                 @ 5385 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32STARTTIMER               @ 5386 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32STOPTIMER                @ 5387 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32STRETCHPOINTER           @ 5388 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SUBCLASSWINDOW           @ 5389 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SUBSTITUTESTRINGS        @ 5390 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SUBTRACTRECT             @ 5391 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32SWITCHPROGRAMREGISTER    @ 5392 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32SWITCHTOPROGRAM          @ 5393 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32SWITCHTOPROGRAM2         @ 5394 RESIDENTNAME ; OS2VER 230
+                                                WIN32SYSTEMSHUTDOWN           @ 5395 NONAME       ; OS2VER 230
+                                                WIN32TERMINATE                @ 5396 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32TERMINATEAPP             @ 5397 RESIDENTNAME ; OS2VER 230 Forwarded to PMSHAPI
+                                                WIN32THREADASSOCQUEUE         @ 5398 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32TRACKRECT                @ 5399 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32TRACKSEAMLESS            @ 5400 NONAME       ; OS2VER 230
+                                                WIN32TRANSLATEACCEL           @ 5401 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32UNIONRECT                @ 5402 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32UPDATEWINDOW             @ 5403 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32UPPER                    @ 5404 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32UPPERCHAR                @ 5405 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32VALIDATERECT             @ 5406 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32VALIDATEREGION           @ 5407 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32VISREGIONNOTIFY          @ 5408 NONAME       ; OS2VER 230
+                                                WIN32WAITEVENTSEM             @ 5409 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32WAITMSG                  @ 5410 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32WAITMUXWAITSEM           @ 5411 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32WAKETHREAD               @ 5412 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32WINDOWFROMDC             @ 5413 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32WINDOWFROMID             @ 5414 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WIN32WINDOWFROMPOINT          @ 5415 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WINAUGMENTPOINTER             @ 5416 NONAME       ; OS2VER 230
+                                                WINMESSAGEBOX2                @ 5417 NONAME       ; OS2VER 230 Forwarded to PMWIN
+                                                WINMSPALLOC                   @ 5418 NONAME       ; OS2VER 230
+                                                WINMSPFREE                    @ 5419 NONAME       ; OS2VER 230
+                                                WINMSPINIT                    @ 5420 NONAME       ; OS2VER 230
+                                                WINPROCESSHOTKEY              @ 5421 RESIDENTNAME ; OS2VER 230
+                                                WINPROFCONTROL                @ 5422 NONAME       ; OS2VER 230
+                                                WINXXALLOCFILL                @ 5423 NONAME       ; OS2VER 230
+                                                WINXXALLOCMEM                 @ 5424 NONAME       ; OS2VER 230
+                                                WINXXCREATEHEAP               @ 5425 NONAME       ; OS2VER 230
+                                                WINXXDESTROYHEAP              @ 5426 NONAME       ; OS2VER 230
+                                                WINXXFREEMEM                  @ 5427 NONAME       ; OS2VER 230
+                                                WINXXISMEMINHEAP              @ 5428 NONAME       ; OS2VER 230
+                                                WINXXREALLOCMEM               @ 5429 NONAME       ; OS2VER 230
+                                                PMHEAPISMEMINCHAIN            @ 5430 NONAME       ; OS2VER 230
+                                                WIN32NOSHUTDOWN               @ 5431 RESIDENTNAME ; OS2VER 240
+                                                WINDRAWTABBEDTEXT             @ 5432 RESIDENTNAME ; OS2VER 240
+                                                WINQUERYPOINTERCLIPRECT       @ 5433 NONAME       ; OS2VER 240
+                                                WINSETPOINTERCLIPRECT         @ 5434 NONAME       ; OS2VER 240
+                                                WIN32WAITMSGTIMEOUT           @ 5436 NONAME       ; OS2VER 240
+                                                WIN32ISWINDOWOFCLASS          @ 5437 NONAME       ; OS2VER 240
+                                                WIN32SETATOMTABLEOWNER        @ 5438 NONAME       ; OS2VER 240
+                                                WINXXQUERYMEMSIZE             @ 5439 NONAME       ; OS2VER 240
+                                                WIN32SETCLIPREGION            @ 5440 RESIDENTNAME ; OS2VER 240 Forwarded to PMWIN
+                                                WIN32QUERYCLIPREGION          @ 5441 RESIDENTNAME ; OS2VER 240 Forwarded to PMWIN
+                                                WIN32ADDCLIPBRDVIEWER         @ 5442 NONAME       ; OS2VER 240
+                                                WIN32REMOVECLIPBRDVIEWER      @ 5443 NONAME       ; OS2VER 240
+                                                WIN32QUERYCLIPBRDVIEWERCHAIN  @ 5444 NONAME       ; OS2VER 240
+                                                WIN32INCREMENTATOMUSAGE       @ 5445 NONAME       ; OS2VER 240
+                                                DAXQUERYOPENCLIPBRDWINDOW     @ 5446 NONAME       ; OS2VER 240
+                                                WINQUERYDAXDATA               @ 5447 NONAME       ; OS2VER 240
+                                                WINSETDAXDATA                 @ 5448 NONAME       ; OS2VER 240
+                                                WINENUMPROPERTIES             @ 5449 NONAME       ; OS2VER 240
+                                                WINQUERYPROPERTY              @ 5450 NONAME       ; OS2VER 240
+                                                WINREMOVEPROPERTY             @ 5451 NONAME       ; OS2VER 240
+                                                WINSETPROPERTY                @ 5452 NONAME       ; OS2VER 240
+                                                WINENUMCLASSPROPERTIES        @ 5453 NONAME       ; OS2VER 240
+                                                WINQUERYCLASSPROPERTY         @ 5454 NONAME       ; OS2VER 240
+                                                WINREMOVECLASSPROPERTY        @ 5455 NONAME       ; OS2VER 240
+                                                WINSETCLASSPROPERTY           @ 5456 NONAME       ; OS2VER 240
+                                                WINQUERYHEAPFLAGS             @ 5457 NONAME       ; OS2VER 240
+                                                WIN32SETKBDLAYOUT             @ 5458 NONAME       ; OS2VER 240
+                                                WINSETDAXDEFWNDPROC           @ 5459 NONAME       ; OS2VER 240
+                                                POSTESCAPE32                  @ 5460 NONAME       ; OS2VER 240
+                                                WIN32GETAFCVALUE              @ 5461 NONAME       ; OS2VER 240
+                                                WIN32SETAFCVALUE              @ 5462 NONAME       ; OS2VER 240
+                                                WIN32LOADVKEYGLYPHXLATETBL    @ 5463 NONAME       ; OS2VER 240
+                                                WIN32SETVKEYGLYPHXLATETBL     @ 5464 NONAME       ; OS2VER 240
+                                                WIN32QUERYVKEYGLYPHXLATETBL   @ 5465 NONAME       ; OS2VER 240
+                                                WIN32TRACKWINDOW              @ 5466 NONAME       ; OS2VER 240
+                                                WIN32SEMENTERTIMEOUT          @ 5467 NONAME       ; OS2VER 240
+                                                WINSETDESKTOPWORKAREA         @ 5468 NONAME       ; OS2VER 240
+                                                WINQUERYDESKTOPWORKAREA       @ 5469 NONAME       ; OS2VER 240
+                                                Trc_Win32QueryControlColors   @ 5470 NONAME       ; OS2VER 240
+                                                Trc_Win32SetControlColors     @ 5471 NONAME       ; OS2VER 240
+                                                CTLQUERYCOLOR                 @ 5472 NONAME       ; OS2VER 240
+                                                WIN32TRANSLATECHAR2           @ 5473 NONAME       ; OS2VER 245
+                                                WIN32WAITFORIDLETHREAD        @ 5474 NONAME       ; OS2VER 245
+                                                WINXXCREATEHEAP2              @ 5475 NONAME       ; OS2VER 245
+                                                WINQUERYSHAREDHEAPDATA        @ 5476 NONAME       ; OS2VER 245
+                                                WIN32QUERYACTIVEOTHERWINDOW   @ 5477 NONAME       ; OS2VER 245
+                                                WIN32ENUMVKEYSCANIDS          @ 5478 NONAME       ; OS2VER 245
+                                                WIN32QUERYKBDLAYOUT           @ 5479 RESIDENTNAME ; OS2VER 245
+                WINQUERYCPTYPE                = Trc_Win32QueryCpType          @ 5480 RESIDENTNAME ; OS2VER 245
+                                                WIN32QUERYCHARXLATETBL        @ 5481 RESIDENTNAME ; OS2VER 245
+                                                KBDPACKET                     @ 6000 RESIDENTNAME ; OS2VER 230
+                                                INITGAMEFRAMEPROC             @ 6099 RESIDENTNAME ; OS2VER 240
+                                                GRENLS                        @ 6100 NONAME       ; OS2VER 230
+                                                VALIDATEDCHANDLE              @ 6194 NONAME       ; OS2VER 240
+                                                HOOKMAN                       @ 6195 NONAME       ; OS2VER 240
+                                                CCHSETHAILING                 @ 6196 NONAME       ; OS2VER 240
+                                                ENABLECOACHMSGHOOK            @ 6197 NONAME       ; OS2VER 240
+                                                FCALLGRECOACH                 @ 6198 NONAME       ; OS2VER 240
+                                                GRE32CALLFORWARD              @ 6199 NONAME       ; OS2VER 240
+                                                GREMEMPTRS                    @ 6200 RESIDENTNAME ; OS2VER 230
+                                                FPEN                          @ 6201 NONAME       ; OS2VER 230
+                                                SHELLWINDOW                   @ 6202 RESIDENTNAME ; OS2VER 230
+                                                PMSEMAPHORES                  @ 6203 NONAME       ; OS2VER 230
+                                                PHANDLETABLE                  @ 6204 NONAME       ; OS2VER 230
+                                                PSHAREDHEAP                   @ 6205 NONAME       ; OS2VER 230
+                                                VPAULDEFAULTCOLORS            @ 6206 NONAME       ; OS2VER 240
+                                                DAXCREATECARET                @10000 NONAME       ; OS2VER 240
+                                                DAXDESTROYCARET               @10001 NONAME       ; OS2VER 240
+                                                DAXGETCARETBLINKTIME          @10002 NONAME       ; OS2VER 240
+                                                DAXHIDECARET                  @10004 NONAME       ; OS2VER 240
+                                                DAXSETCARETBLINKTIME          @10005 NONAME       ; OS2VER 240
+                                                DAXSHOWCARET                  @10007 NONAME       ; OS2VER 240
+                                                DAXSHOWCURSOR                 @10018 NONAME       ; OS2VER 240
+                                                DAXSWAPMOUSEBUTTON            @10019 NONAME       ; OS2VER 240
+                                                LOOKUPATOM                    @10020 NONAME       ; OS2VER 240
+                                                DAXOPENCLIPBRD                @10021 NONAME       ; OS2VER 245
+IMPORTS
+                SHEPIINITIALISE               = PMMERGE. 2000
+                WINQUERYPROFILEINT            = T_SHL__.    2
+                WINQUERYPROFILESTRING         = T_SHL__.    3
+                WINWRITEPROFILESTRING         = T_SHL__.    4
+                WINQUERYPROFILESIZE           = T_SHL__.    5
+                WINQUERYPROFILEDATA           = T_SHL__.    6
+                WINWRITEPROFILEDATA           = T_SHL__.    7
+                PRFCHANGEWRITETHRU            = PMMERGE. 2007
+                PMEXECREGISTER                = PMMERGE. 2008
+                SHEPIINITINIFILES             = PMMERGE. 2009
+                SHECONVERT190PROGRAMLISTTO300 = PMMERGE. 2010
+                PRFQUERYPROFILEINT            = T_SHL__.   32
+                PRFQUERYPROFILESTRING         = T_SHL__.   33
+                PRFWRITEPROFILESTRING         = T_SHL__.   34
+                PRFQUERYPROFILESIZE           = T_SHL__.   35
+                PRFQUERYPROFILEDATA           = T_SHL__.   36
+                PRFWRITEPROFILEDATA           = T_SHL__.   37
+                PRFOPENPROFILE                = T_SHL__.   38
+                PRFCLOSEPROFILE               = T_SHL__.   39
+                PRFRESET                      = T_SHL__.   42
+                PRFQUERYPROFILE               = T_SHL__.   43
+                PRFADDPROGRAM                 = T_SHL__.   50
+                PRFREMOVEPROGRAM              = T_SHL__.   51
+                PRFCHANGEPROGRAM              = T_SHL__.   52
+                PRFQUERYDEFINITION            = T_SHL__.   53
+                PRFQUERYPROGRAMTITLES         = T_SHL__.   54
+                PRFCREATEGROUP                = T_SHL__.   55
+                PRFQUERYPROGRAMHANDLE         = T_SHL__.   58
+                PRFQUERYPROGRAMCATEGORY       = T_SHL__.   59
+                PRFDESTROYGROUP               = T_SHL__.   60
+                SHEPROFILEHOOK                = PMMERGE. 2030
+                SHEINITIALIZEINIFILE          = PMMERGE. 2031
+                SHPPI16LOCKINIFILE            = PMMERGE. 2032
+                SHPPI16SHUTDOWN               = PMMERGE. 2033
+                ENABLEPMPRE                   = PMMERGE. 2034
+                INNERGREENTRY                 = PMMERGE. 2035
+                GREINITIALIZE                 = PMMERGE. 2036
+                GREENTRY2                     = PMMERGE. 2037
+                GREENTRY3                     = PMMERGE. 2038
+                GREENTRY4                     = PMMERGE. 2039
+                GREENTRY5                     = PMMERGE. 2040
+                GREENTRY6                     = PMMERGE. 2041
+                GREENTRY7                     = PMMERGE. 2042
+                GREENTRY8                     = PMMERGE. 2043
+                GREENTRY9                     = PMMERGE. 2044
+                GREENTRY10                    = PMMERGE. 2045
+                GETDRIVERINFO                 = PMMERGE. 2046
+                SETDRIVERINFO                 = PMMERGE. 2047
+                POSTDEVICEMODES               = PMMERGE. 2048
+                BITMAPLIMITWARNING            = PMMERGE. 2049
+                PMWINGREENTRY2                = PMMERGE. 2050
+                PMWINGREENTRY3                = PMMERGE. 2051
+                PMWINGREENTRY4                = PMMERGE. 2052
+                PMWINGREENTRY5                = PMMERGE. 2053
+                PMWINGREENTRY6                = PMMERGE. 2054
+                PMWINGREENTRY7                = PMMERGE. 2055
+                PMWINGREENTRY8                = PMMERGE. 2056
+                PMWINGREENTRY9                = PMMERGE. 2057
+                PMWINGREENTRY10               = PMMERGE. 2058
+                SSALLOCSEG                    = PMMERGE. 2059
+                SSALLOCHUGE                   = PMMERGE. 2060
+                SSFREESEG                     = PMMERGE. 2061
+                SSFLUSHSEGS                   = PMMERGE. 2062
+                RAMSEMREQUEST16               = PMMERGE. 2063
+                RAMSEMCLEAR16                 = PMMERGE. 2064
+                WINQUERYCLASSINFO             = T_WIN  .    5
+                WINMULTWINDOWFROMIDS          = T_WIN  .   20
+                WIN16LOCKWINDOW               = T_WIN  .   38
+                WINQUERYWINDOWLOCKCOUNT       = T_WIN  .   39
+                WINLOADPOINTER                = T_WIN  .   87
+                WINCREATEPOINTER              = T_WIN  .   88
+                WIN16DESTROYPOINTER           = T_WIN  .   89
+                OLDWINQUERYPOINTERINFO        = PMMERGE. 2072
+                WINQUERYSYSPOINTER            = T_WIN  .   91
+                WINGETSYSBITMAP               = T_WIN  .   97
+                WINQUERYCURSORINFO            = T_WIN  .  101
+                WINLOADACCELTABLE             = T_WIN  .  102
+                WINCREATEACCELTABLE           = T_WIN  .  103
+                WINDESTROYACCELTABLE          = T_WIN  .  104
+                WINCOPYACCELTABLE             = T_WIN  .  108
+                WINSETCLIPBRDDATA             = T_WIN  .  116
+                WINQUERYCLIPBRDFMTINFO        = T_WIN  .  119
+                GPILOADBITMAP                 = T_WIN  .  156
+                WIN16LOADSTRING               = T_WIN  .  157
+                WINLOADMESSAGE                = T_WIN  .  158
+                WINSETRECTEMPTY               = T_WIN  .  159
+                WINSETRECT                    = T_WIN  .  160
+                WINCOPYRECT                   = T_WIN  .  161
+                WINISRECTEMPTY                = T_WIN  .  162
+                WINPTINRECT                   = T_WIN  .  164
+                WINOFFSETRECT                 = T_WIN  .  165
+                WININFLATERECT                = T_WIN  .  166
+                WINMAKERECT                   = T_WIN  .  170
+                WINMAKEPOINTS                 = T_WIN  .  171
+                WIN16DEFWINDOWPROC            = T_WIN  .  178
+                WIN16DEFDLGPROC               = T_WIN  .  179
+                WIN16QUERYHUNGPROCESS         = PMMERGE. 2096
+                WINLOADSTRINGTABLE            = PMMERGE. 2097
+                WINLOADVKEYGLYPHXLATETBL      = PMMERGE. 2098
+                WINLOADCHARXLATETBL           = PMMERGE. 2099
+                WINSETVKEYGLYPHXLATETBL       = PMMERGE. 2100
+                WINQUERYVKEYGLYPHXLATETBL     = PMMERGE. 2101
+                WINVKEYTOSCANID               = PMMERGE. 2102
+                WINQUERYPROCESSCP             = PMMERGE. 2103
+                WIN16GETKEYSTATE              = T_WIN  .  211
+                WINSETCP                      = T_WIN  .  215
+                WINQUERYCP                    = T_WIN  .  216
+                WINQUERYCPLIST                = T_WIN  .  217
+                WINCPTRANSLATESTRING          = T_WIN  .  218
+                WINCPTRANSLATECHAR            = T_WIN  .  219
+                WINCOMPARESTRINGS             = T_WIN  .  220
+                WIN16UPPER                    = T_WIN  .  221
+                WIN16UPPERCHAR                = T_WIN  .  222
+                WINNEXTCHAR                   = T_WIN  .  223
+                WINPREVCHAR                   = T_WIN  .  224
+                WIN16CREATEHEAP               = T_WIN  .  225
+                WIN16DESTROYHEAP              = T_WIN  .  226
+                WINAVAILMEM                   = T_WIN  .  227
+                WIN16ALLOCMEM                 = T_WIN  .  228
+                WINREALLOCMEM                 = T_WIN  .  229
+                WIN16FREEMEM                  = T_WIN  .  230
+                WINLOCKHEAP                   = T_WIN  .  231
+                WINCREATEATOMTABLE            = T_WIN  .  233
+                WINDESTROYATOMTABLE           = T_WIN  .  234
+                WINADDATOM                    = T_WIN  .  235
+                WINFINDATOM                   = T_WIN  .  236
+                WINDELETEATOM                 = T_WIN  .  237
+                WINQUERYATOMUSAGE             = T_WIN  .  238
+                WINQUERYATOMLENGTH            = T_WIN  .  239
+                WINQUERYATOMNAME              = T_WIN  .  240
+                WINQUERYSYSTEMATOMTABLE       = T_WIN  .  241
+                WINSETLASTERROR               = PMMERGE. 2131
+                WIN16GETLASTERROR             = T_WIN  .  243
+                WINGETERRORINFO               = T_WIN  .  244
+                WINFREEERRORINFO              = T_WIN  .  245
+                WIN16INITIALIZE               = T_WIN  .  246
+                WIN16TERMINATE                = T_WIN  .  247
+                WINCATCH                      = T_WIN  .  248
+                WINTHROW                      = T_WIN  .  249
+                WINQUERYVERSION               = T_WIN  .  250
+                FSRSEMEXIT                    = PMMERGE. 2140
+                FSRSEMCHECK                   = PMMERGE. 2141
+                AABGETREG                     = PMMERGE. 2142
+                AABSETREG                     = PMMERGE. 2143
+                VALIDATESELECTOR              = PMMERGE. 2144
+                LOADMODULEHANDLE              = PMMERGE. 2145
+                GETSCREENSELECTOR             = PMMERGE. 2146
+                IDENTIFYCODESELECTOR          = PMMERGE. 2147
+                _WINSETERRORINFO              = T_WIN  .  263
+                WINTERMINATESYSTEM            = PMMERGE. 2149
+                WINDEFQUEUEPROC               = PMMERGE. 2150
+                WINVISREGIONNOTIFY            = PMMERGE. 2151
+                WINQUERYKBDLAYOUT             = PMMERGE. 2152
+                WINSETKBDLAYOUT               = PMMERGE. 2153
+                WIN16BUILDPTRHANDLE           = PMMERGE. 2154
+                DUMWINCREATEHELPINSTANCE      = PMMERGE. 2155
+                DUMWINDESTROYHELPINSTANCE     = PMMERGE. 2156
+                DUMWINASSOCIATEHELPINSTANCE   = PMMERGE. 2157
+                DUMWINCREATEHELPTABLE         = PMMERGE. 2158
+                DUMWINLOADHELPTABLE           = PMMERGE. 2159
+                DUMWINQUERYHELPINSTANCE       = PMMERGE. 2160
+                DUMMYHELPENTRY                = PMMERGE. 2161
+                GETPMDDCODESELECTOR           = PMMERGE. 2162
+                WINQUERYPWND                  = PMMERGE. 2163
+                WINENUMVKEYSCANIDS            = PMMERGE. 2164
+                WINLOADTRANSLATIONTABLE       = PMMERGE. 2165
+                WINSETKBDLAYOUT2              = PMMERGE. 2166
+                DEBUGINPUTENABLE              = PMMERGE. 2167
+                DEBUGINPUT                    = PMMERGE. 2168
+                DEBUGOUTPUT                   = PMMERGE. 2169
+                DEBUGCURPOS                   = PMMERGE. 2170
+                DEBUGCLS                      = PMMERGE. 2171
+                DEBUGREDIRECT                 = PMMERGE. 2172
+                WINLANGSUPWINDOWPROC          = PMMERGE. 2173
+                WINLANGSUPDLGPROC             = PMMERGE. 2174
+                WINCREATEPOINTERINDIRECT      = T_WIN  .  616
+                WIN16QUERYPOINTERINFO         = T_WIN  .  617
+                WINPORTHOLEUTIL               = PMMERGE. 2177
+                WINCREATEFARHEAP              = PMMERGE. 2178
+                WINDESTROYFARHEAP             = PMMERGE. 2179
+                WINALLOCFARMEM                = PMMERGE. 2180
+                WINFREEFARMEM                 = PMMERGE. 2181
+                WINREALLOCFARMEM              = PMMERGE. 2182
+                WINSETQUEUEPROC               = PMMERGE. 2183
+                FARFLUSHBUFHOOK               = PMMERGE. 3000
+                FNBADAPPDLGPROC               = PMMERGE. 3001
+                INPUTGETDEVICEINFO16          = PMMERGE. 3002
+                LPFNICONWNDPROC               = PMMERGE. 3003
+                LPFNSHELLWNDPROC              = PMMERGE. 3004
+                SHESTARTLONGPROGRAM           = PMMERGE. 3005
+                SHESYSTEMSHUTDOWN             = PMMERGE. 3006
+                SHEUPDATEINIFILE              = PMMERGE. 3007
+                SHLLOADPUBLICFONTS            = PMMERGE. 3008
+                SHLUNLOADPUBLICFONTS          = PMMERGE. 3009
+                SHPLOCKPROGRAMLIST            = PMMERGE. 3010
+                SHPUNLOCKPROGRAMLIST          = PMMERGE. 3011
+                STARTSTARTUPDOTCMD            = PMMERGE. 3012
+                STARTSYSTEMEXECUTABLES        = PMMERGE. 3013
+                WIN16ALARM                    = T_WIN  .  138
+                WIN16BEGINENUMWINDOWS         = T_WIN  .   32
+                WIN16BEGINPAINT               = T_WIN  .   45
+                WIN16BROADCASTMSG             = T_WIN  .   63
+                WIN16CANCELMODE               = PMMERGE. 3018
+                WIN16CANCELSHUTDOWN           = T_WIN  .  277
+                WIN16CREATEMSGQUEUE           = T_WIN  .   58
+                WIN16CREATESTDWINDOW          = T_WIN  .  140
+                WIN16CREATEWINDOW             = T_WIN  .    6
+                WIN16DESTROYMSGQUEUE          = T_WIN  .   59
+                WIN16DESTROYWINDOW            = T_WIN  .    7
+                WIN16DISPATCHMSG              = T_WIN  .   68
+                WIN16DRAWTEXT                 = T_WIN  .  267
+                WIN16ENDPAINT                 = T_WIN  .   46
+                WIN16FILLRECT                 = T_WIN  .  173
+                WIN16GETMINWINDOWVIEWER       = PMMERGE. 3029
+                WIN16GETMSG                   = T_WIN  .   65
+                WIN16GETNEXTWINDOW            = T_WIN  .   33
+                WIN16INITIALIZESYSTEM         = PMMERGE. 3032
+                WIN16INVALIDATERECT           = T_WIN  .   47
+                WIN16ISCHILD                  = T_WIN  .   22
+                WIN16ISWINDOW                 = T_WIN  .   21
+                WIN16ISWINDOWVISIBLE          = T_WIN  .   15
+                WIN16LOADDLG                  = T_WIN  .  122
+                WIN16LOCKSTARTINPUT           = PMMERGE. 3038
+                WIN16MESSAGEBOX               = T_WIN  .  139
+                WIN16MSGSEMWAIT               = T_WIN  .  274
+                WIN16OPENWINDOWDC             = T_WIN  .   41
+                WIN16PEEKMSG                  = T_WIN  .   66
+                WIN16POSTMSG                  = T_WIN  .   69
+                WIN16PROCESSDLG               = T_WIN  .  124
+                WIN16QUERYACTIVEWINDOW        = T_WIN  .   80
+                WIN16QUERYANCHORBLOCK         = T_WIN  .  609
+                WIN16QUERYDESKTOPWINDOW       = T_WIN  .    1
+                WIN16QUERYFOCUS               = T_WIN  .   78
+                WIN16QUERYQUEUEINFO           = T_WIN  .  287
+                WIN16QUERYSYSMODALWINDOW      = T_WIN  .   82
+                WIN16QUERYSYSVALUE            = T_WIN  .  149
+                WIN16QUERYWINDOW              = T_WIN  .   25
+                WIN16QUERYWINDOWPOS           = T_WIN  .   10
+                WIN16QUERYWINDOWPROCESS       = T_WIN  .   27
+                WIN16QUERYWINDOWRECT          = T_WIN  .   26
+                WIN16QUERYWINDOWULONG         = T_WIN  .   31
+                WIN16QUERYWINDOWUSHORT        = T_WIN  .   29
+                WIN16REGISTERCLASS            = T_WIN  .    3
+                WIN16RESETSYSTEM              = PMMERGE. 3059
+                WIN16SCREENSWITCH             = PMMERGE. 3060
+                WIN16SENDDLGITEMMSG           = T_WIN  .  127
+                WIN16SENDMSG                  = T_WIN  .   61
+                WIN16SETACTIVEWINDOW          = T_WIN  .   79
+                WIN16SETDLGITEMTEXT           = T_WIN  .  134
+                WIN16SETFOCUS                 = T_WIN  .   77
+                WIN16SETMULTWINDOWPOS         = T_WIN  .    9
+                WIN16SETPARENT                = T_WIN  .   23
+                WIN16SETPRESPARAM             = T_WIN  .  301
+                WIN16SETSYSMODALWINDOW        = T_WIN  .   81
+                WIN16SETSYSVALUE              = T_WIN  .  150
+                WIN16SETWINDOWBITS            = T_WIN  .  278
+                WIN16SETWINDOWPOS             = T_WIN  .    8
+                WIN16SETWINDOWTEXT            = T_WIN  .   16
+                WIN16SHOWWINDOW               = T_WIN  .   13
+                WIN16SUBCLASSWINDOW           = T_WIN  .   37
+                WIN16TERMINATESHUTDOWN        = PMMERGE. 3076
+                WIN16TRACKRECT                = T_WIN  .  154
+                WIN16WINDOWFROMID             = T_WIN  .   19
+                WINADDPROGRAM                 = T_SHL__.   12
+                WINADDSWITCHENTRY             = T_SHL__.   48
+                WINADDTOGROUP                 = PMMERGE. 3081
+                WINCALCFRAMERECT              = T_WIN  .  143
+                WINCALLHELPHOOK               = PMMERGE. 3083
+                WINCALLMSGFILTER              = T_WIN  .   73
+                WINCANTERMINATE               = PMMERGE. 3085
+                WINCHANGEPROGRAM              = PMMERGE. 3086
+                WINCHANGESWITCHENTRY          = T_SHL__.   49
+                WINCHECKINPUT                 = T_WIN  .  640
+                WINCLOSECLIPBRD               = T_WIN  .  112
+                WINCPLREGISTER                = PMMERGE. 3090
+                WINCREATECURSOR               = T_WIN  .   98
+                WINCREATEDLG                  = T_WIN  .  123
+                WINCREATEFRAMECONTROLS        = T_WIN  .  141
+                WINCREATEGROUP                = T_SHL__.   17
+                WINCREATEMENU                 = T_WIN  .  137
+                WINCREATESWITCHENTRY          = T_SHL__.   46
+                WINDDEINITIATE                = T_WIN  .  297
+                WINDDEPOSTMSG                 = T_WIN  .  299
+                WINDDERESPOND                 = T_WIN  .  298
+                WINDEBUGBREAK                 = PMMERGE. 3100
+                WINDELETELIBRARY              = T_WIN  .  602
+                WINDELETEPROCEDURE            = T_WIN  .  604
+                WINDESTROYANIPOINTER          = PMMERGE. 3103
+                WINDESTROYCURSOR              = T_WIN  .   99
+                WINDESTROYGROUP               = PMMERGE. 3105
+                WINDISMISSDLG                 = T_WIN  .  126
+                WINDLGBOX                     = T_WIN  .  125
+                WINDRAWBITMAP                 = T_WIN  .  268
+                WINDRAWBORDER                 = T_WIN  .  266
+                WINDRAWPOINTER                = T_WIN  .  177
+                WINEMPTYCLIPBRD               = T_WIN  .  113
+                WINENABLEPHYSINPUT            = T_WIN  .  214
+                WINENABLEWINDOW               = T_WIN  .   11
+                WINENABLEWINDOWUPDATE         = T_WIN  .   14
+                WINENDENUMWINDOWS             = T_WIN  .   34
+                WINENDPROGRAM                 = PMMERGE. 3116
+                WINENDSESSION                 = PMMERGE. 3117
+                WINENDWINDOWSESSION           = PMMERGE. 3118
+                WINENUMCLIPBRDFMTS            = T_WIN  .  118
+                WINENUMDLGITEM                = T_WIN  .  133
+                WINEQUALRECT                  = T_WIN  .  163
+                WINEXCLUDEUPDATEREGION        = T_WIN  .   54
+                WINEXPLODEWINDOW              = PMMERGE. 3123
+                WINFLASHWINDOW                = T_WIN  .  144
+                WINFOCUSCHANGE                = T_WIN  .  286
+                WINFORCEMENUREDRAW            = PMMERGE. 3126
+                WINFORMATFRAME                = PMMERGE. 3127
+                WINGETCLIPPS                  = T_WIN  .  279
+                WINGETCURRENTTIME             = T_WIN  .   86
+                WINGETDLGMSG                  = T_WIN  .  607
+                WINGETERASEPS                 = T_WIN  .  624
+                WINGETFRAMETREEPPS            = PMMERGE. 3132
+                WINGETFRAMETREEPPSIZE         = PMMERGE. 3133
+                WINGETMAXPOSITION             = T_WIN  .  147
+                WINGETMINPOSITION             = T_WIN  .  146
+                WINGETPHYSKEYSTATE            = T_WIN  .  212
+                WINGETPS                      = T_WIN  .   43
+                WINGETSCANSTATE               = PMMERGE. 3138
+                WINGETSCREENPS                = T_WIN  .   42
+                WINHAPPFROMPID                = PMMERGE. 3140
+                WINHSWITCHFROMHAPP            = PMMERGE. 3141
+                WININITIALIZEPL               = PMMERGE. 3142
+                WININITSESSION                = PMMERGE. 3143
+                WININITSESSIONMGR             = PMMERGE. 3144
+                WININITSWENTRY                = PMMERGE. 3145
+                WININSENDMSG                  = T_WIN  .   64
+                WININSTSTARTAPP               = T_SHL__.   44
+                WININTERSECTRECT              = T_WIN  .  167
+                WININVALIDATEREGION           = T_WIN  .   48
+                WININVERTRECT                 = T_WIN  .  172
+                WINISPHYSINPUTENABLED         = T_WIN  .  264
+                WINISSHUTTINGDOWN             = PMMERGE. 3152
+                WINISTHREADACTIVE             = T_WIN  .   83
+                WINISWINDOWENABLED            = T_WIN  .   12
+                WINISWINDOWSHOWING            = T_WIN  .  614
+                WINJIGGLEMOUSE                = PMMERGE. 3156
+                WINLOADANIPOINTER             = PMMERGE. 3157
+                WINLOADLIBRARY                = T_WIN  .  615
+                WINLOADMENU                   = T_WIN  .  136
+                WINLOADPROCEDURE              = T_WIN  .  603
+                WINLOCKINPUT                  = T_WIN  .  309
+                WINLOCKPOINTERUPDATE          = T_WIN  .  639
+                WINLOCKVISREGIONS             = T_WIN  .   56
+                WINLOCKWINDOWUPDATE           = T_WIN  .   55
+                WINMAPDLGPOINTS               = T_WIN  .  130
+                WINMAPWINDOWPOINTS            = T_WIN  .   36
+                WINMENUINDEXFROMID            = PMMERGE. 3167
+                WINMSGMUXSEMWAIT              = T_WIN  .  275
+                WINNOSHUTDOWN                 = PMMERGE. 3169
+                WINOPENCLIPBRD                = T_WIN  .  111
+                WINPMFILEREGISTER             = PMMERGE. 3171
+                WINPOPUPMENU                  = T_WIN  .  320
+                WINPOSTQUEUEMSG               = T_WIN  .   70
+                WINQUERYACCELTABLE            = T_WIN  .  107
+                WINQUERYACCELTABLEVALUE       = PMMERGE. 3175
+                WINQUERYCAPTURE               = T_WIN  .   76
+                WINQUERYCHARXLATETBL          = PMMERGE. 3177
+                WINQUERYCLASSNAME             = T_WIN  .    4
+                WINQUERYCLASSTHUNKPROC        = T_WIN  .  960
+                WINQUERYCLIPBRDDATA           = T_WIN  .  117
+                WINQUERYCLIPBRDOWNER          = T_WIN  .  115
+                WINQUERYCLIPBRDVIEWER         = T_WIN  .  121
+                WINQUERYDEFINITION            = T_SHL__.   15
+                WINQUERYDESKTOPBKGND          = T_WIN  .  319
+                WINQUERYDLGITEMSHORT          = T_WIN  .  129
+                WINQUERYDLGITEMTEXT           = T_WIN  .  135
+                WINQUERYDLGITEMTEXTLENGTH     = T_WIN  .  294
+                WINQUERYEXTIDFOCUS            = PMMERGE. 3188
+                WINQUERYFILEEXTOPTS           = PMMERGE. 3189
+                WINQUERYMENUDATA              = PMMERGE. 3190
+                WINQUERYMSGPOS                = T_WIN  .   71
+                WINQUERYMSGTIME               = T_WIN  .   72
+                WINQUERYOBJECTWINDOW          = T_WIN  .    2
+                WINQUERYPOINTER               = T_WIN  .   93
+                WINQUERYPOINTERPOS            = T_WIN  .   96
+                WINQUERYPRESPARAM             = T_WIN  .  302
+                WINQUERYPROGRAMTITLES         = T_SHL__.   16
+                WINQUERYPROGRAMTYPE           = PMMERGE. 3198
+                WINQUERYPROGRAMUSE            = PMMERGE. 3199
+                WINQUERYQUEUESTATUS           = T_WIN  .   60
+                WINQUERYSENDMSG               = T_WIN  .  306
+                WINQUERYSESSIONTITLE          = T_SHL__.   47
+                WINQUERYSTATE                 = PMMERGE. 3203
+                WINQUERYSWITCHENTRY           = T_SHL__.   56
+                WINQUERYSWITCHHANDLE          = T_SHL__.   57
+                WINQUERYSWITCHLIST            = T_SHL__.   67
+                WINQUERYSYSCOLOR              = T_WIN  .  152
+                WINQUERYTASKSIZEPOS           = T_SHL__.   66
+                WINQUERYTASKTITLE             = T_SHL__.   65
+                WINQUERYUPDATERECT            = T_WIN  .   51
+                WINQUERYUPDATEREGION          = T_WIN  .   52
+                WINQUERYWINDOWDC              = T_WIN  .  265
+                WINQUERYWINDOWMODEL           = T_WIN  .  317
+                WINQUERYWINDOWPTR             = T_WIN  .  269
+                WINQUERYWINDOWSGID            = PMMERGE. 3215
+                WINQUERYWINDOWTEXT            = T_WIN  .   17
+                WINQUERYWINDOWTEXTLENGTH      = T_WIN  .   18
+                WINQUERYWINDOWTHUNKPROC       = T_WIN  .  962
+                WINQUERYWORKPLACEWINDOW       = PMMERGE. 3219
+                WINQUEUEFROMID                = T_WIN  .  305
+                WINREALIZEPALETTE             = T_WIN  .  321
+                WINREGISTERSEAMLESSPROC       = PMMERGE. 3222
+                WINREGISTERUSERDATATYPE       = T_WIN  .  612
+                WINREGISTERUSERMSG            = T_WIN  .  608
+                WINREGISTERWINDOWDESTROY      = T_WIN  .   40
+                WINRELEASEERASEPS             = T_WIN  .  625
+                WINRELEASEHOOK                = T_WIN  .  110
+                WINRELEASEPS                  = T_WIN  .   44
+                WINREMOVEFROMGROUP            = PMMERGE. 3229
+                WINREMOVEPRESPARAM            = T_WIN  .  303
+                WINREMOVEPROGRAM              = PMMERGE. 3231
+                WINREMOVESWITCHENTRY          = T_SHL__.   68
+                WINREPLYMSG                   = T_WIN  .  307
+                WINSAVEWINDOWPOS              = T_WIN  .  285
+                WINSCROLLWINDOW               = T_WIN  .  153
+                WINSEAMLESSBOX                = PMMERGE. 3236
+                WINSEMENTER                   = PMMERGE. 3237
+                WINSEMLEAVE                   = PMMERGE. 3238
+                WINSEMQUERY                   = PMMERGE. 3239
+                WINSENDQUEUEMSG               = PMMERGE. 3240
+                WINSETACCELTABLE              = T_WIN  .  106
+                WINSETACCELTABLEVALUE         = PMMERGE. 3242
+                WINSETANIPOINTER              = PMMERGE. 3243
+                WINSETATOMTABLEOWNER          = PMMERGE. 3244
+                WINSETCAPTURE                 = T_WIN  .   75
+                WINSETCHARXLATETBL            = PMMERGE. 3246
+                WINSETCLASSMSGINTEREST        = T_WIN  .  292
+                WINSETCLASSTHUNKPROC          = T_WIN  .  959
+                WINSETCLIPBRDOWNER            = T_WIN  .  114
+                WINSETCLIPBRDVIEWER           = T_WIN  .  120
+                WINSETDESKTOPBKGND            = T_WIN  .  318
+                WINSETDLGITEMSHORT            = T_WIN  .  128
+                WINSETEXTIDFOCUS              = PMMERGE. 3253
+                WINSETFGNDWINDOW              = PMMERGE. 3254
+                WINSETFILEEXTOPTS             = PMMERGE. 3255
+                WINSETFRAMETREEPPS            = PMMERGE. 3256
+                WINSETHOOK                    = T_WIN  .  109
+                WINSETKEYBOARDSTATETABLE      = T_WIN  .  213
+                WINSETMENUDATA                = PMMERGE. 3259
+                WINSETMSGINTEREST             = T_WIN  .   74
+                WINSETMSGMODE                 = T_WIN  .  605
+                WINSETOWNER                   = T_WIN  .   24
+                WINSETPOINTER                 = T_WIN  .   92
+                WINSETPOINTEROWNER            = T_WIN  .  633
+                WINSETPOINTERPOS              = T_WIN  .   95
+                WINSETSCANSTATETABLE          = PMMERGE. 3266
+                WINSETSWENTRY                 = PMMERGE. 3267
+                WINSETSYNCHROMODE             = T_WIN  .  606
+                WINSETSYSCLIPBRDVIEWER        = PMMERGE. 3269
+                WINSETSYSCOLORS               = T_WIN  .  151
+                WINSETTITLE                   = PMMERGE. 3271
+                WINSETTITLEANDICON            = PMMERGE. 3272
+                WINSETWINDOWDC                = PMMERGE. 3273
+                WINSETWINDOWPTR               = T_WIN  .  270
+                WINSETWINDOWTHUNKPROC         = T_WIN  .  961
+                WINSETWINDOWULONG             = T_WIN  .   30
+                WINSETWINDOWUSHORT            = T_WIN  .   28
+                WINSHOWCURSOR                 = T_WIN  .  100
+                WINSHOWPOINTER                = T_WIN  .   94
+                WINSHOWTRACKRECT              = T_WIN  .  155
+                WINSTARTAPP                   = T_SHL__.  201
+                WINSTARTTIMER                 = T_WIN  .   84
+                WINSTOPPROGRAM                = PMMERGE. 3283
+                WINSTOPTIMER                  = T_WIN  .   85
+                WINSTPREGISTER                = PMMERGE. 3285
+                WINSTRETCHPOINTER             = T_WIN  .  632
+                WINSUBSTITUTESTRINGS          = T_WIN  .  132
+                WINSUBTRACTRECT               = T_WIN  .  169
+                WINSWITCHPROGRAMREGISTER      = T_SHL__.   70
+                WINSWITCHTOPROGRAM2           = PMMERGE. 3290
+                WINSWITCHTOPROGRAM            = T_SHL__.   69
+                WINSWITCHTOTASKMANAGER        = PMMERGE. 3292
+                WINSYNCSTARTPGM               = PMMERGE. 3293
+                WINSYSTEMSHUTDOWN             = PMMERGE. 3294
+                WINTERMINATEAPP               = T_SHL__.   45
+                WINTHREADASSOCQUEUE           = T_WIN  .  304
+                WINTRACKSEAMLESS              = PMMERGE. 3297
+                WINTRANSLATEACCEL             = T_WIN  .  105
+                WINTRANSLATECHAR              = PMMERGE. 3299
+                WINUNIONRECT                  = T_WIN  .  168
+                WINUPDATEWINDOW               = T_WIN  .   53
+                WINVALIDATERECT               = T_WIN  .   49
+                WINVALIDATEREGION             = T_WIN  .   50
+                WINVKEYGLYPHCHARXLATE         = PMMERGE. 3304
+                WINWAITMSG                    = T_WIN  .   67
+                WINWAKETHREAD                 = T_WIN  .  308
+                WINWINDOWFROMDC               = T_WIN  .   57
+                WINWINDOWFROMPOINT            = T_WIN  .   35
+                WINSETTITLEANDHWNDICON        = PMMERGE. 3309
+                WINTRACKWINDOW                = PMMERGE. 3310
+                WINSETLANGINFO                = PMMERGE. 3500
+                WINQUERYLANGINFO              = PMMERGE. 3501
+                WINSETKBDLAYER                = PMMERGE. 3502
+                WINQUERYKBDLAYER              = PMMERGE. 3503
+                WINSETLANGVIEWER              = PMMERGE. 3504
+                WINQUERYLANGVIEWER            = PMMERGE. 3505
+                WINPOUREVENT                  = PMMERGE. 3600
+                WINSETMSGQIMINFO              = PMMERGE. 3601
+                WINQUERYMSGQIMINFO            = PMMERGE. 3602
+                DEVMODE_CALL_16               = PMMERGE. 4000
+                DEVNAME_CALL_16               = PMMERGE. 4001
+                DISPATCH16GATE10              = PMMERGE. 4002
+                DISPATCH16GATE3               = PMMERGE. 4003
+                DISPATCH16GATE4               = PMMERGE. 4004
+                DISPATCH16GATE5               = PMMERGE. 4005
+                DISPATCH16GATE6               = PMMERGE. 4006
+                DISPATCH16GATE7               = PMMERGE. 4007
+                DISPATCH16GATE8               = PMMERGE. 4008
+                DISPATCH16GATE9               = PMMERGE. 4009
+                ENABLE_CALL_16                = PMMERGE. 4010
+                FSRSEMENTER                   = PMMERGE. 4011
+                FSRSEMENTERP                  = PMMERGE. 4012
+                FSRSEMLEAVE                   = PMMERGE. 4013
+                PFN10R2                       = PMMERGE. 4014
+                PFN4R2                        = PMMERGE. 4015
+                PFN5R2                        = PMMERGE. 4016
+                PFN6R2                        = PMMERGE. 4017
+                PFN7R2                        = PMMERGE. 4018
+                PFN8R2                        = PMMERGE. 4019
+                PFN9R2                        = PMMERGE. 4020
+                DELETEBITMAP16CALL            = PMMERGE. 4021
+                DO16CLI                       = PMMERGE. 4022
+                DO16STI                       = PMMERGE. 4023
+                GRE16CALLBACK                 = PMMERGE. 4024
+                DISPATCH32GATE                = PMMERGE. 4025
+                GRE16CALLFORWARDRETURN        = PMMERGE. 4026
+                FIREPSPROBE                   = PMMERGE. 4027
+                AAB32GETREG                   = PMMERGE. 5000
+                AAB32SETREG                   = PMMERGE. 5001
+                ABNORMALPROCESSEXIT           = PMMERGE. 5002
+                DEBUG32CLS                    = PMMERGE. 5003
+                DEBUG32CURPOS                 = PMMERGE. 5004
+                DEBUG32INPUT                  = PMMERGE. 5005
+                DEBUG32OUTPUT                 = PMMERGE. 5006
+                DESTROYTIMERS                 = PMMERGE. 5007
+                EDITALLOCSPACE                = PMMERGE. 5008
+                EDITAUTOSIZE                  = PMMERGE. 5009
+                EDITBACKSPACE                 = PMMERGE. 5010
+                EDITCHANGEFOCUS               = PMMERGE. 5011
+                EDITCHANGESELECTION           = PMMERGE. 5012
+                EDITCHAR                      = PMMERGE. 5013
+                EDITCHECKSCROLL               = PMMERGE. 5014
+                EDITCLEAR                     = PMMERGE. 5015
+                EDITCOPY                      = PMMERGE. 5016
+                EDITCREATE                    = PMMERGE. 5017
+                EDITCREATECURSOR              = PMMERGE. 5018
+                EDITCREATEPASSWORD            = PMMERGE. 5019
+                EDITCUT                       = PMMERGE. 5020
+                EDITCXFROMICH                 = PMMERGE. 5021
+                EDITDRAWSUBSTRING             = PMMERGE. 5022
+                EDITGETFLAGS                  = PMMERGE. 5023
+                EDITGETWINDOWRECT             = PMMERGE. 5024
+                EDITICHFROMPT                 = PMMERGE. 5025
+                EDITNOTIFY                    = PMMERGE. 5026
+                EDITPAINT                     = PMMERGE. 5027
+                EDITPASTE                     = PMMERGE. 5028
+                EDITPTFROMICH                 = PMMERGE. 5029
+                EDITQUERYPRESPARAMS           = PMMERGE. 5030
+                EDITREPLACE                   = PMMERGE. 5031
+                EDITSETCURSORPOS              = PMMERGE. 5032
+                EDITSETFIRSTINDEX             = PMMERGE. 5033
+                EDITSETINSERTMODE             = PMMERGE. 5034
+                EDITSETSELECTION              = PMMERGE. 5035
+                EDITSETTEXT                   = PMMERGE. 5036
+                EDITSETWINDOWPARAMS           = PMMERGE. 5037
+                EDITSHOWCHANGE                = PMMERGE. 5038
+                EDITSTOPMOUSETRACKING         = PMMERGE. 5039
+                EDITTIMERSCROLL               = PMMERGE. 5040
+                EDITTRACKMOUSE                = PMMERGE. 5041
+                EDITVIRTUALKEY                = PMMERGE. 5042
+                EDITWMCHAR                    = PMMERGE. 5043
+                FAR32LOCKUPHOOK               = PMMERGE. 5044
+                FARCALLHOOK                   = PMMERGE. 5045
+                GETDRIVERINFO32               = PMMERGE. 5046
+                GPI32LOADBITMAP               = T_GPI  .  399
+                GRE32ENTRY10                  = PMMERGE. 5048
+                GRE32ENTRY2                   = PMMERGE. 5049
+                GRE32ENTRY3                   = PMMERGE. 5050
+                GRE32ENTRY4                   = PMMERGE. 5051
+                GRE32ENTRY5                   = PMMERGE. 5052
+                GRE32ENTRY6                   = PMMERGE. 5053
+                GRE32ENTRY7                   = PMMERGE. 5054
+                GRE32ENTRY8                   = PMMERGE. 5055
+                GRE32ENTRY9                   = PMMERGE. 5056
+                GETICONWINDOWSEXE             = PMMERGE. 5057
+                GETICONWINDOWSICO             = PMMERGE. 5058
+                INNERGRE32ENTRY10             = PMMERGE. 5059
+                INNERGRE32ENTRY2              = PMMERGE. 5060
+                INNERGRE32ENTRY3              = PMMERGE. 5061
+                INNERGRE32ENTRY4              = PMMERGE. 5062
+                INNERGRE32ENTRY5              = PMMERGE. 5063
+                INNERGRE32ENTRY6              = PMMERGE. 5064
+                INNERGRE32ENTRY7              = PMMERGE. 5065
+                INNERGRE32ENTRY8              = PMMERGE. 5066
+                INNERGRE32ENTRY9              = PMMERGE. 5067
+                INPUTGETDEVICEINFO            = PMMERGE. 5068
+                PM32EXECREGISTER              = PMMERGE. 5069
+                PMRELEASEMUTEXSEM             = PMMERGE. 5070
+                PMREQUESTMUTEXSEM             = PMMERGE. 5071
+                PMREQUESTMUTEXSEMSETWAIT      = PMMERGE. 5072
+                POSTDEVICEMODES32             = PMMERGE. 5073
+                PRF32ADDPROGRAM               = T_SHL__.  109
+                PRF32CHANGEPROGRAM            = T_SHL__.  110
+                PRF32CHANGEWRITETHRU          = PMMERGE. 5076
+                PRF32CLOSEPROFILE             = T_SHL__.  103
+                PRF32CREATEGROUP              = PMMERGE. 5078
+                PRF32DESTROYGROUP             = T_SHL__.  106
+                PRF32OPENPROFILE              = T_SHL__.  102
+                PRF32QUERYDEFINITION          = T_SHL__.  111
+                PRF32QUERYPROFILE             = T_SHL__.  117
+                PRF32QUERYPROFILEDATA         = T_SHL__.  107
+                PRF32QUERYPROFILEINT          = T_SHL__.  114
+                PRF32QUERYPROFILESIZE         = T_SHL__.  101
+                PRF32QUERYPROFILESTRING       = T_SHL__.  115
+                PRF32QUERYPROGRAMCATEGORY     = PMMERGE. 5087
+                PRF32QUERYPROGRAMHANDLE       = PMMERGE. 5088
+                PRF32QUERYPROGRAMTITLES       = T_SHL__.  113
+                PRF32REMOVEPROGRAM            = T_SHL__.  104
+                PRF32RESET                    = T_SHL__.  108
+                PRF32WRITEPROFILEDATA         = T_SHL__.  118
+                PRF32WRITEPROFILESTRING       = T_SHL__.  116
+                PRFSUSPENDWRITETODISK         = PMMERGE. 5094
+                PRFWRITETODISK                = PMMERGE. 5095
+                RAMSEMCLEAR32                 = PMMERGE. 5096
+                RAMSEMREQUEST32               = PMMERGE. 5097
+                SETDRIVERINFO32               = PMMERGE. 5098
+                SHE32PIINITINIFILES           = PMMERGE. 5099
+                SHE32SYSTEMSHUTDOWN           = PMMERGE. 5100
+                SHPPILOCKINIFILE              = PMMERGE. 5101
+                SHPPISHUTDOWN                 = PMMERGE. 5102
+                SLEC_INITPEN                  = PMMERGE. 5103
+                SSALLOCMEM                    = PMMERGE. 5104
+                SSFREEMEM                     = PMMERGE. 5105
+                START32SYSTEMEXECUTABLES      = PMMERGE. 5106
+                STARTTIMER                    = PMMERGE. 5107
+                SETDEVICESURFACE              = PMMERGE. 5108
+                THKDOS16SETFGND               = PMMERGE. 5109
+                TIDCURRENT                    = PMMERGE. 5110
+                WIN32ADDATOM                  = T_WIN  .  700
+                WIN32ADDSWITCHENTRY           = T_SHL__.  120
+                WIN32ALARM                    = T_WIN  .  701
+                WIN32BEGINENUMWINDOWS         = T_WIN  .  702
+                WIN32BEGINPAINT               = T_WIN  .  703
+                WIN32BROADCASTMSG             = T_WIN  .  901
+                WIN32BUILDPTRHANDLE           = PMMERGE. 5117
+                WIN32CALCFRAMERECT            = T_WIN  .  704
+                WIN32CALLHELPHOOK             = PMMERGE. 5119
+                WIN32CALLMSGFILTER            = T_WIN  .  905
+                WIN32CANCELSHUTDOWN           = T_WIN  .  705
+                WIN32CHANGESWITCHENTRY        = T_SHL__.  123
+                WIN32CHECKINPUT               = T_WIN  .  998
+                WIN32CLOSECLIPBRD             = T_WIN  .  707
+                WIN32COMPARESTRINGS           = T_WIN  .  708
+                WIN32COPYACCELTABLE           = T_WIN  .  709
+                WIN32COPYRECT                 = T_WIN  .  710
+                WIN32CPTRANSLATECHAR          = T_WIN  .  711
+                WIN32CPTRANSLATESTRING        = T_WIN  .  712
+                WIN32CREATEACCELTABLE         = T_WIN  .  713
+                WIN32CREATEATOMTABLE          = T_WIN  .  714
+                WIN32CREATECURSOR             = T_WIN  .  715
+                WIN32CREATEDLG                = T_WIN  .  922
+                WIN32CREATEFRAMECONTROLS      = T_WIN  .  906
+                WIN32CREATEMENU               = T_WIN  .  907
+                WIN32CREATEMSGQUEUE           = T_WIN  .  716
+                WIN32CREATEPOINTER            = T_WIN  .  717
+                WIN32CREATEPOINTERINDIRECT    = T_WIN  .  942
+                WIN32CREATESTDWINDOW          = T_WIN  .  908
+                WIN32CREATESWITCHENTRY        = T_SHL__.  121
+                WIN32CREATEWINDOW             = T_WIN  .  909
+                WIN32DDEINITIATE              = T_WIN  .  718
+                WIN32DDEPOSTMSG               = T_WIN  .  719
+                WIN32DDERESPOND               = T_WIN  .  720
+                WIN32DEBUGBREAK               = PMMERGE. 5145
+                WIN32DEFDLGPROC               = T_WIN  .  910
+                WIN32DEFWINDOWPROC            = T_WIN  .  911
+                WIN32DELETEATOM               = T_WIN  .  721
+                WIN32DELETELIBRARY            = T_WIN  .  722
+                WIN32DELETEPROCEDURE          = T_WIN  .  987
+                WIN32DESTROYACCELTABLE        = T_WIN  .  723
+                WIN32DESTROYATOMTABLE         = T_WIN  .  724
+                WIN32DESTROYCURSOR            = T_WIN  .  725
+                WIN32DESTROYMSGQUEUE          = T_WIN  .  726
+                WIN32DESTROYPOINTER           = T_WIN  .  727
+                WIN32DESTROYWINDOW            = T_WIN  .  728
+                WIN32DISMISSDLG               = T_WIN  .  729
+                WIN32DISPATCHMSG              = T_WIN  .  912
+                WIN32DLGBOX                   = T_WIN  .  923
+                WIN32DRAWBITMAP               = T_WIN  .  730
+                WIN32DRAWBORDER               = T_WIN  .  731
+                WIN32DRAWPOINTER              = T_WIN  .  732
+                WIN32DRAWTEXT                 = T_WIN  .  913
+                WIN32EMPTYCLIPBRD             = T_WIN  .  733
+                WIN32ENABLEPHYSINPUT          = T_WIN  .  734
+                WIN32ENABLEWINDOW             = T_WIN  .  735
+                WIN32ENABLEWINDOWUPDATE       = T_WIN  .  736
+                WIN32ENDENUMWINDOWS           = T_WIN  .  737
+                WIN32ENDPAINT                 = T_WIN  .  738
+                WIN32ENDPROGRAM               = PMMERGE. 5170
+                WIN32ENUMCLIPBRDFMTS          = T_WIN  .  739
+                WIN32ENUMDLGITEM              = T_WIN  .  740
+                WIN32EQUALRECT                = T_WIN  .  741
+                WIN32EXCLUDEUPDATEREGION      = T_WIN  .  742
+                WIN32EXPLODEWINDOW            = PMMERGE. 5175
+                WIN32FILLRECT                 = T_WIN  .  743
+                WIN32FINDATOM                 = T_WIN  .  744
+                WIN32FLASHWINDOW              = T_WIN  .  745
+                WIN32FOCUSCHANGE              = T_WIN  .  746
+                WIN32FREEERRORINFO            = T_WIN  .  748
+                WIN32GETCLIPPS                = T_WIN  .  749
+                WIN32GETCURRENTTIME           = T_WIN  .  750
+                WIN32GETDLGMSG                = T_WIN  .  914
+                WIN32GETERASEPS               = T_WIN  .  952
+                WIN32GETERRORINFO             = T_WIN  .  751
+                WIN32GETFRAMETREEPPS          = PMMERGE. 5186
+                WIN32GETFRAMETREEPPSIZE       = PMMERGE. 5187
+                WIN32GETKEYSTATE              = T_WIN  .  752
+                WIN32GETLASTERROR             = T_WIN  .  753
+                WIN32GETMAXPOSITION           = T_WIN  .  754
+                WIN32GETMINPOSITION           = T_WIN  .  755
+                WIN32GETMSG                   = T_WIN  .  915
+                WIN32GETNEXTWINDOW            = T_WIN  .  756
+                WIN32GETPHYSKEYSTATE          = T_WIN  .  758
+                WIN32GETPS                    = T_WIN  .  757
+                WIN32GETSCREENPS              = T_WIN  .  759
+                WIN32GETSYSBITMAP             = T_WIN  .  760
+                WIN32HAPPFROMPID              = PMMERGE. 5198
+                WIN32HSWITCHFROMHAPP          = PMMERGE. 5199
+                WIN32INFLATERECT              = T_WIN  .  762
+                WIN32INITIALIZE               = T_WIN  .  763
+                WIN32INSENDMSG                = T_WIN  .  761
+                WIN32INTERSECTRECT            = T_WIN  .  764
+                WIN32INVALIDATERECT           = T_WIN  .  765
+                WIN32INVALIDATEREGION         = T_WIN  .  766
+                WIN32INVERTRECT               = T_WIN  .  767
+                WIN32ISCHILD                  = T_WIN  .  768
+                WIN32ISPHYSINPUTENABLED       = T_WIN  .  769
+                WIN32ISRECTEMPTY              = T_WIN  .  770
+                WIN32ISTHREADACTIVE           = T_WIN  .  771
+                WIN32ISWINDOW                 = T_WIN  .  772
+                WIN32ISWINDOWENABLED          = T_WIN  .  773
+                WIN32ISWINDOWSHOWING          = T_WIN  .  774
+                WIN32ISWINDOWVISIBLE          = T_WIN  .  775
+                WIN32JIGGLEMOUSE              = PMMERGE. 5215
+                WIN32LOADACCELTABLE           = T_WIN  .  776
+                WIN32LOADCHARXLATETBL         = PMMERGE. 5217
+                WIN32LOADDLG                  = T_WIN  .  924
+                WIN32LOADLIBRARY              = T_WIN  .  777
+                WIN32LOADMENU                 = T_WIN  .  778
+                WIN32LOADMESSAGE              = T_WIN  .  779
+                WIN32LOADPOINTER              = T_WIN  .  780
+                WIN32LOADPROCEDURE            = T_WIN  .  986
+                WIN32LOADSTRING               = T_WIN  .  781
+                WIN32LOCKINPUT                = T_WIN  .  995
+                WIN32LOCKPOINTERUPDATE        = T_WIN  .  997
+                WIN32LOCKVISREGIONS           = T_WIN  .  782
+                WIN32LOCKWINDOWUPDATE         = T_WIN  .  784
+                WIN32MAKEPOINTS               = T_WIN  .  785
+                WIN32MAKERECT                 = T_WIN  .  786
+                WIN32MAPDLGPOINTS             = T_WIN  .  787
+                WIN32MAPWINDOWPOINTS          = T_WIN  .  788
+                WIN32MESSAGEBOX               = T_WIN  .  789
+                WIN32MOVECURSOR               = PMMERGE. 5234
+                WIN32MSGMUXSEMWAIT            = T_WIN  .  916
+                WIN32MSGSEMWAIT               = T_WIN  .  790
+                WIN32MULTWINDOWFROMIDS        = T_WIN  .  917
+                WIN32NEXTCHAR                 = T_WIN  .  791
+                WIN32OFFSETRECT               = T_WIN  .  792
+                WIN32OPENCLIPBRD              = T_WIN  .  793
+                WIN32OPENWINDOWDC             = T_WIN  .  794
+                WIN32PEEKMSG                  = T_WIN  .  918
+                WIN32POPUPMENU                = T_WIN  .  937
+                WIN32POSTMSG                  = T_WIN  .  919
+                WIN32POSTQUEUEMSG             = T_WIN  .  902
+                WIN32PREVCHAR                 = T_WIN  .  795
+                WIN32PROCESSDLG               = T_WIN  .  796
+                WIN32PTINRECT                 = T_WIN  .  797
+                WIN32QUERYACCELTABLE          = T_WIN  .  798
+                WIN32QUERYACCELTABLEVALUE     = PMMERGE. 5250
+                WIN32QUERYACTIVEWINDOW        = T_WIN  .  799
+                WIN32QUERYANCHORBLOCK         = T_WIN  .  800
+                WIN32QUERYATOMLENGTH          = T_WIN  .  801
+                WIN32QUERYATOMNAME            = T_WIN  .  802
+                WIN32QUERYATOMUSAGE           = T_WIN  .  803
+                WIN32QUERYCAPTURE             = T_WIN  .  804
+                WIN32QUERYCLASSINFO           = T_WIN  .  925
+                WIN32QUERYCLASSNAME           = T_WIN  .  805
+                WIN32QUERYCLASSTHUNKPROC      = T_WIN  .  931
+                WIN32QUERYCLIPBRDDATA         = T_WIN  .  806
+                WIN32QUERYCLIPBRDFMTINFO      = T_WIN  .  807
+                WIN32QUERYCLIPBRDOWNER        = T_WIN  .  808
+                WIN32QUERYCLIPBRDVIEWER       = T_WIN  .  809
+                WIN32QUERYCP                  = T_WIN  .  810
+                WIN32QUERYCPLIST              = T_WIN  .  811
+                WIN32QUERYCURSORINFO          = T_WIN  .  812
+                WIN32QUERYDESKTOPBKGND        = T_WIN  .  936
+                WIN32QUERYDESKTOPWINDOW       = T_WIN  .  813
+                WIN32QUERYDLGITEMSHORT        = T_WIN  .  814
+                WIN32QUERYDLGITEMTEXT         = T_WIN  .  815
+                WIN32QUERYDLGITEMTEXTLENGTH   = T_WIN  .  816
+                WIN32QUERYFOCUS               = T_WIN  .  817
+                WIN32QUERYMSGPOS              = T_WIN  .  818
+                WIN32QUERYMSGTIME             = T_WIN  .  819
+                WIN32QUERYOBJECTWINDOW        = T_WIN  .  820
+                WIN32QUERYPALETTEMODE         = PMMERGE. 5276
+                WIN32QUERYPOINTER             = T_WIN  .  821
+                WIN32QUERYPOINTERINFO         = T_WIN  .  822
+                WIN32QUERYPOINTERPOS          = T_WIN  .  823
+                WIN32QUERYPRESPARAM           = T_WIN  .  939
+                WIN32QUERYPROCESSCP           = PMMERGE. 5281
+                WIN32QUERYQUEUEINFO           = T_WIN  .  824
+                WIN32QUERYQUEUESTATUS         = T_WIN  .  825
+                WIN32QUERYSENDMSG             = T_WIN  .  990
+                WIN32QUERYSESSIONTITLE        = T_SHL__.  122
+                WIN32QUERYSWITCHENTRY         = T_SHL__.  124
+                WIN32QUERYSWITCHHANDLE        = T_SHL__.  125
+                WIN32QUERYSWITCHLIST          = T_SHL__.  126
+                WIN32QUERYSYSCOLOR            = T_WIN  .  826
+                WIN32QUERYSYSMODALWINDOW      = T_WIN  .  827
+                WIN32QUERYSYSPOINTER          = T_WIN  .  828
+                WIN32QUERYSYSPOINTERDATA      = T_WIN  . 1003
+                WIN32QUERYSYSTEMATOMTABLE     = T_WIN  .  830
+                WIN32QUERYSYSVALUE            = T_WIN  .  829
+                WIN32QUERYTASKSIZEPOS         = T_SHL__.  127
+                WIN32QUERYTASKTITLE           = T_SHL__.  128
+                WIN32QUERYUPDATERECT          = T_WIN  .  831
+                WIN32QUERYUPDATEREGION        = T_WIN  .  832
+                WIN32QUERYVERSION             = T_WIN  .  833
+                WIN32QUERYVISIBLEREGION       = T_WIN  . 1000
+                WIN32QUERYWINDOW              = T_WIN  .  834
+                WIN32QUERYWINDOWDC            = T_WIN  .  835
+                WIN32QUERYWINDOWMODEL         = T_WIN  .  934
+                WIN32QUERYWINDOWPOS           = T_WIN  .  837
+                WIN32QUERYWINDOWPROCESS       = T_WIN  .  838
+                WIN32QUERYWINDOWPTR           = T_WIN  .  839
+                WIN32QUERYWINDOWRECT          = T_WIN  .  840
+                WIN32QUERYWINDOWTEXT          = T_WIN  .  841
+                WIN32QUERYWINDOWTEXTLENGTH    = T_WIN  .  842
+                WIN32QUERYWINDOWTHUNKPROC     = T_WIN  .  933
+                WIN32QUERYWINDOWULONG         = T_WIN  .  843
+                WIN32QUERYWINDOWUSHORT        = T_WIN  .  844
+                WIN32QUEUEFROMID              = T_WIN  .  993
+                WIN32REALIZEPALETTE           = T_WIN  .  941
+                WIN32REGISTERCLASS            = T_WIN  .  926
+                WIN32REGISTERPEN              = PMMERGE. 5316
+                WIN32REGISTERSEAMLESSPROC     = PMMERGE. 5317
+                WIN32REGISTERUSERDATATYPE     = T_WIN  .  845
+                WIN32REGISTERUSERMSG          = T_WIN  .  846
+                WIN32RELEASEERASEPS           = T_WIN  .  953
+                WIN32RELEASEHOOK              = T_WIN  .  927
+                WIN32RELEASEPS                = T_WIN  .  848
+                WIN32REMOVEPRESPARAM          = T_WIN  .  940
+                WIN32REMOVESWITCHENTRY        = T_SHL__.  129
+                WIN32REPLYMSG                 = T_WIN  .  991
+                WIN32REQUESTMUTEXSEM          = T_WIN  .  979
+                WIN32SAVEWINDOWPOS            = T_WIN  .  943
+                WIN32SCROLLWINDOW             = T_WIN  .  849
+                WIN32SEAMLESSBOX              = PMMERGE. 5329
+                WIN32SEMENTER                 = PMMERGE. 5330
+                WIN32SEMLEAVE                 = PMMERGE. 5331
+                WIN32SEMQUERY                 = PMMERGE. 5332
+                WIN32SENDDLGITEMMSG           = T_WIN  .  903
+                WIN32SENDMSG                  = T_WIN  .  920
+                WIN32SETACCELTABLE            = T_WIN  .  850
+                WIN32SETACCELTABLEVALUE       = PMMERGE. 5336
+                WIN32SETACTIVEWINDOW          = T_WIN  .  851
+                WIN32SETCAPTURE               = T_WIN  .  852
+                WIN32SETCHARXLATETBL          = PMMERGE. 5339
+                WIN32SETCLASSMSGINTEREST      = T_WIN  .  853
+                WIN32SETCLASSTHUNKPROC        = T_WIN  .  930
+                WIN32SETCLIPBRDDATA           = T_WIN  .  854
+                WIN32SETCLIPBRDOWNER          = T_WIN  .  855
+                WIN32SETCLIPBRDVIEWER         = T_WIN  .  856
+                WIN32SETCP                    = T_WIN  .  857
+                WIN32SETDESKTOPBKGND          = T_WIN  .  935
+                WIN32SETDLGITEMSHORT          = T_WIN  .  858
+                WIN32SETDLGITEMTEXT           = T_WIN  .  859
+                WIN32SETERRORINFO             = T_WIN  .  977
+                WIN32SETFOCUS                 = T_WIN  .  860
+                WIN32SETFRAMETREEPPS          = PMMERGE. 5351
+                WIN32SETHOOK                  = T_WIN  .  928
+                WIN32SETKEYBOARDSTATETABLE    = T_WIN  .  921
+                WIN32SETMSGINTEREST           = T_WIN  .  861
+                WIN32SETMSGMODE               = T_WIN  .  861
+                WIN32SETMULTWINDOWPOS         = T_WIN  .  863
+                WIN32SETOWNER                 = T_WIN  .  864
+                WIN32SETPALETTEMODE           = PMMERGE. 5358
+                WIN32SETPARENT                = T_WIN  .  865
+                WIN32SETPOINTER               = T_WIN  .  866
+                WIN32SETPOINTEROWNER          = T_WIN  .  971
+                WIN32SETPOINTERPOS            = T_WIN  .  867
+                WIN32SETPRESPARAM             = T_WIN  .  938
+                WIN32SETRECT                  = T_WIN  .  868
+                WIN32SETRECTEMPTY             = T_WIN  .  869
+                WIN32SETSYNCHROMODE           = T_WIN  .  870
+                WIN32SETSYSCLIPBRDVIEWER      = PMMERGE. 5367
+                WIN32SETSYSCOLORS             = T_WIN  .  871
+                WIN32SETSYSFONT               = PMMERGE. 5369
+                WIN32SETSYSMODALWINDOW        = T_WIN  .  872
+                WIN32SETSYSPOINTERDATA        = T_WIN  . 1002
+                WIN32SETSYSVALUE              = T_WIN  .  873
+                WIN32SETVISIBLEREGIONNOTIFY   = T_WIN  . 1001
+                WIN32SETWINDOWBITS            = T_WIN  .  874
+                WIN32SETWINDOWPOS             = T_WIN  .  875
+                WIN32SETWINDOWPTR             = T_WIN  .  876
+                WIN32SETWINDOWTEXT            = T_WIN  .  877
+                WIN32SETWINDOWTHUNKPROC       = T_WIN  .  932
+                WIN32SETWINDOWULONG           = T_WIN  .  878
+                WIN32SETWINDOWUSHORT          = T_WIN  .  879
+                WIN32SHOWCURSOR               = T_WIN  .  880
+                WIN32SHOWPOINTER              = T_WIN  .  881
+                WIN32SHOWTRACKRECT            = T_WIN  .  882
+                WIN32SHOWWINDOW               = T_WIN  .  883
+                WIN32STARTAPP                 = T_SHL__.  119
+                WIN32STARTTIMER               = T_WIN  .  884
+                WIN32STOPTIMER                = T_WIN  .  885
+                WIN32STRETCHPOINTER           = T_WIN  .  968
+                WIN32SUBCLASSWINDOW           = T_WIN  .  929
+                WIN32SUBSTITUTESTRINGS        = T_WIN  .  886
+                WIN32SUBTRACTRECT             = T_WIN  .  887
+                WIN32SWITCHPROGRAMREGISTER    = T_SHL__.  156
+                WIN32SWITCHTOPROGRAM          = T_SHL__.  131
+                WIN32SWITCHTOPROGRAM2         = PMMERGE. 5394
+                WIN32SYSTEMSHUTDOWN           = PMMERGE. 5395
+                WIN32TERMINATE                = T_WIN  .  888
+                WIN32TERMINATEAPP             = T_SHL__.  130
+                WIN32THREADASSOCQUEUE         = T_WIN  .  994
+                WIN32TRACKRECT                = T_WIN  .  890
+                WIN32TRACKSEAMLESS            = PMMERGE. 5400
+                WIN32TRANSLATEACCEL           = T_WIN  .  904
+                WIN32UNIONRECT                = T_WIN  .  891
+                WIN32UPDATEWINDOW             = T_WIN  .  892
+                WIN32UPPER                    = T_WIN  .  893
+                WIN32UPPERCHAR                = T_WIN  .  894
+                WIN32VALIDATERECT             = T_WIN  .  895
+                WIN32VALIDATEREGION           = T_WIN  .  896
+                WIN32VISREGIONNOTIFY          = PMMERGE. 5408
+                WIN32WAITEVENTSEM             = T_WIN  .  978
+                WIN32WAITMSG                  = T_WIN  .  897
+                WIN32WAITMUXWAITSEM           = T_WIN  .  980
+                WIN32WAKETHREAD               = T_WIN  .  992
+                WIN32WINDOWFROMDC             = T_WIN  .  898
+                WIN32WINDOWFROMID             = T_WIN  .  899
+                WIN32WINDOWFROMPOINT          = T_WIN  .  900
+                WINAUGMENTPOINTER             = PMMERGE. 5416
+                WINMESSAGEBOX2                = T_WIN  . 1015
+                WINMSPALLOC                   = PMMERGE. 5418
+                WINMSPFREE                    = PMMERGE. 5419
+                WINMSPINIT                    = PMMERGE. 5420
+                WINPROCESSHOTKEY              = PMMERGE. 5421
+                WINPROFCONTROL                = PMMERGE. 5422
+                WINXXALLOCFILL                = PMMERGE. 5423
+                WINXXALLOCMEM                 = PMMERGE. 5424
+                WINXXCREATEHEAP               = PMMERGE. 5425
+                WINXXDESTROYHEAP              = PMMERGE. 5426
+                WINXXFREEMEM                  = PMMERGE. 5427
+                WINXXISMEMINHEAP              = PMMERGE. 5428
+                WINXXREALLOCMEM               = PMMERGE. 5429
+                PMHEAPISMEMINCHAIN            = PMMERGE. 5430
+                WIN32NOSHUTDOWN               = PMMERGE. 5431
+                WINDRAWTABBEDTEXT             = PMMERGE. 5432
+                WINQUERYPOINTERCLIPRECT       = PMMERGE. 5433
+                WINSETPOINTERCLIPRECT         = PMMERGE. 5434
+                WIN32WAITMSGTIMEOUT           = PMMERGE. 5436
+                WIN32ISWINDOWOFCLASS          = PMMERGE. 5437
+                WIN32SETATOMTABLEOWNER        = PMMERGE. 5438
+                WINXXQUERYMEMSIZE             = PMMERGE. 5439
+                WIN32SETCLIPREGION            = T_WIN  . 1043
+                WIN32QUERYCLIPREGION          = T_WIN  . 1044
+                WIN32ADDCLIPBRDVIEWER         = PMMERGE. 5442
+                WIN32REMOVECLIPBRDVIEWER      = PMMERGE. 5443
+                WIN32QUERYCLIPBRDVIEWERCHAIN  = PMMERGE. 5444
+                WIN32INCREMENTATOMUSAGE       = PMMERGE. 5445
+                DAXQUERYOPENCLIPBRDWINDOW     = PMMERGE. 5446
+                WINQUERYDAXDATA               = PMMERGE. 5447
+                WINSETDAXDATA                 = PMMERGE. 5448
+                WINENUMPROPERTIES             = PMMERGE. 5449
+                WINQUERYPROPERTY              = PMMERGE. 5450
+                WINREMOVEPROPERTY             = PMMERGE. 5451
+                WINSETPROPERTY                = PMMERGE. 5452
+                WINENUMCLASSPROPERTIES        = PMMERGE. 5453
+                WINQUERYCLASSPROPERTY         = PMMERGE. 5454
+                WINREMOVECLASSPROPERTY        = PMMERGE. 5455
+                WINSETCLASSPROPERTY           = PMMERGE. 5456
+                WINQUERYHEAPFLAGS             = PMMERGE. 5457
+                WIN32SETKBDLAYOUT             = PMMERGE. 5458
+                WINSETDAXDEFWNDPROC           = PMMERGE. 5459
+                POSTESCAPE32                  = PMMERGE. 5460
+                WIN32GETAFCVALUE              = PMMERGE. 5461
+                WIN32SETAFCVALUE              = PMMERGE. 5462
+                WIN32LOADVKEYGLYPHXLATETBL    = PMMERGE. 5463
+                WIN32SETVKEYGLYPHXLATETBL     = PMMERGE. 5464
+                WIN32QUERYVKEYGLYPHXLATETBL   = PMMERGE. 5465
+                WIN32TRACKWINDOW              = PMMERGE. 5466
+                WIN32SEMENTERTIMEOUT          = PMMERGE. 5467
+                WINSETDESKTOPWORKAREA         = PMMERGE. 5468
+                WINQUERYDESKTOPWORKAREA       = PMMERGE. 5469
+;               WINQUERYCONTROLCOLORS         = PMMERGE. 5470
+;               WINSETCONTROLCOLORS           = PMMERGE. 5471
+                CTLQUERYCOLOR                 = PMMERGE. 5472
+                WIN32TRANSLATECHAR2           = PMMERGE. 5473
+                WIN32WAITFORIDLETHREAD        = PMMERGE. 5474
+                WINXXCREATEHEAP2              = PMMERGE. 5475
+                WINQUERYSHAREDHEAPDATA        = PMMERGE. 5476
+                WIN32QUERYACTIVEOTHERWINDOW   = PMMERGE. 5477
+                WIN32ENUMVKEYSCANIDS          = PMMERGE. 5478
+                WIN32QUERYKBDLAYOUT           = PMMERGE. 5479
+;               WINQUERYCPTYPE                = PMMERGE. 5480
+                WIN32QUERYCHARXLATETBL        = PMMERGE. 5481
+                KBDPACKET                     = PMMERGE. 6000
+                INITGAMEFRAMEPROC             = PMMERGE. 6099
+                GRENLS                        = PMMERGE. 6100
+                VALIDATEDCHANDLE              = PMMERGE. 6194
+                HOOKMAN                       = PMMERGE. 6195
+                CCHSETHAILING                 = PMMERGE. 6196
+                ENABLECOACHMSGHOOK            = PMMERGE. 6197
+                FCALLGRECOACH                 = PMMERGE. 6198
+                GRE32CALLFORWARD              = PMMERGE. 6199
+                GREMEMPTRS                    = PMMERGE. 6200
+                FPEN                          = PMMERGE. 6201
+                SHELLWINDOW                   = PMMERGE. 6202
+                PMSEMAPHORES                  = PMMERGE. 6203
+                PHANDLETABLE                  = PMMERGE. 6204
+                PSHAREDHEAP                   = PMMERGE. 6205
+                VPAULDEFAULTCOLORS            = PMMERGE. 6206
+                DAXCREATECARET                = PMMERGE.10000
+                DAXDESTROYCARET               = PMMERGE.10001
+                DAXGETCARETBLINKTIME          = PMMERGE.10002
+                DAXHIDECARET                  = PMMERGE.10004
+                DAXSETCARETBLINKTIME          = PMMERGE.10005
+                DAXSHOWCARET                  = PMMERGE.10007
+                DAXSHOWCURSOR                 = PMMERGE.10018
+                DAXSWAPMOUSEBUTTON            = PMMERGE.10019
+                LOOKUPATOM                    = PMMERGE.10020
+                DAXOPENCLIPBRD                = PMMERGE.10021

@@ -1,0 +1,45 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_PIC.I32                                                    ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMPIC module definitions file       ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.15 29Aug95 Added 32-bit Pic APIs                        ;
+;                 2.30.21 13Dec95 Forwarded private entry table ordinals       ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.30 08Aug97 Added 16-bit Pic APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.31 26Jun01 Added  capability  of building  32-bit  only ;
+;                                 trace DLLs                                   ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_PIC INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMPIC Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+EXPORTS
+                PicPrint                               @ 1 RESIDENTNAME
+                PicIchg                                @ 2 RESIDENTNAME
+                                    Pif2Met            @ 3 RESIDENTNAME
+                                    PrfPif2Met         @ 4 RESIDENTNAME
+                                    PICFILEOPENDIALOG  @ 5 NONAME       ; Not in entry table
+                Pic32Print        = Trc_Pic32Print     @11 RESIDENTNAME
+                Pic32Ichg         = Trc_Pic32Ichg      @12 RESIDENTNAME
+                                    Prf32Pif2Met       @13 RESIDENTNAME
+IMPORTS
+                PicPrint          = PMPIC. 1
+                PicIchg           = PMPIC. 2
+                Pif2Met           = PMPIC. 3
+                PrfPif2Met        = PMPIC. 4
+                PICFILEOPENDIALOG = PMPIC. 5
+                PIC32PRINT        = PMPIC.11
+                PIC32ICHG         = PMPIC.12
+                Prf32Pif2Met      = PMPIC.13

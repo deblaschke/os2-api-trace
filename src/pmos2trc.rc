@@ -1,0 +1,1021 @@
+/******************************************************************************/
+/*                                                                            */
+/* File name    : PMOS2TRC.RC                                                 */
+/*                                                                            */
+/* Title        : OS/2 API trace PM resources                                 */
+/*                                                                            */
+/* Author       : Dave Blaschke                                               */
+/*                deblaschke@yahoo.com                                        */
+/*                                                                            */
+/* History      : Version Date    Item                                        */
+/*                2.30.24 29Mar96 Added PM interface (supported customization */
+/*                                and help only)                              */
+/*                2.40.00 05Sep96 Added new OS/2 2.40 APIs                    */
+/*                2.40.05 12Mar97 Added enablement support to PM interface    */
+/*                2.40.08 13Mar97 Added summarization support to PM interface */
+/*                2.40.11 19Mar97 Added  save  window  position  option to PM */
+/*                                interface                                   */
+/*                2.40.13 20Mar97 Added  launch   .EXE  files  option  to  PM */
+/*                                interface                                   */
+/*                2.40.17 21Apr97 Added 16-bit Dos APIs                       */
+/*                2.40.18 30Apr97 Added 16-bit Kbd APIs                       */
+/*                2.40.19 01May97 Added 16-bit Mou APIs                       */
+/*                2.40.20 05May97 Added 16-bit Vio APIs                       */
+/*                2.40.24 03Jun97 Added FAQ to PM interface help submenu      */
+/*                2.40.26 24Jun97 Added 16-bit Win APIs                       */
+/*                2.40.36 14Aug97 Added -I option                             */
+/*                2.40.47 29Jan98 Added Win16DefAVioWindowProc                */
+/*                2.40.60 08Jul98 Added  title/action  bar only  option to PM */
+/*                                interface                                   */
+/*                2.40.61 17Aug98 Added SMP Dos APIs                          */
+/*                2.40.65 28Aug98 Added monitor trace options to PM interface */
+/*                2.40.74 27Oct98 Added WinSetErrorInfo                       */
+/*                2.40.75 28Oct98 Added Gpi/Win APIs exported from PMBIDI     */
+/*                2.40.78 16Nov98 Added miscellaneous Dos APIs                */
+/*                2.40.81 02Dec98 Added -E option                             */
+/*                2.40.84 20Jan99 Fixed monitor trace options dialogs bugs    */
+/*                2.40.85 21Jan99 Added -P option                             */
+/*                2.45.06 16May99 Added support for  KB and MB  values to  PM */
+/*                                interface                                   */
+/*                2.45.08 11Jun99 Added support for .COM files                */
+/*                2.45.16 18Feb00 Added -C, -PAUSE, and -RESUME options       */
+/*                2.45.17 21Feb00 Added restore window  position option to PM */
+/*                                interface                                   */
+/*                2.45.24 01Jun00 Added -A option                             */
+/*                2.45.32 28Jun01 Added -U option                             */
+/*                                                                            */
+/******************************************************************************/
+
+/******************************************************************************/
+/*                                                                            */
+/* Includes                                                                   */
+/*                                                                            */
+/******************************************************************************/
+
+#define  INCL_WINSYS
+#include <os2.h>
+#include "pmos2trc.h"
+
+/******************************************************************************/
+/*                                                                            */
+/* Main window help table                                                     */
+/*                                                                            */
+/******************************************************************************/
+
+HELPTABLE HLP_MAINWIN
+BEGIN
+   HELPITEM ID_MAINWIN, HLP_ID_MAINWIN, PNL_ID_MAINWIN
+   HELPITEM DLG_CUSTALT, HLP_DLG_CUSTALT, PNL_DLG_CUSTALT
+   HELPITEM DLG_CUSTBUF, HLP_DLG_CUSTBUF, PNL_DLG_CUSTBUF
+   HELPITEM DLG_CUSTCTL, HLP_DLG_CUSTCTL, PNL_DLG_CUSTCTL
+   HELPITEM DLG_CUSTDOS, HLP_DLG_CUSTDOS, PNL_DLG_CUSTDOS
+   HELPITEM DLG_CUSTEBC, HLP_DLG_CUSTEBC, PNL_DLG_CUSTEBC
+   HELPITEM DLG_CUSTFIL, HLP_DLG_CUSTFIL, PNL_DLG_CUSTFIL
+   HELPITEM DLG_CUSTGPI, HLP_DLG_CUSTGPI, PNL_DLG_CUSTGPI
+   HELPITEM DLG_CUSTINT, HLP_DLG_CUSTINT, PNL_DLG_CUSTINT
+   HELPITEM DLG_CUSTLVL, HLP_DLG_CUSTLVL, PNL_DLG_CUSTLVL
+   HELPITEM DLG_CUSTTIM, HLP_DLG_CUSTTIM, PNL_DLG_CUSTTIM
+#ifdef T_USERHOOK
+   HELPITEM DLG_CUSTUSR, HLP_DLG_CUSTUSR, PNL_DLG_CUSTUSR
+#endif
+   HELPITEM DLG_CUSTWIN, HLP_DLG_CUSTWIN, PNL_DLG_CUSTWIN
+   HELPITEM DLG_CTL, HLP_DLG_CTL, PNL_DLG_CTL
+   HELPITEM DLG_OPTSAPI, HLP_DLG_OPTSAPI, PNL_DLG_OPTSAPI
+   HELPITEM DLG_OPTSLEN, HLP_DLG_OPTSLEN, PNL_DLG_OPTSLEN
+   HELPITEM DLG_HELPINFO, HLP_DLG_HELPINFO, PNL_ID_MAINWIN
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Main window menu, accelerator table, icon, and help subtable               */
+/*                                                                            */
+/******************************************************************************/
+
+MENU ID_MAINWIN
+BEGIN
+   SUBMENU     "~Enable", IDM_ENABMENU, MIS_TEXT
+   BEGIN
+      MENUITEM "~Open file...", IDM_ENABOPEN, MIS_TEXT
+      MENUITEM "~Preserve file date/time stamp", IDM_ENABPDTS, MIS_TEXT
+   END
+   SUBMENU     "~Customize", IDM_CUSTMENU, MIS_TEXT
+   BEGIN
+      MENUITEM "~Alternative directory...", IDM_CUSTALT, MIS_TEXT
+      MENUITEM "~Buffer length...", IDM_CUSTBUF, MIS_TEXT
+      MENUITEM "Tracing ~control...", IDM_CUSTCTL, MIS_TEXT
+      MENUITEM "~DOSCALLS APIs...", IDM_CUSTDOS, MIS_TEXT
+      MENUITEM "~EBCDIC translation...", IDM_CUSTEBC, MIS_TEXT
+      MENUITEM "~File wrapping...", IDM_CUSTFIL, MIS_TEXT
+      MENUITEM "PM~GPI APIs...", IDM_CUSTGPI, MIS_TEXT
+      MENUITEM "API ~interception...", IDM_CUSTINT, MIS_TEXT
+      MENUITEM "~Logging level...", IDM_CUSTLVL, MIS_TEXT
+      MENUITEM "~Time stamping...", IDM_CUSTTIM, MIS_TEXT
+#ifdef T_USERHOOK
+      MENUITEM "~User hook...", IDM_CUSTUSR, MIS_TEXT
+#endif
+      MENUITEM "PM~WIN APIs...", IDM_CUSTWIN, MIS_TEXT
+   END
+   SUBMENU     "Co~ntrol", IDM_CTLMENU, MIS_TEXT
+   BEGIN
+      MENUITEM "~Pause tracing", IDM_CTLPAUSE, MIS_TEXT
+      MENUITEM "~Resume tracing", IDM_CTLRESUME, MIS_TEXT
+   END
+   SUBMENU     "~Summarize", IDM_SUMMENU, MIS_TEXT
+   BEGIN
+      MENUITEM "~Open file...", IDM_SUMOPEN, MIS_TEXT
+   END
+   SUBMENU     "~Options", IDM_OPTSMENU, MIS_TEXT
+   BEGIN
+      MENUITEM "~Launch .EXE/.COM files", IDM_OPTSEXE, MIS_TEXT
+      MENUITEM SEPARATOR
+      MENUITEM "~Monitor tracing", IDM_OPTSMON, MIS_TEXT
+      MENUITEM "~API monitoring...", IDM_OPTSAPI, MIS_TEXT
+      MENUITEM "~File length monitoring...", IDM_OPTSLEN, MIS_TEXT
+      MENUITEM SEPARATOR
+      SUBMENU  "~Title/Action bar only", IDM_OPTSBAR, MIS_TEXT
+      BEGIN
+         MENUITEM "~Top of screen", IDM_OPTSTOP, MIS_TEXT
+         MENUITEM "~Current position", IDM_OPTSCUR, MIS_TEXT
+         MENUITEM "~Bottom of screen", IDM_OPTSBOT, MIS_TEXT
+      END
+      MENUITEM SEPARATOR
+      MENUITEM "~Save window position", IDM_OPTSSWP, MIS_TEXT
+      MENUITEM "~Restore window position", IDM_OPTRSWP, MIS_TEXT
+   END
+   SUBMENU     "~Help", IDM_HELPMENU, MIS_TEXT
+   BEGIN
+      MENUITEM "Help ~index", IDM_HELPIDX, MIS_TEXT
+      MENUITEM "~General help", IDM_HELPGEN, MIS_TEXT
+      MENUITEM "~Using help", IDM_HELPUSE, MIS_TEXT
+      MENUITEM "~Keys help", IDM_HELPKEY, MIS_TEXT
+      MENUITEM SEPARATOR
+      MENUITEM "~Frequently asked questions", IDM_HELPFAQ, MIS_TEXT
+      MENUITEM SEPARATOR
+      MENUITEM "~Product information", IDM_HELPINFO, MIS_TEXT
+   END
+END
+
+ACCELTABLE ID_MAINWIN
+BEGIN
+   VK_F3, IDM_MAINEXIT, VIRTUALKEY
+   "E", IDM_ENABOPEN, CONTROL
+   "e", IDM_ENABOPEN, CONTROL
+   "A", IDM_CUSTALT, CONTROL
+   "a", IDM_CUSTALT, CONTROL
+   "B", IDM_CUSTBUF, CONTROL
+   "b", IDM_CUSTBUF, CONTROL
+   "C", IDM_CUSTCTL, CONTROL
+   "c", IDM_CUSTCTL, CONTROL
+   "D", IDM_CUSTDOS, CONTROL
+   "d", IDM_CUSTDOS, CONTROL
+   "F", IDM_CUSTFIL, CONTROL
+   "f", IDM_CUSTFIL, CONTROL
+   "G", IDM_CUSTGPI, CONTROL
+   "g", IDM_CUSTGPI, CONTROL
+   "I", IDM_CUSTINT, CONTROL
+   "i", IDM_CUSTINT, CONTROL
+   "L", IDM_CUSTLVL, CONTROL
+   "l", IDM_CUSTLVL, CONTROL
+   "T", IDM_CUSTTIM, CONTROL
+   "t", IDM_CUSTTIM, CONTROL
+#ifdef T_USERHOOK
+   "U", IDM_CUSTUSR, CONTROL
+   "u", IDM_CUSTUSR, CONTROL
+#endif
+   "W", IDM_CUSTWIN, CONTROL
+   "w", IDM_CUSTWIN, CONTROL
+   "S", IDM_SUMOPEN, CONTROL
+   "s", IDM_SUMOPEN, CONTROL
+   "R", IDM_OPTSEXE, CONTROL
+   "r", IDM_OPTSEXE, CONTROL
+   "M", IDM_OPTSMON, CONTROL
+   "m", IDM_OPTSMON, CONTROL
+   "P", IDM_OPTSSWP, CONTROL
+   "p", IDM_OPTSSWP, CONTROL
+END
+
+HELPSUBTABLE HLP_ID_MAINWIN
+BEGIN
+   HELPSUBITEM IDM_ENABMENU, HLP_ENABMENU
+   HELPSUBITEM IDM_ENABOPEN, HLP_ENABOPEN
+   HELPSUBITEM IDM_ENABPDTS, HLP_ENABPDTS
+   HELPSUBITEM IDM_CUSTMENU, HLP_CUSTMENU
+   HELPSUBITEM IDM_CUSTALT, HLP_CUSTALT
+   HELPSUBITEM IDM_CUSTBUF, HLP_CUSTBUF
+   HELPSUBITEM IDM_CUSTCTL, HLP_CUSTCTL
+   HELPSUBITEM IDM_CUSTDOS, HLP_CUSTDOS
+   HELPSUBITEM IDM_CUSTEBC, HLP_CUSTEBC
+   HELPSUBITEM IDM_CUSTFIL, HLP_CUSTFIL
+   HELPSUBITEM IDM_CUSTGPI, HLP_CUSTGPI
+   HELPSUBITEM IDM_CUSTINT, HLP_CUSTINT
+   HELPSUBITEM IDM_CUSTLVL, HLP_CUSTLVL
+   HELPSUBITEM IDM_CUSTTIM, HLP_CUSTTIM
+#ifdef T_USERHOOK
+   HELPSUBITEM IDM_CUSTUSR, HLP_CUSTUSR
+#endif
+   HELPSUBITEM IDM_CUSTWIN, HLP_CUSTWIN
+   HELPSUBITEM IDM_CTLMENU, HLP_CTLMENU
+   HELPSUBITEM IDM_CTLPAUSE, HLP_CTLPAUSE
+   HELPSUBITEM IDM_CTLRESUME, HLP_CTLRESUME
+   HELPSUBITEM IDM_SUMMENU, HLP_SUMMENU
+   HELPSUBITEM IDM_SUMOPEN, HLP_SUMOPEN
+   HELPSUBITEM IDM_OPTSMENU, HLP_OPTSMENU
+   HELPSUBITEM IDM_OPTSEXE, HLP_OPTSEXE
+   HELPSUBITEM IDM_OPTSMON, HLP_OPTSMON
+   HELPSUBITEM IDM_OPTSAPI, HLP_OPTSAPI
+   HELPSUBITEM IDM_OPTSLEN, HLP_OPTSLEN
+   HELPSUBITEM IDM_OPTSBAR, HLP_OPTSBAR
+   HELPSUBITEM IDM_OPTSTOP, HLP_OPTSTOP
+   HELPSUBITEM IDM_OPTSCUR, HLP_OPTSCUR
+   HELPSUBITEM IDM_OPTSBOT, HLP_OPTSBOT
+   HELPSUBITEM IDM_OPTSSWP, HLP_OPTSSWP
+END
+
+ICON ID_MAINWIN pmos2trc.ico
+
+/******************************************************************************/
+/*                                                                            */
+/* Alternative directory customization dialog and help subtable               */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTALT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "Alternative directory", DLG_CUSTALT, 43, 35, 246, 60, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_ALTDEFRAD, 11, 42, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ALTDIRRAD, 11, 27, 8, 10, WS_TABSTOP
+      LTEXT           ALT_DEFTEXT, DLG_ALTDEFTXT, 26, 42, 219, 8
+      LTEXT           ALT_DIRTEXT1, DLG_ALTDIRTXT1, 26, 27, 78, 8
+      ENTRYFIELD      "", DLG_ALTDIR, 65, 27, 118, 8, ES_MARGIN
+      LTEXT           ALT_DIRTEXT2, DLG_ALTDIRTXT2, 195, 27, 50, 8
+      PUSHBUTTON      "~OK", DLG_ALTOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_ALTCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_ALTDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_ALTUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_ALTHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTALT
+BEGIN
+   HELPSUBITEM DLG_ALTOK, HLP_ALTOK
+   HELPSUBITEM DLG_ALTCANCEL, HLP_ALTCANCEL
+   HELPSUBITEM DLG_ALTDEFAULT, HLP_ALTDEFAULT
+   HELPSUBITEM DLG_ALTUNDO, HLP_ALTUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Buffer length customization dialog and help subtable                       */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTBUF LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "Buffer Length", DLG_CUSTBUF, 43, 35, 246, 70, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_BUFALLRAD, 11, 52, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_BUFVALRAD, 11, 37, 8, 10, WS_TABSTOP
+      LTEXT           BUF_ALLTEXT, DLG_BUFALLTXT, 26, 52, 219, 8
+      LTEXT           BUF_VALTEXT1, DLG_BUFVALTXT1, 26, 37, 78, 8
+      SPINBUTTON      DLG_BUFVALSPIN, 105, 37, 50, 10, SPBS_READONLY | SPBS_JUSTRIGHT | SPBS_MASTER | WS_GROUP
+      SPINBUTTON      DLG_BUFTYPSPIN, 155, 37, 50, 10, SPBS_READONLY | SPBS_JUSTLEFT | SPBS_MASTER | WS_GROUP
+      LTEXT           BUF_VALTEXT2, DLG_BUFVALTXT2, 214, 37, 31, 8
+      LTEXT           BUF_VALTEXT3, DLG_BUFVALTXT3, 26, 27, 219, 8
+      PUSHBUTTON      "~OK", DLG_BUFOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_BUFCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_BUFDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_BUFUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_BUFHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTBUF
+BEGIN
+   HELPSUBITEM DLG_BUFOK, HLP_BUFOK
+   HELPSUBITEM DLG_BUFCANCEL, HLP_BUFCANCEL
+   HELPSUBITEM DLG_BUFDEFAULT, HLP_BUFDEFAULT
+   HELPSUBITEM DLG_BUFUNDO, HLP_BUFUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Tracing control customization dialog and help subtable                     */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTCTL LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "Tracing Control", DLG_CUSTCTL, 43, 35, 246, 60, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_CTLONRAD, 11, 42, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_CTLOFFRAD, 11, 27, 8, 10, WS_TABSTOP
+      LTEXT           CTL_CTLONTEXT, DLG_CTLONTXT, 26, 42, 219, 8
+      LTEXT           CTL_CTLOFFTEXT, DLG_CTLOFFTXT, 26, 27, 219, 8
+      PUSHBUTTON      "~OK", DLG_CTLOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_CTLCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_CTLDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_CTLUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_CTLHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTCTL
+BEGIN
+   HELPSUBITEM DLG_CTLOK, HLP_CTLOK
+   HELPSUBITEM DLG_CTLCANCEL, HLP_CTLCANCEL
+   HELPSUBITEM DLG_CTLDEFAULT, HLP_CTLDEFAULT
+   HELPSUBITEM DLG_CTLUNDO, HLP_CTLUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* DOSCALLS APIs customization dialog and help subtable                       */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTDOS LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG          "DOSCALLS APIs", DLG_CUSTDOS, 28, 12, 277, 106, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      LTEXT        DOS_TEXT, DLG_DOSTXT, 11, 88, 265, 8
+      AUTOCHECKBOX "DEV", DLG_DOSDEVCHK, 11, 72, 40, 10
+      AUTOCHECKBOX "FILE", DLG_DOSFILECHK, 66, 72, 40, 10
+      AUTOCHECKBOX "INFO", DLG_DOSINFOCHK, 121, 72, 40, 10
+      AUTOCHECKBOX "MEM", DLG_DOSMEMCHK, 176, 72, 40, 10
+      AUTOCHECKBOX "MISC", DLG_DOSMISCCHK, 231, 72, 40, 10
+      AUTOCHECKBOX "MOD", DLG_DOSMODCHK, 11, 57, 40, 10
+      AUTOCHECKBOX "MSG", DLG_DOSMSGCHK, 66, 57, 40, 10
+      AUTOCHECKBOX "MVDM", DLG_DOSMVDMCHK, 121, 57, 40, 10
+      AUTOCHECKBOX "NLS", DLG_DOSNLSCHK, 176, 57, 40, 10
+      AUTOCHECKBOX "PIPE", DLG_DOSPIPECHK, 231, 57, 40, 10
+      AUTOCHECKBOX "PRF", DLG_DOSPRFCHK, 11, 42, 40, 10
+      AUTOCHECKBOX "PROC", DLG_DOSPROCCHK, 66, 42, 40, 10
+      AUTOCHECKBOX "PROF", DLG_DOSPROFCHK, 121, 42, 40, 10
+      AUTOCHECKBOX "RES", DLG_DOSRESCHK, 176, 42, 40, 10
+      AUTOCHECKBOX "SEM", DLG_DOSSEMCHK, 231, 42, 40, 10
+      AUTOCHECKBOX "SES", DLG_DOSSESCHK, 11, 27, 40, 10
+      AUTOCHECKBOX "SIG", DLG_DOSSIGCHK, 66, 27, 40, 10
+      AUTOCHECKBOX "SMP", DLG_DOSSMPCHK, 121, 27, 40, 10
+      AUTOCHECKBOX "TIME", DLG_DOSTIMECHK, 176, 27, 40, 10
+      AUTOCHECKBOX "XCPT", DLG_DOSXCPTCHK, 231, 27, 40, 10
+      PUSHBUTTON   "~OK", DLG_DOSOK, 11, 6, 40, 14
+      PUSHBUTTON   "~Cancel", DLG_DOSCANCEL, 54, 6, 40, 14
+      PUSHBUTTON   "C~lear", DLG_DOSCLEAR, 97, 6, 40, 14
+      PUSHBUTTON   "~Default", DLG_DOSDEFAULT, 140, 6, 40, 14
+      PUSHBUTTON   "~Undo", DLG_DOSUNDO, 183, 6, 40, 14
+      PUSHBUTTON   "~Help", DLG_DOSHELP, 226, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTDOS
+BEGIN
+   HELPSUBITEM DLG_DOSOK, HLP_DOSOK
+   HELPSUBITEM DLG_DOSCANCEL, HLP_DOSCANCEL
+   HELPSUBITEM DLG_DOSCLEAR, HLP_DOSCLEAR
+   HELPSUBITEM DLG_DOSDEFAULT, HLP_DOSDEFAULT
+   HELPSUBITEM DLG_DOSUNDO, HLP_DOSUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* EBCDIC translation customization dialog and help subtable                  */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTEBC LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "EBCDIC Translation", DLG_CUSTEBC, 43, 35, 246, 60, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_EBCONRAD, 11, 42, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_EBCOFFRAD, 11, 27, 8, 10, WS_TABSTOP
+      LTEXT           EBC_EBCONTEXT, DLG_EBCONTXT, 26, 42, 219, 8
+      LTEXT           EBC_EBCOFFTEXT, DLG_EBCOFFTXT, 26, 27, 219, 8
+      PUSHBUTTON      "~OK", DLG_EBCOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_EBCCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_EBCDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_EBCUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_EBCHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTEBC
+BEGIN
+   HELPSUBITEM DLG_EBCOK, HLP_EBCOK
+   HELPSUBITEM DLG_EBCCANCEL, HLP_EBCCANCEL
+   HELPSUBITEM DLG_EBCDEFAULT, HLP_EBCDEFAULT
+   HELPSUBITEM DLG_EBCUNDO, HLP_EBCUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* File wrapping customization dialog and help subtable                       */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTFIL LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "File Wrapping", DLG_CUSTFIL, 43, 30, 246, 70, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_FILALLRAD, 11, 52, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_FILVALRAD, 11, 37, 8, 10, WS_TABSTOP
+      LTEXT           FIL_ALLTEXT, DLG_FILALLTXT, 26, 52, 219, 8
+      LTEXT           FIL_VALTEXT1, DLG_FILVALTXT1, 26, 37, 76, 8
+      SPINBUTTON      DLG_FILVALSPIN, 103, 37, 65, 12, SPBS_READONLY | SPBS_JUSTRIGHT | SPBS_MASTER | WS_GROUP
+      SPINBUTTON      DLG_FILTYPSPIN, 168, 37, 65, 12, SPBS_READONLY | SPBS_JUSTLEFT | SPBS_MASTER | WS_GROUP
+      LTEXT           FIL_VALTEXT2, DLG_FILVALTXT2, 26, 27, 219, 8
+      PUSHBUTTON      "~OK", DLG_FILOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_FILCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_FILDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_FILUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_FILHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTFIL
+BEGIN
+   HELPSUBITEM DLG_FILOK, HLP_FILOK
+   HELPSUBITEM DLG_FILCANCEL, HLP_FILCANCEL
+   HELPSUBITEM DLG_FILDEFAULT, HLP_FILDEFAULT
+   HELPSUBITEM DLG_FILUNDO, HLP_FILUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* PMGPI APIs customization dialog and help subtable                          */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTGPI LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG          "PMGPI APIs", DLG_CUSTGPI, 28, 12, 277, 106, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      LTEXT        GPI_TEXT, DLG_GPITXT, 11, 88, 265, 8
+      AUTOCHECKBOX "BIT", DLG_GPIBITCHK, 11, 72, 40, 10
+      AUTOCHECKBOX "CORR", DLG_GPICORRCHK, 66, 72, 40, 10
+      AUTOCHECKBOX "CTRL", DLG_GPICTRLCHK, 121, 72, 40, 10
+      AUTOCHECKBOX "DEF", DLG_GPIDEFCHK, 176, 72, 40, 10
+      AUTOCHECKBOX "DEV", DLG_GPIDEVCHK, 231, 72, 40, 10
+      AUTOCHECKBOX "EDIT", DLG_GPIEDITCHK, 11, 57, 40, 10
+      AUTOCHECKBOX "INK", DLG_GPIINKCHK, 66, 57, 40, 10
+      AUTOCHECKBOX "LCID", DLG_GPILCIDCHK, 121, 57, 40, 10
+      AUTOCHECKBOX "LCT", DLG_GPILCTCHK, 176, 57, 40, 10
+      AUTOCHECKBOX "META", DLG_GPIMETACHK, 231, 57, 40, 10
+      AUTOCHECKBOX "PATH", DLG_GPIPATHCHK, 11, 42, 40, 10
+      AUTOCHECKBOX "POLY", DLG_GPIPOLYCHK, 66, 42, 40, 10
+      AUTOCHECKBOX "PRIM", DLG_GPIPRIMCHK, 121, 42, 40, 10
+      AUTOCHECKBOX "RGN", DLG_GPIRGNCHK, 176, 42, 40, 10
+      AUTOCHECKBOX "SEG", DLG_GPISEGCHK, 231, 42, 40, 10
+      AUTOCHECKBOX "TRAN", DLG_GPITRANCHK, 11, 27, 40, 10
+      PUSHBUTTON   "~OK", DLG_GPIOK, 11, 6, 40, 14
+      PUSHBUTTON   "~Cancel", DLG_GPICANCEL, 54, 6, 40, 14
+      PUSHBUTTON   "C~lear", DLG_GPICLEAR, 97, 6, 40, 14
+      PUSHBUTTON   "~Default", DLG_GPIDEFAULT, 140, 6, 40, 14
+      PUSHBUTTON   "~Undo", DLG_GPIUNDO, 183, 6, 40, 14
+      PUSHBUTTON   "~Help", DLG_GPIHELP, 226, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTGPI
+BEGIN
+   HELPSUBITEM DLG_GPIOK, HLP_GPIOK
+   HELPSUBITEM DLG_GPICANCEL, HLP_GPICANCEL
+   HELPSUBITEM DLG_GPICLEAR, HLP_GPICLEAR
+   HELPSUBITEM DLG_GPIDEFAULT, HLP_GPIDEFAULT
+   HELPSUBITEM DLG_GPIUNDO, HLP_GPIUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* API interception customization dialog and help subtable                    */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTINT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "API Interception", DLG_CUSTINT, 43, 35, 246, 60, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_INTONRAD, 11, 42, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_INTOFFRAD, 11, 27, 8, 10, WS_TABSTOP
+      LTEXT           INT_INTONTEXT, DLG_INTONTXT, 26, 42, 219, 8
+      LTEXT           INT_INTOFFTEXT, DLG_INTOFFTXT, 26, 27, 219, 8
+      PUSHBUTTON      "~OK", DLG_INTOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_INTCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_INTDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_INTUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_INTHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTINT
+BEGIN
+   HELPSUBITEM DLG_INTOK, HLP_INTOK
+   HELPSUBITEM DLG_INTCANCEL, HLP_INTCANCEL
+   HELPSUBITEM DLG_INTDEFAULT, HLP_INTDEFAULT
+   HELPSUBITEM DLG_INTUNDO, HLP_INTUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Logging level customization dialog and help subtable                       */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTLVL LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "Logging Level", DLG_CUSTLVL, 43, 28, 246, 75, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_LVL1RAD, 11, 57, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_LVL2RAD, 11, 42, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_LVL3RAD, 11, 27, 8, 10, WS_TABSTOP
+      LTEXT           LVL_LVL1TEXT, DLG_LVL1TXT, 26, 57, 219, 8
+      LTEXT           LVL_LVL2TEXT, DLG_LVL2TXT, 26, 42, 219, 8
+      LTEXT           LVL_LVL3TEXT, DLG_LVL3TXT, 26, 27, 219, 8
+      PUSHBUTTON      "~OK", DLG_LVLOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_LVLCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_LVLDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_LVLUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_LVLHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTLVL
+BEGIN
+   HELPSUBITEM DLG_LVLOK, HLP_LVLOK
+   HELPSUBITEM DLG_LVLCANCEL, HLP_LVLCANCEL
+   HELPSUBITEM DLG_LVLDEFAULT, HLP_LVLDEFAULT
+   HELPSUBITEM DLG_LVLUNDO, HLP_LVLUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Time stamping customization dialog and help subtable                       */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTTIM LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "Time Stamping", DLG_CUSTTIM, 43, 35, 246, 60, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_TIMONRAD, 11, 42, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_TIMOFFRAD, 11, 27, 8, 10, WS_TABSTOP
+      LTEXT           TIM_TIMONTEXT, DLG_TIMONTXT, 26, 42, 219, 8
+      LTEXT           TIM_TIMOFFTEXT, DLG_TIMOFFTXT, 26, 27, 219, 8
+      PUSHBUTTON      "~OK", DLG_TIMOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_TIMCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_TIMDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_TIMUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_TIMHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTTIM
+BEGIN
+   HELPSUBITEM DLG_TIMOK, HLP_TIMOK
+   HELPSUBITEM DLG_TIMCANCEL, HLP_TIMCANCEL
+   HELPSUBITEM DLG_TIMDEFAULT, HLP_TIMDEFAULT
+   HELPSUBITEM DLG_TIMUNDO, HLP_TIMUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* User hook customization dialog and help subtable                           */
+/*                                                                            */
+/******************************************************************************/
+
+#ifdef T_USERHOOK
+DLGTEMPLATE DLG_CUSTUSR LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "User Hook", DLG_CUSTUSR, 43, 35, 246, 60, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_USRDEFRAD, 11, 42, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_USRHOOKRAD, 11, 27, 8, 10, WS_TABSTOP
+      LTEXT           USR_DEFTEXT, DLG_USRDEFTXT, 26, 42, 219, 8
+      LTEXT           USR_HOOKTEXT, DLG_USRHOOKTXT, 26, 27, 118, 8
+      ENTRYFIELD      "", DLG_USRHOOK, 95, 27, 135, 8, ES_MARGIN
+      PUSHBUTTON      "~OK", DLG_USROK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_USRCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_USRDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_USRUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_USRHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTUSR
+BEGIN
+   HELPSUBITEM DLG_USROK, HLP_USROK
+   HELPSUBITEM DLG_USRCANCEL, HLP_USRCANCEL
+   HELPSUBITEM DLG_USRDEFAULT, HLP_USRDEFAULT
+   HELPSUBITEM DLG_USRUNDO, HLP_USRUNDO
+END
+#endif
+
+/******************************************************************************/
+/*                                                                            */
+/* PMWIN APIs customization dialog and help subtable                          */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CUSTWIN LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG          "PMWIN APIs", DLG_CUSTWIN, 28, 5, 277, 136, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      LTEXT        WIN_TEXT, DLG_WINTXT, 11, 120, 265, 8
+      AUTOCHECKBOX "ACCL", DLG_WINACCLCHK, 11, 102, 40, 10
+      AUTOCHECKBOX "ATOM", DLG_WINATOMCHK, 66, 102, 40, 10
+      AUTOCHECKBOX "CLIP", DLG_WINCLIPCHK, 121, 102, 40, 10
+      AUTOCHECKBOX "CTRY", DLG_WINCTRYCHK, 176, 102, 40, 10
+      AUTOCHECKBOX "CUR", DLG_WINCURCHK, 231, 102, 40, 10
+      AUTOCHECKBOX "DDE", DLG_WINDDECHK, 11, 87, 40, 10
+      AUTOCHECKBOX "DESK", DLG_WINDESKCHK, 66, 87, 40, 10
+      AUTOCHECKBOX "DLG", DLG_WINDLGCHK, 121, 87, 40, 10
+      AUTOCHECKBOX "DWIN", DLG_WINDWINCHK, 176, 87, 40, 10
+      AUTOCHECKBOX "ENV", DLG_WINENVCHK, 231, 87, 40, 10
+      AUTOCHECKBOX "ERR", DLG_WINERRCHK, 11, 72, 40, 10
+      AUTOCHECKBOX "FRAM", DLG_WINFRAMCHK, 66, 72, 40, 10
+      AUTOCHECKBOX "HEAP", DLG_WINHEAPCHK, 121, 72, 40, 10
+      AUTOCHECKBOX "HOOK", DLG_WINHOOKCHK, 176, 72, 40, 10
+      AUTOCHECKBOX "INPT", DLG_WININPTCHK, 231, 72, 40, 10
+      AUTOCHECKBOX "LOAD", DLG_WINLOADCHK, 11, 57, 40, 10
+      AUTOCHECKBOX "MENU", DLG_WINMENUCHK, 66, 57, 40, 10
+      AUTOCHECKBOX "MSG", DLG_WINMSGCHK, 121, 57, 40, 10
+      AUTOCHECKBOX "MSGL", DLG_WINMSGLCHK, 176, 57, 40, 10
+      AUTOCHECKBOX "PAL", DLG_WINPALCHK, 231, 57, 40, 10
+      AUTOCHECKBOX "PTR", DLG_WINPTRCHK, 11, 42, 40, 10
+      AUTOCHECKBOX "RECT", DLG_WINRECTCHK, 66, 42, 40, 10
+      AUTOCHECKBOX "SEI", DLG_WINSEICHK, 121, 42, 40, 10
+      AUTOCHECKBOX "SYS", DLG_WINSYSCHK, 176, 42, 40, 10
+      AUTOCHECKBOX "THK", DLG_WINTHKCHK, 231, 42, 40, 10
+      AUTOCHECKBOX "TIME", DLG_WINTIMECHK, 11, 27, 40, 10
+      AUTOCHECKBOX "TREC", DLG_WINTRECCHK, 66, 27, 40, 10
+      AUTOCHECKBOX "WIN", DLG_WINWINCHK, 121, 27, 40, 10
+      PUSHBUTTON   "~OK", DLG_WINOK, 11, 6, 40, 14
+      PUSHBUTTON   "~Cancel", DLG_WINCANCEL, 54, 6, 40, 14
+      PUSHBUTTON   "C~lear", DLG_WINCLEAR, 97, 6, 40, 14
+      PUSHBUTTON   "~Default", DLG_WINDEFAULT, 140, 6, 40, 14
+      PUSHBUTTON   "~Undo", DLG_WINUNDO, 183, 6, 40, 14
+      PUSHBUTTON   "~Help", DLG_WINHELP, 226, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CUSTWIN
+BEGIN
+   HELPSUBITEM DLG_WINOK, HLP_WINOK
+   HELPSUBITEM DLG_WINCANCEL, HLP_WINCANCEL
+   HELPSUBITEM DLG_WINCLEAR, HLP_WINCLEAR
+   HELPSUBITEM DLG_WINDEFAULT, HLP_WINDEFAULT
+   HELPSUBITEM DLG_WINUNDO, HLP_WINUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Main window help information dialog and help subtable                      */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_HELPINFO LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG        "OS/2 API Trace - Product information", DLG_HELPINFO, 44, 8, 239, 105, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      LTEXT      INF_INFOTEXT1, DLG_INFOTXT1, 54, 65, 161, 8
+#ifdef PRIVATE
+      LTEXT      INF_INFOTEXT2, DLG_INFOTXT2, 69, 55, 169, 8
+#else
+      LTEXT      INF_INFOTEXT2, DLG_INFOTXT2, 86, 55, 152, 8
+#endif
+      LTEXT      INF_INFOTEXT3, DLG_INFOTXT3, 65, 45, 173, 8
+      PUSHBUTTON "~OK", DLG_INFOOK, 100, 6, 40, 14
+      ICON       ID_MAINWIN, ID_MAINWIN, 109, 81, 21, 16, WS_GROUP
+   END
+END
+
+HELPSUBTABLE HLP_DLG_HELPINFO
+BEGIN
+   HELPSUBITEM DLG_INFOOK, HLP_INFOOK
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Enablement dialog help table                                               */
+/*                                                                            */
+/******************************************************************************/
+
+HELPTABLE HLP_ENAB
+BEGIN
+   HELPITEM DLG_ENAB, HLP_DLG_ENAB, PNL_DLG_ENAB
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Enablement dialog and help subtable                                        */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_ENAB LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "", DLG_ENAB, 28, 12, 277, 161, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      LTEXT           "", DLG_ENABFILETXT, 100, 147, 176, 8
+      LTEXT           ENA_ENABONTEXT, DLG_ENABONTXT1, 11, 137, 20, 8
+      LTEXT           ENA_ENABOFFTEXT, DLG_ENABOFFTXT1, 31, 137, 20, 8
+      LTEXT           ENA_ENABONTEXT, DLG_ENABONTXT2, 140, 137, 20, 8
+      LTEXT           ENA_ENABOFFTEXT, DLG_ENABOFFTXT2, 160, 137, 20, 8
+      AUTORADIOBUTTON "", DLG_ENABDOSONRAD, 11, 127, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABDOSOFFRAD, 31, 127, 8, 10
+      LTEXT           ENA_ENABDOSTEXT, DLG_ENABDOSTXT, 54, 127, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABHLPONRAD, 140, 127, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABHLPOFFRAD, 160, 127, 8, 10
+      LTEXT           ENA_ENABHLPTEXT, DLG_ENABHLPTXT, 183, 127, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABKBDONRAD, 11, 117, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABKBDOFFRAD, 31, 117, 8, 10
+      LTEXT           ENA_ENABKBDTEXT, DLG_ENABKBDTXT, 54, 117, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABMONONRAD, 140, 117, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABMONOFFRAD, 160, 117, 8, 10
+      LTEXT           ENA_ENABMONTEXT, DLG_ENABMONTXT, 183, 117, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABMOUONRAD, 11, 107, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABMOUOFFRAD, 31, 107, 8, 10
+      LTEXT           ENA_ENABMOUTEXT, DLG_ENABMOUTXT, 54, 107, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABMSGONRAD, 140, 107, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABMSGOFFRAD, 160, 107, 8, 10
+      LTEXT           ENA_ENABMSGTEXT, DLG_ENABMSGTXT, 183, 107, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABPIPONRAD, 11, 97, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABPIPOFFRAD, 31, 97, 8, 10
+      LTEXT           ENA_ENABPIPTEXT, DLG_ENABPIPTXT, 54, 97, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABNLSONRAD, 140, 97, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABNLSOFFRAD, 160, 97, 8, 10
+      LTEXT           ENA_ENABNLSTEXT, DLG_ENABNLSTXT, 183, 97, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABPBDONRAD, 11, 87, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABPBDOFFRAD, 31, 87, 8, 10
+      LTEXT           ENA_ENABPBDTEXT, DLG_ENABPBDTXT, 54, 87, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABCTLONRAD, 140, 87, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABCTLOFFRAD, 160, 87, 8, 10
+      LTEXT           ENA_ENABCTLTEXT, DLG_ENABCTLTXT, 183, 87, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABDRGONRAD, 11, 77, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABDRGOFFRAD, 31, 77, 8, 10
+      LTEXT           ENA_ENABDRGTEXT, DLG_ENABDRGTXT, 54, 77, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABGPIONRAD, 140, 77, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABGPIOFFRAD, 160, 77, 8, 10
+      LTEXT           ENA_ENABGPITEXT, DLG_ENABGPITXT, 183, 77, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABMRGONRAD, 11, 67, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABMRGOFFRAD, 31, 67, 8, 10
+      LTEXT           ENA_ENABMRGTEXT, DLG_ENABMRGTXT, 54, 67, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABPICONRAD, 140, 67, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABPICOFFRAD, 160, 67, 8, 10
+      LTEXT           ENA_ENABPICTEXT, DLG_ENABPICTXT, 183, 67, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABSHLONRAD, 11, 57, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABSHLOFFRAD, 31, 57, 8, 10
+      LTEXT           ENA_ENABSHLTEXT, DLG_ENABSHLTXT, 54, 57, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABSPLONRAD, 140, 57, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABSPLOFFRAD, 160, 57, 8, 10
+      LTEXT           ENA_ENABSPLTEXT, DLG_ENABSPLTXT, 183, 57, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABPVPONRAD, 11, 47, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABPVPOFFRAD, 31, 47, 8, 10
+      LTEXT           ENA_ENABPVPTEXT, DLG_ENABPVPTXT, 54, 47, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABWINONRAD, 140, 47, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABWINOFFRAD, 160, 47, 8, 10
+      LTEXT           ENA_ENABWINTEXT, DLG_ENABWINTXT, 183, 47, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABWPONRAD, 11, 37, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABWPOFFRAD, 31, 37, 8, 10
+      LTEXT           ENA_ENABWPTEXT, DLG_ENABWPTXT, 54, 37, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABQUEONRAD, 140, 37, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABQUEOFFRAD, 160, 37, 8, 10
+      LTEXT           ENA_ENABQUETEXT, DLG_ENABQUETXT, 183, 37, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABSESONRAD, 11, 27, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABSESOFFRAD, 31, 27, 8, 10
+      LTEXT           ENA_ENABSESTEXT, DLG_ENABSESTXT, 54, 27, 50, 8
+      AUTORADIOBUTTON "", DLG_ENABVIOONRAD, 140, 27, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_ENABVIOOFFRAD, 160, 27, 8, 10
+      LTEXT           ENA_ENABVIOTEXT, DLG_ENABVIOTXT, 183, 27, 50, 8
+      PUSHBUTTON      "~OK", DLG_ENABOK, 11, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_ENABCANCEL, 54, 6, 40, 14
+      PUSHBUTTON      "All O~n", DLG_ENABALLON, 97, 6, 40, 14
+      PUSHBUTTON      "All O~ff", DLG_ENABALLOFF, 140, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_ENABUNDO, 183, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_ENABHELP, 226, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_ENAB
+BEGIN
+   HELPSUBITEM DLG_ENABDOSONRAD, HLP_ENABDOS
+   HELPSUBITEM DLG_ENABDOSOFFRAD, HLP_ENABDOS
+   HELPSUBITEM DLG_ENABHLPONRAD, HLP_ENABHLP
+   HELPSUBITEM DLG_ENABHLPOFFRAD, HLP_ENABHLP
+   HELPSUBITEM DLG_ENABKBDONRAD, HLP_ENABKBD
+   HELPSUBITEM DLG_ENABKBDOFFRAD, HLP_ENABKBD
+   HELPSUBITEM DLG_ENABMONONRAD, HLP_ENABMON
+   HELPSUBITEM DLG_ENABMONOFFRAD, HLP_ENABMON
+   HELPSUBITEM DLG_ENABMOUONRAD, HLP_ENABMOU
+   HELPSUBITEM DLG_ENABMOUOFFRAD, HLP_ENABMOU
+   HELPSUBITEM DLG_ENABMSGONRAD, HLP_ENABMSG
+   HELPSUBITEM DLG_ENABMSGOFFRAD, HLP_ENABMSG
+   HELPSUBITEM DLG_ENABPIPONRAD, HLP_ENABPIP
+   HELPSUBITEM DLG_ENABPIPOFFRAD, HLP_ENABPIP
+   HELPSUBITEM DLG_ENABNLSONRAD, HLP_ENABNLS
+   HELPSUBITEM DLG_ENABNLSOFFRAD, HLP_ENABNLS
+   HELPSUBITEM DLG_ENABPBDONRAD, HLP_ENABPBD
+   HELPSUBITEM DLG_ENABPBDOFFRAD, HLP_ENABPBD
+   HELPSUBITEM DLG_ENABCTLONRAD, HLP_ENABCTL
+   HELPSUBITEM DLG_ENABCTLOFFRAD, HLP_ENABCTL
+   HELPSUBITEM DLG_ENABDRGONRAD, HLP_ENABDRG
+   HELPSUBITEM DLG_ENABDRGOFFRAD, HLP_ENABDRG
+   HELPSUBITEM DLG_ENABGPIONRAD, HLP_ENABGPI
+   HELPSUBITEM DLG_ENABGPIOFFRAD, HLP_ENABGPI
+   HELPSUBITEM DLG_ENABMRGONRAD, HLP_ENABMRG
+   HELPSUBITEM DLG_ENABMRGOFFRAD, HLP_ENABMRG
+   HELPSUBITEM DLG_ENABPICONRAD, HLP_ENABPIC
+   HELPSUBITEM DLG_ENABPICOFFRAD, HLP_ENABPIC
+   HELPSUBITEM DLG_ENABSHLONRAD, HLP_ENABSHL
+   HELPSUBITEM DLG_ENABSHLOFFRAD, HLP_ENABSHL
+   HELPSUBITEM DLG_ENABSPLONRAD, HLP_ENABSPL
+   HELPSUBITEM DLG_ENABSPLOFFRAD, HLP_ENABSPL
+   HELPSUBITEM DLG_ENABWINONRAD, HLP_ENABWIN
+   HELPSUBITEM DLG_ENABWINOFFRAD, HLP_ENABWIN
+   HELPSUBITEM DLG_ENABWPONRAD, HLP_ENABWP
+   HELPSUBITEM DLG_ENABWPOFFRAD, HLP_ENABWP
+   HELPSUBITEM DLG_ENABQUEONRAD, HLP_ENABQUE
+   HELPSUBITEM DLG_ENABQUEOFFRAD, HLP_ENABQUE
+   HELPSUBITEM DLG_ENABSESONRAD, HLP_ENABSES
+   HELPSUBITEM DLG_ENABSESOFFRAD, HLP_ENABSES
+   HELPSUBITEM DLG_ENABVIOONRAD, HLP_ENABVIO
+   HELPSUBITEM DLG_ENABVIOOFFRAD, HLP_ENABVIO
+   HELPSUBITEM DLG_ENABOK, HLP_ENABOK
+   HELPSUBITEM DLG_ENABCANCEL, HLP_ENABCANCEL
+   HELPSUBITEM DLG_ENABALLON, HLP_ENABALLON
+   HELPSUBITEM DLG_ENABALLOFF, HLP_ENABALLOFF
+   HELPSUBITEM DLG_ENABUNDO, HLP_ENABUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Summarization dialog help table                                            */
+/*                                                                            */
+/******************************************************************************/
+
+HELPTABLE HLP_SUM
+BEGIN
+   HELPITEM DLG_SUM, HLP_DLG_SUM, PNL_DLG_SUM
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Summarization dialog and help subtable                                     */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_SUM LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG        "", DLG_SUM, 17, 7, 188, 131, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      MLE        "", DLG_SUMMLE, 11, 27, 166, 96, MLS_WORDWRAP | MLS_VSCROLL | MLS_HSCROLL | WS_GROUP
+      PUSHBUTTON "~OK", DLG_SUMOK, 11, 6, 40, 14
+      PUSHBUTTON "~Save As...", DLG_SUMSAVEAS, 54, 6, 80, 14
+      PUSHBUTTON "~Help", DLG_SUMHELP, 137, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_SUM
+BEGIN
+   HELPSUBITEM DLG_SUMMLE, HLP_SUMMLE
+   HELPSUBITEM DLG_SUMOK, HLP_SUMOK
+   HELPSUBITEM DLG_SUMSAVEAS, HLP_SUMSAVEAS
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Launch executable dialog help table                                        */
+/*                                                                            */
+/******************************************************************************/
+
+HELPTABLE HLP_EXE
+BEGIN
+   HELPITEM DLG_EXE, HLP_DLG_EXE, PNL_DLG_EXE
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Launch executable dialog and help subtable                                 */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_EXE LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "", DLG_EXE, 32, 24, 212, 77, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      LTEXT           DLG_EXEPARMTEXT, DLG_EXEPARMTXT, 11, 57, 89, 8
+      ENTRYFIELD      "", DLG_EXEPARM, 101, 57, 98, 8, ES_MARGIN
+      LTEXT           DLG_EXESESTEXT, DLG_EXESESTXT, 11, 37, 89, 8
+      AUTORADIOBUTTON DLG_EXEFGSESTEXT, DLG_EXEFGSESRAD, 101, 37, 80, 10, WS_TABSTOP
+      AUTORADIOBUTTON DLG_EXEBGSESTEXT, DLG_EXEBGSESRAD, 101, 27, 80, 10, WS_TABSTOP
+      PUSHBUTTON      "~OK", DLG_EXEOK, 11, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_EXECANCEL, 86, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_EXEHELP, 161, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_EXE
+BEGIN
+   HELPSUBITEM DLG_EXEPARM, HLP_EXEPARM
+   HELPSUBITEM DLG_EXEFGSESRAD, HLP_EXEFGSES
+   HELPSUBITEM DLG_EXEBGSESRAD, HLP_EXEBGSES
+   HELPSUBITEM DLG_EXEOK, HLP_EXEOK
+   HELPSUBITEM DLG_EXECANCEL, HLP_EXECANCEL
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* API monitoring dialog and help subtable                                    */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_OPTSAPI LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "API Monitoring", DLG_OPTSAPI, 43, 30, 246, 60, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_APIOFFRAD, 11, 42, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_APIVALRAD, 11, 27, 8, 10, WS_TABSTOP
+      LTEXT           API_OFFTEXT, DLG_APIOFFTXT, 26, 42, 219, 8
+      LTEXT           API_VALTEXT1, DLG_APIVALTXT1, 26, 27, 127, 8
+      SPINBUTTON      DLG_APIVALSPIN, 154, 27, 58, 12, SPBS_READONLY | SPBS_JUSTRIGHT | SPBS_MASTER | WS_GROUP
+      LTEXT           API_VALTEXT2, DLG_APIVALTXT2, 216, 27, 29, 8
+      PUSHBUTTON      "~OK", DLG_APIOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_APICANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_APIDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_APIUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_APIHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_OPTSAPI
+BEGIN
+   HELPSUBITEM DLG_APIOK, HLP_APIOK
+   HELPSUBITEM DLG_APICANCEL, HLP_APICANCEL
+   HELPSUBITEM DLG_APIDEFAULT, HLP_APIDEFAULT
+   HELPSUBITEM DLG_APIUNDO, HLP_APIUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* File length monitoring dialog and help subtable                            */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_OPTSLEN LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG             "File Length Monitoring", DLG_OPTSLEN, 43, 30, 246, 60, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      AUTORADIOBUTTON "", DLG_LENOFFRAD, 11, 42, 8, 10, WS_TABSTOP
+      AUTORADIOBUTTON "", DLG_LENVALRAD, 11, 27, 8, 10, WS_TABSTOP
+      LTEXT           LEN_OFFTEXT, DLG_LENOFFTXT, 26, 42, 219, 8
+      LTEXT           LEN_VALTEXT1, DLG_LENVALTXT1, 26, 27, 121, 8
+      SPINBUTTON      DLG_LENVALSPIN, 148, 27, 50, 12, SPBS_READONLY | SPBS_JUSTRIGHT | SPBS_MASTER | WS_GROUP
+      SPINBUTTON      DLG_LENTYPSPIN, 198, 27, 35, 12, SPBS_READONLY | SPBS_JUSTLEFT | SPBS_MASTER | WS_GROUP
+      PUSHBUTTON      "~OK", DLG_LENOK, 13, 6, 40, 14
+      PUSHBUTTON      "~Cancel", DLG_LENCANCEL, 58, 6, 40, 14
+      PUSHBUTTON      "~Default", DLG_LENDEFAULT, 103, 6, 40, 14
+      PUSHBUTTON      "~Undo", DLG_LENUNDO, 148, 6, 40, 14
+      PUSHBUTTON      "~Help", DLG_LENHELP, 193, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_OPTSLEN
+BEGIN
+   HELPSUBITEM DLG_LENOK, HLP_LENOK
+   HELPSUBITEM DLG_LENCANCEL, HLP_LENCANCEL
+   HELPSUBITEM DLG_LENDEFAULT, HLP_LENDEFAULT
+   HELPSUBITEM DLG_LENUNDO, HLP_LENUNDO
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Control dialog help table                                                  */
+/*                                                                            */
+/******************************************************************************/
+
+HELPTABLE HLP_CTL
+BEGIN
+   HELPITEM DLG_CTL, HLP_DLG_CTL, PNL_DLG_CTL
+END
+
+/******************************************************************************/
+/*                                                                            */
+/* Control dialog and help subtable                                           */
+/*                                                                            */
+/******************************************************************************/
+
+DLGTEMPLATE DLG_CTL LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+   DIALOG        "", DLG_CTL, 17, 7, 188, 71, WS_VISIBLE, FCF_TITLEBAR | FCF_SYSMENU
+   BEGIN
+      MLE        "", DLG_CTLMLE, 11, 27, 166, 36, MLS_WORDWRAP | MLS_VSCROLL | MLS_HSCROLL | WS_GROUP
+      PUSHBUTTON "~OK", DLG_CTLDLGOK, 11, 6, 40, 14
+      PUSHBUTTON "~Help", DLG_CTLDLGHELP, 137, 6, 40, 14
+   END
+END
+
+HELPSUBTABLE HLP_DLG_CTL
+BEGIN
+   HELPSUBITEM DLG_CTLMLE, HLP_CTLMLE
+   HELPSUBITEM DLG_CTLDLGOK, HLP_CTLDLGOK
+END

@@ -1,0 +1,399 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_COMMON.386                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL  common routines module definitions ;
+;                 file                                                         ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.00 12Jun95 Created (supported LX format  and 32-bit Dos ;
+;                                 APIs only)                                   ;
+;                 2.30.03 20Jul95 Added 32-bit Win APIs                        ;
+;                 2.30.05 04Aug95 Added 32-bit Gpi APIs                        ;
+;                 2.30.09 12Aug95 Added 32-bit Dev APIs                        ;
+;                 2.30.10 13Aug95 Added 32-bit Drg APIs                        ;
+;                 2.30.11 14Aug95 Added 32-bit Prf APIs                        ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.30.14 29Aug95 Added 32-bit Prt and Spl APIs                ;
+;                 2.30.22 19Dec95 Added new OS/2 3.00 non-Uni Dos APIs         ;
+;                 2.40.00 05Sep96 Added new OS/2 2.40 APIs                     ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                 2.40.18 30Apr97 Added 16-bit Kbd APIs                        ;
+;                 2.40.19 01May97 Added 16-bit Mou APIs                        ;
+;                 2.40.20 05May97 Added 16-bit Vio APIs                        ;
+;                 2.40.26 24Jun97 Added 16-bit Win APIs                        ;
+;                 2.40.27 22Jul97 Added 16-bit Gpi APIs                        ;
+;                 2.40.28 06Aug97 Added 16-bit Dev APIs                        ;
+;                 2.40.29 07Aug97 Added 16-bit Drg APIs                        ;
+;                 2.40.31 08Aug97 Logged user-defined buffer initial bytes     ;
+;                 2.40.34 13Aug97 Added 16-bit DosPrint and Spl APIs           ;
+;                 2.40.36 14Aug97 Added -I option                              ;
+;                 2.40.45 28Jan98 Added indeterminate API return codes         ;
+;                 2.40.48 30Jan98 Fixed Win16Catch bug                         ;
+;                 2.40.50 06Feb98 Fixed CX  and DX  corruption by  16-bit Kbd, ;
+;                                 Mou, and Vio APIs                            ;
+;                 2.40.58 01Jul98 Added version checking to trace DLLs         ;
+;                 2.40.61 17Aug98 Added SMP Dos APIs                           ;
+;                 2.40.73 26Oct98 Fixed    Dos32GetMessage/Dos32QueryMessageCP ;
+;                                 bug                                          ;
+;                 2.40.77 28Oct98 Added Win32MessageBox2                       ;
+;                 2.40.78 16Nov98 Added miscellaneous Dos APIs                 ;
+;                 2.40.80 02Dec98 Added undocumented -DUMPSTACK option         ;
+;                 2.45.00 15Apr99 Added new OS/2 2.45 APIs                     ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.32 28Jun01 Added -U option                              ;
+;                 2.45.34 10Jul01 Moved C run-time routines into T_COMMON      ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_COMMON INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL Common Routines Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                T_DosAPIGrp                       @  1 NONAME
+                T_DLLToTraceDLL                   @  2 NONAME
+                T_Error                           @  3 NONAME
+                T_FreeLog                         @  4 NONAME
+                T_GetTID                          @  5 NONAME
+                T_GpiAPIGrp                       @  6 NONAME
+                T_HookEntry                       @  7 NONAME
+                T_HookExit                        @  8 NONAME
+                T_IsValidMem                      @  9 NONAME
+                T_IsValidMem16                    @ 10 NONAME
+                T_LogAPIEntry                     @ 11 NONAME
+                T_LogAPIEntry16                   @ 12 NONAME
+                T_LogAPIEntryWithCaller           @ 13 NONAME
+                T_LogAPIEntryWithCaller16         @ 14 NONAME
+                T_LogAPIExit                      @ 15 NONAME
+                T_LogAPIInterception              @ 16 NONAME
+                T_LogAPIInterception16            @ 17 NONAME
+                T_LogBaseAPIEntry16               @ 18 NONAME
+                T_LogCHARBuffer                   @ 19 NONAME
+                T_LogCHARBuffer16                 @ 20 NONAME
+                T_LogCHARBufferUnformatted        @ 21 NONAME
+                T_LogCHARBufferUnformatted16      @ 22 NONAME
+                T_LogCPReturnCode                 @ 23 NONAME
+                T_LogCTLCOLORBuffer               @ 24 NONAME
+                T_LogD16DT_Parm2                  @ 25 NONAME
+                T_LogD16FIO_Parm2                 @ 26 NONAME
+                T_LogD16FF_Parm4                  @ 27 NONAME
+                T_LogD16FSA_Parm3                 @ 28 NONAME
+                T_LogD16PDeE_Parm3                @ 29 NONAME
+                T_LogD16PDGI_Parm4                @ 30 NONAME
+                T_LogD16PDrE_Parm3                @ 31 NONAME
+                T_LogD16PDSI_Parm4                @ 32 NONAME
+                T_LogD16PJE_Parm4                 @ 33 NONAME
+                T_LogD16PJGI_Parm4                @ 34 NONAME
+                T_LogD16PJSI_Parm4                @ 35 NONAME
+                T_LogD16PPE_Parm3                 @ 36 NONAME
+                T_LogD16PQE_Parm3                 @ 37 NONAME
+                T_LogD16PQGI_Parm4                @ 38 NONAME
+                T_LogD16PQPE_Parm3                @ 39 NONAME
+                T_LogD16PQSI_Parm4                @ 40 NONAME
+                T_LogD16QFI_Parm3                 @ 41 NONAME
+                T_LogD16QFSI_Parm3                @ 42 NONAME
+                T_LogD16QNPI_Parm3                @ 43 NONAME
+                T_LogD16QPI_Parm3                 @ 44 NONAME
+                T_LogD16SFI_Parm3                 @ 45 NONAME
+                T_LogD32DT_Parm2                  @ 46 NONAME
+                T_LogD32DT_Parm3                  @ 47 NONAME
+                T_LogD32FF_Parm4                  @ 48 NONAME
+                T_LogD32FSA_Parm3                 @ 49 NONAME
+                T_LogD32QFI_Parm3                 @ 50 NONAME
+                T_LogD32QFSI_Parm3                @ 51 NONAME
+                T_LogD32QMCP_Parm1                @ 52 NONAME
+                T_LogD32QNPI_Parm3                @ 53 NONAME
+                T_LogD32QPI_Parm3                 @ 54 NONAME
+                T_LogD32SFI_Parm3                 @ 55 NONAME
+                T_LogDENA1Buffer                  @ 56 NONAME
+                T_LogDENA2Buffer                  @ 57 NONAME
+                T_LogDRAGIMAGEBuffer              @ 58 NONAME
+                T_LogDRAGIMAGEBuffer16            @ 59 NONAME
+                T_LogFFDESCSBuffer                @ 60 NONAME
+                T_LogFFDESCSBuffer16              @ 61 NONAME
+                T_LogFFDESCS2Buffer               @ 62 NONAME
+                T_LogFIXED                        @ 63 NONAME
+                T_LogFIXEDBuffer                  @ 64 NONAME
+                T_LogFIXEDBuffer16                @ 65 NONAME
+                T_LogFONTMETRICSBuffer            @ 66 NONAME
+                T_LogFONTMETRICSBuffer16          @ 67 NONAME
+                T_LogG16CB_Parm4                  @ 68 NONAME
+                T_LogG16DB_Parm2                  @ 69 NONAME
+                T_LogG16QBB_Parm4                 @ 70 NONAME
+                T_LogG16SBB_Parm4                 @ 71 NONAME
+                T_LogG32CB_Parm4                  @ 72 NONAME
+                T_LogG32DB_Parm2                  @ 73 NONAME
+                T_LogG32QBB_Parm4                 @ 74 NONAME
+                T_LogG32SBB_Parm4                 @ 75 NONAME
+                T_LogKERNINGPAIRSBuffer           @ 76 NONAME
+                T_LogKERNINGPAIRSBuffer16         @ 77 NONAME
+                T_LogLineHeader                   @ 78 NONAME
+                T_LogLONGLONG                     @ 79 NONAME
+                T_LogLPMT                         @ 80 NONAME
+                T_LogLPMT16                       @ 81 NONAME
+                T_LogMessage                      @ 82 NONAME
+                T_LogPACCELTABLE                  @ 83 NONAME
+                T_LogPACCELTABLE16                @ 84 NONAME
+                T_LogPAPSZ                        @ 85 NONAME
+                T_LogParameter                    @ 86 NONAME
+                T_LogPARCPARAMS                   @ 87 NONAME
+                T_LogPARCPARAMS16                 @ 88 NONAME
+                T_LogPAVAILDATA                   @ 89 NONAME
+                T_LogPAVAILDATA16                 @ 90 NONAME
+                T_LogPBITMAPINFO2                 @ 91 NONAME
+                T_LogPBITMAPINFO216               @ 92 NONAME
+                T_LogPBITMAPINFOHEADER2           @ 93 NONAME
+                T_LogPBITMAPINFOHEADER216         @ 94 NONAME
+                T_LogPBUNDLE                      @ 95 NONAME
+                T_LogPBUNDLE16                    @ 96 NONAME
+                T_LogPCATCHBUF                    @ 97 NONAME
+                T_LogPCHAR                        @ 98 NONAME
+                T_LogPCHAR16                      @ 99 NONAME
+                T_LogPCLASSINFO                   @100 NONAME
+                T_LogPCLASSINFO16                 @101 NONAME
+                T_LogPCONTEXTRECORD               @102 NONAME
+                T_LogPCONVCONTEXT                 @103 NONAME
+                T_LogPCOUNTRYCODE                 @104 NONAME
+                T_LogPCOUNTRYCODE16               @105 NONAME
+                T_LogPCOUNTRYINFO                 @106 NONAME
+                T_LogPCOUNTRYINFO16               @107 NONAME
+                T_LogPCURSORINFO                  @108 NONAME
+                T_LogPCURSORINFO16                @109 NONAME
+                T_LogPDATETIME                    @110 NONAME
+                T_LogPDATETIME16                  @111 NONAME
+                T_LogPDDESTRUCT                   @112 NONAME
+                T_LogPDDESTRUCT16                 @113 NONAME
+                T_LogPDESKTOP                     @114 NONAME
+                T_LogPDESKTOP16                   @115 NONAME
+                T_LogPDEVOPENSTRUC                @116 NONAME
+                T_LogPDEVOPENSTRUC16              @117 NONAME
+                T_LogPDLGTEMPLATE                 @118 NONAME
+                T_LogPDLGTEMPLATE16               @119 NONAME
+                T_LogPDOSFSRSEM                   @120 NONAME
+                T_LogPDRAGINFO                    @121 NONAME
+                T_LogPDRAGINFO16                  @122 NONAME
+                T_LogPDRAGITEM                    @123 NONAME
+                T_LogPDRAGITEM16                  @124 NONAME
+                T_LogPDRAGTRANSFER                @125 NONAME
+                T_LogPDRAGTRANSFER16              @126 NONAME
+                T_LogPDRIVDATA                    @127 NONAME
+                T_LogPDRIVDATA16                  @128 NONAME
+                T_LogPEAOP                        @129 NONAME
+                T_LogPEAOP2                       @130 NONAME
+                T_LogPERRINFO                     @131 NONAME
+                T_LogPERRINFO16                   @132 NONAME
+                T_LogPEXCEPTIONREGISTRATIONRECORD @133 NONAME
+                T_LogPEXCEPTIONREPORTRECORD       @134 NONAME
+                T_LogPFACENAMEDESC                @135 NONAME
+                T_LogPFACENAMEDESC16              @136 NONAME
+                T_LogPFATTRS                      @137 NONAME
+                T_LogPFATTRS16                    @138 NONAME
+                T_LogPFILEDLG                     @139 NONAME
+                T_LogPFILELOCK                    @140 NONAME
+                T_LogPFILELOCK16                  @141 NONAME
+                T_LogPFILELOCKL                   @142 NONAME
+                T_LogPFIXED                       @143 NONAME
+                T_LogPFIXED16                     @144 NONAME
+                T_LogPFN                          @145 NONAME
+                T_LogPFN16                        @146 NONAME
+                T_LogPFONTDLG                     @147 NONAME
+                T_LogPFONTMETRICS                 @148 NONAME
+                T_LogPFONTMETRICS16               @149 NONAME
+                T_LogPFRAMECDATA                  @150 NONAME
+                T_LogPFRAMECDATA16                @151 NONAME
+                T_LogPFSQBUFFER                   @152 NONAME
+                T_LogPFSQBUFFER2                  @153 NONAME
+                T_LogPFSRSEM2                     @154 NONAME
+                T_LogPGINFOSEG                    @155 NONAME
+                T_LogPGRADIENTL                   @156 NONAME
+                T_LogPGRADIENTL16                 @157 NONAME
+                T_LogPGRESEMT                     @158 NONAME
+                T_LogPHCINFO                      @159 NONAME
+                T_LogPHCINFO16                    @160 NONAME
+                T_LogPHELPINIT                    @161 NONAME
+                T_LogPHELPINIT16                  @162 NONAME
+                T_LogPHELPTABLE                   @163 NONAME
+                T_LogPHELPTABLE16                 @164 NONAME
+                T_LogPHPROGARRAY                  @165 NONAME
+                T_LogPICONINFO                    @166 NONAME
+                T_LogPKBDHWID                     @167 NONAME
+                T_LogPKBDINFO                     @168 NONAME
+                T_LogPKBDKEYINFO                  @169 NONAME
+                T_LogPKBDTRANS                    @170 NONAME
+                T_LogPLINFOSEG                    @171 NONAME
+                T_LogPLISTIO                      @172 NONAME
+                T_LogPLISTIOL                     @173 NONAME
+                T_LogPLONGLONG                    @174 NONAME
+                T_LogPMATRIXLF                    @175 NONAME
+                T_LogPMATRIXLF16                  @176 NONAME
+                T_LogPMB2INFO                     @177 NONAME
+                T_LogPMMessage                    @178 NONAME
+                T_LogPMMessage16                  @179 NONAME
+                T_LogPMOUEVENTINFO                @180 NONAME
+                T_LogPMOUQUEINFO                  @181 NONAME
+                T_LogPMPAFFINITY                  @182 NONAME
+                T_LogPMQINFO                      @183 NONAME
+                T_LogPMQINFO16                    @184 NONAME
+                T_LogPMReturnCode                 @185 NONAME
+                T_LogPMReturnCodeIndeterminate    @186 NONAME
+                T_LogPMReturnCodePtr16            @187 NONAME
+                T_LogPMReturnCodeUCHAR            @188 NONAME
+                T_LogPMReturnCodeUSHORT           @189 NONAME
+                T_LogPMUXSEMLIST                  @190 NONAME
+                T_LogPNOPTRRECT                   @191 NONAME
+                T_LogPOBJCLASS                    @192 NONAME
+                T_LogPOINTLBuffer                 @193 NONAME
+                T_LogPOINTLBuffer16               @194 NONAME
+                T_LogPOLYGONBuffer                @195 NONAME
+                T_LogPPDALERTINFO                 @196 NONAME
+                T_LogPPDR                         @197 NONAME
+                T_LogPPFN                         @198 NONAME
+                T_LogPPFN16                       @199 NONAME
+                T_LogPPIB                         @200 NONAME
+                T_LogPPIBSTRUCT                   @201 NONAME
+                T_LogPPIDINFO                     @202 NONAME
+                T_LogPPIPESEMSTATE                @203 NONAME
+                T_LogPPIR                         @204 NONAME
+                T_LogPPOINTERINFO                 @205 NONAME
+                T_LogPPOINTERINFO16               @206 NONAME
+                T_LogPPOINTL                      @207 NONAME
+                T_LogPPOINTL16                    @208 NONAME
+                T_LogPPRDINFO                     @209 NONAME
+                T_LogPPRDINFO16                   @210 NONAME
+                T_LogPPRFPROFILE                  @211 NONAME
+                T_LogPPRFPROFILE16                @212 NONAME
+                T_LogPPRIDINFO                    @213 NONAME
+                T_LogPPROGDETAILS                 @214 NONAME
+                T_LogPPROGDETAILS16               @215 NONAME
+                T_LogPPRQINFO                     @216 NONAME
+                T_LogPPRQINFO16                   @217 NONAME
+                T_LogPPRTALERT                    @218 NONAME
+                T_LogPPSZ                         @219 NONAME
+                T_LogPPSZ16                       @220 NONAME
+                T_LogPPtrace_B                    @221 NONAME
+                T_LogPPTRLOC                      @222 NONAME
+                T_LogPPTRSHAPE                    @223 NONAME
+                T_LogPQMRESULT                    @224 NONAME
+                T_LogPQMSG                        @225 NONAME
+                T_LogPQMSG16                      @226 NONAME
+                T_LogPQWORD                       @227 NONAME
+                T_LogPQWORD16                     @228 NONAME
+                T_LogPRAMSEM                      @229 NONAME
+                T_LogPRASTERIZERCAPS              @230 NONAME
+                T_LogPRECTL                       @231 NONAME
+                T_LogPRECTL16                     @232 NONAME
+                T_LogPREQUESTDATA                 @233 NONAME
+                T_LogPRESULTCODES                 @234 NONAME
+                T_LogPRESULTCODES16               @235 NONAME
+                T_LogPRGNRECT                     @236 NONAME
+                T_LogPRGNRECT16                   @237 NONAME
+                T_LogPROGRAMENTRYBuffer           @238 NONAME
+                T_LogPROGTITLEBuffer              @239 NONAME
+                T_LogPROGTITLEBuffer16            @240 NONAME
+                T_LogPSCALEFACT                   @241 NONAME
+                T_LogPSEMRECORD                   @242 NONAME
+                T_LogPSIZEF                       @243 NONAME
+                T_LogPSIZEF16                     @244 NONAME
+                T_LogPSIZEL                       @245 NONAME
+                T_LogPSIZEL16                     @246 NONAME
+                T_LogPSTARTDATA                   @247 NONAME
+                T_LogPSTARTDATA16                 @248 NONAME
+                T_LogPSTATUSDATA                  @249 NONAME
+                T_LogPSTATUSDATA16                @250 NONAME
+                T_LogPSTRINGINBUF                 @251 NONAME
+                T_LogPSWBLOCK                     @252 NONAME
+                T_LogPSWBLOCK16                   @253 NONAME
+                T_LogPSWCNTRL                     @254 NONAME
+                T_LogPSWCNTRL16                   @255 NONAME
+                T_LogPSWP                         @256 NONAME
+                T_LogPSWP16                       @257 NONAME
+                T_LogPSZ                          @258 NONAME
+                T_LogPSZ16                        @259 NONAME
+                T_LogPSZBuffer                    @260 NONAME
+                T_LogPSZBuffer16                  @261 NONAME
+                T_LogPSZs                         @262 NONAME
+                T_LogPSZs16                       @263 NONAME
+                T_LogPTHREADCREATE                @264 NONAME
+                T_LogPTHRESHOLD                   @265 NONAME
+                T_LogPTIB                         @266 NONAME
+                T_LogPTRACKINFO                   @267 NONAME
+                T_LogPTRACKINFO16                 @268 NONAME
+                T_LogpuDB_t                       @269 NONAME
+                T_LogPULONG                       @270 NONAME
+                T_LogPULONG16                     @271 NONAME
+                T_LogPUSHORT                      @272 NONAME
+                T_LogPUSHORT16                    @273 NONAME
+                T_LogPVIOCONFIGINFO               @274 NONAME
+                T_LogPVIOCURSORINFO               @275 NONAME
+                T_LogPVIOFONTINFO                 @276 NONAME
+                T_LogPVIOMODEINFO                 @277 NONAME
+                T_LogPVIOPHYSBUF                  @278 NONAME
+                T_LogPVOID                        @279 NONAME
+                T_LogPVOID16                      @280 NONAME
+                T_LogQPROCINFOBuffer              @281 NONAME
+                T_LogQTHREADINFOBuffer            @282 NONAME
+                T_LogRECTLBuffer                  @283 NONAME
+                T_LogRECTLBuffer16                @284 NONAME
+                T_LogPREGISTERDATA                @285 NONAME
+                T_LogS32EDe_Parm3                 @286 NONAME
+                T_LogS32EDr_Parm3                 @287 NONAME
+                T_LogS32EJ_Parm4                  @288 NONAME
+                T_LogS32EPo_Parm3                 @289 NONAME
+                T_LogS32EPr_Parm4                 @290 NONAME
+                T_LogS32EQ_Parm3                  @291 NONAME
+                T_LogS32EQP_Parm3                 @292 NONAME
+                T_LogS32GPFQ_Parm4                @293 NONAME
+                T_LogS32QDe_Parm4                 @294 NONAME
+                T_LogS32QDr_Parm5                 @295 NONAME
+                T_LogS32QGJI_Parm3                @296 NONAME
+                T_LogS32QJ_Parm5                  @297 NONAME
+                T_LogS32QPa_Parm4                 @298 NONAME
+                T_LogS32QPo_Parm4                 @299 NONAME
+                T_LogS32QQ_Parm4                  @300 NONAME
+                T_LogS32SDe_Parm4                 @301 NONAME
+                T_LogS32SDr_Parm5                 @302 NONAME
+                T_LogS32SJ_Parm5                  @303 NONAME
+                T_LogS32SP_Parm4                  @304 NONAME
+                T_LogS32SQ_Parm4                  @305 NONAME
+                T_LogSEMRECORDBuffer              @306 NONAME
+                T_LogStackDump                    @307 NONAME
+                T_LogStackDump16                  @308 NONAME
+                T_LogSWPBuffer                    @309 NONAME
+                T_LogSWPBuffer16                  @310 NONAME
+                T_LogTimes                        @311 NONAME
+                T_LogUCHAR                        @312 NONAME
+                T_LogULONG                        @313 NONAME
+                T_LogULONGBuffer                  @314 NONAME
+                T_LogULONGBuffer16                @315 NONAME
+                T_LogUSHORT                       @316 NONAME
+                T_LogUSHORTBuffer16               @317 NONAME
+                T_LogV16GS_Parm1                  @318 NONAME
+                T_LogWPOINTBuffer                 @319 NONAME
+                T_OS2Ver                          @320 NONAME
+                T_OS2TRACEVer                     @321 NONAME
+                T_PMErrorID                       @322 NONAME
+                T_RegisterDLL                     @323 NONAME
+                T_RestoreRegs16                   @324 NONAME
+                T_SaveRegs16                      @325 NONAME
+                T_TraceFlg                        @326 NONAME
+                T_TraceLvl                        @327 NONAME
+                T_UserHook                        @328 NONAME
+                T_WaitLog                         @329 NONAME
+                T_WinAPIGrp                       @330 NONAME
+
+;
+; The following routines need to be exported only when T_COMRUNTIME is defined
+;
+                _DosFlatToSel                     @331 NONAME
+                _DosSelToFlat                     @332 NONAME
+                __EDC3216                         @333 NONAME
+                __EDCThunkProlog                  @334 NONAME

@@ -1,0 +1,87 @@
+
+
+            Operating System/2 API Trace-enabled Executable Checker
+
+  Author       : Dave Blaschke
+                 deblaschke@yahoo.com
+
+  Description  : Checks  for and  reports the  executable  file(s)  that are
+                 trace-enabled.
+
+                 This feat is  accomplished by processing  each entry in the
+                 table  of  strings  within   the  executable  file(s)  that
+                 contains  the names  of the  imported DLLs.  If  the  entry
+                 represents one of the trace DLLs,  the executable file name
+                 is displayed to standard output.
+
+                 The user can request  to display the DLLs  that are enabled
+                 for tracing in the executable  file(s) by specifying the -D
+                 option.  The user can  request to also check the executable
+                 file(s) in any subdirectories by specifying the -S option.
+
+                 The user can request helping  information by specifying the
+                 -?, -H, or -HELP option.
+
+  Installation : Place the executable, CHK4TRC.EXE, in a directory along the
+                 PATH environment variable.
+
+  Usage        : CHK4TRC [-D] [-S] file
+
+                 Where:
+                   -D   indicates display DLLs enabled for tracing
+                   -S   indicates check subdirectories
+                   file indicates name of  executable file(s)  to be checked
+                        (can include global file name characters * and ?)
+
+                 In the following example, all DLLs in the current directory
+                 are checked:
+
+                 CHK4TRC *.DLL
+
+                 In the  following  example,  all  executable  files  in the
+                 C:\OS2 directory and its subdirectories are checked:
+
+                 CHK4TRC -S C:\OS2
+
+                 In the following example,  TEST.EXE is checked and any DLLs
+                 enabled for tracing are displayed:
+
+                 CHK4TRC -D TEST.EXE
+
+  Output       : Information similar to the following is displayed if any of
+                 the executable files are trace-enabled:
+
+                 Trace-enabled executable file(s):
+                   filename
+                      :
+                   filename
+
+                 n executable files checked
+                 n trace-enabled executable files found
+
+                 If the  user  requests  the  display  of DLLs  enabled  for
+                 tracing,  information similar to the following is displayed
+                 if any of the executable files are trace-enabled:
+
+                 Trace-enabled executable file(s):
+                   filename (DLLNAME,DLLNAME)
+                      :
+                   filename (DLLNAME)
+
+                 n executable files checked
+                 n trace-enabled executable files found
+
+                 Information similar  to the following  is displayed if none
+                 of the executable files are trace-enabled:
+
+                 n executable files checked
+                 0 trace-enabled executable files found
+
+  History      : Version Date    Item
+                 2.40.57 25Jun98 Added trace-enabled executable checker
+                 2.40.86 03Mar99 Added support  for executables  without DOS
+                                 header
+
+  Please direct all comments,  problems,  questions,  and suggestions to the
+  author above, or, if undeliverable, to deblaschke@yahoo.com.
+

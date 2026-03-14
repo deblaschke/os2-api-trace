@@ -1,0 +1,46 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_N.I16                                                      ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL NLS module definitions file         ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.00 12Jun95 Created (supported LX format  and 32-bit Dos ;
+;                                 APIs only)                                   ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_N INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL NLS Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_n0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                DOSCASEMAP         = TRC_DOS16CASEMAP       @1 RESIDENTNAME
+                DOSGETCOLLATE      = TRC_DOS16GETCOLLATE    @2 RESIDENTNAME
+                DOSGETCTRYINFO     = TRC_DOS16GETCTRYINFO   @3 RESIDENTNAME
+                DOSGETDBCSEV       = TRC_DOS16GETDBCSEV     @4 RESIDENTNAME
+                                     Trc_Dos32QueryCtryInfo @5 NONAME
+                                     Trc_Dos32QueryDBCSEnv  @6 NONAME
+                                     Trc_Dos32MapCase       @7 NONAME
+                                     Trc_Dos32QueryCollate  @8 NONAME
+IMPORTS
+                DOSCASEMAP         = NLS.1
+                DOSGETCOLLATE      = NLS.2
+                DOSGETCTRYINFO     = NLS.3
+                DOSGETDBCSEV       = NLS.4
+                DOS32QUERYCTRYINFO = NLS.5
+                DOS32QUERYDBCSENV  = NLS.6
+                DOS32MAPCASE       = NLS.7
+                DOS32QUERYCOLLATE  = NLS.8

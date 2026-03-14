@@ -1,0 +1,48 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_M.I32                                                      ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL MSG module definitions file         ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.00 12Jun95 Created (supported LX format  and 32-bit Dos ;
+;                                 APIs only)                                   ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.31 26Jun01 Added  capability  of building  32-bit  only ;
+;                                 trace DLLs                                   ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_M INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL MSG Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+EXPORTS
+                DOSPUTMESSAGE                                  @1 RESIDENTNAME
+                DOSTRUEGETMESSAGE                              @2 RESIDENTNAME
+                DOSINSMESSAGE                                  @3 RESIDENTNAME
+                                       Trc_Dos32InsertMessage  @4 NONAME
+                                       Trc_Dos32PutMessage     @5 NONAME
+                                       Trc_Dos32GetMessage     @6 NONAME
+                                       DOSIQUERYMESSAGECP      @7 RESIDENTNAME
+                                       Trc_Dos32QueryMessageCP @8 NONAME
+                                       DOSCLOSEMESSAGEFILE     @9 RESIDENTNAME ; OS2VER 210
+IMPORTS
+                DOSPUTMESSAGE        = MSG.1
+                DOSTRUEGETMESSAGE    = MSG.2
+                DOSINSMESSAGE        = MSG.3
+                DOS32INSERTMESSAGE   = MSG.4
+                DOS32PUTMESSAGE      = MSG.5
+                DOS32TRUEGETMESSAGE  = MSG.6
+                DOSIQUERYMESSAGECP   = MSG.7
+                DOS32IQUERYMESSAGECP = MSG.8
+                DOSCLOSEMESSAGEFILE  = MSG.9

@@ -1,0 +1,179 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_VIO___.I16                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL VIOCALLS module definitions file    ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.20 05May97 Added 16-bit Vio APIs                        ;
+;                 2.40.71 22Oct98 Added PM AVIO Vio APIs                       ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_VIO___ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL VIOCALLS Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_vio___0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                VIOENDPOPUP          = TRC_VIO16ENDPOPUP          @ 1 RESIDENTNAME
+                VIOGETPHYSBUF        = TRC_VIO16GETPHYSBUF        @ 2 RESIDENTNAME
+                VIOGETANSI           = TRC_VIO16GETANSI           @ 3 RESIDENTNAME
+                                       VIOFREE                    @ 4 NONAME
+                VIOSETANSI           = TRC_VIO16SETANSI           @ 5 RESIDENTNAME
+                VIODEREGISTER        = TRC_VIO16DEREGISTER        @ 6 RESIDENTNAME
+                VIOSCROLLUP          = TRC_VIO16SCROLLUP          @ 7 RESIDENTNAME
+                VIOPRTSC             = TRC_VIO16PRTSC             @ 8 RESIDENTNAME
+                VIOGETCURPOS         = TRC_VIO16GETCURPOS         @ 9 RESIDENTNAME
+                VIOWRTCELLSTR        = TRC_VIO16WRTCELLSTR        @10 RESIDENTNAME
+                VIOPOPUP             = TRC_VIO16POPUP             @11 RESIDENTNAME
+                VIOSCROLLRT          = TRC_VIO16SCROLLRT          @12 RESIDENTNAME
+                VIOWRTCHARSTR        = TRC_VIO16WRTCHARSTR        @13 RESIDENTNAME
+                                       AVS_PRTSC                  @14 NONAME       ; OS2VER 230
+                VIOSETCURPOS         = TRC_VIO16SETCURPOS         @15 RESIDENTNAME
+                                       VIOSRFUNBLOCK              @16 NONAME
+                                       VIOSRFBLOCK                @17 NONAME
+                VIOSCRUNLOCK         = TRC_VIO16SCRUNLOCK         @18 RESIDENTNAME
+                VIOWRTTTY            = TRC_VIO16WRTTTY            @19 RESIDENTNAME
+                                       VIOSAVE                    @20 NONAME
+                VIOGETMODE           = TRC_VIO16GETMODE           @21 RESIDENTNAME
+                VIOSETMODE           = TRC_VIO16SETMODE           @22 RESIDENTNAME
+                VIOSCRLOCK           = TRC_VIO16SCRLOCK           @23 RESIDENTNAME
+                VIOREADCELLSTR       = TRC_VIO16READCELLSTR       @24 RESIDENTNAME
+                VIOSAVREDRAWWAIT     = TRC_VIO16SAVREDRAWWAIT     @25 RESIDENTNAME
+                VIOWRTNATTR          = TRC_VIO16WRTNATTR          @26 RESIDENTNAME
+                VIOGETCURTYPE        = TRC_VIO16GETCURTYPE        @27 RESIDENTNAME
+                VIOSAVREDRAWUNDO     = TRC_VIO16SAVREDRAWUNDO     @28 RESIDENTNAME
+                VIOGETFONT           = TRC_VIO16GETFONT           @29 RESIDENTNAME
+                VIOREADCHARSTR       = TRC_VIO16READCHARSTR       @30 RESIDENTNAME
+                VIOGETBUF            = TRC_VIO16GETBUF            @31 RESIDENTNAME
+                VIOSETCURTYPE        = TRC_VIO16SETCURTYPE        @32 RESIDENTNAME
+                VIOSETFONT           = TRC_VIO16SETFONT           @33 RESIDENTNAME
+                                       VIOHETINIT                 @34 NONAME
+                VIOMODEUNDO          = TRC_VIO16MODEUNDO          @35 RESIDENTNAME
+                                       VIOSSWSWITCH               @36 NONAME
+                VIOMODEWAIT          = TRC_VIO16MODEWAIT          @37 RESIDENTNAME
+                                       AVS_PRTSCTOGGLE            @38 NONAME       ; OS2VER 230
+                                       VIOINIT                    @39 NONAME
+                VIOGETCP             = TRC_VIO16GETCP             @40 RESIDENTNAME
+                                       VIORESTORE                 @41 NONAME
+                VIOSETCP             = TRC_VIO16SETCP             @42 RESIDENTNAME
+                VIOSHOWBUF           = TRC_VIO16SHOWBUF           @43 RESIDENTNAME
+                VIOSCROLLLF          = TRC_VIO16SCROLLLF          @44 RESIDENTNAME
+                VIOREGISTER          = TRC_VIO16REGISTER          @45 RESIDENTNAME
+                VIOGETCONFIG         = TRC_VIO16GETCONFIG         @46 RESIDENTNAME
+                VIOSCROLLDN          = TRC_VIO16SCROLLDN          @47 RESIDENTNAME
+                VIOWRTCHARSTRATT     = TRC_VIO16WRTCHARSTRATT     @48 RESIDENTNAME
+                VIOGETSTATE          = TRC_VIO16GETSTATE          @49 RESIDENTNAME
+                VIOPRTSCTOGGLE       = TRC_VIO16PRTSCTOGGLE       @50 RESIDENTNAME
+                VIOSETSTATE          = TRC_VIO16SETSTATE          @51 RESIDENTNAME
+                VIOWRTNCELL          = TRC_VIO16WRTNCELL          @52 RESIDENTNAME
+                VIOWRTNCHAR          = TRC_VIO16WRTNCHAR          @53 RESIDENTNAME
+                                       VIOSHELLINIT               @54 NONAME
+                VIOASSOCIATE         = TRC_VIO16ASSOCIATE         @55 RESIDENTNAME
+                VIOCREATEPS          = TRC_VIO16CREATEPS          @56 RESIDENTNAME
+                VIODELETESETID       = TRC_VIO16DELETESETID       @57 RESIDENTNAME
+                VIOGETDEVICECELLSIZE = TRC_VIO16GETDEVICECELLSIZE @58 RESIDENTNAME
+                VIOGETORG            = TRC_VIO16GETORG            @59 RESIDENTNAME
+                VIOCREATELOGFONT     = TRC_VIO16CREATELOGFONT     @60 RESIDENTNAME
+                VIODESTROYPS         = TRC_VIO16DESTROYPS         @61 RESIDENTNAME
+                VIOQUERYSETIDS       = TRC_VIO16QUERYSETIDS       @62 RESIDENTNAME
+                VIOSETORG            = TRC_VIO16SETORG            @63 RESIDENTNAME
+                VIOQUERYFONTS        = TRC_VIO16QUERYFONTS        @64 RESIDENTNAME
+                VIOSETDEVICECELLSIZE = TRC_VIO16SETDEVICECELLSIZE @65 RESIDENTNAME
+                VIOSHOWPS            = TRC_VIO16SHOWPS            @66 RESIDENTNAME
+                                       VIOGETPSADDRESS            @67 RESIDENTNAME
+                                       VIOQUERYCONSOLE            @68 NONAME
+                                       TRC_VIO16REDRAWSIZE        @69 NONAME
+                VIOGLOBALREG         = TRC_VIO16GLOBALREG         @70 RESIDENTNAME
+                                       XVIOSETCASTATE             @71 RESIDENTNAME
+                                       XVIOCHECKCHARTYPE          @72 RESIDENTNAME
+                                       XVIODESTROYCA              @73 RESIDENTNAME
+                                       XVIOCREATECA               @74 RESIDENTNAME
+                VIOCHECKCHARTYPE     = TRC_VIO16CHECKCHARTYPE     @75 RESIDENTNAME
+                                       XVIOGETCASTATE             @76 RESIDENTNAME
+IMPORTS
+                VIOENDPOPUP          = VIOCALLS. 1
+                VIOGETPHYSBUF        = VIOCALLS. 2
+                VIOGETANSI           = VIOCALLS. 3
+                VIOFREE              = VIOCALLS. 4
+                VIOSETANSI           = VIOCALLS. 5
+                VIODEREGISTER        = VIOCALLS. 6
+                VIOSCROLLUP          = VIOCALLS. 7
+                VIOPRTSC             = VIOCALLS. 8
+                VIOGETCURPOS         = VIOCALLS. 9
+                VIOWRTCELLSTR        = VIOCALLS.10
+                VIOPOPUP             = VIOCALLS.11
+                VIOSCROLLRT          = VIOCALLS.12
+                VIOWRTCHARSTR        = VIOCALLS.13
+                AVS_PRTSC            = VIOCALLS.14
+                VIOSETCURPOS         = VIOCALLS.15
+                VIOSRFUNBLOCK        = VIOCALLS.16
+                VIOSRFBLOCK          = VIOCALLS.17
+                VIOSCRUNLOCK         = VIOCALLS.18
+                VIOWRTTTY            = VIOCALLS.19
+                VIOSAVE              = VIOCALLS.20
+                VIOGETMODE           = VIOCALLS.21
+                VIOSETMODE           = VIOCALLS.22
+                VIOSCRLOCK           = VIOCALLS.23
+                VIOREADCELLSTR       = VIOCALLS.24
+                VIOSAVREDRAWWAIT     = VIOCALLS.25
+                VIOWRTNATTR          = VIOCALLS.26
+                VIOGETCURTYPE        = VIOCALLS.27
+                VIOSAVREDRAWUNDO     = VIOCALLS.28
+                VIOGETFONT           = VIOCALLS.29
+                VIOREADCHARSTR       = VIOCALLS.30
+                VIOGETBUF            = VIOCALLS.31
+                VIOSETCURTYPE        = VIOCALLS.32
+                VIOSETFONT           = VIOCALLS.33
+                VIOHETINIT           = VIOCALLS.34
+                VIOMODEUNDO          = VIOCALLS.35
+                VIOSSWSWITCH         = VIOCALLS.36
+                VIOMODEWAIT          = VIOCALLS.37
+                AVS_PRTSCTOGGLE      = VIOCALLS.38
+                VIOINIT              = VIOCALLS.39
+                VIOGETCP             = VIOCALLS.40
+                VIORESTORE           = VIOCALLS.41
+                VIOSETCP             = VIOCALLS.42
+                VIOSHOWBUF           = VIOCALLS.43
+                VIOSCROLLLF          = VIOCALLS.44
+                VIOREGISTER          = VIOCALLS.45
+                VIOGETCONFIG         = VIOCALLS.46
+                VIOSCROLLDN          = VIOCALLS.47
+                VIOWRTCHARSTRATT     = VIOCALLS.48
+                VIOGETSTATE          = VIOCALLS.49
+                VIOPRTSCTOGGLE       = VIOCALLS.50
+                VIOSETSTATE          = VIOCALLS.51
+                VIOWRTNCELL          = VIOCALLS.52
+                VIOWRTNCHAR          = VIOCALLS.53
+                VIOSHELLINIT         = VIOCALLS.54
+                VIOASSOCIATE         = VIOCALLS.55
+                VIOCREATEPS          = VIOCALLS.56
+                VIODELETESETID       = VIOCALLS.57
+                VIOGETDEVICECELLSIZE = VIOCALLS.58
+                VIOGETORG            = VIOCALLS.59
+                VIOCREATELOGFONT     = VIOCALLS.60
+                VIODESTROYPS         = VIOCALLS.61
+                VIOQUERYSETIDS       = VIOCALLS.62
+                VIOSETORG            = VIOCALLS.63
+                VIOQUERYFONTS        = VIOCALLS.64
+                VIOSETDEVICECELLSIZE = VIOCALLS.65
+                VIOSHOWPS            = VIOCALLS.66
+                VIOGETPSADDRESS      = VIOCALLS.67
+                VIOQUERYCONSOLE      = VIOCALLS.68
+                VIOREDRAWSIZE        = VIOCALLS.69
+                VIOGLOBALREG         = VIOCALLS.70
+                XVIOSETCASTATE       = VIOCALLS.71
+                XVIOCHECKCHARTYPE    = VIOCALLS.72
+                XVIODESTROYCA        = VIOCALLS.73
+                XVIOCREATECA         = VIOCALLS.74
+                VIOCHECKCHARTYPE     = VIOCALLS.75
+                XVIOGETCASTATE       = VIOCALLS.76

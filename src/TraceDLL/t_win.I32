@@ -1,0 +1,1554 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_WIN.I32                                                    ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMWIN module definitions file       ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.03 20Jul95 Added 32-bit Win APIs                        ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.30.21 13Dec95 Forwarded private entry table ordinals       ;
+;                 2.30.23 27Mar96 Fixed PMWIN bugs                             ;
+;                 2.30.30 26Jun94 Added OS/2 2.00 PM debugger APIs             ;
+;                 2.40.00 05Sep96 Added new OS/2 2.40 APIs                     ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.26 24Jun97 Added 16-bit Win APIs                        ;
+;                 2.40.27 22Jul97 Added 16-bit Gpi APIs                        ;
+;                 2.40.69 21Oct98 Forwarded removed entry table ordinals       ;
+;                 2.40.77 28Oct98 Added Win32MessageBox2                       ;
+;                 2.45.00 15Apr99 Added new OS/2 2.45 APIs                     ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.31 26Jun01 Added  capability  of building  32-bit  only ;
+;                                 trace DLLs                                   ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_WIN INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMWIN Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+EXPORTS
+                WINQUERYDESKTOPWINDOW                                                  @    1 RESIDENTNAME
+                WINQUERYOBJECTWINDOW                                                   @    2 RESIDENTNAME
+                WINREGISTERCLASS                                                       @    3 RESIDENTNAME
+                WINQUERYCLASSNAME                                                      @    4 RESIDENTNAME
+                WINQUERYCLASSINFO                                                      @    5 RESIDENTNAME
+                WINCREATEWINDOW                                                        @    6 RESIDENTNAME
+                WINDESTROYWINDOW                                                       @    7 RESIDENTNAME
+                WINSETWINDOWPOS                                                        @    8 RESIDENTNAME
+                WINSETMULTWINDOWPOS                                                    @    9 RESIDENTNAME
+                WINQUERYWINDOWPOS                                                      @   10 RESIDENTNAME
+                WINENABLEWINDOW                                                        @   11 RESIDENTNAME
+                WINISWINDOWENABLED                                                     @   12 RESIDENTNAME
+                WINSHOWWINDOW                                                          @   13 RESIDENTNAME
+                WINENABLEWINDOWUPDATE                                                  @   14 RESIDENTNAME
+                WINISWINDOWVISIBLE                                                     @   15 RESIDENTNAME
+                WINSETWINDOWTEXT                                                       @   16 RESIDENTNAME
+                WINQUERYWINDOWTEXT                                                     @   17 RESIDENTNAME
+                WINQUERYWINDOWTEXTLENGTH                                               @   18 RESIDENTNAME
+                WINWINDOWFROMID                                                        @   19 RESIDENTNAME
+                WINMULTWINDOWFROMIDS                                                   @   20 RESIDENTNAME
+                WINISWINDOW                                                            @   21 RESIDENTNAME
+                WINISCHILD                                                             @   22 RESIDENTNAME
+                WINSETPARENT                                                           @   23 RESIDENTNAME
+                WINSETOWNER                                                            @   24 RESIDENTNAME
+                WINQUERYWINDOW                                                         @   25 RESIDENTNAME
+                WINQUERYWINDOWRECT                                                     @   26 RESIDENTNAME
+                WINQUERYWINDOWPROCESS                                                  @   27 RESIDENTNAME
+                WINSETWINDOWUSHORT                                                     @   28 RESIDENTNAME
+                WINQUERYWINDOWUSHORT                                                   @   29 RESIDENTNAME
+                WINSETWINDOWULONG                                                      @   30 RESIDENTNAME
+                WINQUERYWINDOWULONG                                                    @   31 RESIDENTNAME
+                WINBEGINENUMWINDOWS                                                    @   32 RESIDENTNAME
+                WINGETNEXTWINDOW                                                       @   33 RESIDENTNAME
+                WINENDENUMWINDOWS                                                      @   34 RESIDENTNAME
+                WINWINDOWFROMPOINT                                                     @   35 RESIDENTNAME
+                WINMAPWINDOWPOINTS                                                     @   36 RESIDENTNAME
+                WINSUBCLASSWINDOW                                                      @   37 RESIDENTNAME
+                WINLOCKWINDOW                                                          @   38 RESIDENTNAME
+                WINQUERYWINDOWLOCKCOUNT                                                @   39 RESIDENTNAME
+                WINREGISTERWINDOWDESTROY                                               @   40 RESIDENTNAME
+                WINOPENWINDOWDC                                                        @   41 RESIDENTNAME
+                WINGETSCREENPS                                                         @   42 RESIDENTNAME
+                WINGETPS                                                               @   43 RESIDENTNAME
+                WINRELEASEPS                                                           @   44 RESIDENTNAME
+                WINBEGINPAINT                                                          @   45 RESIDENTNAME
+                WINENDPAINT                                                            @   46 RESIDENTNAME
+                WININVALIDATERECT                                                      @   47 RESIDENTNAME
+                WININVALIDATEREGION                                                    @   48 RESIDENTNAME
+                WINVALIDATERECT                                                        @   49 RESIDENTNAME
+                WINVALIDATEREGION                                                      @   50 RESIDENTNAME
+                WINQUERYUPDATERECT                                                     @   51 RESIDENTNAME
+                WINQUERYUPDATEREGION                                                   @   52 RESIDENTNAME
+                WINUPDATEWINDOW                                                        @   53 RESIDENTNAME
+                WINEXCLUDEUPDATEREGION                                                 @   54 RESIDENTNAME
+                WINLOCKWINDOWUPDATE                                                    @   55 RESIDENTNAME
+                WINLOCKVISREGIONS                                                      @   56 RESIDENTNAME
+                WINWINDOWFROMDC                                                        @   57 RESIDENTNAME
+                WINCREATEMSGQUEUE                                                      @   58 RESIDENTNAME
+                WINDESTROYMSGQUEUE                                                     @   59 RESIDENTNAME
+                WINQUERYQUEUESTATUS                                                    @   60 RESIDENTNAME
+                WINSENDMSG                                                             @   61 RESIDENTNAME
+                WINBROADCASTMSG                                                        @   63 RESIDENTNAME
+                WININSENDMSG                                                           @   64 RESIDENTNAME
+                WINGETMSG                                                              @   65 RESIDENTNAME
+                WINPEEKMSG                                                             @   66 RESIDENTNAME
+                WINWAITMSG                                                             @   67 RESIDENTNAME
+                WINDISPATCHMSG                                                         @   68 RESIDENTNAME
+                WINPOSTMSG                                                             @   69 RESIDENTNAME
+                WINPOSTQUEUEMSG                                                        @   70 RESIDENTNAME
+                WINQUERYMSGPOS                                                         @   71 RESIDENTNAME
+                WINQUERYMSGTIME                                                        @   72 RESIDENTNAME
+                WINCALLMSGFILTER                                                       @   73 RESIDENTNAME
+                WINSETMSGINTEREST                                                      @   74 RESIDENTNAME
+                WINSETCAPTURE                                                          @   75 RESIDENTNAME
+                WINQUERYCAPTURE                                                        @   76 RESIDENTNAME
+                WINSETFOCUS                                                            @   77 RESIDENTNAME
+                WINQUERYFOCUS                                                          @   78 RESIDENTNAME
+                WINSETACTIVEWINDOW                                                     @   79 RESIDENTNAME
+                WINQUERYACTIVEWINDOW                                                   @   80 RESIDENTNAME
+                WINSETSYSMODALWINDOW                                                   @   81 RESIDENTNAME
+                WINQUERYSYSMODALWINDOW                                                 @   82 RESIDENTNAME
+                WINISTHREADACTIVE                                                      @   83 RESIDENTNAME
+                WINSTARTTIMER                                                          @   84 RESIDENTNAME
+                WINSTOPTIMER                                                           @   85 RESIDENTNAME
+                WINGETCURRENTTIME                                                      @   86 RESIDENTNAME
+                WINLOADPOINTER                                                         @   87 RESIDENTNAME
+                WINCREATEPOINTER                                                       @   88 RESIDENTNAME
+                WINDESTROYPOINTER                                                      @   89 RESIDENTNAME
+                                               OLDWINQUERYPOINTERINFO                  @   90 NONAME
+                WINQUERYSYSPOINTER                                                     @   91 RESIDENTNAME
+                WINSETPOINTER                                                          @   92 RESIDENTNAME
+                WINQUERYPOINTER                                                        @   93 RESIDENTNAME
+                WINSHOWPOINTER                                                         @   94 RESIDENTNAME
+                WINSETPOINTERPOS                                                       @   95 RESIDENTNAME
+                WINQUERYPOINTERPOS                                                     @   96 RESIDENTNAME
+                WINGETSYSBITMAP                                                        @   97 RESIDENTNAME
+                WINCREATECURSOR                                                        @   98 RESIDENTNAME
+                WINDESTROYCURSOR                                                       @   99 RESIDENTNAME
+                WINSHOWCURSOR                                                          @  100 RESIDENTNAME
+                WINQUERYCURSORINFO                                                     @  101 RESIDENTNAME
+                WINLOADACCELTABLE                                                      @  102 RESIDENTNAME
+                WINCREATEACCELTABLE                                                    @  103 RESIDENTNAME
+                WINDESTROYACCELTABLE                                                   @  104 RESIDENTNAME
+                WINTRANSLATEACCEL                                                      @  105 RESIDENTNAME
+                WINSETACCELTABLE                                                       @  106 RESIDENTNAME
+                WINQUERYACCELTABLE                                                     @  107 RESIDENTNAME
+                WINCOPYACCELTABLE                                                      @  108 RESIDENTNAME
+                WINSETHOOK                                                             @  109 RESIDENTNAME
+                WINRELEASEHOOK                                                         @  110 RESIDENTNAME
+                WINOPENCLIPBRD                                                         @  111 RESIDENTNAME
+                WINCLOSECLIPBRD                                                        @  112 RESIDENTNAME
+                WINEMPTYCLIPBRD                                                        @  113 RESIDENTNAME
+                WINSETCLIPBRDOWNER                                                     @  114 RESIDENTNAME
+                WINQUERYCLIPBRDOWNER                                                   @  115 RESIDENTNAME
+                WINSETCLIPBRDDATA                                                      @  116 RESIDENTNAME
+                WINQUERYCLIPBRDDATA                                                    @  117 RESIDENTNAME
+                WINENUMCLIPBRDFMTS                                                     @  118 RESIDENTNAME
+                WINQUERYCLIPBRDFMTINFO                                                 @  119 RESIDENTNAME
+                WINSETCLIPBRDVIEWER                                                    @  120 RESIDENTNAME
+                WINQUERYCLIPBRDVIEWER                                                  @  121 RESIDENTNAME
+                WINLOADDLG                                                             @  122 RESIDENTNAME
+                WINCREATEDLG                                                           @  123 RESIDENTNAME
+                WINPROCESSDLG                                                          @  124 RESIDENTNAME
+                WINDLGBOX                                                              @  125 RESIDENTNAME
+                WINDISMISSDLG                                                          @  126 RESIDENTNAME
+                WINSENDDLGITEMMSG                                                      @  127 RESIDENTNAME
+                WINSETDLGITEMSHORT                                                     @  128 RESIDENTNAME
+                WINQUERYDLGITEMSHORT                                                   @  129 RESIDENTNAME
+                WINMAPDLGPOINTS                                                        @  130 RESIDENTNAME
+                WINSUBSTITUTESTRINGS                                                   @  132 RESIDENTNAME
+                WINENUMDLGITEM                                                         @  133 RESIDENTNAME
+                WINSETDLGITEMTEXT                                                      @  134 RESIDENTNAME
+                WINQUERYDLGITEMTEXT                                                    @  135 RESIDENTNAME
+                WINLOADMENU                                                            @  136 RESIDENTNAME
+                WINCREATEMENU                                                          @  137 RESIDENTNAME
+                WINALARM                                                               @  138 RESIDENTNAME
+                WINMESSAGEBOX                                                          @  139 RESIDENTNAME
+                WINCREATESTDWINDOW                                                     @  140 RESIDENTNAME
+                WINCREATEFRAMECONTROLS                                                 @  141 RESIDENTNAME
+                                               WINFORMATFRAME                          @  142 NONAME
+                WINCALCFRAMERECT                                                       @  143 RESIDENTNAME
+                WINFLASHWINDOW                                                         @  144 RESIDENTNAME
+                WINGETMINPOSITION                                                      @  146 RESIDENTNAME
+                WINGETMAXPOSITION                                                      @  147 RESIDENTNAME
+                WINQUERYSYSVALUE                                                       @  149 RESIDENTNAME
+                WINSETSYSVALUE                                                         @  150 RESIDENTNAME
+                WINSETSYSCOLORS                                                        @  151 RESIDENTNAME
+                WINQUERYSYSCOLOR                                                       @  152 RESIDENTNAME
+                WINSCROLLWINDOW                                                        @  153 RESIDENTNAME
+                WINTRACKRECT                                                           @  154 RESIDENTNAME
+                WINSHOWTRACKRECT                                                       @  155 RESIDENTNAME
+                GPILOADBITMAP                                                          @  156 RESIDENTNAME
+                WINLOADSTRING                                                          @  157 RESIDENTNAME
+                WINLOADMESSAGE                                                         @  158 RESIDENTNAME
+                WINSETRECTEMPTY                                                        @  159 RESIDENTNAME
+                WINSETRECT                                                             @  160 RESIDENTNAME
+                WINCOPYRECT                                                            @  161 RESIDENTNAME
+                WINISRECTEMPTY                                                         @  162 RESIDENTNAME
+                WINEQUALRECT                                                           @  163 RESIDENTNAME
+                WINPTINRECT                                                            @  164 RESIDENTNAME
+                WINOFFSETRECT                                                          @  165 RESIDENTNAME
+                WININFLATERECT                                                         @  166 RESIDENTNAME
+                WININTERSECTRECT                                                       @  167 RESIDENTNAME
+                WINUNIONRECT                                                           @  168 RESIDENTNAME
+                WINSUBTRACTRECT                                                        @  169 RESIDENTNAME
+                WINMAKERECT                                                            @  170 RESIDENTNAME
+                WINMAKEPOINTS                                                          @  171 RESIDENTNAME
+                WININVERTRECT                                                          @  172 RESIDENTNAME
+                WINFILLRECT                                                            @  173 RESIDENTNAME
+                                               KBDPACKET                               @  174 RESIDENTNAME
+                WINDRAWPOINTER                                                         @  177 RESIDENTNAME
+                WINDEFWINDOWPROC                                                       @  178 RESIDENTNAME
+                WINDEFDLGPROC                                                          @  179 RESIDENTNAME
+                                               WINSYNCSTARTPGM                         @  197 NONAME
+                                               WINSCREENSWITCH                         @  198 NONAME
+                                               WINRESETSYSTEM                          @  199 NONAME
+                                               WINQUERYHUNGPROCESS                     @  200 NONAME
+                                               WINLOADSTRINGTABLE                      @  201 NONAME
+                                               WINLOADVKEYGLYPHXLATETBL                @  202 NONAME
+                                               WINLOADCHARXLATETBL                     @  203 NONAME
+                                               WINSETVKEYGLYPHXLATETBL                 @  204 NONAME
+                                               WINSETCHARXLATETBL                      @  205 NONAME
+                                               WINQUERYVKEYGLYPHXLATETBL               @  206 NONAME
+                                               WINQUERYCHARXLATETBL                    @  207 NONAME
+                                               WINVKEYGLYPHCHARXLATE                   @  208 NONAME
+                                               WINVKEYTOSCANID                         @  209 NONAME
+                                               WINQUERYPROCESSCP                       @  210 NONAME
+                WINGETKEYSTATE                                                         @  211 RESIDENTNAME
+                WINGETPHYSKEYSTATE                                                     @  212 RESIDENTNAME
+                WINSETKEYBOARDSTATETABLE                                               @  213 RESIDENTNAME
+                WINENABLEPHYSINPUT                                                     @  214 RESIDENTNAME
+                WINSETCP                                                               @  215 RESIDENTNAME
+                WINQUERYCP                                                             @  216 RESIDENTNAME
+                WINQUERYCPLIST                                                         @  217 RESIDENTNAME
+                WINCPTRANSLATESTRING                                                   @  218 RESIDENTNAME
+                WINCPTRANSLATECHAR                                                     @  219 RESIDENTNAME
+                WINCOMPARESTRINGS                                                      @  220 RESIDENTNAME
+                WINUPPER                                                               @  221 RESIDENTNAME
+                WINUPPERCHAR                                                           @  222 RESIDENTNAME
+                WINNEXTCHAR                                                            @  223 RESIDENTNAME
+                WINPREVCHAR                                                            @  224 RESIDENTNAME
+                WINCREATEHEAP                                                          @  225 RESIDENTNAME
+                WINDESTROYHEAP                                                         @  226 RESIDENTNAME
+                WINAVAILMEM                                                            @  227 RESIDENTNAME
+                WINALLOCMEM                                                            @  228 RESIDENTNAME
+                WINREALLOCMEM                                                          @  229 RESIDENTNAME
+                WINFREEMEM                                                             @  230 RESIDENTNAME
+                WINLOCKHEAP                                                            @  231 RESIDENTNAME
+                WINCREATEATOMTABLE                                                     @  233 RESIDENTNAME
+                WINDESTROYATOMTABLE                                                    @  234 RESIDENTNAME
+                WINADDATOM                                                             @  235 RESIDENTNAME
+                WINFINDATOM                                                            @  236 RESIDENTNAME
+                WINDELETEATOM                                                          @  237 RESIDENTNAME
+                WINQUERYATOMUSAGE                                                      @  238 RESIDENTNAME
+                WINQUERYATOMLENGTH                                                     @  239 RESIDENTNAME
+                WINQUERYATOMNAME                                                       @  240 RESIDENTNAME
+                WINQUERYSYSTEMATOMTABLE                                                @  241 RESIDENTNAME
+                                               WINSETLASTERROR                         @  242 NONAME
+                WINGETLASTERROR                                                        @  243 RESIDENTNAME
+                WINGETERRORINFO                                                        @  244 RESIDENTNAME
+                WINFREEERRORINFO                                                       @  245 RESIDENTNAME
+                WININITIALIZE                                                          @  246 RESIDENTNAME
+                WINTERMINATE                                                           @  247 RESIDENTNAME
+                WINCATCH                                                               @  248 RESIDENTNAME
+                WINTHROW                                                               @  249 RESIDENTNAME
+                WINQUERYVERSION                                                        @  250 RESIDENTNAME
+                                               FSRSEMENTER                             @  251 NONAME
+                                               FSRSEMLEAVE                             @  252 NONAME
+                                               FSRSEMEXIT                              @  253 NONAME
+                                               FSRSEMCHECK                             @  254 NONAME
+                                               FSRSEMENTERP                            @  255 NONAME       ; OS2VER 210
+                                               AABGETREG                               @  256 NONAME
+                                               AABSETREG                               @  257 NONAME
+                                               VALIDATESELECTOR                        @  258 NONAME
+                                               LOADMODULEHANDLE                        @  259 NONAME
+                                               GETSCREENSELECTOR                       @  260 NONAME
+                                               IDENTIFYCODESELECTOR                    @  261 NONAME
+                                               WINQUERYWINDOWSGID                      @  262 NONAME
+                                               _WINSETERRORINFO                        @  263 NONAME
+                WINISPHYSINPUTENABLED                                                  @  264 RESIDENTNAME
+                WINQUERYWINDOWDC                                                       @  265 RESIDENTNAME
+                WINDRAWBORDER                                                          @  266 RESIDENTNAME
+                WINDRAWTEXT                                                            @  267 RESIDENTNAME
+                WINDRAWBITMAP                                                          @  268 RESIDENTNAME
+                WINQUERYWINDOWPTR                                                      @  269 RESIDENTNAME
+                WINSETWINDOWPTR                                                        @  270 RESIDENTNAME
+                                               WININITIALIZESYSTEM                     @  271 NONAME
+                                               WINTERMINATESYSTEM                      @  272 NONAME
+                                               WINLOCKSTARTINPUT                       @  273 NONAME
+                WINMSGSEMWAIT                                                          @  274 RESIDENTNAME
+                WINMSGMUXSEMWAIT                                                       @  275 RESIDENTNAME
+                                               WINSYSTEMSHUTDOWN                       @  276 NONAME
+                WINCANCELSHUTDOWN                                                      @  277 RESIDENTNAME
+                WINSETWINDOWBITS                                                       @  278 RESIDENTNAME
+                WINGETCLIPPS                                                           @  279 RESIDENTNAME
+                                               WINSENDQUEUEMSG                         @  281 NONAME
+                                               WINSETQUEUEPROC                         @  282 NONAME
+                                               WINDEFQUEUEPROC                         @  283 NONAME
+                WINSAVEWINDOWPOS                                                       @  285 RESIDENTNAME
+                WINFOCUSCHANGE                                                         @  286 RESIDENTNAME
+                WINQUERYQUEUEINFO                                                      @  287 RESIDENTNAME
+                                               WINCALLHELPHOOK                         @  288 NONAME
+                                               WINSETATOMTABLEOWNER                    @  289 NONAME
+                                               WINISSHUTTINGDOWN                       @  290 NONAME
+                                               WINTERMINATESHUTDOWN                    @  291 NONAME
+                WINSETCLASSMSGINTEREST                                                 @  292 RESIDENTNAME
+                                               VISREGIONCALLBACK                       @  293 NONAME
+                WINQUERYDLGITEMTEXTLENGTH                                              @  294 RESIDENTNAME
+                                               WINQUERYKBDLAYOUT                       @  295 NONAME
+                                               WINSETKBDLAYOUT                         @  296 NONAME
+                WINDDEINITIATE                                                         @  297 RESIDENTNAME
+                WINDDERESPOND                                                          @  298 RESIDENTNAME
+                WINDDEPOSTMSG                                                          @  299 RESIDENTNAME
+                                               WINCANCELMODE                           @  300 NONAME
+                WINSETPRESPARAM                                                        @  301 RESIDENTNAME
+                WINQUERYPRESPARAM                                                      @  302 RESIDENTNAME
+                WINREMOVEPRESPARAM                                                     @  303 RESIDENTNAME
+                                               WINTHREADASSOCQUEUE                     @  304 NONAME
+                                               WINQUEUEFROMID                          @  305 NONAME
+                                               WINQUERYSENDMSG                         @  306 NONAME
+                                               WINREPLYMSG                             @  307 NONAME
+                                               WINWAKETHREAD                           @  308 NONAME
+                                               WINLOCKINPUT                            @  309 NONAME
+                                               WINBUILDPTRHANDLE                       @  310 RESIDENTNAME
+                                               DUMWINCREATEHELPINSTANCE                @  311 NONAME
+                                               DUMWINDESTROYHELPINSTANCE               @  312 NONAME
+                                               DUMWINASSOCIATEHELPINSTANCE             @  313 NONAME
+                                               DUMWINCREATEHELPTABLE                   @  314 NONAME
+                                               DUMWINLOADHELPTABLE                     @  315 NONAME
+                                               DUMWINQUERYHELPINSTANCE                 @  316 NONAME
+                WINQUERYWINDOWMODEL                                                    @  317 RESIDENTNAME
+                WINSETDESKTOPBKGND                                                     @  318 RESIDENTNAME
+                WINQUERYDESKTOPBKGND                                                   @  319 RESIDENTNAME
+                WINPOPUPMENU                                                           @  320 RESIDENTNAME
+                WINREALIZEPALETTE                                                      @  321 RESIDENTNAME
+                                               DUMMYHELPENTRY                          @  322 NONAME
+                                               GETPMDDCODESELECTOR                     @  325 NONAME
+                                               WINSEMENTER                             @  326 NONAME
+                                               WINSEMLEAVE                             @  327 NONAME
+                                               WINQUERYPWND                            @  328 NONAME
+                                               WINQUERYSTATE                           @  329 NONAME
+                                               WINLOADANIPOINTER                       @  330 NONAME
+                                               WINDESTROYANIPOINTER                    @  331 NONAME
+                                               WINSETANIPOINTER                        @  332 NONAME
+                                               WINENUMVKEYSCANIDS                      @  333 NONAME
+                                               WINSEMQUERY                             @  334 NONAME
+                                               WINLOADTRANSLATIONTABLE                 @  400 NONAME
+                                               WINSETKBDLAYOUT2                        @  401 NONAME
+                                               WINSEAMLESSBOX                          @  495 NONAME
+                                               WINISWINDOWOVERLAPPED                   @  496 NONAME       ; Removed OS2VER 230
+                                               WINJIGGLEMOUSE                          @  497 NONAME
+                                               WINTRACKSEAMLESS                        @  498 NONAME
+                                               WINREGISTERSEAMLESSPROC                 @  499 NONAME
+                                               ABNORMALPROCESSEXIT                     @  500 NONAME
+                                               WINPROFCONTROL                          @  508 NONAME
+                                               DEBUGINPUTENABLE                        @  509 NONAME
+                                               DEBUGINPUT                              @  510 NONAME
+                                               DEBUGOUTPUT                             @  511 NONAME
+                                               DEBUGCURPOS                             @  512 NONAME
+                                               DEBUGCLS                                @  513 NONAME
+                                               WINDEBUGBREAK                           @  514 NONAME
+                                               DEBUGREDIRECT                           @  515 NONAME
+                                               INPUTGETDEVICEINFO                      @  590 NONAME
+                                               STARTTIMER                              @  600 NONAME
+                                               DESTROYTIMERS                           @  601 NONAME
+                WINDELETELIBRARY                                                       @  602 RESIDENTNAME
+                WINLOADPROCEDURE                                                       @  603 RESIDENTNAME
+                WINDELETEPROCEDURE                                                     @  604 RESIDENTNAME
+                WINSETMSGMODE                                                          @  605 RESIDENTNAME
+                WINSETSYNCHROMODE                                                      @  606 RESIDENTNAME
+                WINGETDLGMSG                                                           @  607 RESIDENTNAME
+                WINREGISTERUSERMSG                                                     @  608 RESIDENTNAME
+                WINQUERYANCHORBLOCK                                                    @  609 RESIDENTNAME
+                                               WINLANGSUPWINDOWPROC                    @  610 NONAME
+                                               WINLANGSUPDLGPROC                       @  611 NONAME
+                WINREGISTERUSERDATATYPE                                                @  612 RESIDENTNAME
+                                               FARCALLHOOK                             @  613 NONAME
+                WINISWINDOWSHOWING                                                     @  614 RESIDENTNAME
+                WINLOADLIBRARY                                                         @  615 RESIDENTNAME
+                WINCREATEPOINTERINDIRECT                                               @  616 RESIDENTNAME
+                WINQUERYPOINTERINFO                                                    @  617 RESIDENTNAME
+                                               WINSETMENUDATA                          @  618 NONAME
+                                               WINQUERYMENUDATA                        @  619 NONAME
+                                               WINMENUINDEXFROMID                      @  620 NONAME
+                                               WINFORCEMENUREDRAW                      @  621 NONAME
+                                               WINGETSCANSTATE                         @  622 NONAME
+                                               WINSETSCANSTATETABLE                    @  623 NONAME
+                WINGETERASEPS                                                          @  624 RESIDENTNAME
+                WINRELEASEERASEPS                                                      @  625 RESIDENTNAME
+                                               WINSETWINDOWDC                          @  626 NONAME
+                                               WINTRANSLATECHAR                        @  627 NONAME
+                                               WINPORTHOLEUTIL                         @  628 NONAME
+                                               WINEXPLODEWINDOW                        @  629 NONAME
+                                               WINSETACCELTABLEVALUE                   @  630 NONAME
+                                               WINQUERYACCELTABLEVALUE                 @  631 NONAME
+                WINSTRETCHPOINTER                                                      @  632 RESIDENTNAME
+                WINSETPOINTEROWNER                                                     @  633 RESIDENTNAME
+                                               WINGETFRAMETREEPPSIZE                   @  634 NONAME
+                                               WINGETFRAMETREEPPS                      @  635 NONAME
+                                               WINSETFRAMETREEPPS                      @  636 NONAME
+                                               WINGETMINWINDOWVIEWER                   @  637 NONAME
+                                               WINQUERYWORKPLACEWINDOW                 @  638 NONAME       ; OS2VER 210
+                WINLOCKPOINTERUPDATE                                                   @  639 RESIDENTNAME ; OS2VER 210
+                WINCHECKINPUT                                                          @  640 RESIDENTNAME ; OS2VER 210
+                                               FARFLUSHBUFHOOK                         @  641 NONAME       ; OS2VER 210
+                                               Trc_Win32AddAtom                        @  700 NONAME
+                                               Trc_Win32Alarm                          @  701 NONAME
+                                               Trc_Win32BeginEnumWindows               @  702 NONAME
+                                               Trc_Win32BeginPaint                     @  703 NONAME
+                                               Trc_Win32CalcFrameRect                  @  704 NONAME
+                                               Trc_Win32CancelShutdown                 @  705 NONAME
+                                               Trc_Win32CloseClipbrd                   @  707 NONAME
+                                               Trc_Win32CompareStrings                 @  708 NONAME
+                                               Trc_Win32CopyAccelTable                 @  709 NONAME
+                                               Trc_Win32CopyRect                       @  710 NONAME
+                                               Trc_Win32CpTranslateChar                @  711 NONAME
+                                               Trc_Win32CpTranslateString              @  712 NONAME
+                                               Trc_Win32CreateAccelTable               @  713 NONAME
+                                               Trc_Win32CreateAtomTable                @  714 NONAME
+                                               Trc_Win32CreateCursor                   @  715 NONAME
+                                               Trc_Win32CreateMsgQueue                 @  716 NONAME
+                                               Trc_Win32CreatePointer                  @  717 NONAME
+                                               Trc_Win32DdeInitiate                    @  718 NONAME
+                                               Trc_Win32DdePostMsg                     @  719 NONAME
+                                               Trc_Win32DdeRespond                     @  720 NONAME
+                                               Trc_Win32DeleteAtom                     @  721 NONAME
+                                               Trc_Win32DeleteLibrary                  @  722 NONAME
+                                               Trc_Win32DestroyAccelTable              @  723 NONAME
+                                               Trc_Win32DestroyAtomTable               @  724 NONAME
+                                               Trc_Win32DestroyCursor                  @  725 NONAME
+                                               Trc_Win32DestroyMsgQueue                @  726 NONAME
+                                               Trc_Win32DestroyPointer                 @  727 NONAME
+                                               Trc_Win32DestroyWindow                  @  728 NONAME
+                                               Trc_Win32DismissDlg                     @  729 NONAME
+                                               Trc_Win32DrawBitmap                     @  730 NONAME
+                                               Trc_Win32DrawBorder                     @  731 NONAME
+                                               Trc_Win32DrawPointer                    @  732 NONAME
+                                               Trc_Win32EmptyClipbrd                   @  733 NONAME
+                                               Trc_Win32EnablePhysInput                @  734 NONAME
+                                               Trc_Win32EnableWindow                   @  735 NONAME
+                                               Trc_Win32EnableWindowUpdate             @  736 NONAME
+                                               Trc_Win32EndEnumWindows                 @  737 NONAME
+                                               Trc_Win32EndPaint                       @  738 NONAME
+                                               Trc_Win32EnumClipbrdFmts                @  739 NONAME
+                                               Trc_Win32EnumDlgItem                    @  740 NONAME
+                                               Trc_Win32EqualRect                      @  741 NONAME
+                                               Trc_Win32ExcludeUpdateRegion            @  742 NONAME
+                                               Trc_Win32FillRect                       @  743 NONAME
+                                               Trc_Win32FindAtom                       @  744 NONAME
+                                               Trc_Win32FlashWindow                    @  745 NONAME
+                                               Trc_Win32FocusChange                    @  746 NONAME
+                                               Trc_Win32FreeErrorInfo                  @  748 NONAME
+                                               Trc_Win32GetClipPS                      @  749 NONAME
+                                               Trc_Win32GetCurrentTime                 @  750 NONAME
+                                               Trc_Win32GetErrorInfo                   @  751 NONAME
+                                               Trc_Win32GetKeyState                    @  752 NONAME
+                                               Trc_Win32GetLastError                   @  753 NONAME
+                                               Trc_Win32GetMaxPosition                 @  754 NONAME
+                                               Trc_Win32GetMinPosition                 @  755 NONAME
+                                               Trc_Win32GetNextWindow                  @  756 NONAME
+                                               Trc_Win32GetPS                          @  757 NONAME
+                                               Trc_Win32GetPhysKeyState                @  758 NONAME
+                                               Trc_Win32GetScreenPS                    @  759 NONAME
+                                               Trc_Win32GetSysBitmap                   @  760 NONAME
+                                               Trc_Win32InSendMsg                      @  761 NONAME
+                                               Trc_Win32InflateRect                    @  762 NONAME
+                                               Trc_Win32Initialize                     @  763 NONAME
+                                               Trc_Win32IntersectRect                  @  764 NONAME
+                                               Trc_Win32InvalidateRect                 @  765 NONAME
+                                               Trc_Win32InvalidateRegion               @  766 NONAME
+                                               Trc_Win32InvertRect                     @  767 NONAME
+                                               Trc_Win32IsChild                        @  768 NONAME
+                                               Trc_Win32IsPhysInputEnabled             @  769 NONAME
+                                               Trc_Win32IsRectEmpty                    @  770 NONAME
+                                               Trc_Win32IsThreadActive                 @  771 NONAME
+                                               Trc_Win32IsWindow                       @  772 NONAME
+                                               Trc_Win32IsWindowEnabled                @  773 NONAME
+                                               Trc_Win32IsWindowShowing                @  774 NONAME
+                                               Trc_Win32IsWindowVisible                @  775 NONAME
+                                               Trc_Win32LoadAccelTable                 @  776 NONAME
+                                               Trc_Win32LoadLibrary                    @  777 NONAME
+                                               Trc_Win32LoadMenu                       @  778 NONAME
+                                               Trc_Win32LoadMessage                    @  779 NONAME
+                                               Trc_Win32LoadPointer                    @  780 NONAME
+                                               Trc_Win32LoadString                     @  781 NONAME
+                                               Trc_Win32LockVisRegions                 @  782 NONAME
+                                               Trc_Win32LockWindowUpdate               @  784 NONAME
+                                               Trc_Win32MakePoints                     @  785 NONAME
+                                               Trc_Win32MakeRect                       @  786 NONAME
+                                               Trc_Win32MapDlgPoints                   @  787 NONAME
+                                               Trc_Win32MapWindowPoints                @  788 NONAME
+                                               Trc_Win32MessageBox                     @  789 NONAME
+                                               Trc_Win32MsgSemWait                     @  790 NONAME
+                                               Trc_Win32NextChar                       @  791 NONAME
+                                               Trc_Win32OffsetRect                     @  792 NONAME
+                                               Trc_Win32OpenClipbrd                    @  793 NONAME
+                                               Trc_Win32OpenWindowDC                   @  794 NONAME
+                                               Trc_Win32PrevChar                       @  795 NONAME
+                                               Trc_Win32ProcessDlg                     @  796 NONAME
+                                               Trc_Win32PtInRect                       @  797 NONAME
+                                               Trc_Win32QueryAccelTable                @  798 NONAME
+                                               Trc_Win32QueryActiveWindow              @  799 NONAME
+                                               Trc_Win32QueryAnchorBlock               @  800 NONAME
+                                               Trc_Win32QueryAtomLength                @  801 NONAME
+                                               Trc_Win32QueryAtomName                  @  802 NONAME
+                                               Trc_Win32QueryAtomUsage                 @  803 NONAME
+                                               Trc_Win32QueryCapture                   @  804 NONAME
+                                               Trc_Win32QueryClassName                 @  805 NONAME
+                                               Trc_Win32QueryClipbrdData               @  806 NONAME
+                                               Trc_Win32QueryClipbrdFmtInfo            @  807 NONAME
+                                               Trc_Win32QueryClipbrdOwner              @  808 NONAME
+                                               Trc_Win32QueryClipbrdViewer             @  809 NONAME
+                                               Trc_Win32QueryCp                        @  810 NONAME
+                                               Trc_Win32QueryCpList                    @  811 NONAME
+                                               Trc_Win32QueryCursorInfo                @  812 NONAME
+                                               Trc_Win32QueryDesktopWindow             @  813 NONAME
+                                               Trc_Win32QueryDlgItemShort              @  814 NONAME
+                                               Trc_Win32QueryDlgItemText               @  815 NONAME
+                                               Trc_Win32QueryDlgItemTextLength         @  816 NONAME
+                                               Trc_Win32QueryFocus                     @  817 NONAME
+                                               Trc_Win32QueryMsgPos                    @  818 NONAME
+                                               Trc_Win32QueryMsgTime                   @  819 NONAME
+                                               Trc_Win32QueryObjectWindow              @  820 NONAME
+                                               Trc_Win32QueryPointer                   @  821 NONAME
+                                               Trc_Win32QueryPointerInfo               @  822 NONAME
+                                               Trc_Win32QueryPointerPos                @  823 NONAME
+                                               Trc_Win32QueryQueueInfo                 @  824 NONAME
+                                               Trc_Win32QueryQueueStatus               @  825 NONAME
+                                               Trc_Win32QuerySysColor                  @  826 NONAME
+                                               Trc_Win32QuerySysModalWindow            @  827 NONAME
+                                               Trc_Win32QuerySysPointer                @  828 NONAME
+                                               Trc_Win32QuerySysValue                  @  829 NONAME
+                                               Trc_Win32QuerySystemAtomTable           @  830 NONAME
+                                               Trc_Win32QueryUpdateRect                @  831 NONAME
+                                               Trc_Win32QueryUpdateRegion              @  832 NONAME
+                                               Trc_Win32QueryVersion                   @  833 NONAME
+                                               Trc_Win32QueryWindow                    @  834 NONAME
+                                               Trc_Win32QueryWindowDC                  @  835 NONAME
+                                               Trc_Win32QueryWindowPos                 @  837 NONAME
+                                               Trc_Win32QueryWindowProcess             @  838 NONAME
+                                               Trc_Win32QueryWindowPtr                 @  839 NONAME
+                                               Trc_Win32QueryWindowRect                @  840 NONAME
+                                               Trc_Win32QueryWindowText                @  841 NONAME
+                                               Trc_Win32QueryWindowTextLength          @  842 NONAME
+                                               Trc_Win32QueryWindowULong               @  843 NONAME
+                                               Trc_Win32QueryWindowUShort              @  844 NONAME
+                                               Trc_Win32RegisterUserDatatype           @  845 NONAME
+                                               Trc_Win32RegisterUserMsg                @  846 NONAME
+                                               Trc_Win32ReleasePS                      @  848 NONAME
+                                               Trc_Win32ScrollWindow                   @  849 NONAME
+                                               Trc_Win32SetAccelTable                  @  850 NONAME
+                                               Trc_Win32SetActiveWindow                @  851 NONAME
+                                               Trc_Win32SetCapture                     @  852 NONAME
+                                               Trc_Win32SetClassMsgInterest            @  853 NONAME
+                                               Trc_Win32SetClipbrdData                 @  854 NONAME
+                                               Trc_Win32SetClipbrdOwner                @  855 NONAME
+                                               Trc_Win32SetClipbrdViewer               @  856 NONAME
+                                               Trc_Win32SetCp                          @  857 NONAME
+                                               Trc_Win32SetDlgItemShort                @  858 NONAME
+                                               Trc_Win32SetDlgItemText                 @  859 NONAME
+                                               Trc_Win32SetFocus                       @  860 NONAME
+                                               Trc_Win32SetMsgInterest                 @  861 NONAME
+                                               Trc_Win32SetMsgMode                     @  862 NONAME
+                                               Trc_Win32SetMultWindowPos               @  863 NONAME
+                                               Trc_Win32SetOwner                       @  864 NONAME
+                                               Trc_Win32SetParent                      @  865 NONAME
+                                               Trc_Win32SetPointer                     @  866 NONAME
+                                               Trc_Win32SetPointerPos                  @  867 NONAME
+                                               Trc_Win32SetRect                        @  868 NONAME
+                                               Trc_Win32SetRectEmpty                   @  869 NONAME
+                                               Trc_Win32SetSynchroMode                 @  870 NONAME
+                                               Trc_Win32SetSysColors                   @  871 NONAME
+                                               Trc_Win32SetSysModalWindow              @  872 NONAME
+                                               Trc_Win32SetSysValue                    @  873 NONAME
+                                               Trc_Win32SetWindowBits                  @  874 NONAME
+                                               Trc_Win32SetWindowPos                   @  875 NONAME
+                                               Trc_Win32SetWindowPtr                   @  876 NONAME
+                                               Trc_Win32SetWindowText                  @  877 NONAME
+                                               Trc_Win32SetWindowULong                 @  878 NONAME
+                                               Trc_Win32SetWindowUShort                @  879 NONAME
+                                               Trc_Win32ShowCursor                     @  880 NONAME
+                                               Trc_Win32ShowPointer                    @  881 NONAME
+                                               Trc_Win32ShowTrackRect                  @  882 NONAME
+                                               Trc_Win32ShowWindow                     @  883 NONAME
+                                               Trc_Win32StartTimer                     @  884 NONAME
+                                               Trc_Win32StopTimer                      @  885 NONAME
+                                               Trc_Win32SubstituteStrings              @  886 NONAME
+                                               Trc_Win32SubtractRect                   @  887 NONAME
+                                               Trc_Win32Terminate                      @  888 NONAME
+                                               Trc_Win32TrackRect                      @  890 NONAME
+                                               Trc_Win32UnionRect                      @  891 NONAME
+                                               Trc_Win32UpdateWindow                   @  892 NONAME
+                                               Trc_Win32Upper                          @  893 NONAME
+                                               Trc_Win32UpperChar                      @  894 NONAME
+                                               Trc_Win32ValidateRect                   @  895 NONAME
+                                               Trc_Win32ValidateRegion                 @  896 NONAME
+                                               Trc_Win32WaitMsg                        @  897 NONAME
+                                               Trc_Win32WindowFromDC                   @  898 NONAME
+                                               Trc_Win32WindowFromID                   @  899 NONAME
+                                               Trc_Win32WindowFromPoint                @  900 NONAME
+                                               Trc_Win32BroadcastMsg                   @  901 NONAME
+                                               Trc_Win32PostQueueMsg                   @  902 NONAME
+                                               Trc_Win32SendDlgItemMsg                 @  903 NONAME
+                                               Trc_Win32TranslateAccel                 @  904 NONAME
+                                               Trc_Win32CallMsgFilter                  @  905 NONAME
+                                               Trc_Win32CreateFrameControls            @  906 NONAME
+                                               Trc_Win32CreateMenu                     @  907 NONAME
+                                               Trc_Win32CreateStdWindow                @  908 NONAME
+                                               Trc_Win32CreateWindow                   @  909 NONAME
+                                               Trc_Win32DefDlgProc                     @  910 NONAME
+                                               Trc_Win32DefWindowProc                  @  911 NONAME
+                                               Trc_Win32DispatchMsg                    @  912 NONAME
+                                               Trc_Win32DrawText                       @  913 NONAME
+                                               Trc_Win32GetDlgMsg                      @  914 NONAME
+                                               Trc_Win32GetMsg                         @  915 NONAME
+                                               Trc_Win32MsgMuxSemWait                  @  916 NONAME
+                                               Trc_Win32MultWindowFromIDs              @  917 NONAME
+                                               Trc_Win32PeekMsg                        @  918 NONAME
+                                               Trc_Win32PostMsg                        @  919 NONAME
+                                               Trc_Win32SendMsg                        @  920 NONAME
+                                               Trc_Win32SetKeyboardStateTable          @  921 NONAME
+                                               Trc_Win32CreateDlg                      @  922 NONAME
+                                               Trc_Win32DlgBox                         @  923 NONAME
+                                               Trc_Win32LoadDlg                        @  924 NONAME
+                                               Trc_Win32QueryClassInfo                 @  925 NONAME
+                                               Trc_Win32RegisterClass                  @  926 NONAME
+                                               Trc_Win32ReleaseHook                    @  927 NONAME
+                                               Trc_Win32SetHook                        @  928 NONAME
+                                               Trc_Win32SubclassWindow                 @  929 NONAME
+                                               Trc_Win32SetClassThunkProc              @  930 NONAME
+                                               Trc_Win32QueryClassThunkProc            @  931 NONAME
+                                               Trc_Win32SetWindowThunkProc             @  932 NONAME
+                                               Trc_Win32QueryWindowThunkProc           @  933 NONAME
+                                               Trc_Win32QueryWindowModel               @  934 NONAME
+                                               Trc_Win32SetDesktopBkgnd                @  935 NONAME
+                                               Trc_Win32QueryDesktopBkgnd              @  936 NONAME
+                                               Trc_Win32PopupMenu                      @  937 NONAME
+                                               Trc_Win32SetPresParam                   @  938 NONAME
+                                               Trc_Win32QueryPresParam                 @  939 NONAME
+                                               Trc_Win32RemovePresParam                @  940 NONAME
+                                               Trc_Win32RealizePalette                 @  941 NONAME
+                                               Trc_Win32CreatePointerIndirect          @  942 NONAME
+                                               Trc_Win32SaveWindowPos                  @  943 NONAME
+                                               WINCREATEFARHEAP                        @  947 NONAME
+                                               WINDESTROYFARHEAP                       @  948 NONAME
+                                               WINALLOCFARMEM                          @  949 NONAME
+                                               WINFREEFARMEM                           @  950 NONAME
+                                               WINREALLOCFARMEM                        @  951 NONAME
+                                               Trc_Win32GetErasePS                     @  952 NONAME
+                                               Trc_Win32ReleaseErasePS                 @  953 NONAME
+                                               DEBUG32INPUT                            @  954 NONAME
+                                               DEBUG32OUTPUT                           @  955 NONAME
+                                               DEBUG32CURPOS                           @  956 NONAME
+                                               DEBUG32CLS                              @  957 NONAME
+                                               WIN32DEBUGBREAK                         @  958 NONAME
+                WINSETCLASSTHUNKPROC                                                   @  959 RESIDENTNAME
+                WINQUERYCLASSTHUNKPROC                                                 @  960 RESIDENTNAME
+                WINSETWINDOWTHUNKPROC                                                  @  961 RESIDENTNAME
+                WINQUERYWINDOWTHUNKPROC                                                @  962 RESIDENTNAME
+                                               WIN32SYSTEMSHUTDOWN                     @  963 NONAME
+                                               WIN32BUILDPTRHANDLE                     @  964 NONAME
+                                               WIN32EXPLODEWINDOW                      @  965 NONAME
+                                               WIN32SETACCELTABLEVALUE                 @  966 NONAME
+                                               WIN32QUERYACCELTABLEVALUE               @  967 NONAME
+                                               Trc_Win32StretchPointer                 @  968 NONAME
+                                               AAB32GETREG                             @  969 NONAME
+                                               AAB32SETREG                             @  970 NONAME
+                                               Trc_Win32SetPointerOwner                @  971 NONAME
+                                               WIN32GETFRAMETREEPPSIZE                 @  972 NONAME
+                                               WIN32GETFRAMETREEPPS                    @  973 NONAME
+                                               WIN32SETFRAMETREEPPS                    @  974 NONAME
+                                               WIN32QUERYPROCESSCP                     @  975 NONAME
+                                               WIN32VISREGIONNOTIFY                    @  976 NONAME
+                                               Trc_Win32SetErrorInfo                   @  977 NONAME
+                                               Trc_Win32WaitEventSem                   @  978 NONAME
+                                               Trc_Win32RequestMutexSem                @  979 NONAME
+                                               Trc_Win32WaitMuxWaitSem                 @  980 NONAME
+                                               WINSETSYSCLIPBRDVIEWER                  @  981 NONAME
+                                               WIN32SETSYSCLIPBRDVIEWER                @  982 NONAME
+                                               WIN32SEMQUERY                           @  983 NONAME
+                                               WIN32SEMENTER                           @  984 NONAME
+                                               WIN32SEMLEAVE                           @  985 NONAME
+                                               Trc_Win32LoadProcedure                  @  986 NONAME
+                                               Trc_Win32DeleteProcedure                @  987 NONAME
+                                               WIN32MOVECURSOR                         @  988 NONAME
+                                               Trc_Win32QuerySendMsg                   @  990 NONAME
+                                               Trc_Win32ReplyMsg                       @  991 NONAME
+                                               Trc_Win32WakeThread                     @  992 NONAME
+                                               Trc_Win32QueueFromID                    @  993 NONAME
+                                               Trc_Win32ThreadAssocQueue               @  994 NONAME
+                                               Trc_Win32LockInput                      @  995 NONAME
+                                               WIN32SETSYSFONT                         @  996 NONAME
+;                                              ?                                       @  997              ; Removed OS2VER 210
+                                               Trc_Win32LockPointerUpdate              @  997 NONAME       ; OS2VER 210
+;                                              ?                                       @  998              ; Removed OS2VER 210
+                                               Trc_Win32CheckInput                     @  998 NONAME       ; OS2VER 210
+;                                              ?                                       @  999              ; Removed OS2VER 210
+                                               FAR32LOCKUPHOOK                         @  999 NONAME       ; OS2VER 210
+;                                              ?                                       @ 1000              ; Removed OS2VER 210
+                                               Trc_Win32QueryVisibleRegion             @ 1000 NONAME       ; OS2VER 210
+;                                              ?                                       @ 1001              ; Removed OS2VER 210
+                                               Trc_Win32SetVisibleRegionNotify         @ 1001 NONAME       ; OS2VER 210
+;                                              ?                                       @ 1002              ; Removed OS2VER 210
+                                               Trc_Win32SetSysPointerData              @ 1002 NONAME       ; OS2VER 210
+;                                              ?                                       @ 1003              ; Removed OS2VER 210
+                                               Trc_Win32QuerySysPointerData            @ 1003 NONAME       ; OS2VER 210
+;                                              RING0POSTBUTTONUPMESSAGE                @ 1004              ; Removed OS2VER 230
+                                               WIN32SEAMLESSBOX                        @ 1004 NONAME       ; OS2VER 230
+;                                              RING0SYNCMOUSE                          @ 1005              ; Removed OS2VER 230
+                                               WIN32JIGGLEMOUSE                        @ 1005 NONAME       ; OS2VER 230
+;                                              RING0CLEARMIWAKEBIT                     @ 1006              ; Removed OS2VER 230
+                                               WIN32TRACKSEAMLESS                      @ 1006 NONAME       ; OS2VER 230
+;                                              RING0DELETEQENTRY                       @ 1007              ; Removed OS2VER 230
+                                               WIN32REGISTERSEAMLESSPROC               @ 1007 NONAME       ; OS2VER 230
+;                                              RING0CLEARWAKEBIT                       @ 1008              ; Removed OS2VER 230
+                                               WIN32SETCHARXLATETBL                    @ 1008 NONAME       ; OS2VER 230
+;                                              RING0SETQUEUESTATUS                     @ 1009              ; Removed OS2VER 230
+                                               WINMSPINIT                              @ 1009 NONAME       ; OS2VER 230
+;                                              RING0QUERYQUEUESTATUS                   @ 1010              ; Removed OS2VER 230
+                                               WINMSPALLOC                             @ 1010 NONAME       ; OS2VER 230
+;                                              RING0GETPOINTERPOS                      @ 1011              ; Removed OS2VER 230
+                                               WINMSPFREE                              @ 1011 NONAME       ; OS2VER 230
+;                                              RING0GETNEXTSYSMSG                      @ 1012              ; Removed OS2VER 230
+                                               THKDOS16SETFGND                         @ 1012 NONAME       ; OS2VER 230
+;                                              RING0SETJOURNALTIMEOUT                  @ 1013              ; Removed OS2VER 230
+                                               INPUTGETDEVICEINFO32                    @ 1013 NONAME       ; OS2VER 230
+;                                              RING0SETPOINTERPOS                      @ 1014              ; Removed OS2VER 230
+                                               WIN32REGISTERPEN                        @ 1014 NONAME       ; OS2VER 230
+;                                              RING0SETDISPLAYPOS                      @ 1015              ; Removed OS2VER 230
+                                               Trc_Win32MessageBox2                    @ 1015 NONAME       ; OS2VER 230
+                                               RING0FLUSHSYSQUEUE                      @ 1016 NONAME       ; OS2VER 210, removed OS2VER 230
+                                               ISCODESELECTOR                          @ 1017 NONAME       ; OS2VER 210, removed OS2VER 230
+                                               INPUTINTERRUPT                          @ 1018 NONAME       ; OS2VER 210, removed OS2VER 230
+                                               INITMQSEMS                              @ 1019 NONAME       ; OS2VER 210, removed OS2VER 230
+                                               ALLOCMQSEM                              @ 1020 NONAME       ; OS2VER 210, removed OS2VER 230
+                                               FREEMQSEM                               @ 1021 NONAME       ; OS2VER 210, removed OS2VER 230
+                                               RING2SETBOOSTBIT                        @ 1022 NONAME       ; OS2VER 210, removed OS2VER 230
+                                               FARRING0WRITEMESSAGE                    @ 1023 NONAME       ; OS2VER 210, removed OS2VER 230
+                                               STOPTIMER                               @ 1024 NONAME       ; OS2VER 210, removed OS2VER 230
+                                               FPEN                                    @ 1026 NONAME       ; OS2VER 230
+                                               WINDRAWTABBEDTEXT                       @ 1027 NONAME       ; OS2VER 240
+                                               PMRELEASEMUTEXSEM                       @ 1028 NONAME       ; OS2VER 240
+                                               PMREQUESTMUTEXSEM                       @ 1029 NONAME       ; OS2VER 240
+                                               WIN32QUERYPOINTERCLIPRECT               @ 1030 NONAME       ; OS2VER 240
+                                               WIN32SETPOINTERCLIPRECT                 @ 1031 NONAME       ; OS2VER 240
+                                               WIN32SENDMSGTIMEOUT                     @ 1032 NONAME       ; Not in entry table
+                                               WIN32WAITMSGTIMEOUT                     @ 1033 NONAME       ; OS2VER 240
+                                               WIN32ISWINDOWOFCLASS                    @ 1034 NONAME       ; OS2VER 240
+                                               WIN32SETATOMTABLEOWNER                  @ 1035 NONAME       ; OS2VER 240
+                                               WINXXCREATEHEAP                         @ 1036 NONAME       ; OS2VER 240
+                                               WINXXDESTROYHEAP                        @ 1037 NONAME       ; OS2VER 240
+                                               WINXXALLOCMEM                           @ 1038 NONAME       ; OS2VER 240
+                                               WINXXFREEMEM                            @ 1039 NONAME       ; OS2VER 240
+                                               WINXXALLOCFILL                          @ 1040 NONAME       ; OS2VER 240
+                                               WINXXREALLOCMEM                         @ 1041 NONAME       ; OS2VER 240
+                                               WINXXQUERYMEMSIZE                       @ 1042 NONAME       ; OS2VER 240
+                                               Trc_Win32SetClipRegion                  @ 1043 NONAME       ; OS2VER 240
+                                               Trc_Win32QueryClipRegion                @ 1044 NONAME       ; OS2VER 240
+                                               WIN32ADDCLIPBRDVIEWER                   @ 1045 NONAME       ; OS2VER 240
+                                               WIN32REMOVECLIPBRDVIEWER                @ 1046 NONAME       ; OS2VER 240
+                                               WIN32QUERYCLIPBRDVIEWERCHAIN            @ 1047 NONAME       ; OS2VER 240
+                                               WIN32INCREMENTATOMUSAGE                 @ 1048 NONAME       ; OS2VER 240
+                                               DAXQUERYOPENCLIPBRDWINDOW               @ 1049 NONAME       ; OS2VER 240
+                                               WINSETDAXDATA                           @ 1050 NONAME       ; OS2VER 240
+                                               WINQUERYDAXDATA                         @ 1051 NONAME       ; OS2VER 240
+                                               WINENUMPROPERTIES                       @ 1052 RESIDENTNAME ; OS2VER 240
+                                               WINQUERYPROPERTY                        @ 1053 RESIDENTNAME ; OS2VER 240
+                                               WINREMOVEPROPERTY                       @ 1054 RESIDENTNAME ; OS2VER 240
+                                               WINSETPROPERTY                          @ 1055 RESIDENTNAME ; OS2VER 240
+                                               WINENUMCLASSPROPERTIES                  @ 1056 RESIDENTNAME ; OS2VER 240
+                                               WINQUERYCLASSPROPERTY                   @ 1057 RESIDENTNAME ; OS2VER 240
+                                               WINREMOVECLASSPROPERTY                  @ 1058 RESIDENTNAME ; OS2VER 240
+                                               WINSETCLASSPROPERTY                     @ 1059 RESIDENTNAME ; OS2VER 240
+                                               WIN32SETKBDLAYOUT                       @ 1060 NONAME       ; OS2VER 240
+                                               WIN32GETAFCVALUE                        @ 1061 NONAME       ; OS2VER 240
+                                               WIN32SETAFCVALUE                        @ 1062 NONAME       ; OS2VER 240
+                                               WIN32LOADVKEYGLYPHXLATETBL              @ 1063 NONAME       ; OS2VER 240
+                                               WIN32SETVKEYGLYPHXLATETBL               @ 1064 NONAME       ; OS2VER 240
+                                               WIN32QUERYVKEYGLYPHXLATETBL             @ 1065 NONAME       ; OS2VER 240
+                                               WIN32TRACKWINDOW                        @ 1066 NONAME       ; OS2VER 240
+                                               WIN32SEMENTERTIMEOUT                    @ 1067 NONAME       ; OS2VER 240
+                                               WINSETDESKTOPWORKAREA                   @ 1068 NONAME       ; OS2VER 240
+                                               WINQUERYDESKTOPWORKAREA                 @ 1069 NONAME       ; OS2VER 240
+                                               WIN32TRANSLATECHAR2                     @ 1070 NONAME       ; OS2VER 245
+                                               WIN32WAITFORIDLETHREAD                  @ 1071 NONAME       ; OS2VER 245
+                                               WINXXCREATEHEAP2                        @ 1072 NONAME       ; OS2VER 245
+                                               WINQUERYSHAREDHEAPDATA                  @ 1073 NONAME       ; OS2VER 245
+                                               WIN32QUERYACTIVEOTHERWINDOW             @ 1074 NONAME       ; OS2VER 245
+                                               WIN32ENUMVKEYSCANIDS                    @ 1075 NONAME       ; OS2VER 245
+                                               WINSETLANGINFO                          @ 1500 RESIDENTNAME ; OS2VER 240
+                                               WINQUERYLANGINFO                        @ 1501 RESIDENTNAME ; OS2VER 240
+                                               WINSETKBDLAYER                          @ 1502 RESIDENTNAME ; OS2VER 240
+                                               WINQUERYKBDLAYER                        @ 1503 RESIDENTNAME ; OS2VER 240
+                                               WINSETLANGVIEWER                        @ 1504 RESIDENTNAME ; OS2VER 240
+                                               WINQUERYLANGVIEWER                      @ 1505 RESIDENTNAME ; OS2VER 240
+                                               WINPOUREVENT                            @ 1600 RESIDENTNAME ; OS2VER 245
+                                               WINSETMSGQIMINFO                        @ 1601 RESIDENTNAME ; OS2VER 245
+                                               WINQUERYMSGQIMINFO                      @ 1602 RESIDENTNAME ; OS2VER 245
+                                               DAXCREATECARET                          @10000 NONAME       ; OS2VER 240
+                                               DAXDESTROYCARET                         @10001 NONAME       ; OS2VER 240
+                                               DAXGETCARETBLINKTIME                    @10002 NONAME       ; OS2VER 240
+                                               DAXHIDECARET                            @10004 NONAME       ; OS2VER 240
+                                               DAXSETCARETBLINKTIME                    @10005 NONAME       ; OS2VER 240
+                                               DAXSHOWCARET                            @10007 NONAME       ; OS2VER 240
+                                               DAXSHOWCURSOR                           @10018 NONAME       ; OS2VER 240
+                                               DAXSWAPMOUSEBUTTON                      @10019 NONAME       ; OS2VER 240
+                                               LOOKUPATOM                              @10020 NONAME       ; OS2VER 240
+                                               DAXOPENCLIPBRD                          @10021 NONAME       ; OS2VER 245
+IMPORTS
+                WINQUERYDESKTOPWINDOW        = PMWIN.    1
+                WINQUERYOBJECTWINDOW         = PMWIN.    2
+                WINREGISTERCLASS             = PMWIN.    3
+                WINQUERYCLASSNAME            = PMWIN.    4
+                WINQUERYCLASSINFO            = PMWIN.    5
+                WINCREATEWINDOW              = PMWIN.    6
+                WINDESTROYWINDOW             = PMWIN.    7
+                WINSETWINDOWPOS              = PMWIN.    8
+                WINSETMULTWINDOWPOS          = PMWIN.    9
+                WINQUERYWINDOWPOS            = PMWIN.   10
+                WINENABLEWINDOW              = PMWIN.   11
+                WINISWINDOWENABLED           = PMWIN.   12
+                WINSHOWWINDOW                = PMWIN.   13
+                WINENABLEWINDOWUPDATE        = PMWIN.   14
+                WINISWINDOWVISIBLE           = PMWIN.   15
+                WINSETWINDOWTEXT             = PMWIN.   16
+                WINQUERYWINDOWTEXT           = PMWIN.   17
+                WINQUERYWINDOWTEXTLENGTH     = PMWIN.   18
+                WINWINDOWFROMID              = PMWIN.   19
+                WINMULTWINDOWFROMIDS         = PMWIN.   20
+                WINISWINDOW                  = PMWIN.   21
+                WINISCHILD                   = PMWIN.   22
+                WINSETPARENT                 = PMWIN.   23
+                WINSETOWNER                  = PMWIN.   24
+                WINQUERYWINDOW               = PMWIN.   25
+                WINQUERYWINDOWRECT           = PMWIN.   26
+                WINQUERYWINDOWPROCESS        = PMWIN.   27
+                WINSETWINDOWUSHORT           = PMWIN.   28
+                WINQUERYWINDOWUSHORT         = PMWIN.   29
+                WINSETWINDOWULONG            = PMWIN.   30
+                WINQUERYWINDOWULONG          = PMWIN.   31
+                WINBEGINENUMWINDOWS          = PMWIN.   32
+                WINGETNEXTWINDOW             = PMWIN.   33
+                WINENDENUMWINDOWS            = PMWIN.   34
+                WINWINDOWFROMPOINT           = PMWIN.   35
+                WINMAPWINDOWPOINTS           = PMWIN.   36
+                WINSUBCLASSWINDOW            = PMWIN.   37
+                WINLOCKWINDOW                = PMWIN.   38
+                WINQUERYWINDOWLOCKCOUNT      = PMWIN.   39
+                WINREGISTERWINDOWDESTROY     = PMWIN.   40
+                WINOPENWINDOWDC              = PMWIN.   41
+                WINGETSCREENPS               = PMWIN.   42
+                WINGETPS                     = PMWIN.   43
+                WINRELEASEPS                 = PMWIN.   44
+                WINBEGINPAINT                = PMWIN.   45
+                WINENDPAINT                  = PMWIN.   46
+                WININVALIDATERECT            = PMWIN.   47
+                WININVALIDATEREGION          = PMWIN.   48
+                WINVALIDATERECT              = PMWIN.   49
+                WINVALIDATEREGION            = PMWIN.   50
+                WINQUERYUPDATERECT           = PMWIN.   51
+                WINQUERYUPDATEREGION         = PMWIN.   52
+                WINUPDATEWINDOW              = PMWIN.   53
+                WINEXCLUDEUPDATEREGION       = PMWIN.   54
+                WINLOCKWINDOWUPDATE          = PMWIN.   55
+                WINLOCKVISREGIONS            = PMWIN.   56
+                WINWINDOWFROMDC              = PMWIN.   57
+                WINCREATEMSGQUEUE            = PMWIN.   58
+                WINDESTROYMSGQUEUE           = PMWIN.   59
+                WINQUERYQUEUESTATUS          = PMWIN.   60
+                WINSENDMSG                   = PMWIN.   61
+                WINBROADCASTMSG              = PMWIN.   63
+                WININSENDMSG                 = PMWIN.   64
+                WINGETMSG                    = PMWIN.   65
+                WINPEEKMSG                   = PMWIN.   66
+                WINWAITMSG                   = PMWIN.   67
+                WINDISPATCHMSG               = PMWIN.   68
+                WINPOSTMSG                   = PMWIN.   69
+                WINPOSTQUEUEMSG              = PMWIN.   70
+                WINQUERYMSGPOS               = PMWIN.   71
+                WINQUERYMSGTIME              = PMWIN.   72
+                WINCALLMSGFILTER             = PMWIN.   73
+                WINSETMSGINTEREST            = PMWIN.   74
+                WINSETCAPTURE                = PMWIN.   75
+                WINQUERYCAPTURE              = PMWIN.   76
+                WINSETFOCUS                  = PMWIN.   77
+                WINQUERYFOCUS                = PMWIN.   78
+                WINSETACTIVEWINDOW           = PMWIN.   79
+                WINQUERYACTIVEWINDOW         = PMWIN.   80
+                WINSETSYSMODALWINDOW         = PMWIN.   81
+                WINQUERYSYSMODALWINDOW       = PMWIN.   82
+                WINISTHREADACTIVE            = PMWIN.   83
+                WINSTARTTIMER                = PMWIN.   84
+                WINSTOPTIMER                 = PMWIN.   85
+                WINGETCURRENTTIME            = PMWIN.   86
+                WINLOADPOINTER               = PMWIN.   87
+                WINCREATEPOINTER             = PMWIN.   88
+                WINDESTROYPOINTER            = PMWIN.   89
+                OLDWINQUERYPOINTERINFO       = PMWIN.   90
+                WINQUERYSYSPOINTER           = PMWIN.   91
+                WINSETPOINTER                = PMWIN.   92
+                WINQUERYPOINTER              = PMWIN.   93
+                WINSHOWPOINTER               = PMWIN.   94
+                WINSETPOINTERPOS             = PMWIN.   95
+                WINQUERYPOINTERPOS           = PMWIN.   96
+                WINGETSYSBITMAP              = PMWIN.   97
+                WINCREATECURSOR              = PMWIN.   98
+                WINDESTROYCURSOR             = PMWIN.   99
+                WINSHOWCURSOR                = PMWIN.  100
+                WINQUERYCURSORINFO           = PMWIN.  101
+                WINLOADACCELTABLE            = PMWIN.  102
+                WINCREATEACCELTABLE          = PMWIN.  103
+                WINDESTROYACCELTABLE         = PMWIN.  104
+                WINTRANSLATEACCEL            = PMWIN.  105
+                WINSETACCELTABLE             = PMWIN.  106
+                WINQUERYACCELTABLE           = PMWIN.  107
+                WINCOPYACCELTABLE            = PMWIN.  108
+                WINSETHOOK                   = PMWIN.  109
+                WINRELEASEHOOK               = PMWIN.  110
+                WINOPENCLIPBRD               = PMWIN.  111
+                WINCLOSECLIPBRD              = PMWIN.  112
+                WINEMPTYCLIPBRD              = PMWIN.  113
+                WINSETCLIPBRDOWNER           = PMWIN.  114
+                WINQUERYCLIPBRDOWNER         = PMWIN.  115
+                WINSETCLIPBRDDATA            = PMWIN.  116
+                WINQUERYCLIPBRDDATA          = PMWIN.  117
+                WINENUMCLIPBRDFMTS           = PMWIN.  118
+                WINQUERYCLIPBRDFMTINFO       = PMWIN.  119
+                WINSETCLIPBRDVIEWER          = PMWIN.  120
+                WINQUERYCLIPBRDVIEWER        = PMWIN.  121
+                WINLOADDLG                   = PMWIN.  122
+                WINCREATEDLG                 = PMWIN.  123
+                WINPROCESSDLG                = PMWIN.  124
+                WINDLGBOX                    = PMWIN.  125
+                WINDISMISSDLG                = PMWIN.  126
+                WINSENDDLGITEMMSG            = PMWIN.  127
+                WINSETDLGITEMSHORT           = PMWIN.  128
+                WINQUERYDLGITEMSHORT         = PMWIN.  129
+                WINMAPDLGPOINTS              = PMWIN.  130
+                WINSUBSTITUTESTRINGS         = PMWIN.  132
+                WINENUMDLGITEM               = PMWIN.  133
+                WINSETDLGITEMTEXT            = PMWIN.  134
+                WINQUERYDLGITEMTEXT          = PMWIN.  135
+                WINLOADMENU                  = PMWIN.  136
+                WINCREATEMENU                = PMWIN.  137
+                WINALARM                     = PMWIN.  138
+                WINMESSAGEBOX                = PMWIN.  139
+                WINCREATESTDWINDOW           = PMWIN.  140
+                WINCREATEFRAMECONTROLS       = PMWIN.  141
+                WINFORMATFRAME               = PMWIN.  142
+                WINCALCFRAMERECT             = PMWIN.  143
+                WINFLASHWINDOW               = PMWIN.  144
+                WINGETMINPOSITION            = PMWIN.  146
+                WINGETMAXPOSITION            = PMWIN.  147
+                WINQUERYSYSVALUE             = PMWIN.  149
+                WINSETSYSVALUE               = PMWIN.  150
+                WINSETSYSCOLORS              = PMWIN.  151
+                WINQUERYSYSCOLOR             = PMWIN.  152
+                WINSCROLLWINDOW              = PMWIN.  153
+                WINTRACKRECT                 = PMWIN.  154
+                WINSHOWTRACKRECT             = PMWIN.  155
+                GPILOADBITMAP                = PMWIN.  156
+                WINLOADSTRING                = PMWIN.  157
+                WINLOADMESSAGE               = PMWIN.  158
+                WINSETRECTEMPTY              = PMWIN.  159
+                WINSETRECT                   = PMWIN.  160
+                WINCOPYRECT                  = PMWIN.  161
+                WINISRECTEMPTY               = PMWIN.  162
+                WINEQUALRECT                 = PMWIN.  163
+                WINPTINRECT                  = PMWIN.  164
+                WINOFFSETRECT                = PMWIN.  165
+                WININFLATERECT               = PMWIN.  166
+                WININTERSECTRECT             = PMWIN.  167
+                WINUNIONRECT                 = PMWIN.  168
+                WINSUBTRACTRECT              = PMWIN.  169
+                WINMAKERECT                  = PMWIN.  170
+                WINMAKEPOINTS                = PMWIN.  171
+                WININVERTRECT                = PMWIN.  172
+                WINFILLRECT                  = PMWIN.  173
+                KBDPACKET                    = PMWIN.  174
+                WINDRAWPOINTER               = PMWIN.  177
+                WINDEFWINDOWPROC             = PMWIN.  178
+                WINDEFDLGPROC                = PMWIN.  179
+                WINSYNCSTARTPGM              = PMWIN.  197
+                WINSCREENSWITCH              = PMWIN.  198
+                WINRESETSYSTEM               = PMWIN.  199
+                WINQUERYHUNGPROCESS          = PMWIN.  200
+                WINLOADSTRINGTABLE           = PMWIN.  201
+                WINLOADVKEYGLYPHXLATETBL     = PMWIN.  202
+                WINLOADCHARXLATETBL          = PMWIN.  203
+                WINSETVKEYGLYPHXLATETBL      = PMWIN.  204
+                WINSETCHARXLATETBL           = PMWIN.  205
+                WINQUERYVKEYGLYPHXLATETBL    = PMWIN.  206
+                WINQUERYCHARXLATETBL         = PMWIN.  207
+                WINVKEYGLYPHCHARXLATE        = PMWIN.  208
+                WINVKEYTOSCANID              = PMWIN.  209
+                WINQUERYPROCESSCP            = PMWIN.  210
+                WINGETKEYSTATE               = PMWIN.  211
+                WINGETPHYSKEYSTATE           = PMWIN.  212
+                WINSETKEYBOARDSTATETABLE     = PMWIN.  213
+                WINENABLEPHYSINPUT           = PMWIN.  214
+                WINSETCP                     = PMWIN.  215
+                WINQUERYCP                   = PMWIN.  216
+                WINQUERYCPLIST               = PMWIN.  217
+                WINCPTRANSLATESTRING         = PMWIN.  218
+                WINCPTRANSLATECHAR           = PMWIN.  219
+                WINCOMPARESTRINGS            = PMWIN.  220
+                WINUPPER                     = PMWIN.  221
+                WINUPPERCHAR                 = PMWIN.  222
+                WINNEXTCHAR                  = PMWIN.  223
+                WINPREVCHAR                  = PMWIN.  224
+                WINCREATEHEAP                = PMWIN.  225
+                WINDESTROYHEAP               = PMWIN.  226
+                WINAVAILMEM                  = PMWIN.  227
+                WINALLOCMEM                  = PMWIN.  228
+                WINREALLOCMEM                = PMWIN.  229
+                WINFREEMEM                   = PMWIN.  230
+                WINLOCKHEAP                  = PMWIN.  231
+                WINCREATEATOMTABLE           = PMWIN.  233
+                WINDESTROYATOMTABLE          = PMWIN.  234
+                WINADDATOM                   = PMWIN.  235
+                WINFINDATOM                  = PMWIN.  236
+                WINDELETEATOM                = PMWIN.  237
+                WINQUERYATOMUSAGE            = PMWIN.  238
+                WINQUERYATOMLENGTH           = PMWIN.  239
+                WINQUERYATOMNAME             = PMWIN.  240
+                WINQUERYSYSTEMATOMTABLE      = PMWIN.  241
+                WINSETLASTERROR              = PMWIN.  242
+                WINGETLASTERROR              = PMWIN.  243
+                WINGETERRORINFO              = PMWIN.  244
+                WINFREEERRORINFO             = PMWIN.  245
+                WININITIALIZE                = PMWIN.  246
+                WINTERMINATE                 = PMWIN.  247
+                WINCATCH                     = PMWIN.  248
+                WINTHROW                     = PMWIN.  249
+                WINQUERYVERSION              = PMWIN.  250
+                FSRSEMENTER                  = PMWIN.  251
+                FSRSEMLEAVE                  = PMWIN.  252
+                FSRSEMEXIT                   = PMWIN.  253
+                FSRSEMCHECK                  = PMWIN.  254
+                FSRSEMENTERP                 = PMWIN.  255
+                AABGETREG                    = PMWIN.  256
+                AABSETREG                    = PMWIN.  257
+                VALIDATESELECTOR             = PMWIN.  258
+                LOADMODULEHANDLE             = PMWIN.  259
+                GETSCREENSELECTOR            = PMWIN.  260
+                IDENTIFYCODESELECTOR         = PMWIN.  261
+                WINQUERYWINDOWSGID           = PMWIN.  262
+                _WINSETERRORINFO             = PMWIN.  263
+                WINISPHYSINPUTENABLED        = PMWIN.  264
+                WINQUERYWINDOWDC             = PMWIN.  265
+                WINDRAWBORDER                = PMWIN.  266
+                WINDRAWTEXT                  = PMWIN.  267
+                WINDRAWBITMAP                = PMWIN.  268
+                WINQUERYWINDOWPTR            = PMWIN.  269
+                WINSETWINDOWPTR              = PMWIN.  270
+                WININITIALIZESYSTEM          = PMWIN.  271
+                WINTERMINATESYSTEM           = PMWIN.  272
+                WINLOCKSTARTINPUT            = PMWIN.  273
+                WINMSGSEMWAIT                = PMWIN.  274
+                WINMSGMUXSEMWAIT             = PMWIN.  275
+                WINSYSTEMSHUTDOWN            = PMWIN.  276
+                WINCANCELSHUTDOWN            = PMWIN.  277
+                WINSETWINDOWBITS             = PMWIN.  278
+                WINGETCLIPPS                 = PMWIN.  279
+                WINSENDQUEUEMSG              = PMWIN.  281
+                WINSETQUEUEPROC              = PMWIN.  282
+                WINDEFQUEUEPROC              = PMWIN.  283
+                WINSAVEWINDOWPOS             = PMWIN.  285
+                WINFOCUSCHANGE               = PMWIN.  286
+                WINQUERYQUEUEINFO            = PMWIN.  287
+                WINCALLHELPHOOK              = PMWIN.  288
+                WINSETATOMTABLEOWNER         = PMWIN.  289
+                WINISSHUTTINGDOWN            = PMWIN.  290
+                WINTERMINATESHUTDOWN         = PMWIN.  291
+                WINSETCLASSMSGINTEREST       = PMWIN.  292
+                VISREGIONCALLBACK            = PMWIN.  293
+                WINQUERYDLGITEMTEXTLENGTH    = PMWIN.  294
+                WINQUERYKBDLAYOUT            = PMWIN.  295
+                WINSETKBDLAYOUT              = PMWIN.  296
+                WINDDEINITIATE               = PMWIN.  297
+                WINDDERESPOND                = PMWIN.  298
+                WINDDEPOSTMSG                = PMWIN.  299
+                WINCANCELMODE                = PMWIN.  300
+                WINSETPRESPARAM              = PMWIN.  301
+                WINQUERYPRESPARAM            = PMWIN.  302
+                WINREMOVEPRESPARAM           = PMWIN.  303
+                WINTHREADASSOCQUEUE          = PMWIN.  304
+                WINQUEUEFROMID               = PMWIN.  305
+                WINQUERYSENDMSG              = PMWIN.  306
+                WINREPLYMSG                  = PMWIN.  307
+                WINWAKETHREAD                = PMWIN.  308
+                WINLOCKINPUT                 = PMWIN.  309
+                WINBUILDPTRHANDLE            = PMWIN.  310
+                DUMWINCREATEHELPINSTANCE     = PMWIN.  311
+                DUMWINDESTROYHELPINSTANCE    = PMWIN.  312
+                DUMWINASSOCIATEHELPINSTANCE  = PMWIN.  313
+                DUMWINCREATEHELPTABLE        = PMWIN.  314
+                DUMWINLOADHELPTABLE          = PMWIN.  315
+                DUMWINQUERYHELPINSTANCE      = PMWIN.  316
+                WINQUERYWINDOWMODEL          = PMWIN.  317
+                WINSETDESKTOPBKGND           = PMWIN.  318
+                WINQUERYDESKTOPBKGND         = PMWIN.  319
+                WINPOPUPMENU                 = PMWIN.  320
+                WINREALIZEPALETTE            = PMWIN.  321
+                DUMMYHELPENTRY               = PMWIN.  322
+                GETPMDDCODESELECTOR          = PMWIN.  325
+                WINSEMENTER                  = PMWIN.  326
+                WINSEMLEAVE                  = PMWIN.  327
+                WINQUERYPWND                 = PMWIN.  328
+                WINQUERYSTATE                = PMWIN.  329
+                WINLOADANIPOINTER            = PMWIN.  330
+                WINDESTROYANIPOINTER         = PMWIN.  331
+                WINSETANIPOINTER             = PMWIN.  332
+                WINENUMVKEYSCANIDS           = PMWIN.  333
+                WINSEMQUERY                  = PMWIN.  334
+                WINLOADTRANSLATIONTABLE      = PMWIN.  400
+                WINSETKBDLAYOUT2             = PMWIN.  401
+                WINSEAMLESSBOX               = PMWIN.  495
+                WINISWINDOWOVERLAPPED        = PMWIN.  496
+                WINJIGGLEMOUSE               = PMWIN.  497
+                WINTRACKSEAMLESS             = PMWIN.  498
+                WINREGISTERSEAMLESSPROC      = PMWIN.  499
+                ABNORMALPROCESSEXIT          = PMWIN.  500
+                WINPROFCONTROL               = PMWIN.  508
+                DEBUGINPUTENABLE             = PMWIN.  509
+                DEBUGINPUT                   = PMWIN.  510
+                DEBUGOUTPUT                  = PMWIN.  511
+                DEBUGCURPOS                  = PMWIN.  512
+                DEBUGCLS                     = PMWIN.  513
+                WINDEBUGBREAK                = PMWIN.  514
+                DEBUGREDIRECT                = PMWIN.  515
+                INPUTGETDEVICEINFO           = PMWIN.  590
+                STARTTIMER                   = PMWIN.  600
+                DESTROYTIMERS                = PMWIN.  601
+                WINDELETELIBRARY             = PMWIN.  602
+                WINLOADPROCEDURE             = PMWIN.  603
+                WINDELETEPROCEDURE           = PMWIN.  604
+                WINSETMSGMODE                = PMWIN.  605
+                WINSETSYNCHROMODE            = PMWIN.  606
+                WINGETDLGMSG                 = PMWIN.  607
+                WINREGISTERUSERMSG           = PMWIN.  608
+                WINQUERYANCHORBLOCK          = PMWIN.  609
+                WINLANGSUPWINDOWPROC         = PMWIN.  610
+                WINLANGSUPDLGPROC            = PMWIN.  611
+                WINREGISTERUSERDATATYPE      = PMWIN.  612
+                FARCALLHOOK                  = PMWIN.  613
+                WINISWINDOWSHOWING           = PMWIN.  614
+                WINLOADLIBRARY               = PMWIN.  615
+                WINCREATEPOINTERINDIRECT     = PMWIN.  616
+                WINQUERYPOINTERINFO          = PMWIN.  617
+                WINSETMENUDATA               = PMWIN.  618
+                WINQUERYMENUDATA             = PMWIN.  619
+                WINMENUINDEXFROMID           = PMWIN.  620
+                WINFORCEMENUREDRAW           = PMWIN.  621
+                WINGETSCANSTATE              = PMWIN.  622
+                WINSETSCANSTATETABLE         = PMWIN.  623
+                WINGETERASEPS                = PMWIN.  624
+                WINRELEASEERASEPS            = PMWIN.  625
+                WINSETWINDOWDC               = PMWIN.  626
+                WINTRANSLATECHAR             = PMWIN.  627
+                WINPORTHOLEUTIL              = PMWIN.  628
+                WINEXPLODEWINDOW             = PMWIN.  629
+                WINSETACCELTABLEVALUE        = PMWIN.  630
+                WINQUERYACCELTABLEVALUE      = PMWIN.  631
+                WINSTRETCHPOINTER            = PMWIN.  632
+                WINSETPOINTEROWNER           = PMWIN.  633
+                WINGETFRAMETREEPPSIZE        = PMWIN.  634
+                WINGETFRAMETREEPPS           = PMWIN.  635
+                WINSETFRAMETREEPPS           = PMWIN.  636
+                WINGETMINWINDOWVIEWER        = PMWIN.  637
+                WINQUERYWORKPLACEWINDOW      = PMWIN.  638
+                WINLOCKPOINTERUPDATE         = PMWIN.  639
+                WINCHECKINPUT                = PMWIN.  640
+                FARFLUSHBUFHOOK              = PMWIN.  641
+                WIN32ADDATOM                 = PMWIN.  700
+                WIN32ALARM                   = PMWIN.  701
+                WIN32BEGINENUMWINDOWS        = PMWIN.  702
+                WIN32BEGINPAINT              = PMWIN.  703
+                WIN32CALCFRAMERECT           = PMWIN.  704
+                WIN32CANCELSHUTDOWN          = PMWIN.  705
+                WIN32CLOSECLIPBRD            = PMWIN.  707
+                WIN32COMPARESTRINGS          = PMWIN.  708
+                WIN32COPYACCELTABLE          = PMWIN.  709
+                WIN32COPYRECT                = PMWIN.  710
+                WIN32CPTRANSLATECHAR         = PMWIN.  711
+                WIN32CPTRANSLATESTRING       = PMWIN.  712
+                WIN32CREATEACCELTABLE        = PMWIN.  713
+                WIN32CREATEATOMTABLE         = PMWIN.  714
+                WIN32CREATECURSOR            = PMWIN.  715
+                WIN32CREATEMSGQUEUE          = PMWIN.  716
+                WIN32CREATEPOINTER           = PMWIN.  717
+                WIN32DDEINITIATE             = PMWIN.  718
+                WIN32DDEPOSTMSG              = PMWIN.  719
+                WIN32DDERESPOND              = PMWIN.  720
+                WIN32DELETEATOM              = PMWIN.  721
+                WIN32DELETELIBRARY           = PMWIN.  722
+                WIN32DESTROYACCELTABLE       = PMWIN.  723
+                WIN32DESTROYATOMTABLE        = PMWIN.  724
+                WIN32DESTROYCURSOR           = PMWIN.  725
+                WIN32DESTROYMSGQUEUE         = PMWIN.  726
+                WIN32DESTROYPOINTER          = PMWIN.  727
+                WIN32DESTROYWINDOW           = PMWIN.  728
+                WIN32DISMISSDLG              = PMWIN.  729
+                WIN32DRAWBITMAP              = PMWIN.  730
+                WIN32DRAWBORDER              = PMWIN.  731
+                WIN32DRAWPOINTER             = PMWIN.  732
+                WIN32EMPTYCLIPBRD            = PMWIN.  733
+                WIN32ENABLEPHYSINPUT         = PMWIN.  734
+                WIN32ENABLEWINDOW            = PMWIN.  735
+                WIN32ENABLEWINDOWUPDATE      = PMWIN.  736
+                WIN32ENDENUMWINDOWS          = PMWIN.  737
+                WIN32ENDPAINT                = PMWIN.  738
+                WIN32ENUMCLIPBRDFMTS         = PMWIN.  739
+                WIN32ENUMDLGITEM             = PMWIN.  740
+                WIN32EQUALRECT               = PMWIN.  741
+                WIN32EXCLUDEUPDATEREGION     = PMWIN.  742
+                WIN32FILLRECT                = PMWIN.  743
+                WIN32FINDATOM                = PMWIN.  744
+                WIN32FLASHWINDOW             = PMWIN.  745
+                WIN32FOCUSCHANGE             = PMWIN.  746
+                WIN32FREEERRORINFO           = PMWIN.  748
+                WIN32GETCLIPPS               = PMWIN.  749
+                WIN32GETCURRENTTIME          = PMWIN.  750
+                WIN32GETERRORINFO            = PMWIN.  751
+                WIN32GETKEYSTATE             = PMWIN.  752
+                WIN32GETLASTERROR            = PMWIN.  753
+                WIN32GETMAXPOSITION          = PMWIN.  754
+                WIN32GETMINPOSITION          = PMWIN.  755
+                WIN32GETNEXTWINDOW           = PMWIN.  756
+                WIN32GETPS                   = PMWIN.  757
+                WIN32GETPHYSKEYSTATE         = PMWIN.  758
+                WIN32GETSCREENPS             = PMWIN.  759
+                WIN32GETSYSBITMAP            = PMWIN.  760
+                WIN32INSENDMSG               = PMWIN.  761
+                WIN32INFLATERECT             = PMWIN.  762
+                WIN32INITIALIZE              = PMWIN.  763
+                WIN32INTERSECTRECT           = PMWIN.  764
+                WIN32INVALIDATERECT          = PMWIN.  765
+                WIN32INVALIDATEREGION        = PMWIN.  766
+                WIN32INVERTRECT              = PMWIN.  767
+                WIN32ISCHILD                 = PMWIN.  768
+                WIN32ISPHYSINPUTENABLED      = PMWIN.  769
+                WIN32ISRECTEMPTY             = PMWIN.  770
+                WIN32ISTHREADACTIVE          = PMWIN.  771
+                WIN32ISWINDOW                = PMWIN.  772
+                WIN32ISWINDOWENABLED         = PMWIN.  773
+                WIN32ISWINDOWSHOWING         = PMWIN.  774
+                WIN32ISWINDOWVISIBLE         = PMWIN.  775
+                WIN32LOADACCELTABLE          = PMWIN.  776
+                WIN32LOADLIBRARY             = PMWIN.  777
+                WIN32LOADMENU                = PMWIN.  778
+                WIN32LOADMESSAGE             = PMWIN.  779
+                WIN32LOADPOINTER             = PMWIN.  780
+                WIN32LOADSTRING              = PMWIN.  781
+                WIN32LOCKVISREGIONS          = PMWIN.  782
+                WIN32LOCKWINDOWUPDATE        = PMWIN.  784
+                WIN32MAKEPOINTS              = PMWIN.  785
+                WIN32MAKERECT                = PMWIN.  786
+                WIN32MAPDLGPOINTS            = PMWIN.  787
+                WIN32MAPWINDOWPOINTS         = PMWIN.  788
+                WIN32MESSAGEBOX              = PMWIN.  789
+                WIN32MSGSEMWAIT              = PMWIN.  790
+                WIN32NEXTCHAR                = PMWIN.  791
+                WIN32OFFSETRECT              = PMWIN.  792
+                WIN32OPENCLIPBRD             = PMWIN.  793
+                WIN32OPENWINDOWDC            = PMWIN.  794
+                WIN32PREVCHAR                = PMWIN.  795
+                WIN32PROCESSDLG              = PMWIN.  796
+                WIN32PTINRECT                = PMWIN.  797
+                WIN32QUERYACCELTABLE         = PMWIN.  798
+                WIN32QUERYACTIVEWINDOW       = PMWIN.  799
+                WIN32QUERYANCHORBLOCK        = PMWIN.  800
+                WIN32QUERYATOMLENGTH         = PMWIN.  801
+                WIN32QUERYATOMNAME           = PMWIN.  802
+                WIN32QUERYATOMUSAGE          = PMWIN.  803
+                WIN32QUERYCAPTURE            = PMWIN.  804
+                WIN32QUERYCLASSNAME          = PMWIN.  805
+                WIN32QUERYCLIPBRDDATA        = PMWIN.  806
+                WIN32QUERYCLIPBRDFMTINFO     = PMWIN.  807
+                WIN32QUERYCLIPBRDOWNER       = PMWIN.  808
+                WIN32QUERYCLIPBRDVIEWER      = PMWIN.  809
+                WIN32QUERYCP                 = PMWIN.  810
+                WIN32QUERYCPLIST             = PMWIN.  811
+                WIN32QUERYCURSORINFO         = PMWIN.  812
+                WIN32QUERYDESKTOPWINDOW      = PMWIN.  813
+                WIN32QUERYDLGITEMSHORT       = PMWIN.  814
+                WIN32QUERYDLGITEMTEXT        = PMWIN.  815
+                WIN32QUERYDLGITEMTEXTLENGTH  = PMWIN.  816
+                WIN32QUERYFOCUS              = PMWIN.  817
+                WIN32QUERYMSGPOS             = PMWIN.  818
+                WIN32QUERYMSGTIME            = PMWIN.  819
+                WIN32QUERYOBJECTWINDOW       = PMWIN.  820
+                WIN32QUERYPOINTER            = PMWIN.  821
+                WIN32QUERYPOINTERINFO        = PMWIN.  822
+                WIN32QUERYPOINTERPOS         = PMWIN.  823
+                WIN32QUERYQUEUEINFO          = PMWIN.  824
+                WIN32QUERYQUEUESTATUS        = PMWIN.  825
+                WIN32QUERYSYSCOLOR           = PMWIN.  826
+                WIN32QUERYSYSMODALWINDOW     = PMWIN.  827
+                WIN32QUERYSYSPOINTER         = PMWIN.  828
+                WIN32QUERYSYSVALUE           = PMWIN.  829
+                WIN32QUERYSYSTEMATOMTABLE    = PMWIN.  830
+                WIN32QUERYUPDATERECT         = PMWIN.  831
+                WIN32QUERYUPDATEREGION       = PMWIN.  832
+                WIN32QUERYVERSION            = PMWIN.  833
+                WIN32QUERYWINDOW             = PMWIN.  834
+                WIN32QUERYWINDOWDC           = PMWIN.  835
+                WIN32QUERYWINDOWPOS          = PMWIN.  837
+                WIN32QUERYWINDOWPROCESS      = PMWIN.  838
+                WIN32QUERYWINDOWPTR          = PMWIN.  839
+                WIN32QUERYWINDOWRECT         = PMWIN.  840
+                WIN32QUERYWINDOWTEXT         = PMWIN.  841
+                WIN32QUERYWINDOWTEXTLENGTH   = PMWIN.  842
+                WIN32QUERYWINDOWULONG        = PMWIN.  843
+                WIN32QUERYWINDOWUSHORT       = PMWIN.  844
+                WIN32REGISTERUSERDATATYPE    = PMWIN.  845
+                WIN32REGISTERUSERMSG         = PMWIN.  846
+                WIN32RELEASEPS               = PMWIN.  848
+                WIN32SCROLLWINDOW            = PMWIN.  849
+                WIN32SETACCELTABLE           = PMWIN.  850
+                WIN32SETACTIVEWINDOW         = PMWIN.  851
+                WIN32SETCAPTURE              = PMWIN.  852
+                WIN32SETCLASSMSGINTEREST     = PMWIN.  853
+                WIN32SETCLIPBRDDATA          = PMWIN.  854
+                WIN32SETCLIPBRDOWNER         = PMWIN.  855
+                WIN32SETCLIPBRDVIEWER        = PMWIN.  856
+                WIN32SETCP                   = PMWIN.  857
+                WIN32SETDLGITEMSHORT         = PMWIN.  858
+                WIN32SETDLGITEMTEXT          = PMWIN.  859
+                WIN32SETFOCUS                = PMWIN.  860
+                WIN32SETMSGINTEREST          = PMWIN.  861
+                WIN32SETMSGMODE              = PMWIN.  862
+                WIN32SETMULTWINDOWPOS        = PMWIN.  863
+                WIN32SETOWNER                = PMWIN.  864
+                WIN32SETPARENT               = PMWIN.  865
+                WIN32SETPOINTER              = PMWIN.  866
+                WIN32SETPOINTERPOS           = PMWIN.  867
+                WIN32SETRECT                 = PMWIN.  868
+                WIN32SETRECTEMPTY            = PMWIN.  869
+                WIN32SETSYNCHROMODE          = PMWIN.  870
+                WIN32SETSYSCOLORS            = PMWIN.  871
+                WIN32SETSYSMODALWINDOW       = PMWIN.  872
+                WIN32SETSYSVALUE             = PMWIN.  873
+                WIN32SETWINDOWBITS           = PMWIN.  874
+                WIN32SETWINDOWPOS            = PMWIN.  875
+                WIN32SETWINDOWPTR            = PMWIN.  876
+                WIN32SETWINDOWTEXT           = PMWIN.  877
+                WIN32SETWINDOWULONG          = PMWIN.  878
+                WIN32SETWINDOWUSHORT         = PMWIN.  879
+                WIN32SHOWCURSOR              = PMWIN.  880
+                WIN32SHOWPOINTER             = PMWIN.  881
+                WIN32SHOWTRACKRECT           = PMWIN.  882
+                WIN32SHOWWINDOW              = PMWIN.  883
+                WIN32STARTTIMER              = PMWIN.  884
+                WIN32STOPTIMER               = PMWIN.  885
+                WIN32SUBSTITUTESTRINGS       = PMWIN.  886
+                WIN32SUBTRACTRECT            = PMWIN.  887
+                WIN32TERMINATE               = PMWIN.  888
+                WIN32TRACKRECT               = PMWIN.  890
+                WIN32UNIONRECT               = PMWIN.  891
+                WIN32UPDATEWINDOW            = PMWIN.  892
+                WIN32UPPER                   = PMWIN.  893
+                WIN32UPPERCHAR               = PMWIN.  894
+                WIN32VALIDATERECT            = PMWIN.  895
+                WIN32VALIDATEREGION          = PMWIN.  896
+                WIN32WAITMSG                 = PMWIN.  897
+                WIN32WINDOWFROMDC            = PMWIN.  898
+                WIN32WINDOWFROMID            = PMWIN.  899
+                WIN32WINDOWFROMPOINT         = PMWIN.  900
+                WIN32BROADCASTMSG            = PMWIN.  901
+                WIN32POSTQUEUEMSG            = PMWIN.  902
+                WIN32SENDDLGITEMMSG          = PMWIN.  903
+                WIN32TRANSLATEACCEL          = PMWIN.  904
+                WIN32CALLMSGFILTER           = PMWIN.  905
+                WIN32CREATEFRAMECONTROLS     = PMWIN.  906
+                WIN32CREATEMENU              = PMWIN.  907
+                WIN32CREATESTDWINDOW         = PMWIN.  908
+                WIN32CREATEWINDOW            = PMWIN.  909
+                WIN32DEFDLGPROC              = PMWIN.  910
+                WIN32DEFWINDOWPROC           = PMWIN.  911
+                WIN32DISPATCHMSG             = PMWIN.  912
+                WIN32DRAWTEXT                = PMWIN.  913
+                WIN32GETDLGMSG               = PMWIN.  914
+                WIN32GETMSG                  = PMWIN.  915
+                WIN32MSGMUXSEMWAIT           = PMWIN.  916
+                WIN32MULTWINDOWFROMIDS       = PMWIN.  917
+                WIN32PEEKMSG                 = PMWIN.  918
+                WIN32POSTMSG                 = PMWIN.  919
+                WIN32SENDMSG                 = PMWIN.  920
+                WIN32SETKEYBOARDSTATETABLE   = PMWIN.  921
+                WIN32CREATEDLG               = PMWIN.  922
+                WIN32DLGBOX                  = PMWIN.  923
+                WIN32LOADDLG                 = PMWIN.  924
+                WIN32QUERYCLASSINFO          = PMWIN.  925
+                WIN32REGISTERCLASS           = PMWIN.  926
+                WIN32RELEASEHOOK             = PMWIN.  927
+                WIN32SETHOOK                 = PMWIN.  928
+                WIN32SUBCLASSWINDOW          = PMWIN.  929
+                WIN32SETCLASSTHUNKPROC       = PMWIN.  930
+                WIN32QUERYCLASSTHUNKPROC     = PMWIN.  931
+                WIN32SETWINDOWTHUNKPROC      = PMWIN.  932
+                WIN32QUERYWINDOWTHUNKPROC    = PMWIN.  933
+                WIN32QUERYWINDOWMODEL        = PMWIN.  934
+                WIN32SETDESKTOPBKGND         = PMWIN.  935
+                WIN32QUERYDESKTOPBKGND       = PMWIN.  936
+                WIN32POPUPMENU               = PMWIN.  937
+                WIN32SETPRESPARAM            = PMWIN.  938
+                WIN32QUERYPRESPARAM          = PMWIN.  939
+                WIN32REMOVEPRESPARAM         = PMWIN.  940
+                WIN32REALIZEPALETTE          = PMWIN.  941
+                WIN32CREATEPOINTERINDIRECT   = PMWIN.  942
+                WIN32SAVEWINDOWPOS           = PMWIN.  943
+                WINCREATEFARHEAP             = PMWIN.  947
+                WINDESTROYFARHEAP            = PMWIN.  948
+                WINALLOCFARMEM               = PMWIN.  949
+                WINFREEFARMEM                = PMWIN.  950
+                WINREALLOCFARMEM             = PMWIN.  951
+                WIN32GETERASEPS              = PMWIN.  952
+                WIN32RELEASEERASEPS          = PMWIN.  953
+                DEBUG32INPUT                 = PMWIN.  954
+                DEBUG32OUTPUT                = PMWIN.  955
+                DEBUG32CURPOS                = PMWIN.  956
+                DEBUG32CLS                   = PMWIN.  957
+                WIN32DEBUGBREAK              = PMWIN.  958
+                WINSETCLASSTHUNKPROC         = PMWIN.  959
+                WINQUERYCLASSTHUNKPROC       = PMWIN.  960
+                WINSETWINDOWTHUNKPROC        = PMWIN.  961
+                WINQUERYWINDOWTHUNKPROC      = PMWIN.  962
+                WIN32SYSTEMSHUTDOWN          = PMWIN.  963
+                WIN32BUILDPTRHANDLE          = PMWIN.  964
+                WIN32EXPLODEWINDOW           = PMWIN.  965
+                WIN32SETACCELTABLEVALUE      = PMWIN.  966
+                WIN32QUERYACCELTABLEVALUE    = PMWIN.  967
+                WIN32STRETCHPOINTER          = PMWIN.  968
+                AAB32GETREG                  = PMWIN.  969
+                AAB32SETREG                  = PMWIN.  970
+                WIN32SETPOINTEROWNER         = PMWIN.  971
+                WIN32GETFRAMETREEPPSIZE      = PMWIN.  972
+                WIN32GETFRAMETREEPPS         = PMWIN.  973
+                WIN32SETFRAMETREEPPS         = PMWIN.  974
+                WIN32QUERYPROCESSCP          = PMWIN.  975
+                WIN32VISREGIONNOTIFY         = PMWIN.  976
+                WIN32SETERRORINFO            = PMWIN.  977
+                WIN32WAITEVENTSEM            = PMWIN.  978
+                WIN32REQUESTMUTEXSEM         = PMWIN.  979
+                WIN32WAITMUXWAITSEM          = PMWIN.  980
+                WINSETSYSCLIPBRDVIEWER       = PMWIN.  981
+                WIN32SETSYSCLIPBRDVIEWER     = PMWIN.  982
+                WIN32SEMQUERY                = PMWIN.  983
+                WIN32SEMENTER                = PMWIN.  984
+                WIN32SEMLEAVE                = PMWIN.  985
+                WIN32LOADPROCEDURE           = PMWIN.  986
+                WIN32DELETEPROCEDURE         = PMWIN.  987
+                WIN32MOVECURSOR              = PMWIN.  988
+                WIN32QUERYSENDMSG            = PMWIN.  990
+                WIN32REPLYMSG                = PMWIN.  991
+                WIN32WAKETHREAD              = PMWIN.  992
+                WIN32QUEUEFROMID             = PMWIN.  993
+                WIN32THREADASSOCQUEUE        = PMWIN.  994
+                WIN32LOCKINPUT               = PMWIN.  995
+                WIN32SETSYSFONT              = PMWIN.  996
+;               WIN32LOCKPOINTERUPDATE       = PMWIN.  997
+;               WIN32CHECKINPUT              = PMWIN.  998
+                FAR32LOCKUPHOOK              = PMWIN.  999
+;               WIN32QUERYVISIBLEREGION      = PMWIN. 1000
+;               WIN32SETVISIBLEREGIONNOTIFY  = PMWIN. 1001
+;               WIN32SETSYSPOINTERDATA       = PMWIN. 1002
+;               WIN32QUERYSYSPOINTERDATA     = PMWIN. 1003
+                WIN32SEAMLESSBOX             = PMWIN. 1004
+                WIN32JIGGLEMOUSE             = PMWIN. 1005
+                WIN32TRACKSEAMLESS           = PMWIN. 1006
+                WIN32REGISTERSEAMLESSPROC    = PMWIN. 1007
+                WIN32SETCHARXLATETBL         = PMWIN. 1008
+                WINMSPINIT                   = PMWIN. 1009
+                WINMSPALLOC                  = PMWIN. 1010
+                WINMSPFREE                   = PMWIN. 1011
+                THKDOS16SETFGND              = PMWIN. 1012
+                INPUTGETDEVICEINFO32         = PMWIN. 1013
+                WIN32REGISTERPEN             = PMWIN. 1014
+;               WIN32MESSAGEBOX2             = PMWIN. 1015
+                RING0FLUSHSYSQUEUE           = PMWIN. 1016
+                ISCODESELECTOR               = PMWIN. 1017
+                INPUTINTERRUPT               = PMWIN. 1018
+                INITMQSEMS                   = PMWIN. 1019
+                ALLOCMQSEM                   = PMWIN. 1020
+                FREEMQSEM                    = PMWIN. 1021
+                RING2SETBOOSTBIT             = PMWIN. 1022
+                FARRING0WRITEMESSAGE         = PMWIN. 1023
+                STOPTIMER                    = PMWIN. 1024
+                FPEN                         = PMWIN. 1026
+                WINDRAWTABBEDTEXT            = PMWIN. 1027
+                PMRELEASEMUTEXSEM            = PMWIN. 1028
+                PMREQUESTMUTEXSEM            = PMWIN. 1029
+                WIN32QUERYPOINTERCLIPRECT    = PMWIN. 1030
+                WIN32SETPOINTERCLIPRECT      = PMWIN. 1031
+                WIN32SENDMSGTIMEOUT          = PMWIN. 1032
+                WIN32WAITMSGTIMEOUT          = PMWIN. 1033
+                WIN32ISWINDOWOFCLASS         = PMWIN. 1034
+                WIN32SETATOMTABLEOWNER       = PMWIN. 1035
+                WINXXCREATEHEAP              = PMWIN. 1036
+                WINXXDESTROYHEAP             = PMWIN. 1037
+                WINXXALLOCMEM                = PMWIN. 1038
+                WINXXFREEMEM                 = PMWIN. 1039
+                WINXXALLOCFILL               = PMWIN. 1040
+                WINXXREALLOCMEM              = PMWIN. 1041
+                WINXXQUERYMEMSIZE            = PMWIN. 1042
+;               WIN32SETCLIPREGION           = PMWIN. 1043
+;               WIN32QUERYCLIPREGION         = PMWIN. 1044
+                WIN32ADDCLIPBRDVIEWER        = PMWIN. 1045
+                WIN32REMOVECLIPBRDVIEWER     = PMWIN. 1046
+                WIN32QUERYCLIPBRDVIEWERCHAIN = PMWIN. 1047
+                WIN32INCREMENTATOMUSAGE      = PMWIN. 1048
+                DAXQUERYOPENCLIPBRDWINDOW    = PMWIN. 1049
+                WINSETDAXDATA                = PMWIN. 1050
+                WINQUERYDAXDATA              = PMWIN. 1051
+                WINENUMPROPERTIES            = PMWIN. 1052
+                WINQUERYPROPERTY             = PMWIN. 1053
+                WINREMOVEPROPERTY            = PMWIN. 1054
+                WINSETPROPERTY               = PMWIN. 1055
+                WINENUMCLASSPROPERTIES       = PMWIN. 1056
+                WINQUERYCLASSPROPERTY        = PMWIN. 1057
+                WINREMOVECLASSPROPERTY       = PMWIN. 1058
+                WINSETCLASSPROPERTY          = PMWIN. 1059
+                WIN32SETKBDLAYOUT            = PMWIN. 1060
+                WIN32GETAFCVALUE             = PMWIN. 1061
+                WIN32SETAFCVALUE             = PMWIN. 1062
+                WIN32LOADVKEYGLYPHXLATETBL   = PMWIN. 1063
+                WIN32SETVKEYGLYPHXLATETBL    = PMWIN. 1064
+                WIN32QUERYVKEYGLYPHXLATETBL  = PMWIN. 1065
+                WIN32TRACKWINDOW             = PMWIN. 1066
+                WIN32SEMENTERTIMEOUT         = PMWIN. 1067
+                WINSETDESKTOPWORKAREA        = PMWIN. 1068
+                WINQUERYDESKTOPWORKAREA      = PMWIN. 1069
+                WIN32TRANSLATECHAR2          = PMWIN. 1070
+                WIN32WAITFORIDLETHREAD       = PMWIN. 1071
+                WINXXCREATEHEAP2             = PMWIN. 1072
+                WINQUERYSHAREDHEAPDATA       = PMWIN. 1073
+                WIN32QUERYACTIVEOTHERWINDOW  = PMWIN. 1074
+                WIN32ENUMVKEYSCANIDS         = PMWIN. 1075
+                WINSETLANGINFO               = PMWIN. 1500
+                WINQUERYLANGINFO             = PMWIN. 1501
+                WINSETKBDLAYER               = PMWIN. 1502
+                WINQUERYKBDLAYER             = PMWIN. 1503
+                WINSETLANGVIEWER             = PMWIN. 1504
+                WINQUERYLANGVIEWER           = PMWIN. 1505
+                WINPOUREVENT                 = PMWIN. 1600
+                WINSETMSGQIMINFO             = PMWIN. 1601
+                WINQUERYMSGQIMINFO           = PMWIN. 1602
+                DAXCREATECARET               = PMWIN.10000
+                DAXDESTROYCARET              = PMWIN.10001
+                DAXGETCARETBLINKTIME         = PMWIN.10002
+                DAXHIDECARET                 = PMWIN.10004
+                DAXSETCARETBLINKTIME         = PMWIN.10005
+                DAXSHOWCARET                 = PMWIN.10007
+                DAXSHOWCURSOR                = PMWIN.10018
+                DAXSWAPMOUSEBUTTON           = PMWIN.10019
+                LOOKUPATOM                   = PMWIN.10020
+                DAXOPENCLIPBRD               = PMWIN.10021

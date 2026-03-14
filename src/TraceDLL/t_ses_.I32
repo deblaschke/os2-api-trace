@@ -1,0 +1,110 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_SES_.I32                                                   ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL SESMGR module definitions file      ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.00 12Jun95 Created (supported LX format  and 32-bit Dos ;
+;                                 APIs only)                                   ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.31 26Jun01 Added  capability  of building  32-bit  only ;
+;                                 trace DLLs                                   ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_SES_ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL SESMGR Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+EXPORTS
+                                          DOSSMSGDOPOPUP          @ 1 RESIDENTNAME
+                                          DOSSMSWITCH             @ 2 RESIDENTNAME
+                                          DOSSMSERVEAPPREQ        @ 3 RESIDENTNAME
+                                          DOSGETTIMES             @ 4 RESIDENTNAME
+                                          DOSSMSETTITLE           @ 5 RESIDENTNAME
+                                          DOSSCRUNLOCK            @ 6 RESIDENTNAME
+                                          DOSSMDOAPPREQ           @ 7 RESIDENTNAME
+                DOSSTOPSESSION                                    @ 8 RESIDENTNAME
+                DOSSELECTSESSION                                  @ 9 RESIDENTNAME
+                                          DOSSCRLOCK              @10 RESIDENTNAME
+                                          DOSSAVREDRAWWAIT        @11 RESIDENTNAME
+                                          DOSSAVREDRAWUNDO        @12 RESIDENTNAME
+                                          DOSSMSGENDPOPUP         @13 RESIDENTNAME
+                DOSSETSESSION                                     @14 RESIDENTNAME
+                                          DOSSETMNLOCKTIME        @15 RESIDENTNAME
+                                          DOSMODEUNDO             @16 RESIDENTNAME
+                DOSSTARTSESSION                                   @17 RESIDENTNAME
+                                          DOSSMGETSTATUS          @18 RESIDENTNAME
+                                          DOSMODEWAIT             @19 RESIDENTNAME
+                                          DOSSMTERMINATE          @20 RESIDENTNAME
+                                          DOSSMGETAPPREQ          @21 RESIDENTNAME
+                                          DOSSMINITIALIZE         @23 RESIDENTNAME
+                                          DOSSMSTART              @24 RESIDENTNAME
+                                          DOSSMPARENTSWITCH       @25 RESIDENTNAME
+                                          DOSSMPAUSE              @26 RESIDENTNAME
+                                          DOSSMHDEINIT            @27 RESIDENTNAME
+                                          DOSSMPMPRESENT          @28 RESIDENTNAME
+                DOSSMREGISTERDD                                   @29 RESIDENTNAME
+                                          DOSSMSYSINIT            @30 RESIDENTNAME
+                                          DOSSMNOTIFYDD           @31 RESIDENTNAME
+                                          DOSSMNOTIFYDD2          @32 RESIDENTNAME
+                                          DOSSMOPENDD             @33 RESIDENTNAME
+                                          QHKEYBDHANDLE           @34 RESIDENTNAME
+                                          QHMOUSEHANDLE           @35 RESIDENTNAME
+                                          DOSSMSETSESSIONTYPE     @36 NONAME
+                                          Trc_Dos32StartSession   @37 NONAME
+                                          Trc_Dos32SelectSession  @38 NONAME
+                                          Trc_Dos32SetSession     @39 NONAME
+                                          Trc_Dos32StopSession    @40 NONAME
+                                          DOSREGISTERNOTIFICATION @41 RESIDENTNAME
+IMPORTS
+                DOSSMSGDOPOPUP          = SESMGR. 1
+                DOSSMSWITCH             = SESMGR. 2
+                DOSSMSERVEAPPREQ        = SESMGR. 3
+                DOSGETTIMES             = SESMGR. 4
+                DOSSMSETTITLE           = SESMGR. 5
+                DOSSCRUNLOCK            = SESMGR. 6
+                DOSSMDOAPPREQ           = SESMGR. 7
+                DOSSTOPSESSION          = SESMGR. 8
+                DOSSELECTSESSION        = SESMGR. 9
+                DOSSCRLOCK              = SESMGR.10
+                DOSSAVREDRAWWAIT        = SESMGR.11
+                DOSSAVREDRAWUNDO        = SESMGR.12
+                DOSSMSGENDPOPUP         = SESMGR.13
+                DOSSETSESSION           = SESMGR.14
+                DOSSETMNLOCKTIME        = SESMGR.15
+                DOSMODEUNDO             = SESMGR.16
+                DOSSTARTSESSION         = SESMGR.17
+                DOSSMGETSTATUS          = SESMGR.18
+                DOSMODEWAIT             = SESMGR.19
+                DOSSMTERMINATE          = SESMGR.20
+                DOSSMGETAPPREQ          = SESMGR.21
+                DOSSMINITIALIZE         = SESMGR.23
+                DOSSMSTART              = SESMGR.24
+                DOSSMPARENTSWITCH       = SESMGR.25
+                DOSSMPAUSE              = SESMGR.26
+                DOSSMHDEINIT            = SESMGR.27
+                DOSSMPMPRESENT          = SESMGR.28
+                DOSSMREGISTERDD         = SESMGR.29
+                DOSSMSYSINIT            = SESMGR.30
+                DOSSMNOTIFYDD           = SESMGR.31
+                DOSSMNOTIFYDD2          = SESMGR.32
+                DOSSMOPENDD             = SESMGR.33
+                QHKEYBDHANDLE           = SESMGR.34
+                QHMOUSEHANDLE           = SESMGR.35
+                DOSSMSETSESSIONTYPE     = SESMGR.36
+                DOS32STARTSESSION       = SESMGR.37
+                DOS32SELECTSESSION      = SESMGR.38
+                DOS32SETSESSION         = SESMGR.39
+                DOS32STOPSESSION        = SESMGR.40
+                DOSREGISTERNOTIFICATION = SESMGR.41

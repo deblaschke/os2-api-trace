@@ -1,0 +1,2003 @@
+
+
+                  Operating System/2 API Trace Supported APIs
+
+  The following table shows all of the supported OS/2 APIs,  in alphabetical
+  order,  along with their OS/2 DLL,  trace API group (if any),  and minimum
+  required version of 32-bit OS/2:
+
+                                                  API
+  API                               | DLL      | Group | Version
+  ----------------------------------+----------+-------+--------
+  Ddf32BeginList                    | HELPMGR  |       | 2.00
+  Ddf32Bitmap                       | HELPMGR  |       | 2.00
+  Ddf32EndList                      | HELPMGR  |       | 2.00
+  Ddf32HyperText                    | HELPMGR  |       | 2.00
+  Ddf32Inform                       | HELPMGR  |       | 2.00
+  Ddf32Initialize                   | HELPMGR  |       | 2.00
+  Ddf32ListItem                     | HELPMGR  |       | 2.00
+  Ddf32Metafile                     | HELPMGR  |       | 2.00
+  Ddf32Para                         | HELPMGR  |       | 2.00
+  Ddf32SetColor                     | HELPMGR  |       | 2.00
+  Ddf32SetFont                      | HELPMGR  |       | 2.00
+  Ddf32SetFontStyle                 | HELPMGR  |       | 2.00
+  Ddf32SetFormat                    | HELPMGR  |       | 2.00
+  Ddf32SetTextAlign                 | HELPMGR  |       | 2.00
+  Ddf32Text                         | HELPMGR  |       | 2.00
+  Dev16CloseDC                      | PMGPI    | DEV   | 2.00
+  Dev16Escape                       | PMGPI    | DEV   | 2.00
+  Dev16OpenDC                       | PMGPI    | DEV   | 2.00
+  Dev16PostDeviceModes              | PMGPI    | DEV   | 2.00
+  Dev16QueryCaps                    | PMGPI    | DEV   | 2.00
+  Dev16QueryDeviceNames             | PMGPI    | DEV   | 2.00
+  Dev16QueryHardcopyCaps            | PMGPI    | DEV   | 2.00
+  Dev16StdOpen                      | PMGPI    | DEV   | 2.10
+  Dev32CloseDC                      | PMGPI    | DEV   | 2.00
+  Dev32Escape                       | PMGPI    | DEV   | 2.00
+  Dev32OpenDC                       | PMGPI    | DEV   | 2.00
+  Dev32PostDeviceModes              | PMGPI    | DEV   | 2.00
+  Dev32PostEscape                   | PMGPI    | DEV   | 2.40
+  Dev32QueryCaps                    | PMGPI    | DEV   | 2.00
+  Dev32QueryDeviceNames             | PMGPI    | DEV   | 2.00
+  Dev32QueryHardcopyCaps            | PMGPI    | DEV   | 2.00
+  Dev32StdOpen                      | PMGPI    | DEV   | 2.10
+  Dos16AcquireSpinLock              | DOSCALLS | SMP   | SMP
+  Dos16AllocHuge                    | DOSCALLS | MEM   | 2.00
+  Dos16AllocSeg                     | DOSCALLS | MEM   | 2.00
+  Dos16AllocShrSeg                  | DOSCALLS | MEM   | 2.00
+  Dos16Beep                         | DOSCALLS | PROC  | 2.00
+  Dos16BufReset                     | DOSCALLS | FILE  | 2.00
+  Dos16Callback                     | DOSCALLS | DEV   | 2.00
+  Dos16CallNmPipe                   | NAMPIPES |       | 2.00
+  Dos16CaseMap                      | NLS      |       | 2.00
+  Dos16ChDir                        | DOSCALLS | FILE  | 2.00
+  Dos16ChgFilePtr                   | DOSCALLS | FILE  | 2.00
+  Dos16CLIAccess                    | DOSCALLS | DEV   | 2.00
+  Dos16Close                        | DOSCALLS | FILE  | 2.00
+  Dos16CloseQueue                   | QUECALLS |       | 2.00
+  Dos16CloseSem                     | DOSCALLS | SEM   | 2.00
+  Dos16CloseVDD                     | DOSCALLS | MVDM  | 2.00
+  Dos16ConnectNmPipe                | NAMPIPES |       | 2.00
+  Dos16Copy                         | DOSCALLS | FILE  | 2.00
+  Dos16CreateCSAlias                | DOSCALLS | MEM   | 2.00
+  Dos16CreateQueue                  | QUECALLS |       | 2.00
+  Dos16CreateSem                    | DOSCALLS | SEM   | 2.00
+  Dos16CreateSpinLock               | DOSCALLS | SMP   | SMP
+  Dos16CreateThread                 | DOSCALLS | PROC  | 2.00
+  Dos16Cwait                        | DOSCALLS | PROC  | 2.00
+  Dos16Delete                       | DOSCALLS | FILE  | 2.00
+  Dos16DevConfig                    | DOSCALLS | DEV   | 2.00
+  Dos16DevIOCtl                     | DOSCALLS | DEV   | 2.00
+  Dos16DevIOCtl2                    | DOSCALLS | DEV   | 2.00
+  Dos16DisConnectNmPipe             | NAMPIPES |       | 2.00
+  Dos16DupHandle                    | DOSCALLS | FILE  | 2.00
+  Dos16DynamicTrace                 | DOSCALLS | MISC  | 2.00
+  Dos16EditName                     | DOSCALLS | FILE  | 2.00
+  Dos16EnterCritSec                 | DOSCALLS | PROC  | 2.00
+  Dos16EnumAttribute                | DOSCALLS | FILE  | 2.00
+  Dos16ErrClass                     | DOSCALLS | MISC  | 2.00
+  Dos16Error                        | DOSCALLS | MISC  | 2.00
+  Dos16ExecPgm                      | DOSCALLS | PROC  | 2.00
+  Dos16Exit                         | DOSCALLS | PROC  | 2.00
+  Dos16ExitCritSec                  | DOSCALLS | PROC  | 2.00
+  Dos16ExitList                     | DOSCALLS | PROC  | 2.00
+  Dos16FileIO                       | DOSCALLS | FILE  | 2.00
+  Dos16FileLocks                    | DOSCALLS | FILE  | 2.00
+  Dos16FindClose                    | DOSCALLS | FILE  | 2.00
+  Dos16FindFirst                    | DOSCALLS | FILE  | 2.00
+  Dos16FindFirst2                   | DOSCALLS | FILE  | 2.00
+  Dos16FindNext                     | DOSCALLS | FILE  | 2.00
+  Dos16FlagProcess                  | DOSCALLS | SIG   | 2.00
+  Dos16ForceDelete                  | DOSCALLS | FILE  | 2.00
+  Dos16FreeModule                   | DOSCALLS | MOD   | 2.00
+  Dos16FreeResource                 | DOSCALLS | RES   | 2.00
+  Dos16FreeSeg                      | DOSCALLS | MEM   | 2.00
+  Dos16FreeSpinLock                 | DOSCALLS | SMP   | SMP
+  Dos16FSAttach                     | DOSCALLS | FILE  | 2.00
+  Dos16FSCtl                        | DOSCALLS | FILE  | 2.00
+  Dos16FSRamSemClear                | DOSCALLS | SEM   | 2.00
+  Dos16FSRamSemClear2               | DOSCALLS | SEM   | 2.45*
+  Dos16FSRamSemRequest              | DOSCALLS | SEM   | 2.00
+  Dos16FSRamSemRequest2             | DOSCALLS | SEM   | 2.45*
+  Dos16GetCollate                   | NLS      |       | 2.00
+  Dos16GetCp                        | DOSCALLS | NLS   | 2.00
+  Dos16GetCtryInfo                  | NLS      |       | 2.00
+  Dos16GetDateTime                  | DOSCALLS | TIME  | 2.00
+  Dos16GetDBCSEv                    | NLS      |       | 2.00
+  Dos16GetEnv                       | DOSCALLS | MISC  | 2.00
+  Dos16GetHugeShift                 | DOSCALLS | MEM   | 2.00
+  Dos16GetInfoSeg                   | DOSCALLS | INFO  | 2.00
+  Dos16GetMachineMode               | DOSCALLS | MISC  | 2.00
+  Dos16GetMessage                   | MSG      |       | 2.00
+  Dos16GetModHandle                 | DOSCALLS | MOD   | 2.00
+  Dos16GetModName                   | DOSCALLS | MOD   | 2.00
+  Dos16GetPID                       | DOSCALLS | PROC  | 2.00
+  Dos16GetPPID                      | DOSCALLS | PROC  | 2.00
+  Dos16GetProcAddr                  | DOSCALLS | MOD   | 2.00
+  Dos16GetPrty                      | DOSCALLS | PROC  | 2.00
+  Dos16GetResource                  | DOSCALLS | RES   | 2.00
+  Dos16GetResource2                 | DOSCALLS | RES   | 2.00
+  Dos16GetSeg                       | DOSCALLS | MEM   | 2.00
+  Dos16GetShrSeg                    | DOSCALLS | MEM   | 2.00
+  Dos16GetVersion                   | DOSCALLS | MISC  | 2.00
+  Dos16GiveSeg                      | DOSCALLS | MEM   | 2.00
+  Dos16HoldSignal                   | DOSCALLS | SIG   | 2.00
+  Dos16InsMessage                   | MSG      |       | 2.00
+  Dos16KillProcess                  | DOSCALLS | PROC  | 2.00
+  Dos16LoadModule                   | DOSCALLS | MOD   | 2.00
+  Dos16LockSeg                      | DOSCALLS | MEM   | 2.00
+  Dos16MakeNmPipe                   | NAMPIPES |       | 2.00
+  Dos16MakePipe                     | DOSCALLS | PIPE  | 2.00
+  Dos16MemAvail                     | DOSCALLS | MEM   | 2.00
+  Dos16MkDir                        | DOSCALLS | FILE  | 2.00
+  Dos16MkDir2                       | DOSCALLS | FILE  | 2.00
+  Dos16MonClose                     | MONCALLS |       | 2.00
+  Dos16MonOpen                      | MONCALLS |       | 2.00
+  Dos16MonRead                      | MONCALLS |       | 2.00
+  Dos16MonReg                       | MONCALLS |       | 2.00
+  Dos16MonWrite                     | MONCALLS |       | 2.00
+  Dos16Move                         | DOSCALLS | FILE  | 2.00
+  Dos16MuxSemWait                   | DOSCALLS | SEM   | 2.00
+  Dos16NewSize                      | DOSCALLS | FILE  | 2.00
+  Dos16Open                         | DOSCALLS | FILE  | 2.00
+  Dos16Open2                        | DOSCALLS | FILE  | 2.00
+  Dos16OpenQueue                    | QUECALLS |       | 2.00
+  Dos16OpenSem                      | DOSCALLS | SEM   | 2.00
+  Dos16OpenVDD                      | DOSCALLS | MVDM  | 2.00
+  Dos16PeekNmPipe                   | NAMPIPES |       | 2.00
+  Dos16PeekQueue                    | QUECALLS |       | 2.00
+  Dos16PhysicalDisk                 | DOSCALLS | DEV   | 2.00
+  Dos16PortAccess                   | DOSCALLS | DEV   | 2.00
+  Dos16PrintDestAdd                 | PMSPL    |       | 2.00
+  Dos16PrintDestControl             | PMSPL    |       | 2.00
+  Dos16PrintDestDel                 | PMSPL    |       | 2.00
+  Dos16PrintDestEnum                | PMSPL    |       | 2.00
+  Dos16PrintDestGetInfo             | PMSPL    |       | 2.00
+  Dos16PrintDestSetInfo             | PMSPL    |       | 2.00
+  Dos16PrintDriverEnum              | PMSPL    |       | 2.00
+  Dos16PrintJobContinue             | PMSPL    |       | 2.00
+  Dos16PrintJobDel                  | PMSPL    |       | 2.00
+  Dos16PrintJobEnum                 | PMSPL    |       | 2.00
+  Dos16PrintJobGetId                | PMSPL    |       | 2.00
+  Dos16PrintJobGetInfo              | PMSPL    |       | 2.00
+  Dos16PrintJobPause                | PMSPL    |       | 2.00
+  Dos16PrintJobSetInfo              | PMSPL    |       | 2.00
+  Dos16PrintPortEnum                | PMSPL    |       | 2.00
+  Dos16PrintQAdd                    | PMSPL    |       | 2.00
+  Dos16PrintQContinue               | PMSPL    |       | 2.00
+  Dos16PrintQDel                    | PMSPL    |       | 2.00
+  Dos16PrintQEnum                   | PMSPL    |       | 2.00
+  Dos16PrintQGetInfo                | PMSPL    |       | 2.00
+  Dos16PrintQPause                  | PMSPL    |       | 2.00
+  Dos16PrintQProcessorEnum          | PMSPL    |       | 2.00
+  Dos16PrintQPurge                  | PMSPL    |       | 2.00
+  Dos16PrintQSetInfo                | PMSPL    |       | 2.00
+  Dos16ProtectChgFilePtr            | DOSCALLS | FILE  | 2.30
+  Dos16ProtectClose                 | DOSCALLS | FILE  | 2.30
+  Dos16ProtectEnumAttribute         | DOSCALLS | FILE  | 2.30
+  Dos16ProtectFileIO                | DOSCALLS | FILE  | 2.30
+  Dos16ProtectFileLocks             | DOSCALLS | FILE  | 2.30
+  Dos16ProtectNewSize               | DOSCALLS | FILE  | 2.30
+  Dos16ProtectOpen                  | DOSCALLS | FILE  | 2.30
+  Dos16ProtectQFHandState           | DOSCALLS | FILE  | 2.30
+  Dos16ProtectQFileInfo             | DOSCALLS | FILE  | 2.30
+  Dos16ProtectSetFHandState         | DOSCALLS | FILE  | 2.30
+  Dos16ProtectSetFileInfo           | DOSCALLS | FILE  | 2.30
+  Dos16Ptrace                       | DOSCALLS | PROC  | 2.00
+  Dos16PurgeQueue                   | QUECALLS |       | 2.00
+  Dos16PutMessage                   | MSG      |       | 2.00
+  Dos16QAppType                     | DOSCALLS | SES   | 2.00
+  Dos16QCurDir                      | DOSCALLS | FILE  | 2.00
+  Dos16QCurDisk                     | DOSCALLS | FILE  | 2.00
+  Dos16QFHandState                  | DOSCALLS | FILE  | 2.00
+  Dos16QFileInfo                    | DOSCALLS | FILE  | 2.00
+  Dos16QFileMode                    | DOSCALLS | FILE  | 2.00
+  Dos16QFSAttach                    | DOSCALLS | FILE  | 2.00
+  Dos16QFSInfo                      | DOSCALLS | FILE  | 2.00
+  Dos16QHandType                    | DOSCALLS | FILE  | 2.00
+  Dos16QNmPHandState                | NAMPIPES |       | 2.00
+  Dos16QNmPipeInfo                  | NAMPIPES |       | 2.00
+  Dos16QNmPipeSemState              | NAMPIPES |       | 2.00
+  Dos16QPathInfo                    | DOSCALLS | FILE  | 2.00
+  Dos16QSysInfo                     | DOSCALLS | MISC  | 2.00
+  Dos16QueryDOSProperty             | DOSCALLS | MVDM  | 2.00
+  Dos16QueryExtLIBPATH              | DOSCALLS | MISC  | 2.30
+  Dos16QueryModFromCS               | DOSCALLS | MOD   | 2.10
+  Dos16QueryProcType                | DOSCALLS | MOD   | 2.00
+  Dos16QueryQueue                   | QUECALLS |       | 2.00
+  Dos16QueryResourceSize            | DOSCALLS | RES   | 2.00
+  Dos16QVerify                      | DOSCALLS | FILE  | 2.00
+  Dos16R2StackRealloc               | DOSCALLS | DEV   | 2.00
+  Dos16RawReadNmPipe                | NAMPIPES |       | 2.00
+  Dos16RawWriteNmPipe               | NAMPIPES |       | 2.00
+  Dos16Read                         | DOSCALLS | FILE  | 2.00
+  Dos16ReadAsync                    | DOSCALLS | FILE  | 2.00
+  Dos16ReadQueue                    | QUECALLS |       | 2.00
+  Dos16ReallocHuge                  | DOSCALLS | MEM   | 2.00
+  Dos16ReallocSeg                   | DOSCALLS | MEM   | 2.00
+  Dos16RegisterPerfCtrs             | DOSCALLS | PRF   | 2.00
+  Dos16ReleaseSpinLock              | DOSCALLS | SMP   | SMP
+  Dos16RequestVDD                   | DOSCALLS | MVDM  | 2.00
+  Dos16ResumeThread                 | DOSCALLS | PROC  | 2.00
+  Dos16RmDir                        | DOSCALLS | FILE  | 2.00
+  Dos16ScanEnv                      | DOSCALLS | MISC  | 2.00
+  Dos16SearchPath                   | DOSCALLS | MISC  | 2.00
+  Dos16SelectDisk                   | DOSCALLS | FILE  | 2.00
+  Dos16SelectSession                | SESMGR   |       | 2.00
+  Dos16SemClear                     | DOSCALLS | SEM   | 2.00
+  Dos16SemRequest                   | DOSCALLS | SEM   | 2.00
+  Dos16SemSet                       | DOSCALLS | SEM   | 2.00
+  Dos16SemSetWait                   | DOSCALLS | SEM   | 2.00
+  Dos16SemWait                      | DOSCALLS | SEM   | 2.00
+  Dos16SendSignal                   | DOSCALLS | SIG   | 2.00
+  Dos16SetCp                        | DOSCALLS | NLS   | 2.00
+  Dos16SetDateTime                  | DOSCALLS | TIME  | 2.00
+  Dos16SetDOSProperty               | DOSCALLS | MVDM  | 2.00
+  Dos16SetExtLIBPATH                | DOSCALLS | MISC  | 2.30
+  Dos16SetFHandState                | DOSCALLS | FILE  | 2.00
+  Dos16SetFileInfo                  | DOSCALLS | FILE  | 2.00
+  Dos16SetFileMode                  | DOSCALLS | FILE  | 2.00
+  Dos16SetFSInfo                    | DOSCALLS | FILE  | 2.00
+  Dos16SetMaxFH                     | DOSCALLS | FILE  | 2.00
+  Dos16SetNmPHandState              | NAMPIPES |       | 2.00
+  Dos16SetNmPipeSem                 | NAMPIPES |       | 2.00
+  Dos16SetPathInfo                  | DOSCALLS | FILE  | 2.00
+  Dos16SetProcCp                    | DOSCALLS | NLS   | 2.00
+  Dos16SetPrty                      | DOSCALLS | PROC  | 2.00
+  Dos16SetSession                   | SESMGR   |       | 2.00
+  Dos16SetSigHandler                | DOSCALLS | SIG   | 2.00
+  Dos16SetVec                       | DOSCALLS | MISC  | 2.00
+  Dos16SetVerify                    | DOSCALLS | FILE  | 2.00
+  Dos16Shutdown                     | DOSCALLS | FILE  | 2.00
+  Dos16SizeSeg                      | DOSCALLS | MEM   | 2.00
+  Dos16Sleep                        | DOSCALLS | PROC  | 2.00
+  Dos16SMRegisterDD                 | SESMGR   |       | 2.00
+  Dos16StartSession                 | SESMGR   |       | 2.00
+  Dos16StopSession                  | SESMGR   |       | 2.00
+  Dos16SubAlloc                     | DOSCALLS | MEM   | 2.00
+  Dos16SubFree                      | DOSCALLS | MEM   | 2.00
+  Dos16SubSet                       | DOSCALLS | MEM   | 2.00
+  Dos16SuspendThread                | DOSCALLS | PROC  | 2.00
+  Dos16SystemService                | DOSCALLS | DEV   | 2.00
+  Dos16SysTrace                     | DOSCALLS | MISC  | 2.00
+  Dos16TimerAsync                   | DOSCALLS | TIME  | 2.00
+  Dos16TimerStart                   | DOSCALLS | TIME  | 2.00
+  Dos16TimerStop                    | DOSCALLS | TIME  | 2.00
+  Dos16TmrQueryFreq                 | DOSCALLS | PRF   | 2.00
+  Dos16TmrQueryTime                 | DOSCALLS | PRF   | 2.00
+  Dos16TransactNmPipe               | NAMPIPES |       | 2.00
+  Dos16UnlockSeg                    | DOSCALLS | MEM   | 2.00
+  Dos16WaitNmPipe                   | NAMPIPES |       | 2.00
+  Dos16Write                        | DOSCALLS | FILE  | 2.00
+  Dos16WriteAsync                   | DOSCALLS | FILE  | 2.00
+  Dos16WriteQueue                   | QUECALLS |       | 2.00
+  Dos32AcknowledgeSignalException   | DOSCALLS | XCPT  | 2.00
+  Dos32AcquireSpinLock              | DOSCALLS | SMP   | SMP
+  Dos32AddMuxWaitSem                | DOSCALLS | SEM   | 2.00
+  Dos32AliasMem                     | DOSCALLS | MEM   | 2.00
+  Dos32AliasPerfCtrs                | DOSCALLS | PRF   | 2.00
+  Dos32AllocMem                     | DOSCALLS | MEM   | 2.00
+  Dos32AllocSharedMem               | DOSCALLS | MEM   | 2.00
+  Dos32AllocThreadLocalMemory       | DOSCALLS | PROC  | 2.30
+  Dos32AsyncTimer                   | DOSCALLS | TIME  | 2.00
+  Dos32Beep                         | DOSCALLS | PROC  | 2.00
+  Dos32CallNPipe                    | DOSCALLS | PIPE  | 2.00
+  Dos32CancelLockRequest            | DOSCALLS | FILE  | 2.00
+  Dos32CancelLockRequestL           | DOSCALLS | FILE  | 2.45
+  Dos32Close                        | DOSCALLS | FILE  | 2.00
+  Dos32CloseEventSem                | DOSCALLS | SEM   | 2.00
+  Dos32CloseMutexSem                | DOSCALLS | SEM   | 2.00
+  Dos32CloseMuxWaitSem              | DOSCALLS | SEM   | 2.00
+  Dos32CloseQueue                   | QUECALLS |       | 2.00
+  Dos32CloseVDD                     | DOSCALLS | MVDM  | 2.00
+  Dos32ConfigurePerf                | DOSCALLS | PRF   | 2.00
+  Dos32ConnectNPipe                 | DOSCALLS | PIPE  | 2.00
+  Dos32Copy                         | DOSCALLS | FILE  | 2.00
+  Dos32CreateDir                    | DOSCALLS | FILE  | 2.00
+  Dos32CreateEventSem               | DOSCALLS | SEM   | 2.00
+  Dos32CreateMutexSem               | DOSCALLS | SEM   | 2.00
+  Dos32CreateMuxWaitSem             | DOSCALLS | SEM   | 2.00
+  Dos32CreateNPipe                  | DOSCALLS | PIPE  | 2.00
+  Dos32CreatePipe                   | DOSCALLS | PIPE  | 2.00
+  Dos32CreateQueue                  | QUECALLS |       | 2.00
+  Dos32CreateSpinLock               | DOSCALLS | SMP   | SMP
+  Dos32CreateThread                 | DOSCALLS | PROC  | 2.00
+  Dos32CreateThread2                | DOSCALLS | PROC  | 2.45
+  Dos32Debug                        | DOSCALLS | PROC  | 2.00
+  Dos32DeconPerf                    | DOSCALLS | PRF   | 2.00
+  Dos32Delete                       | DOSCALLS | FILE  | 2.00
+  Dos32DeleteDir                    | DOSCALLS | FILE  | 2.00
+  Dos32DeleteMuxWaitSem             | DOSCALLS | SEM   | 2.00
+  Dos32DevConfig                    | DOSCALLS | DEV   | 2.00
+  Dos32DevIOCtl                     | DOSCALLS | DEV   | 2.00
+  Dos32DisConnectNPipe              | DOSCALLS | PIPE  | 2.00
+  Dos32DumpProcess                  | DOSCALLS | MISC  | 2.10
+  Dos32DupHandle                    | DOSCALLS | FILE  | 2.00
+  Dos32DynamicTrace                 | DOSCALLS | MISC  | 2.00
+  Dos32EditName                     | DOSCALLS | FILE  | 2.00
+  Dos32EnterCritSec                 | DOSCALLS | PROC  | 2.00
+  Dos32EnterMustComplete            | DOSCALLS | XCPT  | 2.00
+  Dos32EnumAttribute                | DOSCALLS | FILE  | 2.00
+  Dos32ErrClass                     | DOSCALLS | MISC  | 2.00
+  Dos32Error                        | DOSCALLS | MISC  | 2.00
+  Dos32ExecPgm                      | DOSCALLS | PROC  | 2.00
+  Dos32Exit                         | DOSCALLS | PROC  | 2.00
+  Dos32ExitCritSec                  | DOSCALLS | PROC  | 2.00
+  Dos32ExitList                     | DOSCALLS | PROC  | 2.00
+  Dos32ExitMustComplete             | DOSCALLS | XCPT  | 2.00
+  Dos32FindClose                    | DOSCALLS | FILE  | 2.00
+  Dos32FindFirst                    | DOSCALLS | FILE  | 2.00
+  Dos32FindNext                     | DOSCALLS | FILE  | 2.00
+  Dos32ForceDelete                  | DOSCALLS | FILE  | 2.00
+  Dos32FreeMem                      | DOSCALLS | MEM   | 2.00
+  Dos32FreeModule                   | DOSCALLS | MOD   | 2.00
+  Dos32FreeResource                 | DOSCALLS | RES   | 2.00
+  Dos32FreeSpinLock                 | DOSCALLS | SMP   | SMP
+  Dos32FreeThreadLocalMemory        | DOSCALLS | PROC  | 2.30
+  Dos32FSAttach                     | DOSCALLS | FILE  | 2.00
+  Dos32FSCtl                        | DOSCALLS | FILE  | 2.00
+  Dos32GetDateTime                  | DOSCALLS | TIME  | 2.00
+  Dos32GetInfoBlocks                | DOSCALLS | PROC  | 2.00
+  Dos32GetMessage                   | MSG      |       | 2.00
+  Dos32GetNamedSharedMem            | DOSCALLS | MEM   | 2.00
+  Dos32GetProcessorStatus           | DOSCALLS | SMP   | SMP
+  Dos32GetResource                  | DOSCALLS | RES   | 2.00
+  Dos32GetSharedMem                 | DOSCALLS | MEM   | 2.00
+  Dos32GiveSharedMem                | DOSCALLS | MEM   | 2.00
+  Dos32InsertMessage                | MSG      |       | 2.00
+  Dos32KillProcess                  | DOSCALLS | PROC  | 2.00
+  Dos32KillThread                   | DOSCALLS | PROC  | 2.00
+  Dos32ListIO                       | DOSCALLS | FILE  | 2.45
+  Dos32ListIOL                      | DOSCALLS | FILE  | 2.45
+  Dos32LoadModule                   | DOSCALLS | MOD   | 2.00
+  Dos32MapCase                      | NLS      |       | 2.00
+  Dos32Move                         | DOSCALLS | FILE  | 2.00
+  Dos32Open                         | DOSCALLS | FILE  | 2.00
+  Dos32OpenEventSem                 | DOSCALLS | SEM   | 2.00
+  Dos32OpenL                        | DOSCALLS | FILE  | 2.45
+  Dos32OpenMutexSem                 | DOSCALLS | SEM   | 2.00
+  Dos32OpenMuxWaitSem               | DOSCALLS | SEM   | 2.00
+  Dos32OpenQueue                    | QUECALLS |       | 2.00
+  Dos32OpenVDD                      | DOSCALLS | MVDM  | 2.00
+  Dos32PeekNPipe                    | DOSCALLS | PIPE  | 2.00
+  Dos32PeekQueue                    | QUECALLS |       | 2.00
+  Dos32PerfSysCall                  | DOSCALLS | SMP   | 2.40
+  Dos32PhysicalDisk                 | DOSCALLS | DEV   | 2.00
+  Dos32PMPostEventSem               | DOSCALLS | SEM   | 2.30
+  Dos32PMR3PostEventSem             | DOSCALLS | SEM   | 2.45
+  Dos32PMR3WaitEventSem             | DOSCALLS | SEM   | 2.45
+  Dos32PMRequestMutexSem            | DOSCALLS | SEM   | 2.30
+  Dos32PMWaitEventSem               | DOSCALLS | SEM   | 2.30
+  Dos32PMWaitMuxWaitSem             | DOSCALLS | SEM   | 2.30
+  Dos32PostEventSem                 | DOSCALLS | SEM   | 2.00
+  Dos32Profile                      | DOSCALLS | PROF  | 2.00
+  Dos32ProtectClose                 | DOSCALLS | FILE  | 2.10
+  Dos32ProtectEnumAttribute         | DOSCALLS | FILE  | 2.10
+  Dos32ProtectOpen                  | DOSCALLS | FILE  | 2.10
+  Dos32ProtectOpenL                 | DOSCALLS | FILE  | 2.45
+  Dos32ProtectQueryFHState          | DOSCALLS | FILE  | 2.10
+  Dos32ProtectQueryFileInfo         | DOSCALLS | FILE  | 2.10
+  Dos32ProtectRead                  | DOSCALLS | FILE  | 2.10
+  Dos32ProtectSetFHState            | DOSCALLS | FILE  | 2.10
+  Dos32ProtectSetFileInfo           | DOSCALLS | FILE  | 2.10
+  Dos32ProtectSetFileLocks          | DOSCALLS | FILE  | 2.10
+  Dos32ProtectSetFileLocksL         | DOSCALLS | FILE  | 2.45
+  Dos32ProtectSetFilePtr            | DOSCALLS | FILE  | 2.10
+  Dos32ProtectSetFilePtrL           | DOSCALLS | FILE  | 2.45
+  Dos32ProtectSetFileSize           | DOSCALLS | FILE  | 2.10
+  Dos32ProtectSetFileSizeL          | DOSCALLS | FILE  | 2.45
+  Dos32ProtectWrite                 | DOSCALLS | FILE  | 2.10
+  Dos32PurgeQueue                   | QUECALLS |       | 2.00
+  Dos32PutMessage                   | MSG      |       | 2.00
+  Dos32QueryABIOSSupport            | DOSCALLS | MOD   | 2.10
+  Dos32QueryAppType                 | DOSCALLS | SES   | 2.00
+  Dos32QueryCollate                 | NLS      |       | 2.00
+  Dos32QueryCp                      | DOSCALLS | NLS   | 2.00
+  Dos32QueryCtryInfo                | NLS      |       | 2.00
+  Dos32QueryCurrentDir              | DOSCALLS | FILE  | 2.00
+  Dos32QueryCurrentDisk             | DOSCALLS | FILE  | 2.00
+  Dos32QueryDBCSEnv                 | NLS      |       | 2.00
+  Dos32QueryDOSProperty             | DOSCALLS | MVDM  | 2.00
+  Dos32QueryEventSem                | DOSCALLS | SEM   | 2.00
+  Dos32QueryExtLIBPATH              | DOSCALLS | MISC  | 2.30
+  Dos32QueryFHState                 | DOSCALLS | FILE  | 2.00
+  Dos32QueryFileInfo                | DOSCALLS | FILE  | 2.00
+  Dos32QueryFSAttach                | DOSCALLS | FILE  | 2.00
+  Dos32QueryFSInfo                  | DOSCALLS | FILE  | 2.00
+  Dos32QueryHType                   | DOSCALLS | FILE  | 2.00
+  Dos32QueryMem                     | DOSCALLS | MEM   | 2.00
+  Dos32QueryMemState                | DOSCALLS | MEM   | 2.00
+  Dos32QueryMessageCP               | MSG      |       | 2.00
+  Dos32QueryModFromEIP              | DOSCALLS | MOD   | 2.10
+  Dos32QueryModuleHandle            | DOSCALLS | MOD   | 2.00
+  Dos32QueryModuleName              | DOSCALLS | MOD   | 2.00
+  Dos32QueryMutexSem                | DOSCALLS | SEM   | 2.00
+  Dos32QueryMuxWaitSem              | DOSCALLS | SEM   | 2.00
+  Dos32QueryNPHState                | DOSCALLS | PIPE  | 2.00
+  Dos32QueryNPipeInfo               | DOSCALLS | PIPE  | 2.00
+  Dos32QueryNPipeSemState           | DOSCALLS | PIPE  | 2.00
+  Dos32QueryPathInfo                | DOSCALLS | FILE  | 2.00
+  Dos32QueryProcAddr                | DOSCALLS | MOD   | 2.00
+  Dos32QueryProcType                | DOSCALLS | MOD   | 2.00
+  Dos32QueryQueue                   | QUECALLS |       | 2.00
+  Dos32QueryRASInfo                 | DOSCALLS | MISC  | 2.00
+  Dos32QueryResourceSize            | DOSCALLS | RES   | 2.00
+  Dos32QuerySysInfo                 | DOSCALLS | MISC  | 2.00
+  Dos32QuerySysState                | DOSCALLS | PRF   | 2.00
+  Dos32QueryThreadAffinity          | DOSCALLS | PROC  | 2.45
+  Dos32QueryThreadContext           | DOSCALLS | XCPT  | 2.40
+  Dos32QueryVerify                  | DOSCALLS | FILE  | 2.00
+  Dos32RaiseException               | DOSCALLS | XCPT  | 2.00
+  Dos32RawReadNPipe                 | DOSCALLS | PIPE  | 2.00
+  Dos32RawWriteNPipe                | DOSCALLS | PIPE  | 2.00
+  Dos32Read                         | DOSCALLS | FILE  | 2.00
+  Dos32ReadQueue                    | QUECALLS |       | 2.00
+  Dos32RegisterPerfCtrs             | DOSCALLS | PRF   | 2.00
+  Dos32ReleaseMutexSem              | DOSCALLS | SEM   | 2.00
+  Dos32ReleaseSpinLock              | DOSCALLS | SMP   | SMP
+  Dos32ReplaceModule                | DOSCALLS | MOD   | 2.00
+  Dos32RequestMutexSem              | DOSCALLS | SEM   | 2.00
+  Dos32RequestVDD                   | DOSCALLS | MVDM  | 2.00
+  Dos32ResetBuffer                  | DOSCALLS | FILE  | 2.00
+  Dos32ResetEventSem                | DOSCALLS | SEM   | 2.00
+  Dos32ResumeThread                 | DOSCALLS | PROC  | 2.00
+  Dos32ScanEnv                      | DOSCALLS | MISC  | 2.00
+  Dos32SearchPath                   | DOSCALLS | MISC  | 2.00
+  Dos32SelectSession                | SESMGR   |       | 2.00
+  Dos32SendSignalException          | DOSCALLS | XCPT  | 2.00
+  Dos32SetCp                        | DOSCALLS | NLS   | 2.00
+  Dos32SetCurrentDir                | DOSCALLS | FILE  | 2.00
+  Dos32SetDateTime                  | DOSCALLS | TIME  | 2.00
+  Dos32SetDefaultDisk               | DOSCALLS | FILE  | 2.00
+  Dos32SetDOSProperty               | DOSCALLS | MVDM  | 2.00
+  Dos32SetExceptionHandler          | DOSCALLS | XCPT  | 2.00
+  Dos32SetExtLIBPATH                | DOSCALLS | MISC  | 2.30
+  Dos32SetFHState                   | DOSCALLS | FILE  | 2.00
+  Dos32SetFileInfo                  | DOSCALLS | FILE  | 2.00
+  Dos32SetFileLocks                 | DOSCALLS | FILE  | 2.00
+  Dos32SetFileLocksL                | DOSCALLS | FILE  | 2.45
+  Dos32SetFilePtr                   | DOSCALLS | FILE  | 2.00
+  Dos32SetFilePtrL                  | DOSCALLS | FILE  | 2.45
+  Dos32SetFileSize                  | DOSCALLS | FILE  | 2.00
+  Dos32SetFileSizeL                 | DOSCALLS | FILE  | 2.45
+  Dos32SetFSInfo                    | DOSCALLS | FILE  | 2.00
+  Dos32SetMaxFH                     | DOSCALLS | FILE  | 2.00
+  Dos32SetMem                       | DOSCALLS | MEM   | 2.00
+  Dos32SetNPHState                  | DOSCALLS | PIPE  | 2.00
+  Dos32SetNPipeSem                  | DOSCALLS | PIPE  | 2.00
+  Dos32SetPathInfo                  | DOSCALLS | FILE  | 2.00
+  Dos32SetPriority                  | DOSCALLS | PROC  | 2.00
+  Dos32SetProcessCp                 | DOSCALLS | NLS   | 2.00
+  Dos32SetProcessorStatus           | DOSCALLS | SMP   | SMP
+  Dos32SetRelMaxFH                  | DOSCALLS | FILE  | 2.00
+  Dos32SetSession                   | SESMGR   |       | 2.00
+  Dos32SetSignalExceptionFocus      | DOSCALLS | XCPT  | 2.00
+  Dos32SetThreadAffinity            | DOSCALLS | PROC  | 2.45
+  Dos32SetVerify                    | DOSCALLS | FILE  | 2.00
+  Dos32Shutdown                     | DOSCALLS | FILE  | 2.00
+  Dos32Sleep                        | DOSCALLS | PROC  | 2.00
+  Dos32StartSession                 | SESMGR   |       | 2.00
+  Dos32StartTimer                   | DOSCALLS | TIME  | 2.00
+  Dos32StopSession                  | SESMGR   |       | 2.00
+  Dos32StopTimer                    | DOSCALLS | TIME  | 2.00
+  Dos32SubAllocMem                  | DOSCALLS | MEM   | 2.00
+  Dos32SubFreeMem                   | DOSCALLS | MEM   | 2.00
+  Dos32SubSetMem                    | DOSCALLS | MEM   | 2.00
+  Dos32SubUnsetMem                  | DOSCALLS | MEM   | 2.00
+  Dos32SuppressPopUps               | DOSCALLS | MISC  | 2.10
+  Dos32SuspendThread                | DOSCALLS | PROC  | 2.00
+  Dos32SystemService                | DOSCALLS | DEV   | 2.45
+  Dos32TestPSD                      | DOSCALLS | SMP   | SMP
+  Dos32TmrQueryFreq                 | DOSCALLS | PRF   | 2.00
+  Dos32TmrQueryTime                 | DOSCALLS | PRF   | 2.00
+  Dos32TransactNPipe                | DOSCALLS | PIPE  | 2.00
+  Dos32UnsetExceptionHandler        | DOSCALLS | XCPT  | 2.00
+  Dos32UnwindException              | DOSCALLS | XCPT  | 2.00
+  Dos32VerifyPidTid                 | DOSCALLS | MISC  | 2.30
+  Dos32WaitChild                    | DOSCALLS | PROC  | 2.00
+  Dos32WaitEventSem                 | DOSCALLS | SEM   | 2.00
+  Dos32WaitMuxWaitSem               | DOSCALLS | SEM   | 2.00
+  Dos32WaitNPipe                    | DOSCALLS | PIPE  | 2.00
+  Dos32WaitThread                   | DOSCALLS | PROC  | 2.00
+  Dos32Write                        | DOSCALLS | FILE  | 2.00
+  Dos32WriteQueue                   | QUECALLS |       | 2.00
+  Drg16AcceptDroppedFiles           | PMDRAG   |       | 2.00
+  Drg16AccessDraginfo               | PMDRAG   |       | 2.00
+  Drg16AddStrHandle                 | PMDRAG   |       | 2.00
+  Drg16AllocDraginfo                | PMDRAG   |       | 2.00
+  Drg16AllocDragtransfer            | PMDRAG   |       | 2.00
+  Drg16DeleteDraginfoStrHandles     | PMDRAG   |       | 2.00
+  Drg16DeleteStrHandle              | PMDRAG   |       | 2.00
+  Drg16Drag                         | PMDRAG   |       | 2.00
+  Drg16DragFiles                    | PMDRAG   |       | 2.00
+  Drg16FreeDraginfo                 | PMDRAG   |       | 2.00
+  Drg16FreeDragtransfer             | PMDRAG   |       | 2.00
+  Drg16GetPS                        | PMDRAG   |       | 2.00
+  Drg16PostTransferMsg              | PMDRAG   |       | 2.00
+  Drg16PushDraginfo                 | PMDRAG   |       | 2.00
+  Drg16QueryDragitem                | PMDRAG   |       | 2.00
+  Drg16QueryDragitemCount           | PMDRAG   |       | 2.00
+  Drg16QueryDragitemPtr             | PMDRAG   |       | 2.00
+  Drg16QueryNativeRMF               | PMDRAG   |       | 2.00
+  Drg16QueryNativeRMFLen            | PMDRAG   |       | 2.00
+  Drg16QueryStrName                 | PMDRAG   |       | 2.00
+  Drg16QueryStrNameLen              | PMDRAG   |       | 2.00
+  Drg16QueryTrueType                | PMDRAG   |       | 2.00
+  Drg16QueryTrueTypeLen             | PMDRAG   |       | 2.00
+  Drg16ReleasePS                    | PMDRAG   |       | 2.00
+  Drg16SendTransferMsg              | PMDRAG   |       | 2.00
+  Drg16SetDragImage                 | PMDRAG   |       | 2.00
+  Drg16SetDragitem                  | PMDRAG   |       | 2.00
+  Drg16SetDragPointer               | PMDRAG   |       | 2.00
+  Drg16VerifyNativeRMF              | PMDRAG   |       | 2.00
+  Drg16VerifyRMF                    | PMDRAG   |       | 2.00
+  Drg16VerifyTrueType               | PMDRAG   |       | 2.00
+  Drg16VerifyType                   | PMDRAG   |       | 2.00
+  Drg16VerifyTypeSet                | PMDRAG   |       | 2.00
+  Drg32AcceptDroppedFiles           | PMDRAG   |       | 2.00
+  Drg32AccessDraginfo               | PMDRAG   |       | 2.00
+  Drg32AddStrHandle                 | PMDRAG   |       | 2.00
+  Drg32AllocDraginfo                | PMDRAG   |       | 2.00
+  Drg32AllocDragtransfer            | PMDRAG   |       | 2.00
+  Drg32CancelLazyDrag               | PMDRAG   |       | 2.30
+  Drg32DeleteDraginfoStrHandles     | PMDRAG   |       | 2.00
+  Drg32DeleteStrHandle              | PMDRAG   |       | 2.00
+  Drg32Drag                         | PMDRAG   |       | 2.00
+  Drg32DragFiles                    | PMDRAG   |       | 2.00
+  Drg32FreeDraginfo                 | PMDRAG   |       | 2.00
+  Drg32FreeDragtransfer             | PMDRAG   |       | 2.00
+  Drg32GetPS                        | PMDRAG   |       | 2.00
+  Drg32LazyDrag                     | PMDRAG   |       | 2.30
+  Drg32LazyDrop                     | PMDRAG   |       | 2.30
+  Drg32PostTransferMsg              | PMDRAG   |       | 2.00
+  Drg32PushDraginfo                 | PMDRAG   |       | 2.00
+  Drg32QueryDraginfoPtr             | PMDRAG   |       | 2.30
+  Drg32QueryDraginfoPtrFromDragitem | PMDRAG   |       | 2.30
+  Drg32QueryDraginfoPtrFromHwnd     | PMDRAG   |       | 2.30
+  Drg32QueryDragitem                | PMDRAG   |       | 2.00
+  Drg32QueryDragitemCount           | PMDRAG   |       | 2.00
+  Drg32QueryDragitemPtr             | PMDRAG   |       | 2.00
+  Drg32QueryDragStatus              | PMDRAG   |       | 2.30
+  Drg32QueryFormat                  | PMDRAG   |       | 2.40
+  Drg32QueryNativeRMF               | PMDRAG   |       | 2.00
+  Drg32QueryNativeRMFLen            | PMDRAG   |       | 2.00
+  Drg32QueryStrName                 | PMDRAG   |       | 2.00
+  Drg32QueryStrNameLen              | PMDRAG   |       | 2.00
+  Drg32QueryTrueType                | PMDRAG   |       | 2.00
+  Drg32QueryTrueTypeLen             | PMDRAG   |       | 2.00
+  Drg32ReallocDraginfo              | PMDRAG   |       | 2.30
+  Drg32ReleasePS                    | PMDRAG   |       | 2.00
+  Drg32SendTransferMsg              | PMDRAG   |       | 2.00
+  Drg32SetDragImage                 | PMDRAG   |       | 2.00
+  Drg32SetDragitem                  | PMDRAG   |       | 2.00
+  Drg32SetDragPointer               | PMDRAG   |       | 2.00
+  Drg32VerifyNativeRMF              | PMDRAG   |       | 2.00
+  Drg32VerifyRMF                    | PMDRAG   |       | 2.00
+  Drg32VerifyTrueType               | PMDRAG   |       | 2.00
+  Drg32VerifyType                   | PMDRAG   |       | 2.00
+  Drg32VerifyTypeSet                | PMDRAG   |       | 2.00
+  Gpi16AnimatePalette               | PMGPI    | LCT   | 2.00
+  Gpi16Associate                    | PMGPI    | CTRL  | 2.00
+  Gpi16BeginArea                    | PMGPI    | PRIM  | 2.00
+  Gpi16BeginElement                 | PMGPI    | EDIT  | 2.00
+  Gpi16BeginPath                    | PMGPI    | PATH  | 2.00
+  Gpi16BitBlt                       | PMGPI    | BIT   | 2.00
+  Gpi16Box                          | PMGPI    | PRIM  | 2.00
+  Gpi16CallSegmentMatrix            | PMGPI    | TRAN  | 2.00
+  Gpi16CharString                   | PMGPI    | PRIM  | 2.00
+  Gpi16CharStringAt                 | PMGPI    | PRIM  | 2.00
+  Gpi16CharStringPos                | PMGPI    | PRIM  | 2.00
+  Gpi16CharStringPosAt              | PMGPI    | PRIM  | 2.00
+  Gpi16CloseFigure                  | PMGPI    | PATH  | 2.00
+  Gpi16CloseSegment                 | PMGPI    | SEG   | 2.00
+  Gpi16CombineRegion                | PMGPI    | RGN   | 2.00
+  Gpi16Comment                      | PMGPI    | PRIM  | 2.00
+  Gpi16Convert                      | PMGPI    | TRAN  | 2.00
+  Gpi16ConvertWithMatrix            | PMGPI    | TRAN  | 2.00
+  Gpi16CopyMetaFile                 | PMGPI    | META  | 2.00
+  Gpi16CorrelateChain               | PMGPI    | CORR  | 2.00
+  Gpi16CorrelateFrom                | PMGPI    | CORR  | 2.00
+  Gpi16CorrelateSegment             | PMGPI    | CORR  | 2.00
+  Gpi16CreateBitmap                 | PMGPI    | BIT   | 2.00
+  Gpi16CreateLogColorTable          | PMGPI    | LCT   | 2.00
+  Gpi16CreateLogFont                | PMGPI    | LCID  | 2.00
+  Gpi16CreatePalette                | PMGPI    | LCT   | 2.00
+  Gpi16CreatePS                     | PMGPI    | CTRL  | 2.00
+  Gpi16CreateRegion                 | PMGPI    | RGN   | 2.00
+  Gpi16DeleteBitmap                 | PMGPI    | BIT   | 2.00
+  Gpi16DeleteElement                | PMGPI    | EDIT  | 2.00
+  Gpi16DeleteElementRange           | PMGPI    | EDIT  | 2.00
+  Gpi16DeleteElementsBetweenLabels  | PMGPI    | EDIT  | 2.00
+  Gpi16DeleteMetaFile               | PMGPI    | META  | 2.00
+  Gpi16DeletePalette                | PMGPI    | LCT   | 2.00
+  Gpi16DeleteSegment                | PMGPI    | SEG   | 2.00
+  Gpi16DeleteSegments               | PMGPI    | SEG   | 2.00
+  Gpi16DeleteSetId                  | PMGPI    | LCID  | 2.00
+  Gpi16DestroyPS                    | PMGPI    | CTRL  | 2.00
+  Gpi16DestroyRegion                | PMGPI    | RGN   | 2.00
+  Gpi16DrawBits                     | PMGPI    | BIT   | 2.00
+  Gpi16DrawChain                    | PMGPI    | SEG   | 2.00
+  Gpi16DrawDynamics                 | PMGPI    | SEG   | 2.00
+  Gpi16DrawFrom                     | PMGPI    | SEG   | 2.00
+  Gpi16DrawSegment                  | PMGPI    | SEG   | 2.00
+  Gpi16Element                      | PMGPI    | EDIT  | 2.00
+  Gpi16EndArea                      | PMGPI    | PRIM  | 2.00
+  Gpi16EndElement                   | PMGPI    | EDIT  | 2.00
+  Gpi16EndPath                      | PMGPI    | PATH  | 2.00
+  Gpi16EqualRegion                  | PMGPI    | RGN   | 2.00
+  Gpi16Erase                        | PMGPI    | CTRL  | 2.00
+  Gpi16ErrorSegmentData             | PMGPI    | CTRL  | 2.00
+  Gpi16ExcludeClipRectangle         | PMGPI    | RGN   | 2.00
+  Gpi16FillPath                     | PMGPI    | PATH  | 2.00
+  Gpi16FloodFill                    | PMGPI    | BIT   | 2.00
+  Gpi16FrameRegion                  | PMGPI    | RGN   | 2.00
+  Gpi16FullArc                      | PMGPI    | PRIM  | 2.00
+  Gpi16GetData                      | PMGPI    | SEG   | 2.00
+  Gpi16Image                        | PMGPI    | PRIM  | 2.00
+  Gpi16IntersectClipRectangle       | PMGPI    | RGN   | 2.00
+  Gpi16Label                        | PMGPI    | EDIT  | 2.00
+  Gpi16Line                         | PMGPI    | PRIM  | 2.00
+  Gpi16LoadBitmap                   | PMGPI    | BIT   | 2.00
+  Gpi16LoadFonts                    | PMGPI    | LCID  | 2.00
+  Gpi16LoadMetaFile                 | PMGPI    | META  | 2.00
+  Gpi16LoadPublicFonts              | PMGPI    | LCID  | 2.00
+  Gpi16Marker                       | PMGPI    | PRIM  | 2.00
+  Gpi16ModifyPath                   | PMGPI    | PATH  | 2.00
+  Gpi16Move                         | PMGPI    | PRIM  | 2.00
+  Gpi16OffsetClipRegion             | PMGPI    | RGN   | 2.00
+  Gpi16OffsetElementPointer         | PMGPI    | EDIT  | 2.00
+  Gpi16OffsetRegion                 | PMGPI    | RGN   | 2.00
+  Gpi16OpenSegment                  | PMGPI    | SEG   | 2.00
+  Gpi16OutlinePath                  | PMGPI    | PATH  | 2.00
+  Gpi16PaintRegion                  | PMGPI    | RGN   | 2.00
+  Gpi16PartialArc                   | PMGPI    | PRIM  | 2.00
+  Gpi16PathToRegion                 | PMGPI    | PATH  | 2.00
+  Gpi16PlayMetaFile                 | PMGPI    | META  | 2.00
+  Gpi16PointArc                     | PMGPI    | PRIM  | 2.00
+  Gpi16PolyFillet                   | PMGPI    | PRIM  | 2.00
+  Gpi16PolyFilletSharp              | PMGPI    | PRIM  | 2.00
+  Gpi16PolyLine                     | PMGPI    | PRIM  | 2.00
+  Gpi16PolyLineDisjoint             | PMGPI    | PRIM  | 2.00
+  Gpi16PolyMarker                   | PMGPI    | PRIM  | 2.00
+  Gpi16PolySpline                   | PMGPI    | PRIM  | 2.00
+  Gpi16Pop                          | PMGPI    | PRIM  | 2.00
+  Gpi16PtInRegion                   | PMGPI    | RGN   | 2.00
+  Gpi16PtVisible                    | PMGPI    | PRIM  | 2.00
+  Gpi16PutData                      | PMGPI    | SEG   | 2.00
+  Gpi16QueryArcParams               | PMGPI    | PRIM  | 2.00
+  Gpi16QueryAttrMode                | PMGPI    | PRIM  | 2.00
+  Gpi16QueryAttrs                   | PMGPI    | PRIM  | 2.00
+  Gpi16QueryBackColor               | PMGPI    | PRIM  | 2.00
+  Gpi16QueryBackMix                 | PMGPI    | PRIM  | 2.00
+  Gpi16QueryBidiAttr                | PMBIDI   |       | 2.30
+  Gpi16QueryBitmapBits              | PMGPI    | BIT   | 2.00
+  Gpi16QueryBitmapDimension         | PMGPI    | BIT   | 2.00
+  Gpi16QueryBitmapHandle            | PMGPI    | BIT   | 2.00
+  Gpi16QueryBitmapInfoHeader        | PMGPI    | BIT   | 2.00
+  Gpi16QueryBitmapParameters        | PMGPI    | BIT   | 2.00
+  Gpi16QueryBoundaryData            | PMGPI    | CORR  | 2.00
+  Gpi16QueryCharAngle               | PMGPI    | PRIM  | 2.00
+  Gpi16QueryCharBox                 | PMGPI    | PRIM  | 2.00
+  Gpi16QueryCharBreakExtra          | PMGPI    | PRIM  | 2.00
+  Gpi16QueryCharDirection           | PMGPI    | PRIM  | 2.00
+  Gpi16QueryCharExtra               | PMGPI    | PRIM  | 2.00
+  Gpi16QueryCharMode                | PMGPI    | PRIM  | 2.00
+  Gpi16QueryCharSet                 | PMGPI    | PRIM  | 2.00
+  Gpi16QueryCharShear               | PMGPI    | PRIM  | 2.00
+  Gpi16QueryCharStringPos           | PMGPI    | PRIM  | 2.00
+  Gpi16QueryCharStringPosAt         | PMGPI    | PRIM  | 2.00
+  Gpi16QueryClipBox                 | PMGPI    | RGN   | 2.00
+  Gpi16QueryClipRegion              | PMGPI    | RGN   | 2.00
+  Gpi16QueryColor                   | PMGPI    | PRIM  | 2.00
+  Gpi16QueryColorData               | PMGPI    | LCT   | 2.00
+  Gpi16QueryColorIndex              | PMGPI    | LCT   | 2.00
+  Gpi16QueryCp                      | PMGPI    | LCID  | 2.00
+  Gpi16QueryCurrentPosition         | PMGPI    | PRIM  | 2.00
+  Gpi16QueryDefArcParams            | PMGPI    | DEF   | 2.00
+  Gpi16QueryDefAttrs                | PMGPI    | DEF   | 2.00
+  Gpi16QueryDefaultViewMatrix       | PMGPI    | TRAN  | 2.00
+  Gpi16QueryDefCharBox              | PMGPI    | PRIM  | 2.00
+  Gpi16QueryDefTag                  | PMGPI    | DEF   | 2.00
+  Gpi16QueryDefViewingLimits        | PMGPI    | DEF   | 2.00
+  Gpi16QueryDevice                  | PMGPI    | CTRL  | 2.00
+  Gpi16QueryDeviceBitmapFormats     | PMGPI    | BIT   | 2.00
+  Gpi16QueryDrawControl             | PMGPI    | CTRL  | 2.00
+  Gpi16QueryDrawingMode             | PMGPI    | CTRL  | 2.00
+  Gpi16QueryEditMode                | PMGPI    | EDIT  | 2.00
+  Gpi16QueryElement                 | PMGPI    | EDIT  | 2.00
+  Gpi16QueryElementPointer          | PMGPI    | EDIT  | 2.00
+  Gpi16QueryElementType             | PMGPI    | EDIT  | 2.00
+  Gpi16QueryFaceString              | PMGPI    | LCID  | 2.00
+  Gpi16QueryFontAction              | PMGPI    | LCID  | 2.00
+  Gpi16QueryFontFileDescriptions    | PMGPI    | LCID  | 2.00
+  Gpi16QueryFontMetrics             | PMGPI    | LCID  | 2.00
+  Gpi16QueryFonts                   | PMGPI    | LCID  | 2.00
+  Gpi16QueryGraphicsField           | PMGPI    | TRAN  | 2.00
+  Gpi16QueryInitialSegmentAttrs     | PMGPI    | SEG   | 2.00
+  Gpi16QueryKerningPairs            | PMGPI    | LCID  | 2.00
+  Gpi16QueryLineEnd                 | PMGPI    | PRIM  | 2.00
+  Gpi16QueryLineJoin                | PMGPI    | PRIM  | 2.00
+  Gpi16QueryLineType                | PMGPI    | PRIM  | 2.00
+  Gpi16QueryLineWidth               | PMGPI    | PRIM  | 2.00
+  Gpi16QueryLineWidthGeom           | PMGPI    | PRIM  | 2.00
+  Gpi16QueryLogColorTable           | PMGPI    | LCT   | 2.00
+  Gpi16QueryLogicalFont             | PMGPI    | LCID  | 2.00
+  Gpi16QueryMarker                  | PMGPI    | PRIM  | 2.00
+  Gpi16QueryMarkerBox               | PMGPI    | PRIM  | 2.00
+  Gpi16QueryMarkerSet               | PMGPI    | PRIM  | 2.00
+  Gpi16QueryMetaFileBits            | PMGPI    | META  | 2.00
+  Gpi16QueryMetaFileLength          | PMGPI    | META  | 2.00
+  Gpi16QueryMix                     | PMGPI    | PRIM  | 2.00
+  Gpi16QueryModelTransformMatrix    | PMGPI    | TRAN  | 2.00
+  Gpi16QueryNearestColor            | PMGPI    | LCT   | 2.00
+  Gpi16QueryNumberSetIds            | PMGPI    | LCID  | 2.00
+  Gpi16QueryPageViewport            | PMGPI    | TRAN  | 2.00
+  Gpi16QueryPalette                 | PMGPI    | LCT   | 2.00
+  Gpi16QueryPaletteInfo             | PMGPI    | LCT   | 2.00
+  Gpi16QueryPattern                 | PMGPI    | PRIM  | 2.00
+  Gpi16QueryPatternRefPoint         | PMGPI    | PRIM  | 2.00
+  Gpi16QueryPatternSet              | PMGPI    | PRIM  | 2.00
+  Gpi16QueryPel                     | PMGPI    | BIT   | 2.00
+  Gpi16QueryPickAperturePosition    | PMGPI    | CORR  | 2.00
+  Gpi16QueryPickApertureSize        | PMGPI    | CORR  | 2.00
+  Gpi16QueryPS                      | PMGPI    | CTRL  | 2.00
+  Gpi16QueryRealColors              | PMGPI    | LCT   | 2.00
+  Gpi16QueryRegionBox               | PMGPI    | RGN   | 2.00
+  Gpi16QueryRegionRects             | PMGPI    | RGN   | 2.00
+  Gpi16QueryRGBColor                | PMGPI    | LCT   | 2.00
+  Gpi16QuerySegmentAttrs            | PMGPI    | SEG   | 2.00
+  Gpi16QuerySegmentNames            | PMGPI    | SEG   | 2.00
+  Gpi16QuerySegmentPriority         | PMGPI    | SEG   | 2.00
+  Gpi16QuerySegmentTransformMatrix  | PMGPI    | TRAN  | 2.00
+  Gpi16QuerySetIds                  | PMGPI    | LCID  | 2.00
+  Gpi16QueryStopDraw                | PMGPI    | CTRL  | 2.00
+  Gpi16QueryTag                     | PMGPI    | CORR  | 2.00
+  Gpi16QueryTextBox                 | PMGPI    | PRIM  | 2.00
+  Gpi16QueryViewingLimits           | PMGPI    | TRAN  | 2.00
+  Gpi16QueryViewingTransformMatrix  | PMGPI    | TRAN  | 2.00
+  Gpi16QueryWidthTable              | PMGPI    | LCID  | 2.00
+  Gpi16RealizeColorTable            | PMGPI    | LCT   | 2.00
+  Gpi16RectInRegion                 | PMGPI    | RGN   | 2.00
+  Gpi16RectVisible                  | PMGPI    | PRIM  | 2.00
+  Gpi16RemoveDynamics               | PMGPI    | SEG   | 2.00
+  Gpi16ResetBoundaryData            | PMGPI    | CORR  | 2.00
+  Gpi16ResetPS                      | PMGPI    | CTRL  | 2.00
+  Gpi16RestorePS                    | PMGPI    | CTRL  | 2.00
+  Gpi16ResumePlay                   | PMGPI    | META  | 2.00
+  Gpi16Rotate                       | PMGPI    | TRAN  | 2.00
+  Gpi16SaveMetaFile                 | PMGPI    | META  | 2.00
+  Gpi16SavePS                       | PMGPI    | CTRL  | 2.00
+  Gpi16Scale                        | PMGPI    | TRAN  | 2.00
+  Gpi16SelectPalette                | PMGPI    | LCT   | 2.00
+  Gpi16SetArcParams                 | PMGPI    | PRIM  | 2.00
+  Gpi16SetAttrMode                  | PMGPI    | PRIM  | 2.00
+  Gpi16SetAttrs                     | PMGPI    | PRIM  | 2.00
+  Gpi16SetBackColor                 | PMGPI    | PRIM  | 2.00
+  Gpi16SetBackMix                   | PMGPI    | PRIM  | 2.00
+  Gpi16SetBidiAttr                  | PMBIDI   |       | 2.30
+  Gpi16SetBitmap                    | PMGPI    | BIT   | 2.00
+  Gpi16SetBitmapBits                | PMGPI    | BIT   | 2.00
+  Gpi16SetBitmapDimension           | PMGPI    | BIT   | 2.00
+  Gpi16SetBitmapId                  | PMGPI    | BIT   | 2.00
+  Gpi16SetCharAngle                 | PMGPI    | PRIM  | 2.00
+  Gpi16SetCharBox                   | PMGPI    | PRIM  | 2.00
+  Gpi16SetCharBreakExtra            | PMGPI    | PRIM  | 2.00
+  Gpi16SetCharDirection             | PMGPI    | PRIM  | 2.00
+  Gpi16SetCharExtra                 | PMGPI    | PRIM  | 2.00
+  Gpi16SetCharMode                  | PMGPI    | PRIM  | 2.00
+  Gpi16SetCharSet                   | PMGPI    | PRIM  | 2.00
+  Gpi16SetCharShear                 | PMGPI    | PRIM  | 2.00
+  Gpi16SetClipPath                  | PMGPI    | PATH  | 2.00
+  Gpi16SetClipRegion                | PMGPI    | RGN   | 2.00
+  Gpi16SetColor                     | PMGPI    | PRIM  | 2.00
+  Gpi16SetCp                        | PMGPI    | LCID  | 2.00
+  Gpi16SetCurrentPosition           | PMGPI    | PRIM  | 2.00
+  Gpi16SetDefArcParams              | PMGPI    | DEF   | 2.00
+  Gpi16SetDefAttrs                  | PMGPI    | DEF   | 2.00
+  Gpi16SetDefaultViewMatrix         | PMGPI    | TRAN  | 2.00
+  Gpi16SetDefTag                    | PMGPI    | DEF   | 2.00
+  Gpi16SetDefViewingLimits          | PMGPI    | DEF   | 2.00
+  Gpi16SetDrawControl               | PMGPI    | CTRL  | 2.00
+  Gpi16SetDrawingMode               | PMGPI    | CTRL  | 2.00
+  Gpi16SetEditMode                  | PMGPI    | EDIT  | 2.00
+  Gpi16SetElementPointer            | PMGPI    | EDIT  | 2.00
+  Gpi16SetElementPointerAtLabel     | PMGPI    | EDIT  | 2.00
+  Gpi16SetGraphicsField             | PMGPI    | TRAN  | 2.00
+  Gpi16SetInitialSegmentAttrs       | PMGPI    | SEG   | 2.00
+  Gpi16SetLineEnd                   | PMGPI    | PRIM  | 2.00
+  Gpi16SetLineJoin                  | PMGPI    | PRIM  | 2.00
+  Gpi16SetLineType                  | PMGPI    | PRIM  | 2.00
+  Gpi16SetLineWidth                 | PMGPI    | PRIM  | 2.00
+  Gpi16SetLineWidthGeom             | PMGPI    | PRIM  | 2.00
+  Gpi16SetMarker                    | PMGPI    | PRIM  | 2.00
+  Gpi16SetMarkerBox                 | PMGPI    | PRIM  | 2.00
+  Gpi16SetMarkerSet                 | PMGPI    | PRIM  | 2.00
+  Gpi16SetMetaFileBits              | PMGPI    | META  | 2.00
+  Gpi16SetMix                       | PMGPI    | PRIM  | 2.00
+  Gpi16SetModelTransformMatrix      | PMGPI    | TRAN  | 2.00
+  Gpi16SetPageViewport              | PMGPI    | TRAN  | 2.00
+  Gpi16SetPaletteEntries            | PMGPI    | LCT   | 2.00
+  Gpi16SetPattern                   | PMGPI    | PRIM  | 2.00
+  Gpi16SetPatternRefPoint           | PMGPI    | PRIM  | 2.00
+  Gpi16SetPatternSet                | PMGPI    | PRIM  | 2.00
+  Gpi16SetPel                       | PMGPI    | BIT   | 2.00
+  Gpi16SetPickAperturePosition      | PMGPI    | CORR  | 2.00
+  Gpi16SetPickApertureSize          | PMGPI    | CORR  | 2.00
+  Gpi16SetPS                        | PMGPI    | CTRL  | 2.00
+  Gpi16SetRegion                    | PMGPI    | RGN   | 2.00
+  Gpi16SetSegmentAttrs              | PMGPI    | SEG   | 2.00
+  Gpi16SetSegmentPriority           | PMGPI    | SEG   | 2.00
+  Gpi16SetSegmentTransformMatrix    | PMGPI    | TRAN  | 2.00
+  Gpi16SetStopDraw                  | PMGPI    | CTRL  | 2.00
+  Gpi16SetTag                       | PMGPI    | CORR  | 2.00
+  Gpi16SetViewingLimits             | PMGPI    | TRAN  | 2.00
+  Gpi16SetViewingTransformMatrix    | PMGPI    | TRAN  | 2.00
+  Gpi16StrokePath                   | PMGPI    | PATH  | 2.00
+  Gpi16SuspendPlay                  | PMGPI    | META  | 2.00
+  Gpi16Translate                    | PMGPI    | TRAN  | 2.00
+  Gpi16UnloadFonts                  | PMGPI    | LCID  | 2.00
+  Gpi16UnloadPublicFonts            | PMGPI    | LCID  | 2.00
+  Gpi16UnrealizeColorTable          | PMGPI    | LCT   | 2.00
+  Gpi16WCBitBlt                     | PMGPI    | BIT   | 2.00
+  Gpi32AnimatePalette               | PMGPI    | LCT   | 2.00
+  Gpi32Associate                    | PMGPI    | CTRL  | 2.00
+  Gpi32BeginArea                    | PMGPI    | PRIM  | 2.00
+  Gpi32BeginElement                 | PMGPI    | EDIT  | 2.00
+  Gpi32BeginInkPath                 | PMGPI    | INK   | 2.40
+  Gpi32BeginPath                    | PMGPI    | PATH  | 2.00
+  Gpi32BitBlt                       | PMGPI    | BIT   | 2.00
+  Gpi32Box                          | PMGPI    | PRIM  | 2.00
+  Gpi32CallSegmentMatrix            | PMGPI    | TRAN  | 2.00
+  Gpi32CharString                   | PMGPI    | PRIM  | 2.00
+  Gpi32CharStringAt                 | PMGPI    | PRIM  | 2.00
+  Gpi32CharStringPos                | PMGPI    | PRIM  | 2.00
+  Gpi32CharStringPosAt              | PMGPI    | PRIM  | 2.00
+  Gpi32CloseFigure                  | PMGPI    | PATH  | 2.00
+  Gpi32CloseSegment                 | PMGPI    | SEG   | 2.00
+  Gpi32CombineRegion                | PMGPI    | RGN   | 2.00
+  Gpi32Comment                      | PMGPI    | PRIM  | 2.00
+  Gpi32Convert                      | PMGPI    | TRAN  | 2.00
+  Gpi32ConvertWithMatrix            | PMGPI    | TRAN  | 2.00
+  Gpi32CopyMetaFile                 | PMGPI    | META  | 2.00
+  Gpi32CorrelateChain               | PMGPI    | CORR  | 2.00
+  Gpi32CorrelateFrom                | PMGPI    | CORR  | 2.00
+  Gpi32CorrelateSegment             | PMGPI    | CORR  | 2.00
+  Gpi32CreateBitmap                 | PMGPI    | BIT   | 2.00
+  Gpi32CreateEllipticRegion         | PMGPI    | RGN   | 2.40
+  Gpi32CreateLogColorTable          | PMGPI    | LCT   | 2.00
+  Gpi32CreateLogFont                | PMGPI    | LCID  | 2.00
+  Gpi32CreatePalette                | PMGPI    | LCT   | 2.00
+  Gpi32CreatePolygonRegion          | PMGPI    | POLY  | 2.40
+  Gpi32CreatePS                     | PMGPI    | CTRL  | 2.00
+  Gpi32CreateRegion                 | PMGPI    | RGN   | 2.00
+  Gpi32CreateRoundRectRegion        | PMGPI    | RGN   | 2.40
+  Gpi32DeleteBitmap                 | PMGPI    | BIT   | 2.00
+  Gpi32DeleteElement                | PMGPI    | EDIT  | 2.00
+  Gpi32DeleteElementRange           | PMGPI    | EDIT  | 2.00
+  Gpi32DeleteElementsBetweenLabels  | PMGPI    | EDIT  | 2.00
+  Gpi32DeleteMetaFile               | PMGPI    | META  | 2.00
+  Gpi32DeletePalette                | PMGPI    | LCT   | 2.00
+  Gpi32DeleteSegment                | PMGPI    | SEG   | 2.00
+  Gpi32DeleteSegments               | PMGPI    | SEG   | 2.00
+  Gpi32DeleteSetId                  | PMGPI    | LCID  | 2.00
+  Gpi32DestroyPS                    | PMGPI    | CTRL  | 2.00
+  Gpi32DestroyRegion                | PMGPI    | RGN   | 2.00
+  Gpi32DrawBits                     | PMGPI    | BIT   | 2.00
+  Gpi32DrawChain                    | PMGPI    | SEG   | 2.00
+  Gpi32DrawDynamics                 | PMGPI    | SEG   | 2.00
+  Gpi32DrawFrom                     | PMGPI    | SEG   | 2.00
+  Gpi32DrawSegment                  | PMGPI    | SEG   | 2.00
+  Gpi32Element                      | PMGPI    | EDIT  | 2.00
+  Gpi32EndArea                      | PMGPI    | PRIM  | 2.00
+  Gpi32EndElement                   | PMGPI    | EDIT  | 2.00
+  Gpi32EndInkPath                   | PMGPI    | INK   | 2.40
+  Gpi32EndPath                      | PMGPI    | PATH  | 2.00
+  Gpi32EqualRegion                  | PMGPI    | RGN   | 2.00
+  Gpi32Erase                        | PMGPI    | CTRL  | 2.00
+  Gpi32ErrorSegmentData             | PMGPI    | CTRL  | 2.00
+  Gpi32ExcludeClipRectangle         | PMGPI    | RGN   | 2.00
+  Gpi32FillPath                     | PMGPI    | PATH  | 2.00
+  Gpi32FloodFill                    | PMGPI    | BIT   | 2.00
+  Gpi32FrameRegion                  | PMGPI    | RGN   | 2.00
+  Gpi32FullArc                      | PMGPI    | PRIM  | 2.00
+  Gpi32GetData                      | PMGPI    | SEG   | 2.00
+  Gpi32Image                        | PMGPI    | PRIM  | 2.00
+  Gpi32IntersectClipRectangle       | PMGPI    | RGN   | 2.00
+  Gpi32Label                        | PMGPI    | EDIT  | 2.00
+  Gpi32Line                         | PMGPI    | PRIM  | 2.00
+  Gpi32LoadBitmap                   | PMGPI    | BIT   | 2.00
+  Gpi32LoadFonts                    | PMGPI    | LCID  | 2.00
+  Gpi32LoadMetaFile                 | PMGPI    | META  | 2.00
+  Gpi32LoadPublicFonts              | PMGPI    | LCID  | 2.00
+  Gpi32Marker                       | PMGPI    | PRIM  | 2.00
+  Gpi32ModifyPath                   | PMGPI    | PATH  | 2.00
+  Gpi32Move                         | PMGPI    | PRIM  | 2.00
+  Gpi32OffsetClipRegion             | PMGPI    | RGN   | 2.00
+  Gpi32OffsetElementPointer         | PMGPI    | EDIT  | 2.00
+  Gpi32OffsetRegion                 | PMGPI    | RGN   | 2.00
+  Gpi32OpenSegment                  | PMGPI    | SEG   | 2.00
+  Gpi32OutlinePath                  | PMGPI    | PATH  | 2.00
+  Gpi32Oval                         | PMGPI    | PRIM  | 2.45
+  Gpi32PaintRegion                  | PMGPI    | RGN   | 2.00
+  Gpi32PartialArc                   | PMGPI    | PRIM  | 2.00
+  Gpi32PathToRegion                 | PMGPI    | PATH  | 2.00
+  Gpi32PlayMetaFile                 | PMGPI    | META  | 2.00
+  Gpi32PointArc                     | PMGPI    | PRIM  | 2.00
+  Gpi32PolyFillet                   | PMGPI    | PRIM  | 2.00
+  Gpi32PolyFilletSharp              | PMGPI    | PRIM  | 2.00
+  Gpi32Polygons                     | PMGPI    | POLY  | 2.00
+  Gpi32PolyLine                     | PMGPI    | PRIM  | 2.00
+  Gpi32PolyLineDisjoint             | PMGPI    | PRIM  | 2.00
+  Gpi32PolyMarker                   | PMGPI    | PRIM  | 2.00
+  Gpi32PolySpline                   | PMGPI    | PRIM  | 2.00
+  Gpi32Pop                          | PMGPI    | PRIM  | 2.00
+  Gpi32PtInRegion                   | PMGPI    | RGN   | 2.00
+  Gpi32PtVisible                    | PMGPI    | PRIM  | 2.00
+  Gpi32PutData                      | PMGPI    | SEG   | 2.00
+  Gpi32QueryArcParams               | PMGPI    | PRIM  | 2.00
+  Gpi32QueryAttrMode                | PMGPI    | PRIM  | 2.00
+  Gpi32QueryAttrs                   | PMGPI    | PRIM  | 2.00
+  Gpi32QueryBackColor               | PMGPI    | PRIM  | 2.00
+  Gpi32QueryBackMix                 | PMGPI    | PRIM  | 2.00
+  Gpi32QueryBidiAttr                | PMBIDI   |       | 2.30
+  Gpi32QueryBitmapBits              | PMGPI    | BIT   | 2.00
+  Gpi32QueryBitmapDimension         | PMGPI    | BIT   | 2.00
+  Gpi32QueryBitmapHandle            | PMGPI    | BIT   | 2.00
+  Gpi32QueryBitmapInfoHeader        | PMGPI    | BIT   | 2.00
+  Gpi32QueryBitmapParameters        | PMGPI    | BIT   | 2.00
+  Gpi32QueryBoundaryData            | PMGPI    | CORR  | 2.00
+  Gpi32QueryCharAngle               | PMGPI    | PRIM  | 2.00
+  Gpi32QueryCharBox                 | PMGPI    | PRIM  | 2.00
+  Gpi32QueryCharBreakExtra          | PMGPI    | PRIM  | 2.00
+  Gpi32QueryCharDirection           | PMGPI    | PRIM  | 2.00
+  Gpi32QueryCharExtra               | PMGPI    | PRIM  | 2.00
+  Gpi32QueryCharMode                | PMGPI    | PRIM  | 2.00
+  Gpi32QueryCharSet                 | PMGPI    | PRIM  | 2.00
+  Gpi32QueryCharShear               | PMGPI    | PRIM  | 2.00
+  Gpi32QueryCharStringPos           | PMGPI    | PRIM  | 2.00
+  Gpi32QueryCharStringPosAt         | PMGPI    | PRIM  | 2.00
+  Gpi32QueryClipBox                 | PMGPI    | RGN   | 2.00
+  Gpi32QueryClipRegion              | PMGPI    | RGN   | 2.00
+  Gpi32QueryColor                   | PMGPI    | PRIM  | 2.00
+  Gpi32QueryColorData               | PMGPI    | LCT   | 2.00
+  Gpi32QueryColorIndex              | PMGPI    | LCT   | 2.00
+  Gpi32QueryCp                      | PMGPI    | LCID  | 2.00
+  Gpi32QueryCurrentPosition         | PMGPI    | PRIM  | 2.00
+  Gpi32QueryDefArcParams            | PMGPI    | DEF   | 2.00
+  Gpi32QueryDefAttrs                | PMGPI    | DEF   | 2.00
+  Gpi32QueryDefaultViewMatrix       | PMGPI    | TRAN  | 2.00
+  Gpi32QueryDefCharBox              | PMGPI    | PRIM  | 2.00
+  Gpi32QueryDefTag                  | PMGPI    | DEF   | 2.00
+  Gpi32QueryDefViewingLimits        | PMGPI    | DEF   | 2.00
+  Gpi32QueryDevice                  | PMGPI    | CTRL  | 2.00
+  Gpi32QueryDeviceBitmapFormats     | PMGPI    | BIT   | 2.00
+  Gpi32QueryDrawControl             | PMGPI    | CTRL  | 2.00
+  Gpi32QueryDrawingMode             | PMGPI    | CTRL  | 2.00
+  Gpi32QueryEditMode                | PMGPI    | EDIT  | 2.00
+  Gpi32QueryElement                 | PMGPI    | EDIT  | 2.00
+  Gpi32QueryElementPointer          | PMGPI    | EDIT  | 2.00
+  Gpi32QueryElementType             | PMGPI    | EDIT  | 2.00
+  Gpi32QueryFaceString              | PMGPI    | LCID  | 2.00
+  Gpi32QueryFontAction              | PMGPI    | LCID  | 2.00
+  Gpi32QueryFontFileDescriptions    | PMGPI    | LCID  | 2.00
+  Gpi32QueryFontMappingFlags        | PMGPI    | LCID  | 2.40
+  Gpi32QueryFontMetrics             | PMGPI    | LCID  | 2.00
+  Gpi32QueryFonts                   | PMGPI    | LCID  | 2.00
+  Gpi32QueryFullFontFileDescs       | PMGPI    | LCID  | 2.00
+  Gpi32QueryGraphicsField           | PMGPI    | TRAN  | 2.00
+  Gpi32QueryInitialSegmentAttrs     | PMGPI    | SEG   | 2.00
+  Gpi32QueryKerningPairs            | PMGPI    | LCID  | 2.00
+  Gpi32QueryLineEnd                 | PMGPI    | PRIM  | 2.00
+  Gpi32QueryLineJoin                | PMGPI    | PRIM  | 2.00
+  Gpi32QueryLineType                | PMGPI    | PRIM  | 2.00
+  Gpi32QueryLineWidth               | PMGPI    | PRIM  | 2.00
+  Gpi32QueryLineWidthGeom           | PMGPI    | PRIM  | 2.00
+  Gpi32QueryLogColorTable           | PMGPI    | LCT   | 2.00
+  Gpi32QueryLogicalFont             | PMGPI    | LCID  | 2.00
+  Gpi32QueryMarker                  | PMGPI    | PRIM  | 2.00
+  Gpi32QueryMarkerBox               | PMGPI    | PRIM  | 2.00
+  Gpi32QueryMarkerSet               | PMGPI    | PRIM  | 2.00
+  Gpi32QueryMetaFileBits            | PMGPI    | META  | 2.00
+  Gpi32QueryMetaFileLength          | PMGPI    | META  | 2.00
+  Gpi32QueryMix                     | PMGPI    | PRIM  | 2.00
+  Gpi32QueryModelTransformMatrix    | PMGPI    | TRAN  | 2.00
+  Gpi32QueryNearestColor            | PMGPI    | LCT   | 2.00
+  Gpi32QueryNearestPaletteIndex     | PMGPI    | LCT   | 2.40
+  Gpi32QueryNumberSetIds            | PMGPI    | LCID  | 2.00
+  Gpi32QueryPageViewport            | PMGPI    | TRAN  | 2.00
+  Gpi32QueryPalette                 | PMGPI    | LCT   | 2.00
+  Gpi32QueryPaletteInfo             | PMGPI    | LCT   | 2.00
+  Gpi32QueryPattern                 | PMGPI    | PRIM  | 2.00
+  Gpi32QueryPatternRefPoint         | PMGPI    | PRIM  | 2.00
+  Gpi32QueryPatternSet              | PMGPI    | PRIM  | 2.00
+  Gpi32QueryPel                     | PMGPI    | BIT   | 2.00
+  Gpi32QueryPickAperturePosition    | PMGPI    | CORR  | 2.00
+  Gpi32QueryPickApertureSize        | PMGPI    | CORR  | 2.00
+  Gpi32QueryPS                      | PMGPI    | CTRL  | 2.00
+  Gpi32QueryRasterizerCaps          | PMGPI    | LCID  | 2.40
+  Gpi32QueryRealColors              | PMGPI    | LCT   | 2.00
+  Gpi32QueryRegionBox               | PMGPI    | RGN   | 2.00
+  Gpi32QueryRegionRects             | PMGPI    | RGN   | 2.00
+  Gpi32QueryRGBColor                | PMGPI    | LCT   | 2.00
+  Gpi32QuerySegmentAttrs            | PMGPI    | SEG   | 2.00
+  Gpi32QuerySegmentNames            | PMGPI    | SEG   | 2.00
+  Gpi32QuerySegmentPriority         | PMGPI    | SEG   | 2.00
+  Gpi32QuerySegmentTransformMatrix  | PMGPI    | TRAN  | 2.00
+  Gpi32QuerySetIds                  | PMGPI    | LCID  | 2.00
+  Gpi32QueryStopDraw                | PMGPI    | CTRL  | 2.00
+  Gpi32QueryTabbedTextExtent        | PMGPI    | PRIM  | 2.40
+  Gpi32QueryTag                     | PMGPI    | CORR  | 2.00
+  Gpi32QueryTextAlignment           | PMGPI    | PRIM  | 2.00
+  Gpi32QueryTextBox                 | PMGPI    | PRIM  | 2.00
+  Gpi32QueryViewingLimits           | PMGPI    | TRAN  | 2.00
+  Gpi32QueryViewingTransformMatrix  | PMGPI    | TRAN  | 2.00
+  Gpi32QueryWidthTable              | PMGPI    | LCID  | 2.00
+  Gpi32RectInRegion                 | PMGPI    | RGN   | 2.00
+  Gpi32RectVisible                  | PMGPI    | PRIM  | 2.00
+  Gpi32RemoveDynamics               | PMGPI    | SEG   | 2.00
+  Gpi32ResetBoundaryData            | PMGPI    | CORR  | 2.00
+  Gpi32ResetPS                      | PMGPI    | CTRL  | 2.00
+  Gpi32ResizePalette                | PMGPI    | LCT   | 2.40
+  Gpi32RestorePS                    | PMGPI    | CTRL  | 2.00
+  Gpi32ResumePlay                   | PMGPI    | META  | 2.00
+  Gpi32Rotate                       | PMGPI    | TRAN  | 2.00
+  Gpi32SaveMetaFile                 | PMGPI    | META  | 2.00
+  Gpi32SavePS                       | PMGPI    | CTRL  | 2.00
+  Gpi32Scale                        | PMGPI    | TRAN  | 2.00
+  Gpi32SelectPalette                | PMGPI    | LCT   | 2.00
+  Gpi32SetArcParams                 | PMGPI    | PRIM  | 2.00
+  Gpi32SetAttrMode                  | PMGPI    | PRIM  | 2.00
+  Gpi32SetAttrs                     | PMGPI    | PRIM  | 2.00
+  Gpi32SetBackColor                 | PMGPI    | PRIM  | 2.00
+  Gpi32SetBackMix                   | PMGPI    | PRIM  | 2.00
+  Gpi32SetBidiAttr                  | PMBIDI   |       | 2.30
+  Gpi32SetBitmap                    | PMGPI    | BIT   | 2.00
+  Gpi32SetBitmapBits                | PMGPI    | BIT   | 2.00
+  Gpi32SetBitmapDimension           | PMGPI    | BIT   | 2.00
+  Gpi32SetBitmapId                  | PMGPI    | BIT   | 2.00
+  Gpi32SetCharAngle                 | PMGPI    | PRIM  | 2.00
+  Gpi32SetCharBox                   | PMGPI    | PRIM  | 2.00
+  Gpi32SetCharBreakExtra            | PMGPI    | PRIM  | 2.00
+  Gpi32SetCharDirection             | PMGPI    | PRIM  | 2.00
+  Gpi32SetCharExtra                 | PMGPI    | PRIM  | 2.00
+  Gpi32SetCharMode                  | PMGPI    | PRIM  | 2.00
+  Gpi32SetCharSet                   | PMGPI    | PRIM  | 2.00
+  Gpi32SetCharShear                 | PMGPI    | PRIM  | 2.00
+  Gpi32SetClipPath                  | PMGPI    | PATH  | 2.00
+  Gpi32SetClipRegion                | PMGPI    | RGN   | 2.00
+  Gpi32SetColor                     | PMGPI    | PRIM  | 2.00
+  Gpi32SetCp                        | PMGPI    | LCID  | 2.00
+  Gpi32SetCurrentPosition           | PMGPI    | PRIM  | 2.00
+  Gpi32SetDefArcParams              | PMGPI    | DEF   | 2.00
+  Gpi32SetDefAttrs                  | PMGPI    | DEF   | 2.00
+  Gpi32SetDefaultViewMatrix         | PMGPI    | TRAN  | 2.00
+  Gpi32SetDefTag                    | PMGPI    | DEF   | 2.00
+  Gpi32SetDefViewingLimits          | PMGPI    | DEF   | 2.00
+  Gpi32SetDrawControl               | PMGPI    | CTRL  | 2.00
+  Gpi32SetDrawingMode               | PMGPI    | CTRL  | 2.00
+  Gpi32SetEditMode                  | PMGPI    | EDIT  | 2.00
+  Gpi32SetElementPointer            | PMGPI    | EDIT  | 2.00
+  Gpi32SetElementPointerAtLabel     | PMGPI    | EDIT  | 2.00
+  Gpi32SetFontMappingFlags          | PMGPI    | LCID  | 2.40
+  Gpi32SetGraphicsField             | PMGPI    | TRAN  | 2.00
+  Gpi32SetInitialSegmentAttrs       | PMGPI    | SEG   | 2.00
+  Gpi32SetLineEnd                   | PMGPI    | PRIM  | 2.00
+  Gpi32SetLineJoin                  | PMGPI    | PRIM  | 2.00
+  Gpi32SetLineType                  | PMGPI    | PRIM  | 2.00
+  Gpi32SetLineWidth                 | PMGPI    | PRIM  | 2.00
+  Gpi32SetLineWidthGeom             | PMGPI    | PRIM  | 2.00
+  Gpi32SetMarker                    | PMGPI    | PRIM  | 2.00
+  Gpi32SetMarkerBox                 | PMGPI    | PRIM  | 2.00
+  Gpi32SetMarkerSet                 | PMGPI    | PRIM  | 2.00
+  Gpi32SetMetaFileBits              | PMGPI    | META  | 2.00
+  Gpi32SetMix                       | PMGPI    | PRIM  | 2.00
+  Gpi32SetModelTransformMatrix      | PMGPI    | TRAN  | 2.00
+  Gpi32SetPageViewport              | PMGPI    | TRAN  | 2.00
+  Gpi32SetPaletteEntries            | PMGPI    | LCT   | 2.00
+  Gpi32SetPattern                   | PMGPI    | PRIM  | 2.00
+  Gpi32SetPatternRefPoint           | PMGPI    | PRIM  | 2.00
+  Gpi32SetPatternSet                | PMGPI    | PRIM  | 2.00
+  Gpi32SetPel                       | PMGPI    | BIT   | 2.00
+  Gpi32SetPickAperturePosition      | PMGPI    | CORR  | 2.00
+  Gpi32SetPickApertureSize          | PMGPI    | CORR  | 2.00
+  Gpi32SetPS                        | PMGPI    | CTRL  | 2.00
+  Gpi32SetRegion                    | PMGPI    | RGN   | 2.00
+  Gpi32SetSegmentAttrs              | PMGPI    | SEG   | 2.00
+  Gpi32SetSegmentPriority           | PMGPI    | SEG   | 2.00
+  Gpi32SetSegmentTransformMatrix    | PMGPI    | TRAN  | 2.00
+  Gpi32SetStopDraw                  | PMGPI    | CTRL  | 2.00
+  Gpi32SetTag                       | PMGPI    | CORR  | 2.00
+  Gpi32SetTextAlignment             | PMGPI    | PRIM  | 2.00
+  Gpi32SetViewingLimits             | PMGPI    | TRAN  | 2.00
+  Gpi32SetViewingTransformMatrix    | PMGPI    | TRAN  | 2.00
+  Gpi32StrokeInkPath                | PMGPI    | INK   | 2.40
+  Gpi32StrokePath                   | PMGPI    | PATH  | 2.00
+  Gpi32SuspendPlay                  | PMGPI    | META  | 2.00
+  Gpi32TabbedCharStringAt           | PMGPI    | PRIM  | 2.40
+  Gpi32Translate                    | PMGPI    | TRAN  | 2.00
+  Gpi32UnloadFonts                  | PMGPI    | LCID  | 2.00
+  Gpi32UnloadPublicFonts            | PMGPI    | LCID  | 2.00
+  Gpi32WCBitBlt                     | PMGPI    | BIT   | 2.00
+  Kbd16CharIn                       | KBDCALLS |       | 2.00
+  Kbd16Close                        | KBDCALLS |       | 2.00
+  Kbd16DeRegister                   | KBDCALLS |       | 2.00
+  Kbd16FlushBuffer                  | KBDCALLS |       | 2.00
+  Kbd16FreeFocus                    | KBDCALLS |       | 2.00
+  Kbd16GetCp                        | KBDCALLS |       | 2.00
+  Kbd16GetFocus                     | KBDCALLS |       | 2.00
+  Kbd16GetHWId                      | KBDCALLS |       | 2.00
+  Kbd16GetStatus                    | KBDCALLS |       | 2.00
+  Kbd16Open                         | KBDCALLS |       | 2.00
+  Kbd16Peek                         | KBDCALLS |       | 2.00
+  Kbd16Register                     | KBDCALLS |       | 2.00
+  Kbd16SetCp                        | KBDCALLS |       | 2.00
+  Kbd16SetCustXt                    | KBDCALLS |       | 2.00
+  Kbd16SetFgnd                      | KBDCALLS |       | 2.00
+  Kbd16SetHWId                      | KBDCALLS |       | 2.00
+  Kbd16SetStatus                    | KBDCALLS |       | 2.00
+  Kbd16StringIn                     | KBDCALLS |       | 2.00
+  Kbd16Synch                        | KBDCALLS |       | 2.00
+  Kbd16Xlate                        | KBDCALLS |       | 2.00
+  Mou16Close                        | MOUCALLS |       | 2.00
+  Mou16DeRegister                   | MOUCALLS |       | 2.00
+  Mou16DrawPtr                      | MOUCALLS |       | 2.00
+  Mou16FlushQue                     | MOUCALLS |       | 2.00
+  Mou16GetDevStatus                 | MOUCALLS |       | 2.00
+  Mou16GetEventMask                 | MOUCALLS |       | 2.00
+  Mou16GetNumButtons                | MOUCALLS |       | 2.00
+  Mou16GetNumMickeys                | MOUCALLS |       | 2.00
+  Mou16GetNumQueEl                  | MOUCALLS |       | 2.00
+  Mou16GetPtrPos                    | MOUCALLS |       | 2.00
+  Mou16GetPtrShape                  | MOUCALLS |       | 2.00
+  Mou16GetScaleFact                 | MOUCALLS |       | 2.00
+  Mou16GetThreshold                 | MOUCALLS |       | 2.00
+  Mou16InitReal                     | MOUCALLS |       | 2.00
+  Mou16Open                         | MOUCALLS |       | 2.00
+  Mou16ReadEventQue                 | MOUCALLS |       | 2.00
+  Mou16Register                     | MOUCALLS |       | 2.00
+  Mou16RemovePtr                    | MOUCALLS |       | 2.00
+  Mou16SetDevStatus                 | MOUCALLS |       | 2.00
+  Mou16SetEventMask                 | MOUCALLS |       | 2.00
+  Mou16SetPtrPos                    | MOUCALLS |       | 2.00
+  Mou16SetPtrShape                  | MOUCALLS |       | 2.00
+  Mou16SetScaleFact                 | MOUCALLS |       | 2.00
+  Mou16SetThreshold                 | MOUCALLS |       | 2.00
+  Mou16Synch                        | MOUCALLS |       | 2.00
+  Pic16Ichg                         | PMPIC    |       | 2.00
+  Pic16Print                        | PMPIC    |       | 2.00
+  Pic32Ichg                         | PMPIC    |       | 2.00
+  Pic32Print                        | PMPIC    |       | 2.00
+  Prf16AddProgram                   | PMSHAPI  |       | 2.00
+  Prf16ChangeProgram                | PMSHAPI  |       | 2.00
+  Prf16CloseProfile                 | PMSHAPI  |       | 2.00
+  Prf16CreateGroup                  | PMSHAPI  |       | 2.00
+  Prf16DestroyGroup                 | PMSHAPI  |       | 2.00
+  Prf16OpenProfile                  | PMSHAPI  |       | 2.00
+  Prf16QueryDefinition              | PMSHAPI  |       | 2.00
+  Prf16QueryProfile                 | PMSHAPI  |       | 2.00
+  Prf16QueryProfileData             | PMSHAPI  |       | 2.00
+  Prf16QueryProfileInt              | PMSHAPI  |       | 2.00
+  Prf16QueryProfileSize             | PMSHAPI  |       | 2.00
+  Prf16QueryProfileString           | PMSHAPI  |       | 2.00
+  Prf16QueryProgramCategory         | PMSHAPI  |       | 2.00
+  Prf16QueryProgramHandle           | PMSHAPI  |       | 2.00
+  Prf16QueryProgramTitles           | PMSHAPI  |       | 2.00
+  Prf16RemoveProgram                | PMSHAPI  |       | 2.00
+  Prf16Reset                        | PMSHAPI  |       | 2.00
+  Prf16WriteProfileData             | PMSHAPI  |       | 2.00
+  Prf16WriteProfileString           | PMSHAPI  |       | 2.00
+  Prf32AddProgram                   | PMSHAPI  |       | 2.00
+  Prf32ChangeProgram                | PMSHAPI  |       | 2.00
+  Prf32CloseProfile                 | PMSHAPI  |       | 2.00
+  Prf32DestroyGroup                 | PMSHAPI  |       | 2.00
+  Prf32OpenProfile                  | PMSHAPI  |       | 2.00
+  Prf32QueryDefinition              | PMSHAPI  |       | 2.00
+  Prf32QueryProfile                 | PMSHAPI  |       | 2.00
+  Prf32QueryProfileData             | PMSHAPI  |       | 2.00
+  Prf32QueryProfileInt              | PMSHAPI  |       | 2.00
+  Prf32QueryProfileSize             | PMSHAPI  |       | 2.00
+  Prf32QueryProfileString           | PMSHAPI  |       | 2.00
+  Prf32QueryProgramTitles           | PMSHAPI  |       | 2.00
+  Prf32RemoveProgram                | PMSHAPI  |       | 2.00
+  Prf32Reset                        | PMSHAPI  |       | 2.00
+  Prf32WriteProfileData             | PMSHAPI  |       | 2.00
+  Prf32WriteProfileString           | PMSHAPI  |       | 2.00
+  Prt16Abort                        | PMSPL    |       | 2.00
+  Prt16AbortDoc                     | PMSPL    |       | 2.30
+  Prt16Close                        | PMSPL    |       | 2.00
+  Prt16DevIOCtl                     | PMSPL    |       | 2.00
+  Prt16Open                         | PMSPL    |       | 2.00
+  Prt16Query                        | PMSPL    |       | 2.40
+  Prt16ResetAbort                   | PMSPL    |       | 2.30
+  Prt16Set                          | PMSPL    |       | 2.40
+  Prt16Write                        | PMSPL    |       | 2.00
+  Prt32Abort                        | PMSPL    |       | 2.00
+  Prt32AbortDoc                     | PMSPL    |       | 2.30
+  Prt32Close                        | PMSPL    |       | 2.00
+  Prt32DevIOCtl                     | PMSPL    |       | 2.00
+  Prt32NewPage                      | PMSPL    |       | 2.40
+  Prt32Open                         | PMSPL    |       | 2.00
+  Prt32Query                        | PMSPL    |       | 2.40
+  Prt32ResetAbort                   | PMSPL    |       | 2.30
+  Prt32Set                          | PMSPL    |       | 2.40
+  Prt32Write                        | PMSPL    |       | 2.00
+  Spl16MessageBox                   | PMSPL    |       | 2.00
+  Spl16QmAbort                      | PMSPL    |       | 2.00
+  Spl16QmAbortDoc                   | PMSPL    |       | 2.00
+  Spl16QmClose                      | PMSPL    |       | 2.00
+  Spl16QmEndDoc                     | PMSPL    |       | 2.00
+  Spl16QmOpen                       | PMSPL    |       | 2.00
+  Spl16QmStartDoc                   | PMSPL    |       | 2.00
+  Spl16QmWrite                      | PMSPL    |       | 2.00
+  Spl16StdClose                     | PMSPL    |       | 2.00
+  Spl16StdDelete                    | PMSPL    |       | 2.00
+  Spl16StdGetBits                   | PMSPL    |       | 2.00
+  Spl16StdOpen                      | PMSPL    |       | 2.00
+  Spl16StdQueryLength               | PMSPL    |       | 2.00
+  Spl16StdStart                     | PMSPL    |       | 2.00
+  Spl16StdStop                      | PMSPL    |       | 2.00
+  Spl32ControlDevice                | PMSPL    |       | 2.00
+  Spl32CopyJob                      | PMSPL    |       | 2.00
+  Spl32CreateDevice                 | PMSPL    |       | 2.00
+  Spl32CreatePort                   | PMSPL    |       | 2.40
+  Spl32CreateQueue                  | PMSPL    |       | 2.00
+  Spl32DeleteDevice                 | PMSPL    |       | 2.00
+  Spl32DeleteJob                    | PMSPL    |       | 2.00
+  Spl32DeletePort                   | PMSPL    |       | 2.40
+  Spl32DeleteQueue                  | PMSPL    |       | 2.00
+  Spl32Disable                      | PMSPL    |       | 2.40
+  Spl32DisplayControlPanel          | PMSPL    |       | 2.40
+  Spl32Enable                       | PMSPL    |       | 2.40
+  Spl32EnumDevice                   | PMSPL    |       | 2.00
+  Spl32EnumDriver                   | PMSPL    |       | 2.00
+  Spl32EnumJob                      | PMSPL    |       | 2.00
+  Spl32EnumPort                     | PMSPL    |       | 2.00
+  Spl32EnumPrinter                  | PMSPL    |       | 2.00
+  Spl32EnumQueue                    | PMSPL    |       | 2.00
+  Spl32EnumQueueProcessor           | PMSPL    |       | 2.00
+  Spl32GetControlPanelList          | PMSPL    |       | 2.40
+  Spl32GetPortFromQ                 | PMSPL    |       | 2.40
+  Spl32HoldJob                      | PMSPL    |       | 2.00
+  Spl32HoldQueue                    | PMSPL    |       | 2.00
+  Spl32MessageBox                   | PMSPL    |       | 2.00
+  Spl32ProtSendCmd                  | PMSPL    |       | 2.40
+  Spl32ProtXlateCmd                 | PMSPL    |       | 2.40
+  Spl32PurgeQueue                   | PMSPL    |       | 2.00
+  Spl32QmAbort                      | PMSPL    |       | 2.00
+  Spl32QmAbortDoc                   | PMSPL    |       | 2.00
+  Spl32QmClose                      | PMSPL    |       | 2.00
+  Spl32QmEndDoc                     | PMSPL    |       | 2.00
+  Spl32QmGetJobID                   | PMSPL    |       | 2.30
+  Spl32QmNewPage                    | PMSPL    |       | 2.30
+  Spl32QmOpen                       | PMSPL    |       | 2.00
+  Spl32QmStartDoc                   | PMSPL    |       | 2.00
+  Spl32QmWrite                      | PMSPL    |       | 2.00
+  Spl32QueryControlPanel            | PMSPL    |       | 2.40
+  Spl32QueryDevice                  | PMSPL    |       | 2.00
+  Spl32QueryDriver                  | PMSPL    |       | 2.00
+  Spl32QueryJob                     | PMSPL    |       | 2.00
+  Spl32QueryPath                    | PMSPL    |       | 2.40
+  Spl32QueryPort                    | PMSPL    |       | 2.40
+  Spl32QueryQueue                   | PMSPL    |       | 2.00
+  Spl32Register                     | PMSPL    |       | 2.40
+  Spl32RegisterControlPanel         | PMSPL    |       | 2.40
+  Spl32ReleaseJob                   | PMSPL    |       | 2.00
+  Spl32ReleaseQueue                 | PMSPL    |       | 2.00
+  Spl32SetDevice                    | PMSPL    |       | 2.00
+  Spl32SetDriver                    | PMSPL    |       | 2.00
+  Spl32SetJob                       | PMSPL    |       | 2.00
+  Spl32SetPort                      | PMSPL    |       | 2.40
+  Spl32SetQueue                     | PMSPL    |       | 2.00
+  Spl32StdClose                     | PMSPL    |       | 2.00
+  Spl32StdDelete                    | PMSPL    |       | 2.00
+  Spl32StdGetBits                   | PMSPL    |       | 2.00
+  Spl32StdOpen                      | PMSPL    |       | 2.00
+  Spl32StdQueryLength               | PMSPL    |       | 2.00
+  Spl32StdStart                     | PMSPL    |       | 2.00
+  Spl32StdStop                      | PMSPL    |       | 2.00
+  Spl32UnRegister                   | PMSPL    |       | 2.40
+  Vio16Associate                    | VIOCALLS |       | 2.00
+  Vio16CheckCharType                | VIOCALLS |       | 2.00
+  Vio16CreateLogFont                | VIOCALLS |       | 2.00
+  Vio16CreatePS                     | VIOCALLS |       | 2.00
+  Vio16DeleteSetId                  | VIOCALLS |       | 2.00
+  Vio16DeRegister                   | VIOCALLS |       | 2.00
+  Vio16DestroyPS                    | VIOCALLS |       | 2.00
+  Vio16EndPopUp                     | VIOCALLS |       | 2.00
+  Vio16GetAnsi                      | VIOCALLS |       | 2.00
+  Vio16GetBuf                       | VIOCALLS |       | 2.00
+  Vio16GetConfig                    | VIOCALLS |       | 2.00
+  Vio16GetCp                        | VIOCALLS |       | 2.00
+  Vio16GetCurPos                    | VIOCALLS |       | 2.00
+  Vio16GetCurType                   | VIOCALLS |       | 2.00
+  Vio16GetDeviceCellSize            | VIOCALLS |       | 2.00
+  Vio16GetFont                      | VIOCALLS |       | 2.00
+  Vio16GetMode                      | VIOCALLS |       | 2.00
+  Vio16GetOrg                       | VIOCALLS |       | 2.00
+  Vio16GetPhysBuf                   | VIOCALLS |       | 2.00
+  Vio16GetState                     | VIOCALLS |       | 2.00
+  Vio16GlobalReg                    | VIOCALLS |       | 2.00
+  Vio16ModeUndo                     | VIOCALLS |       | 2.00
+  Vio16ModeWait                     | VIOCALLS |       | 2.00
+  Vio16PopUp                        | VIOCALLS |       | 2.00
+  Vio16PrtSc                        | VIOCALLS |       | 2.00
+  Vio16PrtScToggle                  | VIOCALLS |       | 2.00
+  Vio16QueryFonts                   | VIOCALLS |       | 2.00
+  Vio16QuerySetIds                  | VIOCALLS |       | 2.00
+  Vio16ReadCellStr                  | VIOCALLS |       | 2.00
+  Vio16ReadCharStr                  | VIOCALLS |       | 2.00
+  Vio16RedrawSize                   | VIOCALLS |       | 2.00
+  Vio16Register                     | VIOCALLS |       | 2.00
+  Vio16SavRedrawUndo                | VIOCALLS |       | 2.00
+  Vio16SavRedrawWait                | VIOCALLS |       | 2.00
+  Vio16ScrLock                      | VIOCALLS |       | 2.00
+  Vio16ScrollDn                     | VIOCALLS |       | 2.00
+  Vio16ScrollLf                     | VIOCALLS |       | 2.00
+  Vio16ScrollRt                     | VIOCALLS |       | 2.00
+  Vio16ScrollUp                     | VIOCALLS |       | 2.00
+  Vio16ScrUnLock                    | VIOCALLS |       | 2.00
+  Vio16SetAnsi                      | VIOCALLS |       | 2.00
+  Vio16SetCp                        | VIOCALLS |       | 2.00
+  Vio16SetCurPos                    | VIOCALLS |       | 2.00
+  Vio16SetCurType                   | VIOCALLS |       | 2.00
+  Vio16SetDeviceCellSize            | VIOCALLS |       | 2.00
+  Vio16SetFont                      | VIOCALLS |       | 2.00
+  Vio16SetMode                      | VIOCALLS |       | 2.00
+  Vio16SetOrg                       | VIOCALLS |       | 2.00
+  Vio16SetState                     | VIOCALLS |       | 2.00
+  Vio16ShowBuf                      | VIOCALLS |       | 2.00
+  Vio16ShowPS                       | VIOCALLS |       | 2.00
+  Vio16WrtCellStr                   | VIOCALLS |       | 2.00
+  Vio16WrtCharStr                   | VIOCALLS |       | 2.00
+  Vio16WrtCharStrAtt                | VIOCALLS |       | 2.00
+  Vio16WrtNAttr                     | VIOCALLS |       | 2.00
+  Vio16WrtNCell                     | VIOCALLS |       | 2.00
+  Vio16WrtNChar                     | VIOCALLS |       | 2.00
+  Vio16WrtTTY                       | VIOCALLS |       | 2.00
+  Win16AddAtom                      | PMWIN    | ATOM  | 2.00
+  Win16AddProgram                   | PMSHAPI  |       | 2.00
+  Win16AddSwitchEntry               | PMSHAPI  |       | 2.00
+  Win16AddToGroup                   | PMSHAPI  |       | 2.00
+  Win16Alarm                        | PMWIN    | DLG   | 2.00
+  Win16AllocMem                     | PMWIN    | HEAP  | 2.00
+  Win16AssociateHelpInstance        | HELPMGR  |       | 2.00
+  Win16AvailMem                     | PMWIN    | HEAP  | 2.00
+  Win16BeginEnumWindows             | PMWIN    | WIN   | 2.00
+  Win16BeginPaint                   | PMWIN    | WIN   | 2.00
+  Win16BroadcastMsg                 | PMWIN    | MSG   | 2.00
+  Win16CalcFrameRect                | PMWIN    | FRAM  | 2.00
+  Win16CallMsgFilter                | PMWIN    | HOOK  | 2.00
+  Win16CancelShutdown               | PMWIN    | MSG   | 2.00
+  Win16Catch                        | PMWIN    | ENV   | 2.00
+  Win16ChangeProgram                | PMSHAPI  |       | 2.00
+  Win16ChangeSwitchEntry            | PMSHAPI  |       | 2.00
+  Win16CheckInput                   | PMWIN    | INPT  | 2.10
+  Win16CloseClipbrd                 | PMWIN    | CLIP  | 2.00
+  Win16CompareStrings               | PMWIN    | CTRY  | 2.00
+  Win16CopyAccelTable               | PMWIN    | ACCL  | 2.00
+  Win16CopyRect                     | PMWIN    | RECT  | 2.00
+  Win16CpTranslateChar              | PMWIN    | CTRY  | 2.00
+  Win16CpTranslateString            | PMWIN    | CTRY  | 2.00
+  Win16CreateAccelTable             | PMWIN    | ACCL  | 2.00
+  Win16CreateAtomTable              | PMWIN    | ATOM  | 2.00
+  Win16CreateCursor                 | PMWIN    | CUR   | 2.00
+  Win16CreateDlg                    | PMWIN    | DLG   | 2.00
+  Win16CreateFrameControls          | PMWIN    | FRAM  | 2.00
+  Win16CreateGroup                  | PMSHAPI  |       | 2.00
+  Win16CreateHeap                   | PMWIN    | HEAP  | 2.00
+  Win16CreateHelpInstance           | HELPMGR  |       | 2.00
+  Win16CreateHelpTable              | HELPMGR  |       | 2.00
+  Win16CreateMenu                   | PMWIN    | MENU  | 2.00
+  Win16CreateMsgQueue               | PMWIN    | MSG   | 2.00
+  Win16CreatePointer                | PMWIN    | PTR   | 2.00
+  Win16CreatePointerIndirect        | PMWIN    | PTR   | 2.00
+  Win16CreateStdWindow              | PMWIN    | FRAM  | 2.00
+  Win16CreateSwitchEntry            | PMSHAPI  |       | 2.00
+  Win16CreateWindow                 | PMWIN    | WIN   | 2.00
+  Win16DdeInitiate                  | PMWIN    | DDE   | 2.00
+  Win16DdePostMsg                   | PMWIN    | DDE   | 2.00
+  Win16DdeRespond                   | PMWIN    | DDE   | 2.00
+  Win16DefAVioWindowProc            | PMVIOP   |       | 2.00
+  Win16DefDlgProc                   | PMWIN    | DLG   | 2.00
+  Win16DefWindowProc                | PMWIN    | DWIN  | 2.00
+  Win16DeleteAtom                   | PMWIN    | ATOM  | 2.00
+  Win16DeleteLibrary                | PMWIN    | LOAD  | 2.00
+  Win16DeleteProcedure              | PMWIN    | LOAD  | 2.00
+  Win16DestroyAccelTable            | PMWIN    | ACCL  | 2.00
+  Win16DestroyAtomTable             | PMWIN    | ATOM  | 2.00
+  Win16DestroyCursor                | PMWIN    | CUR   | 2.00
+  Win16DestroyGroup                 | PMSHAPI  |       | 2.00
+  Win16DestroyHeap                  | PMWIN    | HEAP  | 2.00
+  Win16DestroyHelpInstance          | HELPMGR  |       | 2.00
+  Win16DestroyMsgQueue              | PMWIN    | MSG   | 2.00
+  Win16DestroyPointer               | PMWIN    | PTR   | 2.00
+  Win16DestroyWindow                | PMWIN    | WIN   | 2.00
+  Win16DismissDlg                   | PMWIN    | DLG   | 2.00
+  Win16DispatchMsg                  | PMWIN    | MSGL  | 2.00
+  Win16DlgBox                       | PMWIN    | DLG   | 2.00
+  Win16DrawBitmap                   | PMWIN    | WIN   | 2.00
+  Win16DrawBorder                   | PMWIN    | WIN   | 2.00
+  Win16DrawPointer                  | PMWIN    | PTR   | 2.00
+  Win16DrawText                     | PMWIN    | WIN   | 2.00
+  Win16EmptyClipbrd                 | PMWIN    | CLIP  | 2.00
+  Win16EnablePhysInput              | PMWIN    | INPT  | 2.00
+  Win16EnableWindow                 | PMWIN    | WIN   | 2.00
+  Win16EnableWindowUpdate           | PMWIN    | WIN   | 2.00
+  Win16EndEnumWindows               | PMWIN    | WIN   | 2.00
+  Win16EndPaint                     | PMWIN    | WIN   | 2.00
+  Win16EndProgram                   | PMSHAPI  |       | 2.00
+  Win16EnumClipbrdFmts              | PMWIN    | CLIP  | 2.00
+  Win16EnumDlgItem                  | PMWIN    | DLG   | 2.00
+  Win16EqualRect                    | PMWIN    | RECT  | 2.00
+  Win16ExcludeUpdateRegion          | PMWIN    | WIN   | 2.00
+  Win16FillRect                     | PMWIN    | WIN   | 2.00
+  Win16FindAtom                     | PMWIN    | ATOM  | 2.00
+  Win16FlashWindow                  | PMWIN    | FRAM  | 2.00
+  Win16FocusChange                  | PMWIN    | INPT  | 2.00
+  Win16FreeErrorInfo                | PMWIN    | ERR   | 2.00
+  Win16FreeMem                      | PMWIN    | HEAP  | 2.00
+  Win16GetClipPS                    | PMWIN    | WIN   | 2.00
+  Win16GetCurrentTime               | PMWIN    | TIME  | 2.00
+  Win16GetDlgMsg                    | PMWIN    | DLG   | 2.00
+  Win16GetErasePS                   | PMWIN    | WIN   | 2.00
+  Win16GetErrorInfo                 | PMWIN    | ERR   | 2.00
+  Win16GetKeyState                  | PMWIN    | INPT  | 2.00
+  Win16GetLastError                 | PMWIN    | ERR   | 2.00
+  Win16GetMaxPosition               | PMWIN    | FRAM  | 2.00
+  Win16GetMinPosition               | PMWIN    | FRAM  | 2.00
+  Win16GetMsg                       | PMWIN    | MSGL  | 2.00
+  Win16GetNextWindow                | PMWIN    | WIN   | 2.00
+  Win16GetPhysKeyState              | PMWIN    | INPT  | 2.00
+  Win16GetPS                        | PMWIN    | WIN   | 2.00
+  Win16GetScreenPS                  | PMWIN    | WIN   | 2.00
+  Win16GetSysBitmap                 | PMWIN    | PTR   | 2.00
+  Win16HAPPfromPID                  | PMSHAPI  |       | 2.00
+  Win16HSWITCHfromHAPP              | PMSHAPI  |       | 2.00
+  Win16InflateRect                  | PMWIN    | RECT  | 2.00
+  Win16Initialize                   | PMWIN    | WIN   | 2.00
+  Win16InSendMsg                    | PMWIN    | MSG   | 2.00
+  Win16InstStartApp                 | PMSHAPI  |       | 2.00
+  Win16IntersectRect                | PMWIN    | RECT  | 2.00
+  Win16InvalidateRect               | PMWIN    | WIN   | 2.00
+  Win16InvalidateRegion             | PMWIN    | WIN   | 2.00
+  Win16InvertRect                   | PMWIN    | WIN   | 2.00
+  Win16IsChild                      | PMWIN    | WIN   | 2.00
+  Win16IsPhysInputEnabled           | PMWIN    | INPT  | 2.00
+  Win16IsRectEmpty                  | PMWIN    | RECT  | 2.00
+  Win16IsThreadActive               | PMWIN    | WIN   | 2.00
+  Win16IsWindow                     | PMWIN    | WIN   | 2.00
+  Win16IsWindowEnabled              | PMWIN    | WIN   | 2.00
+  Win16IsWindowShowing              | PMWIN    | WIN   | 2.00
+  Win16IsWindowVisible              | PMWIN    | WIN   | 2.00
+  Win16LoadAccelTable               | PMWIN    | ACCL  | 2.00
+  Win16LoadDlg                      | PMWIN    | DLG   | 2.00
+  Win16LoadHelpTable                | HELPMGR  |       | 2.00
+  Win16LoadLibrary                  | PMWIN    | LOAD  | 2.00
+  Win16LoadMenu                     | PMWIN    | MENU  | 2.00
+  Win16LoadMessage                  | PMWIN    | WIN   | 2.00
+  Win16LoadPointer                  | PMWIN    | PTR   | 2.00
+  Win16LoadProcedure                | PMWIN    | LOAD  | 2.00
+  Win16LoadString                   | PMWIN    | WIN   | 2.00
+  Win16LockHeap                     | PMWIN    | HEAP  | 2.00
+  Win16LockInput                    | PMWIN    | MSG   | 2.00
+  Win16LockPointerUpdate            | PMWIN    | PTR   | 2.10
+  Win16LockVisRegions               | PMWIN    | WIN   | 2.00
+  Win16LockWindow                   | PMWIN    | WIN   | 2.00
+  Win16LockWindowUpdate             | PMWIN    | WIN   | 2.00
+  Win16MakePoints                   | PMWIN    | RECT  | 2.00
+  Win16MakeRect                     | PMWIN    | RECT  | 2.00
+  Win16MapDlgPoints                 | PMWIN    | DLG   | 2.00
+  Win16MapWindowPoints              | PMWIN    | WIN   | 2.00
+  Win16MessageBox                   | PMWIN    | DLG   | 2.00
+  Win16MsgMuxSemWait                | PMWIN    | MSG   | 2.00
+  Win16MsgSemWait                   | PMWIN    | MSG   | 2.00
+  Win16MultWindowFromIDs            | PMWIN    | WIN   | 2.00
+  Win16NextChar                     | PMWIN    | CTRY  | 2.00
+  Win16NoShutdown                   | PMSHAPI  |       | 2.00
+  Win16OffsetRect                   | PMWIN    | RECT  | 2.00
+  Win16OpenClipbrd                  | PMWIN    | CLIP  | 2.00
+  Win16OpenWindowDC                 | PMWIN    | WIN   | 2.00
+  Win16PeekMsg                      | PMWIN    | MSG   | 2.00
+  Win16PopupMenu                    | PMWIN    | MENU  | 2.00
+  Win16PostMsg                      | PMWIN    | MSG   | 2.00
+  Win16PostQueueMsg                 | PMWIN    | MSG   | 2.00
+  Win16PrevChar                     | PMWIN    | CTRY  | 2.00
+  Win16ProcessDlg                   | PMWIN    | DLG   | 2.00
+  Win16PtInRect                     | PMWIN    | RECT  | 2.00
+  Win16QueryAccelTable              | PMWIN    | ACCL  | 2.00
+  Win16QueryActiveWindow            | PMWIN    | WIN   | 2.00
+  Win16QueryAnchorBlock             | PMWIN    | WIN   | 2.00
+  Win16QueryAtomLength              | PMWIN    | ATOM  | 2.00
+  Win16QueryAtomName                | PMWIN    | ATOM  | 2.00
+  Win16QueryAtomUsage               | PMWIN    | ATOM  | 2.00
+  Win16QueryCapture                 | PMWIN    | INPT  | 2.00
+  Win16QueryClassInfo               | PMWIN    | WIN   | 2.00
+  Win16QueryClassName               | PMWIN    | WIN   | 2.00
+  Win16QueryClassThunkProc          | PMWIN    | THK   | 2.00
+  Win16QueryClipbrdData             | PMWIN    | CLIP  | 2.00
+  Win16QueryClipbrdFmtInfo          | PMWIN    | CLIP  | 2.00
+  Win16QueryClipbrdOwner            | PMWIN    | CLIP  | 2.00
+  Win16QueryClipbrdViewer           | PMWIN    | CLIP  | 2.00
+  Win16QueryCp                      | PMWIN    | CTRY  | 2.00
+  Win16QueryCpList                  | PMWIN    | CTRY  | 2.00
+  Win16QueryCursorInfo              | PMWIN    | CUR   | 2.00
+  Win16QueryDefinition              | PMSHAPI  |       | 2.00
+  Win16QueryDesktopBkgnd            | PMWIN    | DESK  | 2.00
+  Win16QueryDesktopWindow           | PMWIN    | WIN   | 2.00
+  Win16QueryDlgItemShort            | PMWIN    | DLG   | 2.00
+  Win16QueryDlgItemText             | PMWIN    | DLG   | 2.00
+  Win16QueryDlgItemTextLength       | PMWIN    | DLG   | 2.00
+  Win16QueryFocus                   | PMWIN    | INPT  | 2.00
+  Win16QueryHelpInstance            | HELPMGR  |       | 2.00
+  Win16QueryKbdLayer                | PMBIDI   |       | 2.30
+  Win16QueryLangInfo                | PMBIDI   |       | 2.30
+  Win16QueryLangViewer              | PMBIDI   |       | 2.30
+  Win16QueryMsgPos                  | PMWIN    | MSG   | 2.00
+  Win16QueryMsgTime                 | PMWIN    | MSG   | 2.00
+  Win16QueryObjectWindow            | PMWIN    | WIN   | 2.00
+  Win16QueryPointer                 | PMWIN    | PTR   | 2.00
+  Win16QueryPointerInfo             | PMWIN    | PTR   | 2.00
+  Win16QueryPointerPos              | PMWIN    | PTR   | 2.00
+  Win16QueryPresParam               | PMWIN    | SYS   | 2.00
+  Win16QueryProfileData             | PMSHAPI  |       | 2.00
+  Win16QueryProfileInt              | PMSHAPI  |       | 2.00
+  Win16QueryProfileSize             | PMSHAPI  |       | 2.00
+  Win16QueryProfileString           | PMSHAPI  |       | 2.00
+  Win16QueryProgramTitles           | PMSHAPI  |       | 2.00
+  Win16QueryProgramType             | PMSHAPI  |       | 2.00
+  Win16QueryProgramUse              | PMSHAPI  |       | 2.00
+  Win16QueryQueueInfo               | PMWIN    | MSG   | 2.00
+  Win16QueryQueueStatus             | PMWIN    | MSG   | 2.00
+  Win16QuerySendMsg                 | PMWIN    | MSG   | 2.00
+  Win16QuerySessionTitle            | PMSHAPI  |       | 2.00
+  Win16QuerySwitchEntry             | PMSHAPI  |       | 2.00
+  Win16QuerySwitchHandle            | PMSHAPI  |       | 2.00
+  Win16QuerySwitchList              | PMSHAPI  |       | 2.00
+  Win16QuerySysColor                | PMWIN    | SYS   | 2.00
+  Win16QuerySysModalWindow          | PMWIN    | WIN   | 2.00
+  Win16QuerySysPointer              | PMWIN    | PTR   | 2.00
+  Win16QuerySystemAtomTable         | PMWIN    | ATOM  | 2.00
+  Win16QuerySysValue                | PMWIN    | SYS   | 2.00
+  Win16QueryTaskSizePos             | PMSHAPI  |       | 2.00
+  Win16QueryTaskTitle               | PMSHAPI  |       | 2.00
+  Win16QueryUpdateRect              | PMWIN    | WIN   | 2.00
+  Win16QueryUpdateRegion            | PMWIN    | WIN   | 2.00
+  Win16QueryVersion                 | PMWIN    | WIN   | 2.00
+  Win16QueryWindow                  | PMWIN    | WIN   | 2.00
+  Win16QueryWindowDC                | PMWIN    | WIN   | 2.00
+  Win16QueryWindowLockCount         | PMWIN    | WIN   | 2.00
+  Win16QueryWindowModel             | PMWIN    | THK   | 2.00
+  Win16QueryWindowPos               | PMWIN    | WIN   | 2.00
+  Win16QueryWindowProcess           | PMWIN    | WIN   | 2.00
+  Win16QueryWindowPtr               | PMWIN    | WIN   | 2.00
+  Win16QueryWindowRect              | PMWIN    | WIN   | 2.00
+  Win16QueryWindowText              | PMWIN    | WIN   | 2.00
+  Win16QueryWindowTextLength        | PMWIN    | WIN   | 2.00
+  Win16QueryWindowThunkProc         | PMWIN    | THK   | 2.00
+  Win16QueryWindowULong             | PMWIN    | WIN   | 2.00
+  Win16QueryWindowUShort            | PMWIN    | WIN   | 2.00
+  Win16QueueFromID                  | PMWIN    | MSG   | 2.00
+  Win16RealizePalette               | PMWIN    | PAL   | 2.00
+  Win16ReallocMem                   | PMWIN    | HEAP  | 2.00
+  Win16RegisterClass                | PMWIN    | WIN   | 2.00
+  Win16RegisterUserDatatype         | PMWIN    | MSG   | 2.00
+  Win16RegisterUserMsg              | PMWIN    | MSG   | 2.00
+  Win16RegisterWindowDestroy        | PMWIN    | WIN   | 2.00
+  Win16ReleaseErasePS               | PMWIN    | WIN   | 2.00
+  Win16ReleaseHook                  | PMWIN    | HOOK  | 2.00
+  Win16ReleasePS                    | PMWIN    | WIN   | 2.00
+  Win16RemoveFromGroup              | PMSHAPI  |       | 2.00
+  Win16RemovePresParam              | PMWIN    | SYS   | 2.00
+  Win16RemoveProgram                | PMSHAPI  |       | 2.00
+  Win16RemoveSwitchEntry            | PMSHAPI  |       | 2.00
+  Win16ReplyMsg                     | PMWIN    | MSG   | 2.00
+  Win16SaveWindowPos                | PMWIN    | FRAM  | 2.00
+  Win16ScrollWindow                 | PMWIN    | WIN   | 2.00
+  Win16SendDlgItemMsg               | PMWIN    | DLG   | 2.00
+  Win16SendMsg                      | PMWIN    | MSG   | 2.00
+  Win16SetAccelTable                | PMWIN    | ACCL  | 2.00
+  Win16SetActiveWindow              | PMWIN    | WIN   | 2.00
+  Win16SetCapture                   | PMWIN    | INPT  | 2.00
+  Win16SetClassMsgInterest          | PMWIN    | MSG   | 2.00
+  Win16SetClassThunkProc            | PMWIN    | THK   | 2.00
+  Win16SetClipbrdData               | PMWIN    | CLIP  | 2.00
+  Win16SetClipbrdOwner              | PMWIN    | CLIP  | 2.00
+  Win16SetClipbrdViewer             | PMWIN    | CLIP  | 2.00
+  Win16SetCp                        | PMWIN    | CTRY  | 2.00
+  Win16SetDesktopBkgnd              | PMWIN    | DESK  | 2.00
+  Win16SetDlgItemShort              | PMWIN    | DLG   | 2.00
+  Win16SetDlgItemText               | PMWIN    | DLG   | 2.00
+  Win16SetErrorInfo                 | PMWIN    | SEI   | 2.00
+  Win16SetFgndWindow                | PMSHAPI  |       | 2.00
+  Win16SetFocus                     | PMWIN    | INPT  | 2.00
+  Win16SetHook                      | PMWIN    | HOOK  | 2.00
+  Win16SetKbdLayer                  | PMBIDI   |       | 2.30
+  Win16SetKeyboardStateTable        | PMWIN    | INPT  | 2.00
+  Win16SetLangInfo                  | PMBIDI   |       | 2.30
+  Win16SetLangViewer                | PMBIDI   |       | 2.30
+  Win16SetMsgInterest               | PMWIN    | MSG   | 2.00
+  Win16SetMsgMode                   | PMWIN    | MSG   | 2.00
+  Win16SetMultWindowPos             | PMWIN    | WIN   | 2.00
+  Win16SetOwner                     | PMWIN    | WIN   | 2.00
+  Win16SetParent                    | PMWIN    | WIN   | 2.00
+  Win16SetPointer                   | PMWIN    | PTR   | 2.00
+  Win16SetPointerOwner              | PMWIN    | PTR   | 2.00
+  Win16SetPointerPos                | PMWIN    | PTR   | 2.00
+  Win16SetPresParam                 | PMWIN    | SYS   | 2.00
+  Win16SetRect                      | PMWIN    | RECT  | 2.00
+  Win16SetRectEmpty                 | PMWIN    | RECT  | 2.00
+  Win16SetSynchroMode               | PMWIN    | MSG   | 2.00
+  Win16SetSysColors                 | PMWIN    | SYS   | 2.00
+  Win16SetSysModalWindow            | PMWIN    | WIN   | 2.00
+  Win16SetSysValue                  | PMWIN    | SYS   | 2.00
+  Win16SetTitle                     | PMSHAPI  |       | 2.00
+  Win16SetTitleAndHwndIcon          | PMSHAPI  |       | 2.30
+  Win16SetTitleAndIcon              | PMSHAPI  |       | 2.00
+  Win16SetWindowBits                | PMWIN    | WIN   | 2.00
+  Win16SetWindowPos                 | PMWIN    | WIN   | 2.00
+  Win16SetWindowPtr                 | PMWIN    | WIN   | 2.00
+  Win16SetWindowText                | PMWIN    | WIN   | 2.00
+  Win16SetWindowThunkProc           | PMWIN    | THK   | 2.00
+  Win16SetWindowULong               | PMWIN    | WIN   | 2.00
+  Win16SetWindowUShort              | PMWIN    | WIN   | 2.00
+  Win16ShowCursor                   | PMWIN    | CUR   | 2.00
+  Win16ShowPointer                  | PMWIN    | PTR   | 2.00
+  Win16ShowTrackRect                | PMWIN    | TREC  | 2.00
+  Win16ShowWindow                   | PMWIN    | WIN   | 2.00
+  Win16StartApp                     | PMSHAPI  |       | 2.00
+  Win16StartTimer                   | PMWIN    | TIME  | 2.00
+  Win16StopProgram                  | PMSHAPI  |       | 2.00
+  Win16StopTimer                    | PMWIN    | TIME  | 2.00
+  Win16StretchPointer               | PMWIN    | PTR   | 2.00
+  Win16SubclassWindow               | PMWIN    | WIN   | 2.00
+  Win16SubstituteStrings            | PMWIN    | DLG   | 2.00
+  Win16SubtractRect                 | PMWIN    | RECT  | 2.00
+  Win16SwitchProgramRegister        | PMSHAPI  |       | 2.00
+  Win16SwitchToProgram              | PMSHAPI  |       | 2.00
+  Win16Terminate                    | PMWIN    | WIN   | 2.00
+  Win16TerminateApp                 | PMSHAPI  |       | 2.00
+  Win16ThreadAssocQueue             | PMWIN    | MSG   | 2.00
+  Win16Throw                        | PMWIN    | ENV   | 2.00
+  Win16TrackRect                    | PMWIN    | TREC  | 2.00
+  Win16TranslateAccel               | PMWIN    | ACCL  | 2.00
+  Win16UnionRect                    | PMWIN    | RECT  | 2.00
+  Win16UpdateWindow                 | PMWIN    | WIN   | 2.00
+  Win16Upper                        | PMWIN    | CTRY  | 2.00
+  Win16UpperChar                    | PMWIN    | CTRY  | 2.00
+  Win16ValidateRect                 | PMWIN    | WIN   | 2.00
+  Win16ValidateRegion               | PMWIN    | WIN   | 2.00
+  Win16WaitMsg                      | PMWIN    | MSG   | 2.00
+  Win16WakeThread                   | PMWIN    | MSG   | 2.00
+  Win16WindowFromDC                 | PMWIN    | WIN   | 2.00
+  Win16WindowFromID                 | PMWIN    | WIN   | 2.00
+  Win16WindowFromPoint              | PMWIN    | WIN   | 2.00
+  Win16WriteProfileData             | PMSHAPI  |       | 2.00
+  Win16WriteProfileString           | PMSHAPI  |       | 2.00
+  Win32AddAtom                      | PMWIN    | ATOM  | 2.00
+  Win32AddSwitchEntry               | PMSHAPI  |       | 2.00
+  Win32Alarm                        | PMWIN    | DLG   | 2.00
+  Win32AssociateHelpInstance        | HELPMGR  |       | 2.00
+  Win32BeginEnumWindows             | PMWIN    | WIN   | 2.00
+  Win32BeginPaint                   | PMWIN    | WIN   | 2.00
+  Win32BroadcastMsg                 | PMWIN    | MSG   | 2.00
+  Win32CalcFrameRect                | PMWIN    | FRAM  | 2.00
+  Win32CallMsgFilter                | PMWIN    | HOOK  | 2.00
+  Win32CancelShutdown               | PMWIN    | MSG   | 2.00
+  Win32ChangeSwitchEntry            | PMSHAPI  |       | 2.00
+  Win32CheckInput                   | PMWIN    | INPT  | 2.10
+  Win32CloseClipbrd                 | PMWIN    | CLIP  | 2.00
+  Win32CompareStrings               | PMWIN    | CTRY  | 2.00
+  Win32CopyAccelTable               | PMWIN    | ACCL  | 2.00
+  Win32CopyObject                   | PMWP     |       | 2.10
+  Win32CopyRect                     | PMWIN    | RECT  | 2.00
+  Win32CpTranslateChar              | PMWIN    | CTRY  | 2.00
+  Win32CpTranslateString            | PMWIN    | CTRY  | 2.00
+  Win32CreateAccelTable             | PMWIN    | ACCL  | 2.00
+  Win32CreateAtomTable              | PMWIN    | ATOM  | 2.00
+  Win32CreateCursor                 | PMWIN    | CUR   | 2.00
+  Win32CreateDlg                    | PMWIN    | DLG   | 2.00
+  Win32CreateFrameControls          | PMWIN    | FRAM  | 2.00
+  Win32CreateHelpInstance           | HELPMGR  |       | 2.00
+  Win32CreateHelpTable              | HELPMGR  |       | 2.00
+  Win32CreateMenu                   | PMWIN    | MENU  | 2.00
+  Win32CreateMsgQueue               | PMWIN    | MSG   | 2.00
+  Win32CreateObject                 | PMWP     |       | 2.00
+  Win32CreatePointer                | PMWIN    | PTR   | 2.00
+  Win32CreatePointerIndirect        | PMWIN    | PTR   | 2.00
+  Win32CreateShadow                 | PMWP     |       | 2.30
+  Win32CreateStdWindow              | PMWIN    | FRAM  | 2.00
+  Win32CreateSwitchEntry            | PMSHAPI  |       | 2.00
+  Win32CreateWindow                 | PMWIN    | WIN   | 2.00
+  Win32DdeInitiate                  | PMWIN    | DDE   | 2.00
+  Win32DdePostMsg                   | PMWIN    | DDE   | 2.00
+  Win32DdeRespond                   | PMWIN    | DDE   | 2.00
+  Win32DefDlgProc                   | PMWIN    | DLG   | 2.00
+  Win32DefFileDlgProc               | PMCTLS   |       | 2.00
+  Win32DefFontDlgProc               | PMCTLS   |       | 2.00
+  Win32DefWindowProc                | PMWIN    | DWIN  | 2.00
+  Win32DeleteAtom                   | PMWIN    | ATOM  | 2.00
+  Win32DeleteLibrary                | PMWIN    | LOAD  | 2.00
+  Win32DeleteProcedure              | PMWIN    | LOAD  | 2.00
+  Win32DeregisterObjectClass        | PMWP     |       | 2.00
+  Win32DestroyAccelTable            | PMWIN    | ACCL  | 2.00
+  Win32DestroyAtomTable             | PMWIN    | ATOM  | 2.00
+  Win32DestroyCursor                | PMWIN    | CUR   | 2.00
+  Win32DestroyHelpInstance          | HELPMGR  |       | 2.00
+  Win32DestroyMsgQueue              | PMWIN    | MSG   | 2.00
+  Win32DestroyObject                | PMWP     |       | 2.00
+  Win32DestroyPointer               | PMWIN    | PTR   | 2.00
+  Win32DestroyWindow                | PMWIN    | WIN   | 2.00
+  Win32DismissDlg                   | PMWIN    | DLG   | 2.00
+  Win32DispatchMsg                  | PMWIN    | MSGL  | 2.00
+  Win32DlgBox                       | PMWIN    | DLG   | 2.00
+  Win32DrawBitmap                   | PMWIN    | WIN   | 2.00
+  Win32DrawBorder                   | PMWIN    | WIN   | 2.00
+  Win32DrawPointer                  | PMWIN    | PTR   | 2.00
+  Win32DrawText                     | PMWIN    | WIN   | 2.00
+  Win32EmptyClipbrd                 | PMWIN    | CLIP  | 2.00
+  Win32EnablePhysInput              | PMWIN    | INPT  | 2.00
+  Win32EnableWindow                 | PMWIN    | WIN   | 2.00
+  Win32EnableWindowUpdate           | PMWIN    | WIN   | 2.00
+  Win32EndEnumWindows               | PMWIN    | WIN   | 2.00
+  Win32EndPaint                     | PMWIN    | WIN   | 2.00
+  Win32EnumClipbrdFmts              | PMWIN    | CLIP  | 2.00
+  Win32EnumDlgItem                  | PMWIN    | DLG   | 2.00
+  Win32EnumObjectClasses            | PMWP     |       | 2.00
+  Win32EqualRect                    | PMWIN    | RECT  | 2.00
+  Win32ExcludeUpdateRegion          | PMWIN    | WIN   | 2.00
+  Win32FileDlg                      | PMCTLS   |       | 2.00
+  Win32FillRect                     | PMWIN    | WIN   | 2.00
+  Win32FindAtom                     | PMWIN    | ATOM  | 2.00
+  Win32FlashWindow                  | PMWIN    | FRAM  | 2.00
+  Win32FocusChange                  | PMWIN    | INPT  | 2.00
+  Win32FontDlg                      | PMCTLS   |       | 2.00
+  Win32FreeErrorInfo                | PMWIN    | ERR   | 2.00
+  Win32FreeFileDlgList              | PMCTLS   |       | 2.00
+  Win32FreeFileIcon                 | PMWP     |       | 2.00
+  Win32GetClipPS                    | PMWIN    | WIN   | 2.00
+  Win32GetCurrentTime               | PMWIN    | TIME  | 2.00
+  Win32GetDlgMsg                    | PMWIN    | DLG   | 2.00
+  Win32GetErasePS                   | PMWIN    | WIN   | 2.00
+  Win32GetErrorInfo                 | PMWIN    | ERR   | 2.00
+  Win32GetKeyState                  | PMWIN    | INPT  | 2.00
+  Win32GetLastError                 | PMWIN    | ERR   | 2.00
+  Win32GetMaxPosition               | PMWIN    | FRAM  | 2.00
+  Win32GetMinPosition               | PMWIN    | FRAM  | 2.00
+  Win32GetMsg                       | PMWIN    | MSGL  | 2.00
+  Win32GetNextWindow                | PMWIN    | WIN   | 2.00
+  Win32GetPhysKeyState              | PMWIN    | INPT  | 2.00
+  Win32GetPS                        | PMWIN    | WIN   | 2.00
+  Win32GetScreenPS                  | PMWIN    | WIN   | 2.00
+  Win32GetSysBitmap                 | PMWIN    | PTR   | 2.00
+  Win32InflateRect                  | PMWIN    | RECT  | 2.00
+  Win32Initialize                   | PMWIN    | WIN   | 2.00
+  Win32InSendMsg                    | PMWIN    | MSG   | 2.00
+  Win32IntersectRect                | PMWIN    | RECT  | 2.00
+  Win32InvalidateRect               | PMWIN    | WIN   | 2.00
+  Win32InvalidateRegion             | PMWIN    | WIN   | 2.00
+  Win32InvertRect                   | PMWIN    | WIN   | 2.00
+  Win32IsChild                      | PMWIN    | WIN   | 2.00
+  Win32IsPhysInputEnabled           | PMWIN    | INPT  | 2.00
+  Win32IsRectEmpty                  | PMWIN    | RECT  | 2.00
+  Win32IsSOMDDReady                 | PMWP     |       | 2.30
+  Win32IsThreadActive               | PMWIN    | WIN   | 2.00
+  Win32IsWindow                     | PMWIN    | WIN   | 2.00
+  Win32IsWindowEnabled              | PMWIN    | WIN   | 2.00
+  Win32IsWindowShowing              | PMWIN    | WIN   | 2.00
+  Win32IsWindowVisible              | PMWIN    | WIN   | 2.00
+  Win32IsWPDServerReady             | PMWP     |       | 2.30
+  Win32LoadAccelTable               | PMWIN    | ACCL  | 2.00
+  Win32LoadDlg                      | PMWIN    | DLG   | 2.00
+  Win32LoadFileIcon                 | PMWP     |       | 2.00
+  Win32LoadHelpTable                | HELPMGR  |       | 2.00
+  Win32LoadLibrary                  | PMWIN    | LOAD  | 2.00
+  Win32LoadMenu                     | PMWIN    | MENU  | 2.00
+  Win32LoadMessage                  | PMWIN    | WIN   | 2.00
+  Win32LoadPointer                  | PMWIN    | PTR   | 2.00
+  Win32LoadProcedure                | PMWIN    | LOAD  | 2.00
+  Win32LoadString                   | PMWIN    | WIN   | 2.00
+  Win32LockInput                    | PMWIN    | MSG   | 2.00
+  Win32LockPointerUpdate            | PMWIN    | PTR   | 2.10
+  Win32LockupSystem                 | PMWP     |       | 2.10
+  Win32LockVisRegions               | PMWIN    | WIN   | 2.00
+  Win32LockWindowUpdate             | PMWIN    | WIN   | 2.00
+  Win32MakePoints                   | PMWIN    | RECT  | 2.00
+  Win32MakeRect                     | PMWIN    | RECT  | 2.00
+  Win32MapDlgPoints                 | PMWIN    | DLG   | 2.00
+  Win32MapWindowPoints              | PMWIN    | WIN   | 2.00
+  Win32MessageBox                   | PMWIN    | DLG   | 2.00
+  Win32MessageBox2                  | PMWIN    | DLG   | 2.30
+  Win32MoveObject                   | PMWP     |       | 2.30
+  Win32MsgMuxSemWait                | PMWIN    | MSG   | 2.00
+  Win32MsgSemWait                   | PMWIN    | MSG   | 2.00
+  Win32MultWindowFromIDs            | PMWIN    | WIN   | 2.00
+  Win32NextChar                     | PMWIN    | CTRY  | 2.00
+  Win32OffsetRect                   | PMWIN    | RECT  | 2.00
+  Win32OpenClipbrd                  | PMWIN    | CLIP  | 2.00
+  Win32OpenObject                   | PMWP     |       | 2.30
+  Win32OpenWindowDC                 | PMWIN    | WIN   | 2.00
+  Win32PeekMsg                      | PMWIN    | MSG   | 2.00
+  Win32PopupMenu                    | PMWIN    | MENU  | 2.00
+  Win32PostMsg                      | PMWIN    | MSG   | 2.00
+  Win32PostQueueMsg                 | PMWIN    | MSG   | 2.00
+  Win32PrevChar                     | PMWIN    | CTRY  | 2.00
+  Win32ProcessDlg                   | PMWIN    | DLG   | 2.00
+  Win32PtInRect                     | PMWIN    | RECT  | 2.00
+  Win32QueryAccelTable              | PMWIN    | ACCL  | 2.00
+  Win32QueryActiveDesktopPathname   | PMWP     |       | 2.30
+  Win32QueryActiveWindow            | PMWIN    | WIN   | 2.00
+  Win32QueryAnchorBlock             | PMWIN    | WIN   | 2.00
+  Win32QueryAtomLength              | PMWIN    | ATOM  | 2.00
+  Win32QueryAtomName                | PMWIN    | ATOM  | 2.00
+  Win32QueryAtomUsage               | PMWIN    | ATOM  | 2.00
+  Win32QueryCapture                 | PMWIN    | INPT  | 2.00
+  Win32QueryClassInfo               | PMWIN    | WIN   | 2.00
+  Win32QueryClassName               | PMWIN    | WIN   | 2.00
+  Win32QueryClassThunkProc          | PMWIN    | THK   | 2.00
+  Win32QueryClipbrdData             | PMWIN    | CLIP  | 2.00
+  Win32QueryClipbrdFmtInfo          | PMWIN    | CLIP  | 2.00
+  Win32QueryClipbrdOwner            | PMWIN    | CLIP  | 2.00
+  Win32QueryClipbrdViewer           | PMWIN    | CLIP  | 2.00
+  Win32QueryClipRegion              | PMWIN    | WIN   | 2.40
+  Win32QueryControlColors           | PMMERGE  |       | 2.40
+  Win32QueryCp                      | PMWIN    | CTRY  | 2.00
+  Win32QueryCpList                  | PMWIN    | CTRY  | 2.00
+  Win32QueryCpType                  | PMMERGE  |       | 2.45
+  Win32QueryCursorInfo              | PMWIN    | CUR   | 2.00
+  Win32QueryDesktopBkgnd            | PMWIN    | DESK  | 2.00
+  Win32QueryDesktopWindow           | PMWIN    | WIN   | 2.00
+  Win32QueryDlgItemShort            | PMWIN    | DLG   | 2.00
+  Win32QueryDlgItemText             | PMWIN    | DLG   | 2.00
+  Win32QueryDlgItemTextLength       | PMWIN    | DLG   | 2.00
+  Win32QueryFocus                   | PMWIN    | INPT  | 2.00
+  Win32QueryHelpInstance            | HELPMGR  |       | 2.00
+  Win32QueryKbdLayer                | PMBIDI   |       | 2.30
+  Win32QueryLangInfo                | PMBIDI   |       | 2.30
+  Win32QueryLangViewer              | PMBIDI   |       | 2.30
+  Win32QueryMsgPos                  | PMWIN    | MSG   | 2.00
+  Win32QueryMsgTime                 | PMWIN    | MSG   | 2.00
+  Win32QueryObject                  | PMWP     |       | 2.00
+  Win32QueryObjectPath              | PMWP     |       | 2.30
+  Win32QueryObjectWindow            | PMWIN    | WIN   | 2.00
+  Win32QueryPointer                 | PMWIN    | PTR   | 2.00
+  Win32QueryPointerInfo             | PMWIN    | PTR   | 2.00
+  Win32QueryPointerPos              | PMWIN    | PTR   | 2.00
+  Win32QueryPresParam               | PMWIN    | SYS   | 2.00
+  Win32QueryQueueInfo               | PMWIN    | MSG   | 2.00
+  Win32QueryQueueStatus             | PMWIN    | MSG   | 2.00
+  Win32QuerySendMsg                 | PMWIN    | MSG   | 2.00
+  Win32QuerySessionTitle            | PMSHAPI  |       | 2.00
+  Win32QuerySwitchEntry             | PMSHAPI  |       | 2.00
+  Win32QuerySwitchHandle            | PMSHAPI  |       | 2.00
+  Win32QuerySwitchList              | PMSHAPI  |       | 2.00
+  Win32QuerySysColor                | PMWIN    | SYS   | 2.00
+  Win32QuerySysModalWindow          | PMWIN    | WIN   | 2.00
+  Win32QuerySysPointer              | PMWIN    | PTR   | 2.00
+  Win32QuerySysPointerData          | PMWIN    | PTR   | 2.10
+  Win32QuerySystemAtomTable         | PMWIN    | ATOM  | 2.00
+  Win32QuerySysValue                | PMWIN    | SYS   | 2.00
+  Win32QueryTaskSizePos             | PMSHAPI  |       | 2.00
+  Win32QueryTaskTitle               | PMSHAPI  |       | 2.00
+  Win32QueryUpdateRect              | PMWIN    | WIN   | 2.00
+  Win32QueryUpdateRegion            | PMWIN    | WIN   | 2.00
+  Win32QueryVersion                 | PMWIN    | WIN   | 2.00
+  Win32QueryVisibleRegion           | PMWIN    | WIN   | 2.10
+  Win32QueryWindow                  | PMWIN    | WIN   | 2.00
+  Win32QueryWindowDC                | PMWIN    | WIN   | 2.00
+  Win32QueryWindowModel             | PMWIN    | THK   | 2.00
+  Win32QueryWindowPos               | PMWIN    | WIN   | 2.00
+  Win32QueryWindowProcess           | PMWIN    | WIN   | 2.00
+  Win32QueryWindowPtr               | PMWIN    | WIN   | 2.00
+  Win32QueryWindowRect              | PMWIN    | WIN   | 2.00
+  Win32QueryWindowText              | PMWIN    | WIN   | 2.00
+  Win32QueryWindowTextLength        | PMWIN    | WIN   | 2.00
+  Win32QueryWindowThunkProc         | PMWIN    | THK   | 2.00
+  Win32QueryWindowULong             | PMWIN    | WIN   | 2.00
+  Win32QueryWindowUShort            | PMWIN    | WIN   | 2.00
+  Win32QueueFromID                  | PMWIN    | MSG   | 2.00
+  Win32RealizePalette               | PMWIN    | PAL   | 2.00
+  Win32RegisterCircularSlider       | PMCTLS   |       | 2.30
+  Win32RegisterClass                | PMWIN    | WIN   | 2.00
+  Win32RegisterObjectClass          | PMWP     |       | 2.00
+  Win32RegisterUserDatatype         | PMWIN    | MSG   | 2.00
+  Win32RegisterUserMsg              | PMWIN    | MSG   | 2.00
+  Win32ReleaseErasePS               | PMWIN    | WIN   | 2.00
+  Win32ReleaseHook                  | PMWIN    | HOOK  | 2.00
+  Win32ReleasePS                    | PMWIN    | WIN   | 2.00
+  Win32RemovePresParam              | PMWIN    | SYS   | 2.00
+  Win32RemoveSwitchEntry            | PMSHAPI  |       | 2.00
+  Win32ReplaceObjectClass           | PMWP     |       | 2.00
+  Win32ReplyMsg                     | PMWIN    | MSG   | 2.00
+  Win32RequestMutexSem              | PMWIN    | MSG   | 2.00
+  Win32RestartSOMDD                 | PMWP     |       | 2.30
+  Win32RestartWPDServer             | PMWP     |       | 2.30
+  Win32RestoreWindowPos             | PMWP     |       | 2.00
+  Win32SaveObject                   | PMWP     |       | 2.30
+  Win32SaveWindowPos                | PMWIN    | FRAM  | 2.00
+  Win32ScrollWindow                 | PMWIN    | WIN   | 2.00
+  Win32SendDlgItemMsg               | PMWIN    | DLG   | 2.00
+  Win32SendMsg                      | PMWIN    | MSG   | 2.00
+  Win32SetAccelTable                | PMWIN    | ACCL  | 2.00
+  Win32SetActiveWindow              | PMWIN    | WIN   | 2.00
+  Win32SetCapture                   | PMWIN    | INPT  | 2.00
+  Win32SetClassMsgInterest          | PMWIN    | MSG   | 2.00
+  Win32SetClassThunkProc            | PMWIN    | THK   | 2.00
+  Win32SetClipbrdData               | PMWIN    | CLIP  | 2.00
+  Win32SetClipbrdOwner              | PMWIN    | CLIP  | 2.00
+  Win32SetClipbrdViewer             | PMWIN    | CLIP  | 2.00
+  Win32SetClipRegion                | PMWIN    | WIN   | 2.40
+  Win32SetControlColors             | PMMERGE  |       | 2.40
+  Win32SetCp                        | PMWIN    | CTRY  | 2.00
+  Win32SetDesktopBkgnd              | PMWIN    | DESK  | 2.00
+  Win32SetDlgItemShort              | PMWIN    | DLG   | 2.00
+  Win32SetDlgItemText               | PMWIN    | DLG   | 2.00
+  Win32SetErrorInfo                 | PMWIN    | SEI   | 2.00
+  Win32SetFileIcon                  | PMWP     |       | 2.00
+  Win32SetFocus                     | PMWIN    | INPT  | 2.00
+  Win32SetHook                      | PMWIN    | HOOK  | 2.00
+  Win32SetKbdLayer                  | PMBIDI   |       | 2.30
+  Win32SetKeyboardStateTable        | PMWIN    | INPT  | 2.00
+  Win32SetLangInfo                  | PMBIDI   |       | 2.30
+  Win32SetLangViewer                | PMBIDI   |       | 2.30
+  Win32SetMsgInterest               | PMWIN    | MSG   | 2.00
+  Win32SetMsgMode                   | PMWIN    | MSG   | 2.00
+  Win32SetMultWindowPos             | PMWIN    | WIN   | 2.00
+  Win32SetObjectData                | PMWP     |       | 2.00
+  Win32SetOwner                     | PMWIN    | WIN   | 2.00
+  Win32SetParent                    | PMWIN    | WIN   | 2.00
+  Win32SetPointer                   | PMWIN    | PTR   | 2.00
+  Win32SetPointerOwner              | PMWIN    | PTR   | 2.00
+  Win32SetPointerPos                | PMWIN    | PTR   | 2.00
+  Win32SetPresParam                 | PMWIN    | SYS   | 2.00
+  Win32SetRect                      | PMWIN    | RECT  | 2.00
+  Win32SetRectEmpty                 | PMWIN    | RECT  | 2.00
+  Win32SetSynchroMode               | PMWIN    | MSG   | 2.00
+  Win32SetSysColors                 | PMWIN    | SYS   | 2.00
+  Win32SetSysModalWindow            | PMWIN    | WIN   | 2.00
+  Win32SetSysPointerData            | PMWIN    | PTR   | 2.10
+  Win32SetSysValue                  | PMWIN    | SYS   | 2.00
+  Win32SetVisibleRegionNotify       | PMWIN    | WIN   | 2.10
+  Win32SetWindowBits                | PMWIN    | WIN   | 2.00
+  Win32SetWindowPos                 | PMWIN    | WIN   | 2.00
+  Win32SetWindowPtr                 | PMWIN    | WIN   | 2.00
+  Win32SetWindowText                | PMWIN    | WIN   | 2.00
+  Win32SetWindowThunkProc           | PMWIN    | THK   | 2.00
+  Win32SetWindowULong               | PMWIN    | WIN   | 2.00
+  Win32SetWindowUShort              | PMWIN    | WIN   | 2.00
+  Win32ShowCursor                   | PMWIN    | CUR   | 2.00
+  Win32ShowPointer                  | PMWIN    | PTR   | 2.00
+  Win32ShowTrackRect                | PMWIN    | TREC  | 2.00
+  Win32ShowWindow                   | PMWIN    | WIN   | 2.00
+  Win32ShutdownSystem               | PMWP     |       | 2.00
+  Win32StartApp                     | PMSHAPI  |       | 2.00
+  Win32StartTimer                   | PMWIN    | TIME  | 2.00
+  Win32StopTimer                    | PMWIN    | TIME  | 2.00
+  Win32StoreWindowPos               | PMWP     |       | 2.00
+  Win32StretchPointer               | PMWIN    | PTR   | 2.00
+  Win32SubclassWindow               | PMWIN    | WIN   | 2.00
+  Win32SubstituteStrings            | PMWIN    | DLG   | 2.00
+  Win32SubtractRect                 | PMWIN    | RECT  | 2.00
+  Win32SwitchProgramRegister        | PMSHAPI  |       | 2.00
+  Win32SwitchToProgram              | PMSHAPI  |       | 2.00
+  Win32Terminate                    | PMWIN    | WIN   | 2.00
+  Win32TerminateApp                 | PMSHAPI  |       | 2.00
+  Win32ThreadAssocQueue             | PMWIN    | MSG   | 2.00
+  Win32TrackRect                    | PMWIN    | TREC  | 2.00
+  Win32TranslateAccel               | PMWIN    | ACCL  | 2.00
+  Win32UnionRect                    | PMWIN    | RECT  | 2.00
+  Win32UnlockSystem                 | PMWP     |       | 2.10
+  Win32UpdateWindow                 | PMWIN    | WIN   | 2.00
+  Win32Upper                        | PMWIN    | CTRY  | 2.00
+  Win32UpperChar                    | PMWIN    | CTRY  | 2.00
+  Win32ValidateRect                 | PMWIN    | WIN   | 2.00
+  Win32ValidateRegion               | PMWIN    | WIN   | 2.00
+  Win32WaitEventSem                 | PMWIN    | MSG   | 2.00
+  Win32WaitMsg                      | PMWIN    | MSG   | 2.00
+  Win32WaitMuxWaitSem               | PMWIN    | MSG   | 2.00
+  Win32WakeThread                   | PMWIN    | MSG   | 2.00
+  Win32WindowFromDC                 | PMWIN    | WIN   | 2.00
+  Win32WindowFromID                 | PMWIN    | WIN   | 2.00
+  Win32WindowFromPoint              | PMWIN    | WIN   | 2.00
+
+  * - Removed by the Convenience Package for OS/2 Warp Server for e-business
+

@@ -1,0 +1,76 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_KBD___.I32                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL KBDCALLS module definitions file    ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.18 30Apr97 Added 16-bit Kbd APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.31 26Jun01 Added  capability  of building  32-bit  only ;
+;                                 trace DLLs                                   ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_KBD___ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL KBDCALLS Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+EXPORTS
+                KBDSETCUSTXT                           @ 1 RESIDENTNAME
+                                  KBDPROCESSINIT       @ 2 NONAME
+                KBDGETCP                               @ 3 RESIDENTNAME
+                KBDCHARIN                              @ 4 RESIDENTNAME
+                KBDSETCP                               @ 5 RESIDENTNAME
+                                  KBDLOADINSTANCE      @ 6 RESIDENTNAME
+                KBDSYNCH                               @ 7 RESIDENTNAME
+                KBDREGISTER                            @ 8 RESIDENTNAME
+                KBDSTRINGIN                            @ 9 RESIDENTNAME
+                KBDGETSTATUS                           @10 RESIDENTNAME
+                KBDSETSTATUS                           @11 RESIDENTNAME
+                KBDGETFOCUS                            @12 RESIDENTNAME
+                KBDFLUSHBUFFER                         @13 RESIDENTNAME
+                KBDXLATE                               @14 RESIDENTNAME
+                                  KBDSWITCHFGND        @15 RESIDENTNAME
+                                  KBDSHELLINIT         @16 RESIDENTNAME
+                KBDCLOSE                               @17 RESIDENTNAME
+                KBDFREEFOCUS                           @18 RESIDENTNAME
+                                  KBDFREE              @19 RESIDENTNAME
+                KBDDEREGISTER                          @20 RESIDENTNAME
+                KBDSETFGND                             @21 RESIDENTNAME
+                KBDPEEK                                @22 RESIDENTNAME
+                KBDOPEN                                @23 RESIDENTNAME
+                KBDGETHWID                             @24 RESIDENTNAME
+                                  KBDSETHWID           @25 NONAME
+IMPORTS
+                KBDSETCUSTXT    = KBDCALLS. 1
+                KBDPROCESSINIT  = KBDCALLS. 2
+                KBDGETCP        = KBDCALLS. 3
+                KBDCHARIN       = KBDCALLS. 4
+                KBDSETCP        = KBDCALLS. 5
+                KBDLOADINSTANCE = KBDCALLS. 6
+                KBDSYNCH        = KBDCALLS. 7
+                KBDREGISTER     = KBDCALLS. 8
+                KBDSTRINGIN     = KBDCALLS. 9
+                KBDGETSTATUS    = KBDCALLS.10
+                KBDSETSTATUS    = KBDCALLS.11
+                KBDGETFOCUS     = KBDCALLS.12
+                KBDFLUSHBUFFER  = KBDCALLS.13
+                KBDXLATE        = KBDCALLS.14
+                KBDSWITCHFGND   = KBDCALLS.15
+                KBDSHELLINIT    = KBDCALLS.16
+                KBDCLOSE        = KBDCALLS.17
+                KBDFREEFOCUS    = KBDCALLS.18
+                KBDFREE         = KBDCALLS.19
+                KBDDEREGISTER   = KBDCALLS.20
+                KBDSETFGND      = KBDCALLS.21
+                KBDPEEK         = KBDCALLS.22
+                KBDOPEN         = KBDCALLS.23
+                KBDGETHWID      = KBDCALLS.24
+                KBDSETHWID      = KBDCALLS.25

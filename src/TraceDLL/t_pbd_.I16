@@ -1,0 +1,136 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_PBD_.I16                                                   ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMBIDI module definitions file      ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.75 28Oct98 Added Gpi/Win APIs exported from PMBIDI      ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_PBD_ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMBIDI Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_pbd_0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                                                  PMBIDI_Initialize               @  1 RESIDENTNAME ; OS2VER 230
+                WIN16SETLANGINFO                = TRC_WIN16SETLANGINFO            @ 10 RESIDENTNAME ; OS2VER 230
+                WIN16QUERYLANGINFO              = TRC_WIN16QUERYLANGINFO          @ 11 RESIDENTNAME ; OS2VER 230
+                WIN16SETKBDLAYER                = TRC_WIN16SETKBDLAYER            @ 12 RESIDENTNAME ; OS2VER 230
+                WIN16QUERYKBDLAYER              = TRC_WIN16QUERYKBDLAYER          @ 13 RESIDENTNAME ; OS2VER 230
+                WIN16SETLANGVIEWER              = TRC_WIN16SETLANGVIEWER          @ 14 RESIDENTNAME ; OS2VER 230
+                WIN16QUERYLANGVIEWER            = TRC_WIN16QUERYLANGVIEWER        @ 15 RESIDENTNAME ; OS2VER 230
+                                                  WIN16SETPROCESSLANGINFO         @ 18 RESIDENTNAME ; OS2VER 230
+                                                  WIN16QUERYPROCESSLANGINFO       @ 19 RESIDENTNAME ; OS2VER 230
+                Win32SetLangInfo                = Trc_Win32SetLangInfo            @ 20 RESIDENTNAME ; OS2VER 230
+                Win32QueryLangInfo              = Trc_Win32QueryLangInfo          @ 21 RESIDENTNAME ; OS2VER 230
+                Win32SetKbdLayer                = Trc_Win32SetKbdLayer            @ 22 RESIDENTNAME ; OS2VER 230
+                Win32QueryKbdLayer              = Trc_Win32QueryKbdLayer          @ 23 RESIDENTNAME ; OS2VER 230
+                Win32SetLangViewer              = Trc_Win32SetLangViewer          @ 24 RESIDENTNAME ; OS2VER 230
+                Win32QueryLangViewer            = Trc_Win32QueryLangViewer        @ 25 RESIDENTNAME ; OS2VER 230
+                                                  Win32SetProcessLangInfo         @ 30 RESIDENTNAME ; OS2VER 230
+                                                  Win32QueryProcessLangInfo       @ 31 RESIDENTNAME ; OS2VER 230
+                GPI16SETBIDIATTR                = TRC_GPI16SETBIDIATTR            @ 40 RESIDENTNAME ; OS2VER 230
+                GPI16QUERYBIDIATTR              = TRC_GPI16QUERYBIDIATTR          @ 41 RESIDENTNAME ; OS2VER 230
+                Gpi32SetBidiAttr                = Trc_Gpi32SetBidiAttr            @ 50 RESIDENTNAME ; OS2VER 230
+                Gpi32QueryBidiAttr              = Trc_Gpi32QueryBidiAttr          @ 51 RESIDENTNAME ; OS2VER 230
+                                                  Bidi_QueryCp                    @ 60 RESIDENTNAME ; OS2VER 230
+                                                  BIDI_16QUERYCP                  @ 61 RESIDENTNAME ; OS2VER 230
+                                                  PMBIDI_Get_StdDlgLang_Setting   @101 RESIDENTNAME ; OS2VER 230
+                                                  PMBIDI_16GET_STDDLGLANG_SETTING @102 RESIDENTNAME ; OS2VER 230
+                                                  PMBIDI_String_To_BinVal         @110 RESIDENTNAME ; OS2VER 230
+                                                  PMBIDI_BinVal_To_String         @111 RESIDENTNAME ; OS2VER 230
+                                                  PMBIDI_Keyword_To_BinVal        @112 RESIDENTNAME ; OS2VER 230
+                                                  PMBIDI_Get_HelpBidi_Setting     @113 RESIDENTNAME ; OS2VER 240
+                                                  NLS16CONVERTBIDISTRING          @200 RESIDENTNAME ; OS2VER 230
+                                                  NLS16EDITSHAPE                  @201 RESIDENTNAME ; OS2VER 230
+                                                  NLS16INVERSESTRING              @202 RESIDENTNAME ; OS2VER 230
+                                                  NLS16SHAPEBIDISTRING            @203 RESIDENTNAME ; OS2VER 230
+                                                  NLS16CONVERTBIDINUMERICS        @204 RESIDENTNAME ; OS2VER 230
+                                                  Nls32ConvertBidiString          @205 RESIDENTNAME ; OS2VER 230
+                                                  Nls32EditShape                  @206 RESIDENTNAME ; OS2VER 230
+                                                  Nls32InverseString              @207 RESIDENTNAME ; OS2VER 230
+                                                  Nls32ShapeBidiString            @208 RESIDENTNAME ; OS2VER 230
+                                                  Nls32ConvertBidiNumerics        @209 RESIDENTNAME ; OS2VER 230
+                                                  layout_object_create            @306 RESIDENTNAME ; OS2VER 230
+                                                  layout_object_destroy           @307 RESIDENTNAME ; OS2VER 230
+                                                  layout_object_transform         @308 RESIDENTNAME ; OS2VER 230
+                                                  layout_object_editshape         @309 RESIDENTNAME ; OS2VER 230
+                                                  layout_object_setvalues         @310 RESIDENTNAME ; OS2VER 230
+                                                  layout_object_getvalues         @311 RESIDENTNAME ; OS2VER 230
+                                                  PMBIDI_16CP_TRANSLATE_STRING    @400 RESIDENTNAME ; OS2VER 230
+                                                  PMBIDI_CpTranslateString        @401 RESIDENTNAME ; OS2VER 230
+                                                  Bidi_MapSrcToTrg                @450 RESIDENTNAME ; OS2VER 230
+                                                  Bidi_ClassifyCodepage           @451 RESIDENTNAME ; OS2VER 230
+                                                  Bidi_IsStringBidi               @452 RESIDENTNAME ; OS2VER 230
+                                                  Bidi_IsStringAllBidi            @453 RESIDENTNAME ; OS2VER 230
+                                                  Bidi_ReverseString              @454 RESIDENTNAME ; OS2VER 230
+                                                  Bidi_LayoutConvert              @460 RESIDENTNAME ; OS2VER 230
+                                                  Bidi_LayoutEdit                 @461 RESIDENTNAME ; OS2VER 230
+                                                  ulProcess_BidiAttr              @999 RESIDENTNAME ; OS2VER 230
+IMPORTS
+                PMBIDI_Initialize               = PMBIDI.  1
+;               WIN16SETLANGINFO                = PMBIDI. 10
+;               WIN16QUERYLANGINFO              = PMBIDI. 11
+;               WIN16SETKBDLAYER                = PMBIDI. 12
+;               WIN16QUERYKBDLAYER              = PMBIDI. 13
+;               WIN16SETLANGVIEWER              = PMBIDI. 14
+;               WIN16QUERYLANGVIEWER            = PMBIDI. 15
+                WIN16SETPROCESSLANGINFO         = PMBIDI. 18
+                WIN16QUERYPROCESSLANGINFO       = PMBIDI. 19
+;               WIN32SETLANGINFO                = PMBIDI. 20
+;               WIN32QUERYLANGINFO              = PMBIDI. 21
+;               WIN32SETKBDLAYER                = PMBIDI. 22
+;               WIN32QUERYKBDLAYER              = PMBIDI. 23
+;               WIN32SETLANGVIEWER              = PMBIDI. 24
+;               WIN32QUERYLANGVIEWER            = PMBIDI. 25
+                Win32SetProcessLangInfo         = PMBIDI. 30
+                Win32QueryProcessLangInfo       = PMBIDI. 31
+;               GPI16SETBIDIATTR                = PMBIDI. 40
+;               GPI16QUERYBIDIATTR              = PMBIDI. 41
+;               GPI32SETBIDIATTR                = PMBIDI. 50
+;               GPI32QUERYBIDIATTR              = PMBIDI. 51
+                Bidi_QueryCp                    = PMBIDI. 60
+                BIDI_16QUERYCP                  = PMBIDI. 61
+                PMBIDI_Get_StdDlgLang_Setting   = PMBIDI.101
+                PMBIDI_16GET_STDDLGLANG_SETTING = PMBIDI.102
+                PMBIDI_String_To_BinVal         = PMBIDI.110
+                PMBIDI_BinVal_To_String         = PMBIDI.111
+                PMBIDI_Keyword_To_BinVal        = PMBIDI.112
+                PMBIDI_Get_HelpBidi_Setting     = PMBIDI.113
+                NLS16CONVERTBIDISTRING          = PMBIDI.200
+                NLS16EDITSHAPE                  = PMBIDI.201
+                NLS16INVERSESTRING              = PMBIDI.202
+                NLS16SHAPEBIDISTRING            = PMBIDI.203
+                NLS16CONVERTBIDINUMERICS        = PMBIDI.204
+                Nls32ConvertBidiString          = PMBIDI.205
+                Nls32EditShape                  = PMBIDI.206
+                Nls32InverseString              = PMBIDI.207
+                Nls32ShapeBidiString            = PMBIDI.208
+                Nls32ConvertBidiNumerics        = PMBIDI.209
+                layout_object_create            = PMBIDI.306
+                layout_object_destroy           = PMBIDI.307
+                layout_object_transform         = PMBIDI.308
+                layout_object_editshape         = PMBIDI.309
+                layout_object_setvalues         = PMBIDI.310
+                layout_object_getvalues         = PMBIDI.311
+                PMBIDI_16CP_TRANSLATE_STRING    = PMBIDI.400
+                PMBIDI_CpTranslateString        = PMBIDI.401
+                Bidi_MapSrcToTrg                = PMBIDI.450
+                Bidi_ClassifyCodepage           = PMBIDI.451
+                Bidi_IsStringBidi               = PMBIDI.452
+                Bidi_IsStringAllBidi            = PMBIDI.453
+                Bidi_ReverseString              = PMBIDI.454
+                Bidi_LayoutConvert              = PMBIDI.460
+                Bidi_LayoutEdit                 = PMBIDI.461
+                ulProcess_BidiAttr              = PMBIDI.999

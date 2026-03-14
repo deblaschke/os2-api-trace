@@ -1,0 +1,941 @@
+
+
+                     Operating System/2 API Trace History
+
+
+  Release      : 2.45.40 (25 Oct 10)
+  Enhancements : Fixed input/output logging of PEAOP and PEAOP2 structures
+
+  Release      : 2.45.39 (10 Oct 10)
+  Enhancements : Saved and restored FS register around use in T_GetTID
+
+  Release      : 2.45.38 (04 May 09)
+  Enhancements : Added Dos32DumpProcess errors (70000-70026)
+
+  Release      : 2.45.37 (30 Apr 09)
+  Enhancements : Fixed  displaying  null for  unknown error  within  known
+                 error range
+
+  Release      : 2.45.36 (03 Dec 03)
+  Enhancements : Passed pointer  to actual  parameters and  return code to
+                 user hook for WinSetErrorInfo instead of pointer to local
+                 copies
+
+  Release      : 2.45.35 (02 Dec 03)
+  Enhancements : Fixed corruption of registers by Dos16CreateThread due to
+                 C run-time thunking code
+
+                 NOTE: IBM's  Corrective  Service  Facility  (SERVICE.EXE)
+                 expects the contents of  registers CX, DX, SI and DI upon
+                 entry to Dos16CreateThread  to be passed unaltered to the
+                 newly created thread's initial dispatch point.
+
+  Release      : 2.45.34 (10 Jul 01)
+  Enhancements : Moved C run-time functions from trace DLLs into T_COMMON,
+                 resulting in reduction of 488KB from DASD requirements
+
+  Release      : 2.45.33 (29 Jun 01)
+  Enhancements : Added support for public OS/2 2.00 and 2.30 APIs exported
+                 from PMSHAPI that are not  included in any public include
+                 file:
+                   Win16SetFgndWindow (PMSHAPI.9)
+                   Win16RemoveProgram (PMSHAPI.13)
+                   Win16ChangeProgram (PMSHAPI.14)
+                   Win16AddToGroup (PMSHAPI.19)
+                   Win16QueryProgramUse (PMSHAPI.20)
+                   Win16RemoveFromGroup (PMSHAPI.21)
+                   Win16DestroyGroup (PMSHAPI.23)
+                   Win16QueryProgramType (PMSHAPI.26)
+                   Win16EndProgram (PMSHAPI.73)
+                   Win16StopProgram (PMSHAPI.74)
+                   Win16NoShutdown (PMSHAPI.91)
+                   Win16SetTitle (PMSHAPI.93)
+                   Win16SetTitleAndIcon (PMSHAPI.97)
+                   Win16SetTitleAndHwndIcon (PMSHAPI.99)
+                   Win16HAPPfromPID (PMSHAPI.208)
+                   Win16HSWITCHfromHAPP (PMSHAPI.209)
+
+  Release      : 2.45.32 (28 Jun 01)
+  Enhancements : Added the -U option, which specifies a user hook
+
+  Release      : 2.45.31 (26 Jun 01)
+  Enhancements : Added capability of building 32-bit only trace DLLs which
+                 do not support 16-bit OS/2 APIs but result in a reduction
+                 of 514KB  from DASD  requirements due  to elimination  of
+                 16-bit code and data segments
+
+  Release      : 2.45.30 (22 Jun 01)
+  Enhancements : Fixed  calling   convention  conflict   between  T_COMMON
+                 routines    (expect   parameters   in   registers)    and
+                 Dos32UnwindException (pushed parameters on stack)
+
+  Release      : 2.45.29 (19 Jun 01)
+  Enhancements : Added support for enter keys in entry fields of following
+                 Presentation Manager interface dialogs:
+                   Alternative Directory
+                   Launch .EXE
+
+  Release      : 2.45.28 (14 Jun 01)
+  Enhancements : Fixed  corruption  of CX and DX  by Dos16ProtectQFileInfo
+                 and Dos16QFileInfo due to C run-time thunking code
+
+  Release      : 2.45.27 (05 Jun 01)
+  Enhancements : Fixed output  logging of  Dos32CreateThread's  fourth and
+                 fifth parameters
+
+  Release      : 2.45.26 (10 Jan 01)
+  Enhancements : Handled OS/2 2.45 APIs removed by the Convenience Package
+                 for OS/2 Warp Server for e-business:
+                   Dos16FSRamSemRequest2 (DOSCALLS.991)
+                   Dos16FSRamSemClear2 (DOSCALLS.992)
+
+  Release      : 2.45.25 (03 Jun 00)
+  Enhancements : Provided    trace   information   file   API    stripper,
+                 STRIPAPI.EXE
+
+  Release      : 2.45.24 (01 Jun 00)
+  Enhancements : Added  the  -A option,  which  specifies  an  alternative
+                 logging directory
+
+  Release      : 2.45.23 (24 May 00)
+  Enhancements : Handled running  out of disk  space by  issuing error and
+                 terminating
+
+  Release      : 2.45.22 (01 Mar 00)
+  Enhancements : Removed drawing background font if bitmap calculation too
+                 long (over 25 hundredths of a second)
+
+  Release      : 2.45.21 (29 Feb 00)
+  Enhancements : Fixed resizing main window  with zero height twice during
+                 trace  monitoring  due to an  error  present  in  earlier
+                 32-bit versions of OS/2
+
+  Release      : 2.45.20 (29 Feb 00)
+  Enhancements : Fixed control semaphore  internal processing error due to
+                 an error present in OS/2 2.00
+
+  Release      : 2.45.19 (29 Feb 00)
+  Enhancements : Fixed trace monitoring to  display monitoring information
+                 even if main window's background font is unavailable
+
+  Release      : 2.45.18 (28 Feb 00)
+  Enhancements : Removed unnecessary entries from trace DLLs' resident and
+                 non-resident  names tables,  resulting in a  reduction of
+                 72KB from DASD requirements
+               : Removed restriction of not being able to trace executable
+                 files  which  import  an  API  by  name  EXCEPT  for  the
+                 following APIs:
+                   PMDRAG.DRGACCESSDRAGINFO
+                   PMDRAG.DRGADDSTRHANDLE
+                   PMDRAG.DRGALLOCDRAGINFO
+                   PMDRAG.DRGALLOCDRAGTRANSFER
+                   PMDRAG.DRGDELETEDRAGINFOSTRHANDLES
+                   PMDRAG.DRGDELETESTRHANDLE
+                   PMDRAG.DRGDRAG
+                   PMDRAG.DRGFREEDRAGINFO
+                   PMDRAG.DRGFREEDRAGTRANSFER
+                   PMDRAG.DRGGETPS
+                   PMDRAG.DRGPOSTTRANSFERMSG
+                   PMDRAG.DRGPUSHDRAGINFO
+                   PMDRAG.DRGQUERYDRAGITEM
+                   PMDRAG.DRGQUERYDRAGITEMCOUNT
+                   PMDRAG.DRGQUERYDRAGITEMPTR
+                   PMDRAG.DRGQUERYNATIVERMF
+                   PMDRAG.DRGQUERYNATIVERMFLEN
+                   PMDRAG.DRGQUERYSTRNAME
+                   PMDRAG.DRGQUERYSTRNAMELEN
+                   PMDRAG.DRGQUERYTRUETYPE
+                   PMDRAG.DRGQUERYTRUETYPELEN
+                   PMDRAG.DRGRELEASEPS
+                   PMDRAG.DRGSENDTRANSFERMSG
+                   PMDRAG.DRGSETDRAGPOINTER
+                   PMDRAG.DRGSETDRAGIMAGE
+                   PMDRAG.DRGSETDRAGITEM
+                   PMDRAG.DRGVERIFYNATIVERMF
+                   PMDRAG.DRGVERIFYRMF
+                   PMDRAG.DRGVERIFYTRUETYPE
+                   PMDRAG.DRGVERIFYTYPE
+                   PMDRAG.DRGVERIFYTYPESET
+                   PMDRAG.DRGDRAGFILES
+                   PMDRAG.DRGACCEPTDROPPEDFILES
+                   PMPIC.PICPRINT
+                   PMPIC.PICICHG
+                   PMPIC.PIF2MET
+                   PMPIC.PRFPIF2MET
+                   PMPIC.PIC32PRINT
+                   PMPIC.PIC32ICHG
+                   PMPIC.PRF32PIF2MET
+
+                 NOTE:  The reason that these  PMDRAG APIs are unsupported
+                 is that  between  OS/2 2.10  and 2.30  their  names  were
+                 changed  to include  "16"  in the  prefix  (for  example,
+                 DRGACCESSDRAGINFO became DRG16ACCESSDRAGINFO);  the newer
+                 names are  supported.  The reason  that these  PMPIC APIs
+                 are unsupported is that between  OS/2 2.30 and 2.40 their
+                 names were changed to  mixed case (for example,  PICPRINT
+                 became PicPrint); the newer names are supported.  Special
+                 versions of the PMDRAG and PMPIC  trace DLLs that support
+                 the older names can be requested from the author.
+
+  Release      : 2.45.17 (21 Feb 00)
+  Enhancements : Added   option   for   restoring   window   position   to
+                 Presentation Manager interface
+
+  Release      : 2.45.16 (18 Feb 00)
+  Enhancements : Added the -C option,  which enables and disables  tracing
+                 control (-PAUSE and -RESUME options)
+               : Added the  -PAUSE  and  -RESUME  options,  which  control
+                 tracing
+
+  Release      : 2.45.15 (08 Feb 00)
+  Enhancements : Standardized output
+
+  Release      : 2.45.14 (02 Feb 00)
+  Enhancements : Updated information in OS2.INI only when changed by user
+
+  Release      : 2.45.13 (01 Feb 00)
+  Enhancements : Logged process identifier in errors and warnings
+
+  Release      : 2.45.12 (01 Feb 00)
+  Enhancements : Displayed trace customization options on separate line
+
+  Release      : 2.45.11 (03 Aug 99)
+  Enhancements : Logged name instead of handle of the module containing an
+                 API being dynamically intercepted
+
+  Release      : 2.45.10 (02 Aug 99)
+  Enhancements : Moved data type and error message strings from trace DLLs
+                 into T_COMMON,  resulting in reduction of 113KB from DASD
+                 requirements
+
+  Release      : 2.45.09 (11 Jun 99)
+  Enhancements : Added output logging of  Dos16DevIOCtl's first and second
+                 parameters
+               : Added output logging of  Dos16DevIOCtl2's first and third
+                 parameters
+
+  Release      : 2.45.08 (11 Jun 99)
+  Enhancements : Added support for tracing .COM files
+
+  Release      : 2.45.07 (21 May 99)
+  Enhancements : Fixed input/output logging of Dos32Debug's parameter
+
+  Release      : 2.45.06 (16 May 99)
+  Enhancements : Added support for KB (kilobyte)  and MB (megabyte) values
+                 to following Presentation Manager interface dialogs:
+                   Buffer Length
+                   File Wrapping
+                   File Length Monitoring
+
+  Release      : 2.45.05 (09 May 99)
+  Enhancements : Added support for 'K' (kilobyte)  suffix to -B option and
+                 support for 'K' and 'M' (megabyte) suffixes to -F option
+
+  Release      : 2.45.04 (05 May 99)
+  Enhancements : Added the -Q option,  which displays the current state of
+                 the trace customization options stored in OS2.INI
+
+  Release      : 2.45.03 (02 May 99)
+  Enhancements : Added support for the APIs  exported from PMDRAG that are
+                 also exported from PMCTLS
+
+  Release      : 2.45.02 (02 May 99)
+  Enhancements : Fixed  output  logging  of   WinQueryWindowText's   third
+                 parameter
+
+  Release      : 2.45.01 (02 May 99)
+  Enhancements : Added support for the APIs exported from PMGPI,  PMSHAPI,
+                 and PMWIN that are also exported from PMMERGE
+
+  Release      : 2.45.00 (15 Apr 99)
+  Enhancements : Added support  for new  OS/2 2.45  (OS/2 Warp  Server for
+                 e-business) APIs:
+                   Dos32PMR3WaitEventSem (DOSCALLS.561)
+                   Dos32PMR3PostEventSem (DOSCALLS.562)
+                   Dos32QueryThreadAffinity (DOSCALLS.563)
+                   Dos32SetThreadAffinity (DOSCALLS.564)
+                   Dos32OpenL (DOSCALLS.981)
+                   Dos32ProtectOpenL (DOSCALLS.982)
+                   Dos32ProtectSetFileLocksL (DOSCALLS.983)
+                   Dos32ProtectSetFilePtrL (DOSCALLS.984)
+                   Dos32ProtectSetFileSizeL (DOSCALLS.985)
+                   Dos32SetFileLocksL (DOSCALLS.986)
+                   Dos32CacnelLockRequestL (DOSCALLS.987)
+                   Dos32SetFilePtrL (DOSCALLS.988)
+                   Dos32SetFileSizeL (DOSCALLS.989)
+                   Dos32ListIOL (DOSCALLS.990)
+                   Dos16FSRamSemRequest2 (DOSCALLS.991)
+                   Dos16FSRamSemClear2 (DOSCALLS.992)
+                   Dos32SystemService (DOSCALLS.995)
+                   Dos32ListIO (DOSCALLS.996)
+                   Dos32CreateThread2 (DOSCALLS.997)
+                   Gpi32Oval (PMGPI.730)
+                   Win32QueryCpType (PMMERGE.5480)
+               : Added support  for private  OS/2 2.00 and 2.10 APIs  made
+                 public in OS/2 2.45:
+                   Dos16QueryModFromCS (DOSCALLS.359)
+                   Dos32AliasMem (DOSCALLS.298)
+                   Dos32QueryMemState (DOSCALLS.307)
+                   Dos32QuerySysState (DOSCALLS.368)
+
+  Release      : 2.40.87 (23 Mar 99)
+  Enhancements : Fixed  dynamic  loading  of  16-bit  Dos  SMP  APIs  with
+                 Dos32QueryProcAddr
+
+  Release      : 2.40.86 (03 Mar 99)
+  Enhancements : Added support for executable files without DOS headers
+
+  Release      : 2.40.85 (21 Jan 99)
+  Enhancements : Added the -P option, which preserves an executable file's
+                 date and time stamp during trace enablement
+
+  Release      : 2.40.84 (20 Jan 99)
+  Enhancements : Fixed trace monitoring dialogs  so that dialog text boxes
+                 do not overwrite dialog borders
+
+  Release      : 2.40.83 (12 Jan 99)
+  Enhancements : Enhanced trace monitoring by  resizing/repositioning main
+                 window if not all monitoring information visible and user
+                 approves change(s)
+
+  Release      : 2.40.82 (07 Dec 98)
+  Enhancements : Fixed logging  one too many words when  dumping remainder
+                 of 16-bit stack at DosExit
+
+  Release      : 2.40.81 (02 Dec 98)
+  Enhancements : Added the -E option, which logs the EBCDIC translation of
+                 character buffers
+
+  Release      : 2.40.80 (02 Dec 98)
+  Enhancements : Added undocumented  option to dump  remainder of stack at
+                 DosExit
+
+  Release      : 2.40.79 (24 Nov 98)
+  Enhancements : Fixed T_COMMON's importing Dos32QueryModFromEIP  (as OS/2
+                 2.10 API)  by  loading  dynamically  (as  OS/2  2.10 API)
+                 instead
+
+  Release      : 2.40.78 (16 Nov 98)
+  Enhancements : Added support  for miscellaneous  Dos APIs  exported from
+                 DOSCALLS:
+                   Dos16SysTrace (DOSCALLS.90)
+                   Dos16DynamicTrace (DOSCALLS.165)
+                   Dos32SetCp (DOSCALLS.288)
+                   Dos32DynamicTrace (DOSCALLS.316)
+                   Dos32Profile (DOSCALLS.377)
+               : Added PROF group to -D option
+
+  Release      : 2.40.77 (28 Oct 98)
+  Enhancements : Added support for Win32MessageBox2 exported from PMWIN
+
+  Release      : 2.40.76 (28 Oct 98)
+  Enhancements : Issued more specific  trace DLL load errors,  such as the
+                 name of the DLL and the failing ordinal number
+
+  Release      : 2.40.75 (28 Oct 98)
+  Enhancements : Added support  for OS/2 2.30  Gpi and Win  APIs  exported
+                 from PMBIDI
+
+  Release      : 2.40.74 (27 Oct 98)
+  Enhancements : Added support for set error information Win APIs exported
+                 from PMWIN:
+                   Win16SetErrorInfo (PMWIN.263)
+                   Win32SetErrorInfo (PMWIN.977)
+               : Added SEI group to -W option
+
+  Release      : 2.40.73 (26 Oct 98)
+  Enhancements : Fixed   logging  of   trace  API's   return  address   at
+                 Dos32GetMessage  and Dos32QueryMessageCP  entries instead
+                 of trace API's caller's return address
+
+  Release      : 2.40.72 (22 Oct 98)
+  Enhancements : Moved dynamic loading of following Prt/Spl APIs from OS/2
+                 2.40 to OS/2 2.30,  as the APIs are  present on OS/2 2.30
+                 even though they were not publicized until OS/2 2.40:
+                   Prt16AbortDoc
+                   Prt32AbortDoc
+                   Prt16ResetAbort
+                   Prt32ResetAbort
+                   Spl32QmGetJobID
+                   Spl32QmNewPage
+
+  Release      : 2.40.71 (22 Oct 98)
+  Enhancements : Added  support  for  Presentation Manager  AVIO Vio  APIs
+                 exported from VIOCALLS:
+                   Vio16Associate (VIOCALLS.55)
+                   Vio16CreatePS (VIOCALLS.56)
+                   Vio16DeleteSetId (VIOCALLS.57)
+                   Vio16GetDeviceCellSize (VIOCALLS.58)
+                   Vio16GetOrg (VIOCALLS.59)
+                   Vio16CreateLogFont (VIOCALLS.60)
+                   Vio16DestroyPS (VIOCALLS.61)
+                   Vio16QuerySetIds (VIOCALLS.62)
+                   Vio16SetOrg (VIOCALLS.63)
+                   Vio16QueryFonts (VIOCALLS.64)
+                   Vio16SetDeviceCellSize (VIOCALLS.65)
+                   Vio16ShowPS (VIOCALLS.66)
+
+  Release      : 2.40.70 (21 Oct 98)
+  Enhancements : Added support  for miscellaneous  Dos APIs  exported from
+                 DOSCALLS:
+                   Dos16SystemService (DOSCALLS.88)
+                   Dos32QueryRASInfo (DOSCALLS.112)
+                   Dos16ForceDelete (DOSCALLS.203)
+                   Dos16QueryResourceSize (DOSCALLS.573)
+                   Dos16QueryProcType (DOSCALLS.587)
+                   Dos32PerfSysCall (DOSCALLS.976)
+
+  Release      : 2.40.69 (21 Oct 98)
+  Enhancements : Forwarded the private APIs exported from DOSCALLS, PMSPL,
+                 PMVIOP,  and  PMWIN  that were  present on  at least  one
+                 version of OS/2 and removed from a subsequent version
+
+  Release      : 2.40.68 (12 Oct 98)
+  Enhancements : Fixed  displaying in  helping  information  of  -I ON  as
+                 default setting for dynamic  API interception when -I OFF
+                 is the real default
+               : Added separators to helping information
+
+  Release      : 2.40.67 (24 Sep 98)
+  Enhancements : Removed  unloading  of trace  DLLs from .DLLs  due to  an
+                 error present in all 32-bit versions of OS/2
+
+  Release      : 2.40.66 (09 Sep 98)
+  Enhancements : Added  support   for  profile  Dos  APIs   exported  from
+                 DOSCALLS:
+                   Dos32AliasPerfCtrs (DOSCALLS.364)
+                   Dos32ConfigurePerf (DOSCALLS.365)
+                   Dos32DeconPerf (DOSCALLS.366)
+
+  Release      : 2.40.65 (28 Aug 98)
+  Enhancements : Added options for monitoring tracing with user-selectable
+                 API and  file length  monitoring to  Presentation Manager
+                 interface
+
+  Release      : 2.40.64 (21 Aug 98)
+  Enhancements : Added bitmap  of OS2TRACE  logo to  Presentation  Manager
+                 interface help
+
+  Release      : 2.40.63 (19 Aug 98)
+  Enhancements : Fixed the -F option so that  the log file wrapping length
+                 is absolute; previously it  was simply the initial length
+                 after which  file wrapping  would occur,  so the wrapping
+                 length would increase with each subsequent file wrapping
+
+                 NOTE:  Setting the  log file wrapping  length to anything
+                 other than ALL will now further impact the performance of
+                 the application  being traced,  as log file  wrapping now
+                 requires the log file to be unbuffered
+
+  Release      : 2.40.62 (18 Aug 98)
+  Enhancements : Removed  unnecessary  log  file  semaphore  nesting  when
+                 adding/deleting the level of  file information related to
+                 the DosFindFirst/DosFindClose APIs
+
+  Release      : 2.40.61 (17 Aug 98)
+  Enhancements : Added support for SMP Dos APIs exported from DOSCALLS:
+                   Dos32GetProcessorStatus (DOSCALLS.447)
+                   Dos32SetProcessorStatus (DOSCALLS.448)
+                   Dos16CreateSpinLock (DOSCALLS.449)
+                   Dos16AcquireSpinLock (DOSCALLS.450)
+                   Dos16ReleaseSpinLock (DOSCALLS.451)
+                   Dos16FreeSpinLock (DOSCALLS.452)
+                   Dos32TestPSD (DOSCALLS.453)
+                   Dos32CreateSpinLock (DOSCALLS.557)
+                   Dos32AcquireSpinLock (DOSCALLS.558)
+                   Dos32ReleaseSpinLock (DOSCALLS.559)
+                   Dos32FreeSpinLock (DOSCALLS.560)
+               : Added SMP group to -D option
+
+  Release      : 2.40.60 (08 Jul 98)
+  Enhancements : Added option  for sizing window  as title/action bar only
+                 to Presentation Manager interface
+
+  Release      : 2.40.59 (06 Jul 98)
+  Enhancements : Added bitmaps for summarization results dialog and launch
+                 .EXE file dialog to Presentation Manager interface help
+
+  Release      : 2.40.58 (01 Jul 98)
+  Enhancements : Issued error if the version  of one of the required trace
+                 DLLs does  not match the version of T_COMMON,  preventing
+                 erroneous output and traps  when multiple versions are in
+                 use
+
+  Release      : 2.40.57 (25 Jun 98)
+  Enhancements : Provided trace-enabled  executable checker,  CHK4TRC.EXE,
+                 with support for displaying  DLLs enabled for tracing and
+                 checking subdirectories
+
+  Release      : 2.40.56 (02 Jun 98)
+  Enhancements : Changed the Presentation Manager interface's cancellation
+                 dialog default selection to "No" button
+
+  Release      : 2.40.55 (02 Jun 98)
+  Enhancements : Fixed  output  logging  of  DevQueryHardcopyCaps'  fourth
+                 parameter
+
+  Release      : 2.40.54 (16 Mar 98)
+  Enhancements : Changed the Presentation Manager  interface's main window
+                 identifier  to 1 so that the operating system  recognizes
+                 the default icon within the executable's resources
+
+  Release      : 2.40.53 (16 Mar 98)
+  Enhancements : Destroyed  the   Presentation  Manager  interface's  file
+                 dialog  message  queue  from   exception  handler  during
+                 unwind, as OS/2 2.10 and earlier versions do not clean up
+                 Presentation Manager resources properly following DosExit
+
+  Release      : 2.40.52 (16 Mar 98)
+  Enhancements : Removed appending  backslash to the  Presentation Manager
+                 interface's initial file  dialog directory when directory
+                 is root
+
+  Release      : 2.40.51 (18 Feb 98)
+  Enhancements : Verified  that the  origin  of the  Presentation  Manager
+                 interface's  saved  window  position  is on  the  current
+                 desktop before restoring window position,  preventing the
+                 window's title bar from being drawn off the screen if the
+                 system's screen resolution changes
+
+  Release      : 2.40.50 (06 Feb 98)
+  Enhancements : Fixed corruption of CX and DX by 16-bit Kbd, Mou, and Vio
+                 trace APIs due to C run-time thunking code
+
+  Release      : 2.40.49 (04 Feb 98)
+  Enhancements : Added OS2TRACE.API,  a text file that contains all of the
+                 supported APIs along with their OS/2 DLL, trace API group
+                 (if any), and minimum required version of 32-bit OS/2
+
+  Release      : 2.40.48 (30 Jan 98)
+  Enhancements : Fixed logging of trace API's return address at Win16Catch
+                 entry instead of trace API's caller's return address
+
+  Release      : 2.40.47 (29 Jan 98)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Win APIs
+                 exported from PMVIOP
+
+  Release      : 2.40.46 (28 Jan 98)
+  Enhancements : Fixed displaying of summarization statistics not entirely
+                 in alphabetical order
+
+  Release      : 2.40.45 (28 Jan 98)
+  Enhancements : Considered   following   APIs'   return   codes   to   be
+                 indeterminate (neither successful nor unsuccessful):
+                   Drg16SendTransferMsg
+                   Drg32SendTransferMsg
+                   Win16DdeRespond
+                   Win32DdeRespond
+                   Win16DefDlgProc
+                   Win32DefDlgProc
+                   Win32DefFileDlgProc
+                   Win32DefFontDlgProc
+                   Win16DefWindowProc
+                   Win32DefWindowProc
+                   Win16DispatchMsg
+                   Win32DispatchMsg
+                   Win16SendDlgItemMsg
+                   Win32SendDlgItemMsg
+                   Win16SendMsg
+                   Win32SendMsg
+
+  Release      : 2.40.44 (27 Jan 98)
+  Enhancements : Fixed thunking of returned  MRESULT by 16-bit Drg and Win
+                 APIs due to improper data type declaration
+
+  Release      : 2.40.43 (23 Jan 98)
+  Enhancements : Fixed  input  logging  of   Dos16PrintQSetInfo's   fourth
+                 parameter and Spl32SetQueue's fourth parameter
+
+  Release      : 2.40.42 (23 Jan 98)
+  Enhancements : Added  support for  PRQINFO8  structure  used by  Spl and
+                 DosPrint APIs
+
+  Release      : 2.40.41 (12 Jan 98)
+  Enhancements : Fixed  output  logging  of  Dos16GetInfoSeg's  first  and
+                 second parameters
+
+  Release      : 2.40.40 (12 Jan 98)
+  Enhancements : Enhanced  performance  by providing  fprintf  wrapper and
+                 eliminating  duplicated  structure  logging  code blocks,
+                 resulting in reduction of 27KB from code segment and 14KB
+                 from data segment in T_COMMON
+
+  Release      : 2.40.39 (17 Sep 97)
+  Enhancements : Fixed dynamic loading  of 16-bit DosProtect  APIs as OS/2
+                 2.10 APIs by loading  as OS/2 2.30 APIs  instead,  as the
+                 APIs  are  not present  on OS/2 2.10  even  though  their
+                 32-bit counterparts are
+
+  Release      : 2.40.38 (15 Aug 97)
+  Enhancements : Added TRACE-IT.CMD,  a batch file  that performs  all the
+                 commands necessary to trace a .EXE file
+
+  Release      : 2.40.37 (15 Aug 97)
+  Enhancements : Fixed output logging of Vio16GetPhysBuf's first parameter
+
+  Release      : 2.40.36 (14 Aug 97)
+  Enhancements : Added the -I option,  which intercepts and traces dynamic
+                 API calls  (APIs that are loaded through Dos16GetProcAddr
+                 and Dos32QueryProcAddr)
+
+  Release      : 2.40.35 (13 Aug 97)
+  Enhancements : Fixed output logging of Spl32EnumDevice's third parameter
+                 (level 2) and Spl32EnumQueue's third parameter (level 5)
+
+  Release      : 2.40.34 (13 Aug 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40  Dos and
+                 Spl APIs exported from PMSPL
+
+  Release      : 2.40.33 (11 Aug 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Prt APIs
+                 exported from PMSPL
+
+  Release      : 2.40.32 (11 Aug 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Prf APIs
+                 exported from PMSHAPI
+
+  Release      : 2.40.31 (08 Aug 97)
+  Enhancements : Logged n initial bytes from user-defined buffers, where n
+                 is largest possible multiple of two less than or equal to
+                 64, passed to following APIs:
+                   Dos16DevIOCtl (first and second parameters)
+                   Prt32DevIOCtl (first and second parameters)
+                   Win16CreateDlg (fifth parameter)
+                   Win32CreateDlg (fifth parameter)
+                   Win16CreateWindow (twelfth and thirteenth parameters)
+                   Win32CreateWindow (twelfth and thirteenth parameters)
+                   Win16DlgBox (sixth parameter)
+                   Win32DlgBox (sixth parameter)
+                   Win16LoadDlg (sixth parameter)
+                   Win32LoadDlg (sixth parameter)
+                   Win16SetWindowPtr (third parameter)
+                   Win32SetWindowPtr (third parameter)
+
+  Release      : 2.40.30 (08 Aug 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Pic APIs
+                 exported from PMPIC
+
+  Release      : 2.40.29 (07 Aug 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Drg APIs
+                 exported from PMDRAG
+
+  Release      : 2.40.28 (06 Aug 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Dev APIs
+                 exported from PMGPI
+
+  Release      : 2.40.27 (22 Jul 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Gpi APIs
+                 exported from:
+                   PMGPI     PMWIN
+
+  Release      : 2.40.26 (24 Jun 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Win APIs
+                 exported from:
+                   HELPMGR   PMSHAPI   PMWIN
+               : Added ENV and HEAP groups to -W option
+
+  Release      : 2.40.25 (04 Jun 97)
+  Enhancements : Fixed corruption  of CX by 16-bit  Dos trace APIs  due to
+                 initialization of 16-bit registers structure
+
+  Release      : 2.40.24 (03 Jun 97)
+  Enhancements : Added frequently asked questions to  Presentation Manager
+                 interface's main window help submenu
+
+  Release      : 2.40.23 (27 May 97)
+  Enhancements : Linked .EXE files with  appropriately-threaded C run-time
+                 libraries to prevent  Ctrl-C and  Ctrl-Break from hanging
+                 VIO sessions
+
+  Release      : 2.40.22 (22 May 97)
+  Enhancements : Added frequently asked questions, OS2TRACE.FAQ
+               : Added frequently asked questions to  Presentation Manager
+                 interface help
+
+  Release      : 2.40.21 (20 May 97)
+  Enhancements : Fixed stack  overwriting of 16-bit Dos API  parameters by
+                 non-volatile register restore routine
+               : Minimized stack usage by trace API routines
+
+  Release      : 2.40.20 (05 May 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Vio APIs
+                 exported from VIOCALLS
+
+  Release      : 2.40.19 (01 May 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Mou APIs
+                 exported from MOUCALLS
+
+  Release      : 2.40.18 (30 Apr 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Kbd APIs
+                 exported from KBDCALLS
+
+  Release      : 2.40.17 (21 Apr 97)
+  Enhancements : Added support for 16-bit  OS/2 2.00 through 2.40 Dos APIs
+                 exported from:
+                   DOSCALLS  MONCALLS  MSG       NAMPIPES  NLS
+                   QUECALLS  SESMGR
+               : Added INFO and SIG groups to -D option
+
+  Release      : 2.40.16 (15 Apr 97)
+  Enhancements : Removed references to OS/2 for PowerPC  from Presentation
+                 Manager interface help
+
+  Release      : 2.40.15 (01 Apr 97)
+  Enhancements : Fixed output logging of Dos32FindFirst's fourth parameter
+                 to  match  what  is  actually  returned  instead  of what
+                 documentation claims is returned
+
+  Release      : 2.40.14 (25 Mar 97)
+  Enhancements : Fixed logging of DENA2 buffers, as the structure does not
+                 contain the extended attribute's value
+
+  Release      : 2.40.13 (20 Mar 97)
+  Enhancements : Added option  for launching .EXE files  after enabling to
+                 Presentation Manager interface
+
+  Release      : 2.40.12 (19 Mar 97)
+  Enhancements : Added support for segmented executable (NE format) files
+
+  Release      : 2.40.11 (19 Mar 97)
+  Enhancements : Added option for  saving window position  to Presentation
+                 Manager interface
+
+  Release      : 2.40.10 (14 Mar 97)
+  Enhancements : Fixed  importing  Dev32StdOpen  (as  OS/2  2.00  API)  by
+                 loading dynamically (as OS/2 2.10 API) instead
+
+  Release      : 2.40.09 (14 Mar 97)
+  Enhancements : Removed issuing  error for API exit  without matching API
+                 entry to  support  summarizing  trace  information  files
+                 that wrapped
+
+  Release      : 2.40.08 (13 Mar 97)
+  Enhancements : Added support for trace summarization and associated help
+                 to Presentation Manager interface
+
+  Release      : 2.40.07 (13 Mar 97)
+  Enhancements : Added cancellation confirmation when customization option
+                 state changed
+
+  Release      : 2.40.06 (12 Mar 97)
+  Enhancements : Fixed  output  logging  of  Win32EnumObjectClasses' first
+                 parameter
+
+  Release      : 2.40.05 (12 Mar 97)
+  Enhancements : Added support for trace enablement and associated help to
+                 Presentation Manager interface
+
+  Release      : 2.40.04 (12 Mar 97)
+  Enhancements : Fixed error reading  an ELF executable file  format DLL's
+                 string table
+
+  Release      : 2.40.03 (11 Mar 97)
+  Enhancements : Converted to IBM VisualAge C++
+
+  Release      : 2.40.02 (11 Mar 97)
+  Enhancements : Removed loading and unloading  of trace DLLs from .EXE to
+                 verify  the  DLLs  are on  the  LIBPATH  due to  an error
+                 present in  all 32-bit versions of OS/2
+
+  Release      : 2.40.01 (27 Sep 96)
+  Enhancements : Fixed  displaying -D  for PMGPI  API groups  when logging
+                 trace customization information
+
+  Release      : 2.40.00 (05 Sep 96)
+  Enhancements : Added  support  for new  OS/2 2.40  (OS/2 Warp Version 4)
+                 APIs:
+                   Dos32QueryThreadContext (DOSCALLS.877)
+                   Drg32QueryFormat (PMDRAG.75)
+                   Gpi32QueryTabbedTextExtent (PMGPI.658)
+                   Gpi32TabbedCharStringAt (PMGPI.659)
+                   Gpi32QueryRasterizerCaps (PMGPI.660)
+                   Gpi32CreateRoundRectRegion (PMGPI.661)
+                   Gpi32CreateEllipticRegion (PMGPI.662)
+                   Gpi32CreatePolygonRegion (PMGPI.663)
+                   Gpi32ResizePalette (PMGPI.666)
+                   Gpi32QueryNearestPaletteIndex (PMGPI.667)
+                   Gpi32SetFontMappingFlags (PMGPI.668)
+                   Gpi32QueryFontMappingFlags (PMGPI.669)
+                   Gpi32BeginInkPath (PMGPI.670)
+                   Gpi32EndInkPath (PMGPI.671)
+                   Gpi32StrokeInkPath (PMGPI.672)
+                   Dev32PostEscape (PMGPI.729)
+                   Win32QueryControlColors (PMMERGE.5470)
+                   Win32SetControlColors (PMMERGE.5471)
+                   Spl32QueryPort (PMSPL.410)
+                   Spl32SetPort (PMSPL.411)
+                   Spl32QueryPath (PMSPL.412)
+                   Spl32CreatePort (PMSPL.413)
+                   Spl32DeletePort (PMSPL.414)
+                   Prt32ResetAbort (PMSPL.600)
+                   Prt32AbortDoc (PMSPL.601)
+                   Prt32NewPage (PMSPL.602)
+                   Prt32Query (PMSPL.603)
+                   Prt32Set (PMSPL.604)
+                   Spl32ProtSendCmd (PMSPL.605)
+                   Spl32ProtXlateCmd (PMSPL.606)
+                   Spl32QmNewPage (PMSPL.607)
+                   Spl32QmGetJobID (PMSPL.608)
+                   Spl32Disable (PMSPL.610)
+                   Spl32Enable (PMSPL.611)
+                   Spl32Register (PMSPL.612)
+                   Spl32UnRegister (PMSPL.613)
+                   Spl32RegisterControlPanel (PMSPL.614)
+                   Spl32QueryControlPanel (PMSPL.615)
+                   Spl32DisplayControlPanel (PMSPL.616)
+                   Spl32GetPortFromQ (PMSPL.617)
+                   Spl32GetControlPanelList (PMSPL.618)
+                   Win32SetClipRegion (PMWIN.1043)
+                   Win32QueryClipRegion (PMWIN.1044)
+               : Added INK group to -G option
+
+  Release      : 2.30.30 (26 Jun 96)
+  Enhancements : Added support for OS/2 2.00 Presentation Manager debugger
+                 APIs exported from PMWIN:
+                   Win32QuerySendMsg (PMWIN.990)
+                   Win32ReplyMsg (PMWIN.991)
+                   Win32WakeThread (PMWIN.992)
+                   Win32QueueFromID (PMWIN.993)
+                   Win32ThreadAssocQueue (PMWIN.994)
+                   Win32LockInput (PMWIN.995)
+
+  Release      : 2.30.29 (21 Jun 96)
+  Enhancements : Fixed altering of registers by trace API prior to calling
+                 Dos32UnwindException   (saved   context,   logged   input
+                 parameters, restored context, and jumped to API)
+
+  Release      : 2.30.28 (14 Jun 96)
+  Enhancements : Changed  all  carriage return-newline  pairs  output by C
+                 run-time  to newline,  as IBM C Set++  provides  carriage
+                 return automatically
+
+  Release      : 2.30.27 (13 Jun 96)
+  Enhancements : Logged EA value contained within FEA2 structure
+
+  Release      : 2.30.26 (23 May 96)
+  Enhancements : Issued more specific enablement messages, such as whether
+                 API  tracing is already  enabled or disabled  and name of
+                 required DLL missing from LIBPATH
+
+  Release      : 2.30.25 (15 Apr 96)
+  Enhancements : Verified file address of new executable header within DOS
+                 header before reading OS/2 header
+
+  Release      : 2.30.24 (29 Mar 96)
+  Enhancements : Provided  Presentation Manager  interface,  PMOS2TRC.EXE,
+                 with support for trace option customization and help
+
+  Release      : 2.30.23 (27 Mar 96)
+  Enhancements : Fixed output  logging of  Win32StretchPointer  parameters
+                 and exported  Win32GetErasePS,  Win32ReleaseErasePS,  and
+                 Win32StretchPointer
+
+  Release      : 2.30.22 (19 Dec 95)
+  Enhancements : Added  support  for  new  OS/2  3.00   (OS/2 Warp Connect
+                 (PowerPC Edition))  non-Uni  wrapper APIs  exported  from
+                 DOSCALLS:
+                   Dos32GetLocaleModule (DOSCALLS.430)
+                   Dos32CreateRamSem (DOSCALLS.9004)
+                   Dos32CloseRamSem (DOSCALLS.9005)
+                   Dos32OpenRamSem (DOSCALLS.9006)
+                   Dos32RequestRamSem (DOSCALLS.9007)
+                   Dos32ReleaseRamSem (DOSCALLS.9008)
+                   Dos32QueryProcessInfo (DOSCALLS.9010)
+                   Dos32QueryThreadInfo (DOSCALLS.9011)
+                   Dos32FindFromName (DOSCALLS.9018)
+
+  Release      : 2.30.21 (13 Dec 95)
+  Enhancements : Forwarded  the  private  APIs   exported  from  DOSCALLS,
+                 HELPMGR, PMCTLS, PMGPI, PMPIC, PMSHAPI, PMSPL, and PMWIN
+
+  Release      : 2.30.20 (27 Nov 95)
+  Enhancements : Added  support  for  the APIs  exported  from  MSG,  NLS,
+                 QUECALLS, and SESMGR that are also exported from DOSCALLS
+
+  Release      : 2.30.19 (02 Nov 95)
+  Enhancements : Fixed input logging of Drg32DragFiles' second, third, and
+                 fourth parameters
+
+  Release      : 2.30.18 (24 Sep 95)
+  Enhancements : Added the -T option,  which time  stamps API  entries and
+                 exits
+
+  Release      : 2.30.17 (22 Sep 95)
+  Enhancements : Added the -F option, which logs a maximum number of bytes
+                 before log file wrapping (overwriting from the beginning)
+                 occurs
+
+  Release      : 2.30.16 (22 Sep 95)
+  Enhancements : Enhanced the -B option by increasing the maximum possible
+                 number of bytes logged from buffers to 64KB and by adding
+                 the "ALL" suboption
+
+  Release      : 2.30.15 (29 Aug 95)
+  Enhancements : Added support for 32-bit OS/2 2.00  through 2.30 Pic APIs
+                 exported from PMPIC
+
+  Release      : 2.30.14 (29 Aug 95)
+  Enhancements : Added support for  32-bit OS/2 2.00 through 2.30  Prt and
+                 Spl APIs exported from PMSPL
+
+  Release      : 2.30.13 (27 Aug 95)
+  Enhancements : Added support for ELF executable file format
+               : Added MSG group to -D option
+
+  Release      : 2.30.12 (25 Aug 95)
+  Enhancements : Fixed removing  of Dos32QueryMessageCP's message  segment
+                 parameter from stack
+
+  Release      : 2.30.11 (14 Aug 95)
+  Enhancements : Added support for 32-bit OS/2 2.00  through 2.30 Prf APIs
+                 exported from PMSHAPI
+
+  Release      : 2.30.10 (13 Aug 95)
+  Enhancements : Added support for 32-bit OS/2 2.00  through 2.30 Drg APIs
+                 exported from PMDRAG
+
+  Release      : 2.30.09 (12 Aug 95)
+  Enhancements : Added support for 32-bit OS/2 2.00  through 2.30 Dev APIs
+                 exported from PMGPI
+               : Added DEV group to -G option
+
+  Release      : 2.30.08 (11 Aug 95)
+  Enhancements : Added support for 32-bit OS/2 2.00  through 2.30 Ddf APIs
+                 exported from HELPMGR
+
+  Release      : 2.30.07 (11 Aug 95)
+  Enhancements : Switched to new build structure  that supports both Intel
+                 and PowerPC builds
+
+  Release      : 2.30.06 (09 Aug 95)
+  Enhancements : Fixed  output  logging  of   Dos32DevIOCtl's  fourth  and
+                 seventh parameters
+
+  Release      : 2.30.05 (04 Aug 95)
+  Enhancements : Added support for 32-bit OS/2 2.00  through 2.30 Gpi APIs
+                 exported from PMGPI
+
+  Release      : 2.30.04 (28 Jul 95)
+  Enhancements : Fixed logging  of integer  buffers,  as some APIs  passed
+                 size of  buffer in  bytes to  logging  routine  expecting
+                 number of integers in buffer
+
+  Release      : 2.30.03 (20 Jul 95)
+  Enhancements : Added support for 32-bit OS/2 2.00  through 2.30 Win APIs
+                 exported from:
+                   HELPMGR   PMCTLS    PMSHAPI   PMWIN     PMWP
+
+  Release      : 2.30.02 (18 Jul 95)
+  Enhancements : Added  optional  "NO"  prefix  to  API  groups  to  allow
+                 requesting tracing for all except specific API group(s)
+
+  Release      : 2.30.01 (09 Jul 95)
+  Enhancements : Issued warning if at least one of the required trace DLLs
+                 is not on the LIBPATH
+
+  Release      : 2.30.00 (12 Jun 95)
+               : Supported linear executable (LX format) files
+               : Supported 32-bit OS/2 2.00 through 2.30 Dos APIs exported
+                 from:
+                   DOSCALLS  MSG       NLS       QUECALLS  SESMGR
+

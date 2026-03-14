@@ -1,0 +1,17 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : OS2TRACE.DEF                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API trace module definitions file                       ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+NAME            OS2TRACE WINDOWCOMPAT
+DESCRIPTION     'OS/2 API Trace'
+EXETYPE         OS2
+PROTMODE

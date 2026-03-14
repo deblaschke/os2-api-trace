@@ -1,0 +1,62 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_QUE___.I32                                                 ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL QUECALLS module definitions file    ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.00 12Jun95 Created (supported LX format  and 32-bit Dos ;
+;                                 APIs only)                                   ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.31 26Jun01 Added  capability  of building  32-bit  only ;
+;                                 trace DLLs                                   ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_QUE___ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL QUECALLS Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+EXPORTS
+                DOSREADQUEUE                            @ 1 RESIDENTNAME
+                DOSPURGEQUEUE                           @ 2 RESIDENTNAME
+                DOSCLOSEQUEUE                           @ 3 RESIDENTNAME
+                DOSQUERYQUEUE                           @ 4 RESIDENTNAME
+                DOSPEEKQUEUE                            @ 5 RESIDENTNAME
+                DOSWRITEQUEUE                           @ 6 RESIDENTNAME
+                DOSOPENQUEUE                            @ 7 RESIDENTNAME
+                DOSCREATEQUEUE                          @ 8 RESIDENTNAME
+                                   Trc_Dos32ReadQueue   @ 9 NONAME
+                                   Trc_Dos32PurgeQueue  @10 NONAME
+                                   Trc_Dos32CloseQueue  @11 NONAME
+                                   Trc_Dos32QueryQueue  @12 NONAME
+                                   Trc_Dos32PeekQueue   @13 NONAME
+                                   Trc_Dos32WriteQueue  @14 NONAME
+                                   Trc_Dos32OpenQueue   @15 NONAME
+                                   Trc_Dos32CreateQueue @16 NONAME
+IMPORTS
+                DOSREADQUEUE     = QUECALLS. 1
+                DOSPURGEQUEUE    = QUECALLS. 2
+                DOSCLOSEQUEUE    = QUECALLS. 3
+                DOSQUERYQUEUE    = QUECALLS. 4
+                DOSPEEKQUEUE     = QUECALLS. 5
+                DOSWRITEQUEUE    = QUECALLS. 6
+                DOSOPENQUEUE     = QUECALLS. 7
+                DOSCREATEQUEUE   = QUECALLS. 8
+                DOS32READQUEUE   = QUECALLS. 9
+                DOS32PURGEQUEUE  = QUECALLS.10
+                DOS32CLOSEQUEUE  = QUECALLS.11
+                DOS32QUERYQUEUE  = QUECALLS.12
+                DOS32PEEKQUEUE   = QUECALLS.13
+                DOS32WRITEQUEUE  = QUECALLS.14
+                DOS32OPENQUEUE   = QUECALLS.15
+                DOS32CREATEQUEUE = QUECALLS.16

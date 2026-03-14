@@ -1,0 +1,18 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : MARKOBJ.DEF                                                  ;
+;                                                                              ;
+;  Title        : OS/2 API trace DLL object file segment attributes marker     ;
+;                 module definitions file                                      ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.40.17 21Apr97 Added 16-bit Dos APIs                        ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+NAME            OS2TRACE WINDOWCOMPAT
+DESCRIPTION     'OS/2 API Trace DLL Object File Segment Attributes Marker'
+EXETYPE         OS2
+PROTMODE

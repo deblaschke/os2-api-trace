@@ -1,0 +1,65 @@
+
+
+          Operating System/2 API Trace Information File API Stripper
+
+  Author       : Dave Blaschke
+                 deblaschke@yahoo.com
+
+  Description  : Strips API  entries and/or exits  from a trace  information
+                 file.
+
+                 This feat is  accomplished by  processing each  line within
+                 the trace information file.  Whenever an API  entry/exit is
+                 encountered,  it is  dissected to  determine  which  API is
+                 being entered/exited.  If it is an entry/exit that does not
+                 match  the  requested  API,   the  complete  entry/exit  is
+                 displayed to standard output.
+
+                 The user can  request to  strip API entries  from the trace
+                 information file by specifying the -ENTRY option.  The user
+                 can request to strip  API exits from the  trace information
+                 file by specifying the -EXIT  option.  The user can request
+                 to suppress displaying the program banner by specifying the
+                 -Q option.
+
+                 The user can request helping  information by specifying the
+                 -?, -H, or -HELP option.
+
+  Installation : Place the executable,  STRIPAPI.EXE,  in a directory  along
+                 the PATH environment variable.
+
+  Usage        : STRIPAPI {-ENTRY|-EXIT}... [-Q] api file
+
+                 Where:
+                   -ENTRY indicates strip API entries
+                   -EXIT  indicates strip API exits
+                   -Q     indicates suppress displaying banner
+                   api    indicates name of API to be stripped
+                   file   indicates name  of trace  information  file to  be
+                          stripped
+
+                 In the following example,  all Dos32CreateQueue entries are
+                 stripped from TEST.TRC:
+
+                 STRIPAPI -ENTRY DOS32CREATEQUEUE TEST.TRC
+
+                 In  the  following  example,  the  program  banner  is  not
+                 displayed and all Dos32CreateQueue  exits are stripped from
+                 TEST.TRC:
+
+                 STRIPAPI -EXIT -Q DOS32CREATEQUEUE TEST.TRC
+
+                 In the following example,  all Dos32CreateQueue entries and
+                 exits are stripped from TEST.TRC:
+
+                 STRIPAPI -ENTRY -EXIT DOS32CREATEQUEUE TEST.TRC
+
+  Output       : The contents of the  trace information file  minus the  API
+                 entries and/or exits.
+
+  History      : Version Date    Item
+                 2.45.25 03Jun00 Added trace information file API stripper
+
+  Please direct all comments,  problems,  questions,  and suggestions to the
+  author above, or, if undeliverable, to deblaschke@yahoo.com.
+

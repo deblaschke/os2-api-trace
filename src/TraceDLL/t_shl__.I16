@@ -1,0 +1,328 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                                              ;
+;  File name    : T_SHL__.I16                                                  ;
+;                                                                              ;
+;  Title        : OS/2 API Intel trace DLL PMSHAPI module definitions file     ;
+;                                                                              ;
+;  Author       : Dave Blaschke                                                ;
+;                 deblaschke@yahoo.com                                         ;
+;                                                                              ;
+;  History      : Version Date    Item                                         ;
+;                 2.30.03 20Jul95 Added 32-bit Win APIs                        ;
+;                 2.30.11 14Aug95 Added 32-bit Prf APIs                        ;
+;                 2.30.13 27Aug95 Added OS/2 for PowerPC support               ;
+;                 2.30.21 13Dec95 Forwarded private entry table ordinals       ;
+;                 2.40.03 11Mar97 Converted to IBM VisualAge C++               ;
+;                 2.40.26 24Jun97 Added 16-bit Win APIs                        ;
+;                 2.40.32 11Aug97 Added 16-bit Prf APIs                        ;
+;                 2.45.18 28Feb00 Removed import by name restriction           ;
+;                 2.45.33 29Jun01 Added Win APIs exported  from PMSHAPI not in ;
+;                                 public include file                          ;
+;                                                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+LIBRARY         T_SHL__ INITINSTANCE TERMINSTANCE
+DESCRIPTION     'OS/2 API Intel Trace DLL PMSHAPI Dynamic Link Library'
+EXETYPE         OS2
+PROTMODE
+DATA            MULTIPLE NONSHARED
+SEGMENTS
+                CODE32 CLASS 'CODE'
+                _MSGSEG32 CLASS 'CODE'
+                CODE16 CLASS 'CODE' CONFORMING IOPL
+                'SEG16_.\t_shl__0' CLASS 'CODE' CONFORMING IOPL
+EXPORTS
+                                                SHEPIINITIALISE                @  1 RESIDENTNAME
+                WINQUERYPROFILEINT            = TRC_WIN16QUERYPROFILEINT       @  2 RESIDENTNAME
+                WINQUERYPROFILESTRING         = TRC_WIN16QUERYPROFILESTRING    @  3 RESIDENTNAME
+                WINWRITEPROFILESTRING         = TRC_WIN16WRITEPROFILESTRING    @  4 RESIDENTNAME
+                WINQUERYPROFILESIZE           = TRC_WIN16QUERYPROFILESIZE      @  5 RESIDENTNAME
+                WINQUERYPROFILEDATA           = TRC_WIN16QUERYPROFILEDATA      @  6 RESIDENTNAME
+                WINWRITEPROFILEDATA           = TRC_WIN16WRITEPROFILEDATA      @  7 RESIDENTNAME
+                                                WININITSESSIONMGR              @  8 RESIDENTNAME
+                WINSETFGNDWINDOW              = TRC_WIN16SETFGNDWINDOW         @  9 RESIDENTNAME
+                                                SHLUNLOADPUBLICFONTS           @ 10 RESIDENTNAME
+                                                WINSTPREGISTER                 @ 11 RESIDENTNAME
+                WINADDPROGRAM                 = TRC_WIN16ADDPROGRAM            @ 12 RESIDENTNAME
+                WINREMOVEPROGRAM              = TRC_WIN16REMOVEPROGRAM         @ 13 RESIDENTNAME
+                WINCHANGEPROGRAM              = TRC_WIN16CHANGEPROGRAM         @ 14 RESIDENTNAME
+                WINQUERYDEFINITION            = TRC_WIN16QUERYDEFINITION       @ 15 RESIDENTNAME
+                WINQUERYPROGRAMTITLES         = TRC_WIN16QUERYPROGRAMTITLES    @ 16 RESIDENTNAME
+                WINCREATEGROUP                = TRC_WIN16CREATEGROUP           @ 17 RESIDENTNAME
+                                                WININITIALIZEPL                @ 18 RESIDENTNAME
+                WINADDTOGROUP                 = TRC_WIN16ADDTOGROUP            @ 19 RESIDENTNAME
+                WINQUERYPROGRAMUSE            = TRC_WIN16QUERYPROGRAMUSE       @ 20 RESIDENTNAME
+                WINREMOVEFROMGROUP            = TRC_WIN16REMOVEFROMGROUP       @ 21 RESIDENTNAME
+                                                STARTSTARTUPDOTCMD             @ 22 RESIDENTNAME
+                WINDESTROYGROUP               = TRC_WIN16DESTROYGROUP          @ 23 RESIDENTNAME
+                                                WINQUERYFILEEXTOPTS            @ 24 RESIDENTNAME
+                                                WINSETFILEEXTOPTS              @ 25 RESIDENTNAME
+                WINQUERYPROGRAMTYPE           = TRC_WIN16QUERYPROGRAMTYPE      @ 26 RESIDENTNAME
+                                                PRFCHANGEWRITETHRU             @ 27 RESIDENTNAME
+                                                PMEXECREGISTER                 @ 28 RESIDENTNAME
+                                                SHEPIINITINIFILES              @ 29 RESIDENTNAME
+                                                SHEUPDATEINIFILE               @ 30 RESIDENTNAME
+                                                SHECONVERT190PROGRAMLISTTO300  @ 31 RESIDENTNAME
+                PRFQUERYPROFILEINT            = TRC_PRF16QUERYPROFILEINT       @ 32 RESIDENTNAME
+                PRFQUERYPROFILESTRING         = TRC_PRF16QUERYPROFILESTRING    @ 33 RESIDENTNAME
+                PRFWRITEPROFILESTRING         = TRC_PRF16WRITEPROFILESTRING    @ 34 RESIDENTNAME
+                PRFQUERYPROFILESIZE           = TRC_PRF16QUERYPROFILESIZE      @ 35 RESIDENTNAME
+                PRFQUERYPROFILEDATA           = TRC_PRF16QUERYPROFILEDATA      @ 36 RESIDENTNAME
+                PRFWRITEPROFILEDATA           = TRC_PRF16WRITEPROFILEDATA      @ 37 RESIDENTNAME
+                PRFOPENPROFILE                = TRC_PRF16OPENPROFILE           @ 38 RESIDENTNAME
+                PRFCLOSEPROFILE               = TRC_PRF16CLOSEPROFILE          @ 39 RESIDENTNAME
+                PRFRESET                      = TRC_PRF16RESET                 @ 42 RESIDENTNAME
+                PRFQUERYPROFILE               = TRC_PRF16QUERYPROFILE          @ 43 RESIDENTNAME
+                WININSTSTARTAPP               = TRC_WIN16INSTSTARTAPP          @ 44 RESIDENTNAME
+                WINTERMINATEAPP               = TRC_WIN16TERMINATEAPP          @ 45 RESIDENTNAME
+                WINCREATESWITCHENTRY          = TRC_WIN16CREATESWITCHENTRY     @ 46 RESIDENTNAME
+                WINQUERYSESSIONTITLE          = TRC_WIN16QUERYSESSIONTITLE     @ 47 RESIDENTNAME
+                WINADDSWITCHENTRY             = TRC_WIN16ADDSWITCHENTRY        @ 48 RESIDENTNAME
+                WINCHANGESWITCHENTRY          = TRC_WIN16CHANGESWITCHENTRY     @ 49 RESIDENTNAME
+                PRFADDPROGRAM                 = TRC_PRF16ADDPROGRAM            @ 50 RESIDENTNAME
+                PRFREMOVEPROGRAM              = TRC_PRF16REMOVEPROGRAM         @ 51 RESIDENTNAME
+                PRFCHANGEPROGRAM              = TRC_PRF16CHANGEPROGRAM         @ 52 RESIDENTNAME
+                PRFQUERYDEFINITION            = TRC_PRF16QUERYDEFINITION       @ 53 RESIDENTNAME
+                PRFQUERYPROGRAMTITLES         = TRC_PRF16QUERYPROGRAMTITLES    @ 54 RESIDENTNAME
+                PRFCREATEGROUP                = TRC_PRF16CREATEGROUP           @ 55 RESIDENTNAME
+                WINQUERYSWITCHENTRY           = TRC_WIN16QUERYSWITCHENTRY      @ 56 RESIDENTNAME
+                WINQUERYSWITCHHANDLE          = TRC_WIN16QUERYSWITCHHANDLE     @ 57 RESIDENTNAME
+                PRFQUERYPROGRAMHANDLE         = TRC_PRF16QUERYPROGRAMHANDLE    @ 58 RESIDENTNAME
+                PRFQUERYPROGRAMCATEGORY       = TRC_PRF16QUERYPROGRAMCATEGORY  @ 59 RESIDENTNAME
+                PRFDESTROYGROUP               = TRC_PRF16DESTROYGROUP          @ 60 RESIDENTNAME
+                                                SHEPROFILEHOOK                 @ 62 RESIDENTNAME
+                                                SHPLOCKPROGRAMLIST             @ 63 RESIDENTNAME
+                                                SHPUNLOCKPROGRAMLIST           @ 64 RESIDENTNAME
+                WINQUERYTASKTITLE             = TRC_WIN16QUERYTASKTITLE        @ 65 RESIDENTNAME
+                WINQUERYTASKSIZEPOS           = TRC_WIN16QUERYTASKSIZEPOS      @ 66 RESIDENTNAME
+                WINQUERYSWITCHLIST            = TRC_WIN16QUERYSWITCHLIST       @ 67 RESIDENTNAME
+                WINREMOVESWITCHENTRY          = TRC_WIN16REMOVESWITCHENTRY     @ 68 RESIDENTNAME
+                WINSWITCHTOPROGRAM            = TRC_WIN16SWITCHTOPROGRAM       @ 69 RESIDENTNAME
+                WINSWITCHPROGRAMREGISTER      = TRC_WIN16SWITCHPROGRAMREGISTER @ 70 RESIDENTNAME
+                WINENDPROGRAM                 = TRC_WIN16ENDPROGRAM            @ 73 RESIDENTNAME
+                WINSTOPPROGRAM                = TRC_WIN16STOPPROGRAM           @ 74 RESIDENTNAME
+                                                WINENDWINDOWSESSION            @ 75 RESIDENTNAME
+                                                LPFNSHELLWNDPROC               @ 76 RESIDENTNAME
+                                                LPFNICONWNDPROC                @ 77 RESIDENTNAME
+                                                WINSWITCHTOTASKMANAGER         @ 78 RESIDENTNAME
+                                                FNBADAPPDLGPROC                @ 79 RESIDENTNAME
+                                                WINSWITCHTOPROGRAM2            @ 80 RESIDENTNAME
+                                                WINPROCESSHOTKEY               @ 81 RESIDENTNAME
+                                                WININITSESSION                 @ 82 RESIDENTNAME
+                                                WINENDSESSION                  @ 83 RESIDENTNAME
+                                                WININITSWENTRY                 @ 84 RESIDENTNAME
+                                                WINSETSWENTRY                  @ 85 RESIDENTNAME
+                                                WINQUERYEXTIDFOCUS             @ 86 RESIDENTNAME
+                                                WINSETEXTIDFOCUS               @ 87 RESIDENTNAME
+                                                SHESYSTEMSHUTDOWN              @ 88 RESIDENTNAME
+                                                STARTSYSTEMEXECUTABLES         @ 89 RESIDENTNAME
+                                                SHLLOADPUBLICFONTS             @ 90 RESIDENTNAME
+                WINNOSHUTDOWN                 = TRC_WIN16NOSHUTDOWN            @ 91 RESIDENTNAME
+                                                SHEINITIALIZEINIFILE           @ 92 RESIDENTNAME
+                WINSETTITLE                   = TRC_WIN16SETTITLE              @ 93 RESIDENTNAME
+                                                WINCPLREGISTER                 @ 94 RESIDENTNAME
+                                                WINPMFILEREGISTER              @ 95 RESIDENTNAME
+                                                SHESTARTLONGPROGRAM            @ 96 RESIDENTNAME
+                WINSETTITLEANDICON            = TRC_WIN16SETTITLEANDICON       @ 97 RESIDENTNAME
+                                                WIN32NOSHUTDOWN                @ 98 RESIDENTNAME ; OS2VER 230
+                WINSETTITLEANDHWNDICON        = TRC_WIN16SETTITLEANDHWNDICON   @ 99 RESIDENTNAME ; OS2VER 230
+                                                SHELLWINDOW                    @100 RESIDENTNAME
+                PRF32QUERYPROFILESIZE         = Trc_Prf32QueryProfileSize      @101 RESIDENTNAME
+                PRF32OPENPROFILE              = Trc_Prf32OpenProfile           @102 RESIDENTNAME
+                PRF32CLOSEPROFILE             = Trc_Prf32CloseProfile          @103 RESIDENTNAME
+                PRF32REMOVEPROGRAM            = Trc_Prf32RemoveProgram         @104 RESIDENTNAME
+                                                PRF32CREATEGROUP               @105 RESIDENTNAME ; OS2VER 210
+                PRF32DESTROYGROUP             = Trc_Prf32DestroyGroup          @106 RESIDENTNAME
+                PRF32QUERYPROFILE             = Trc_Prf32QueryProfile          @107 RESIDENTNAME
+                PRF32RESET                    = Trc_Prf32Reset                 @108 RESIDENTNAME
+                PRF32ADDPROGRAM               = Trc_Prf32AddProgram            @109 RESIDENTNAME
+                PRF32CHANGEPROGRAM            = Trc_Prf32ChangeProgram         @110 RESIDENTNAME
+                PRF32QUERYDEFINITION          = Trc_Prf32QueryDefinition       @111 RESIDENTNAME
+                                                PRF32QUERYPROGRAMHANDLE        @112 RESIDENTNAME ; OS2VER 210
+                PRF32QUERYPROGRAMTITLES       = Trc_Prf32QueryProgramTitles    @113 RESIDENTNAME
+                PRF32QUERYPROFILEINT          = Trc_Prf32QueryProfileInt       @114 RESIDENTNAME
+                PRF32QUERYPROFILESTRING       = Trc_Prf32QueryProfileString    @115 RESIDENTNAME
+                PRF32WRITEPROFILESTRING       = Trc_Prf32WriteProfileString    @116 RESIDENTNAME
+                PRF32QUERYPROFILEDATA         = Trc_Prf32QueryProfileData      @117 RESIDENTNAME
+                PRF32WRITEPROFILEDATA         = Trc_Prf32WriteProfileData      @118 RESIDENTNAME
+                WIN32STARTAPP                 = Trc_Win32StartApp              @119 RESIDENTNAME
+                WIN32ADDSWITCHENTRY           = Trc_Win32AddSwitchEntry        @120 RESIDENTNAME
+                WIN32CREATESWITCHENTRY        = Trc_Win32CreateSwitchEntry     @121 RESIDENTNAME
+                WIN32QUERYSESSIONTITLE        = Trc_Win32QuerySessionTitle     @122 RESIDENTNAME
+                WIN32CHANGESWITCHENTRY        = Trc_Win32ChangeSwitchEntry     @123 RESIDENTNAME
+                WIN32QUERYSWITCHENTRY         = Trc_Win32QuerySwitchEntry      @124 RESIDENTNAME
+                WIN32QUERYSWITCHHANDLE        = Trc_Win32QuerySwitchHandle     @125 RESIDENTNAME
+                WIN32QUERYSWITCHLIST          = Trc_Win32QuerySwitchList       @126 RESIDENTNAME
+                WIN32QUERYTASKSIZEPOS         = Trc_Win32QueryTaskSizePos      @127 RESIDENTNAME
+                WIN32QUERYTASKTITLE           = Trc_Win32QueryTaskTitle        @128 RESIDENTNAME
+                WIN32REMOVESWITCHENTRY        = Trc_Win32RemoveSwitchEntry     @129 RESIDENTNAME
+                WIN32TERMINATEAPP             = Trc_Win32TerminateApp          @130 RESIDENTNAME
+                WIN32SWITCHTOPROGRAM          = Trc_Win32SwitchToProgram       @131 RESIDENTNAME
+                                                PRF32QUERYPROGRAMCATEGORY      @132 RESIDENTNAME ; OS2VER 210
+                                                PRF32CHANGEWRITETHRU           @133 RESIDENTNAME
+                                                SHE32PIINITINIFILES            @134 RESIDENTNAME ; OS2VER 210
+                                                PRFWRITETODISK                 @135 NONAME       ; OS2VER 210
+                                                PRFSUSPENDWRITETODISK          @136 NONAME       ; OS2VER 210
+                                                SHE32SYSTEMSHUTDOWN            @151 RESIDENTNAME
+                                                START32SYSTEMEXECUTABLES       @152 RESIDENTNAME
+                                                PM32EXECREGISTER               @153 RESIDENTNAME
+                                                WIN32HAPPFROMPID               @154 RESIDENTNAME
+                                                WIN32HSWITCHFROMHAPP           @155 RESIDENTNAME
+                WIN32SWITCHPROGRAMREGISTER    = Trc_Win32SwitchProgramRegister @156 RESIDENTNAME
+                                                WIN32ENDPROGRAM                @157 RESIDENTNAME
+                                                WIN32SWITCHTOPROGRAM2          @158 RESIDENTNAME
+                                                WINCANTERMINATE                @160 RESIDENTNAME
+                WINSTARTAPP                   = TRC_WIN16STARTAPP              @201 RESIDENTNAME
+                WINHAPPFROMPID                = TRC_WIN16HAPPFROMPID           @208 RESIDENTNAME
+                WINHSWITCHFROMHAPP            = TRC_WIN16HSWITCHFROMHAPP       @209 RESIDENTNAME
+                                                SHPPILOCKINIFILE               @210 RESIDENTNAME ; OS2VER 210
+                                                SHPPI16LOCKINIFILE             @211 RESIDENTNAME ; OS2VER 210
+                                                SHPPISHUTDOWN                  @212 RESIDENTNAME ; OS2VER 210
+                                                SHPPI16SHUTDOWN                @213 RESIDENTNAME ; OS2VER 210
+IMPORTS
+                SHEPIINITIALISE               = PMSHAPI.  1
+                WINQUERYPROFILEINT            = PMSHAPI.  2
+                WINQUERYPROFILESTRING         = PMSHAPI.  3
+                WINWRITEPROFILESTRING         = PMSHAPI.  4
+                WINQUERYPROFILESIZE           = PMSHAPI.  5
+                WINQUERYPROFILEDATA           = PMSHAPI.  6
+                WINWRITEPROFILEDATA           = PMSHAPI.  7
+                WININITSESSIONMGR             = PMSHAPI.  8
+                WINSETFGNDWINDOW              = PMSHAPI.  9
+                SHLUNLOADPUBLICFONTS          = PMSHAPI. 10
+                WINSTPREGISTER                = PMSHAPI. 11
+                WINADDPROGRAM                 = PMSHAPI. 12
+                WINREMOVEPROGRAM              = PMSHAPI. 13
+                WINCHANGEPROGRAM              = PMSHAPI. 14
+                WINQUERYDEFINITION            = PMSHAPI. 15
+                WINQUERYPROGRAMTITLES         = PMSHAPI. 16
+                WINCREATEGROUP                = PMSHAPI. 17
+                WININITIALIZEPL               = PMSHAPI. 18
+                WINADDTOGROUP                 = PMSHAPI. 19
+                WINQUERYPROGRAMUSE            = PMSHAPI. 20
+                WINREMOVEFROMGROUP            = PMSHAPI. 21
+                STARTSTARTUPDOTCMD            = PMSHAPI. 22
+                WINDESTROYGROUP               = PMSHAPI. 23
+                WINQUERYFILEEXTOPTS           = PMSHAPI. 24
+                WINSETFILEEXTOPTS             = PMSHAPI. 25
+                WINQUERYPROGRAMTYPE           = PMSHAPI. 26
+                PRFCHANGEWRITETHRU            = PMSHAPI. 27
+                PMEXECREGISTER                = PMSHAPI. 28
+                SHEPIINITINIFILES             = PMSHAPI. 29
+                SHEUPDATEINIFILE              = PMSHAPI. 30
+                SHECONVERT190PROGRAMLISTTO300 = PMSHAPI. 31
+                PRFQUERYPROFILEINT            = PMSHAPI. 32
+                PRFQUERYPROFILESTRING         = PMSHAPI. 33
+                PRFWRITEPROFILESTRING         = PMSHAPI. 34
+                PRFQUERYPROFILESIZE           = PMSHAPI. 35
+                PRFQUERYPROFILEDATA           = PMSHAPI. 36
+                PRFWRITEPROFILEDATA           = PMSHAPI. 37
+                PRFOPENPROFILE                = PMSHAPI. 38
+                PRFCLOSEPROFILE               = PMSHAPI. 39
+                PRFRESET                      = PMSHAPI. 42
+                PRFQUERYPROFILE               = PMSHAPI. 43
+                WININSTSTARTAPP               = PMSHAPI. 44
+                WINTERMINATEAPP               = PMSHAPI. 45
+                WINCREATESWITCHENTRY          = PMSHAPI. 46
+                WINQUERYSESSIONTITLE          = PMSHAPI. 47
+                WINADDSWITCHENTRY             = PMSHAPI. 48
+                WINCHANGESWITCHENTRY          = PMSHAPI. 49
+                PRFADDPROGRAM                 = PMSHAPI. 50
+                PRFREMOVEPROGRAM              = PMSHAPI. 51
+                PRFCHANGEPROGRAM              = PMSHAPI. 52
+                PRFQUERYDEFINITION            = PMSHAPI. 53
+                PRFQUERYPROGRAMTITLES         = PMSHAPI. 54
+                PRFCREATEGROUP                = PMSHAPI. 55
+                WINQUERYSWITCHENTRY           = PMSHAPI. 56
+                WINQUERYSWITCHHANDLE          = PMSHAPI. 57
+                PRFQUERYPROGRAMHANDLE         = PMSHAPI. 58
+                PRFQUERYPROGRAMCATEGORY       = PMSHAPI. 59
+                PRFDESTROYGROUP               = PMSHAPI. 60
+                SHEPROFILEHOOK                = PMSHAPI. 62
+                SHPLOCKPROGRAMLIST            = PMSHAPI. 63
+                SHPUNLOCKPROGRAMLIST          = PMSHAPI. 64
+                WINQUERYTASKTITLE             = PMSHAPI. 65
+                WINQUERYTASKSIZEPOS           = PMSHAPI. 66
+                WINQUERYSWITCHLIST            = PMSHAPI. 67
+                WINREMOVESWITCHENTRY          = PMSHAPI. 68
+                WINSWITCHTOPROGRAM            = PMSHAPI. 69
+                WINSWITCHPROGRAMREGISTER      = PMSHAPI. 70
+                WINENDPROGRAM                 = PMSHAPI. 73
+                WINSTOPPROGRAM                = PMSHAPI. 74
+                WINENDWINDOWSESSION           = PMSHAPI. 75
+                LPFNSHELLWNDPROC              = PMSHAPI. 76
+                LPFNICONWNDPROC               = PMSHAPI. 77
+                WINSWITCHTOTASKMANAGER        = PMSHAPI. 78
+                FNBADAPPDLGPROC               = PMSHAPI. 79
+                WINSWITCHTOPROGRAM2           = PMSHAPI. 80
+                WINPROCESSHOTKEY              = PMSHAPI. 81
+                WININITSESSION                = PMSHAPI. 82
+                WINENDSESSION                 = PMSHAPI. 83
+                WININITSWENTRY                = PMSHAPI. 84
+                WINSETSWENTRY                 = PMSHAPI. 85
+                WINQUERYEXTIDFOCUS            = PMSHAPI. 86
+                WINSETEXTIDFOCUS              = PMSHAPI. 87
+                SHESYSTEMSHUTDOWN             = PMSHAPI. 88
+                STARTSYSTEMEXECUTABLES        = PMSHAPI. 89
+                SHLLOADPUBLICFONTS            = PMSHAPI. 90
+                WINNOSHUTDOWN                 = PMSHAPI. 91
+                SHEINITIALIZEINIFILE          = PMSHAPI. 92
+                WINSETTITLE                   = PMSHAPI. 93
+                WINCPLREGISTER                = PMSHAPI. 94
+                WINPMFILEREGISTER             = PMSHAPI. 95
+                SHESTARTLONGPROGRAM           = PMSHAPI. 96
+                WINSETTITLEANDICON            = PMSHAPI. 97
+                WIN32NOSHUTDOWN               = PMSHAPI. 98
+;               WINSETTITLEANDHWNDICON        = PMSHAPI. 99
+                SHELLWINDOW                   = PMSHAPI.100
+                PRF32QUERYPROFILESIZE         = PMSHAPI.101
+                PRF32OPENPROFILE              = PMSHAPI.102
+                PRF32CLOSEPROFILE             = PMSHAPI.103
+                PRF32REMOVEPROGRAM            = PMSHAPI.104
+                PRF32CREATEGROUP              = PMSHAPI.105
+                PRF32DESTROYGROUP             = PMSHAPI.106
+                PRF32QUERYPROFILE             = PMSHAPI.107
+                PRF32RESET                    = PMSHAPI.108
+                PRF32ADDPROGRAM               = PMSHAPI.109
+                PRF32CHANGEPROGRAM            = PMSHAPI.110
+                PRF32QUERYDEFINITION          = PMSHAPI.111
+                PRF32QUERYPROGRAMHANDLE       = PMSHAPI.112
+                PRF32QUERYPROGRAMTITLES       = PMSHAPI.113
+                PRF32QUERYPROFILEINT          = PMSHAPI.114
+                PRF32QUERYPROFILESTRING       = PMSHAPI.115
+                PRF32WRITEPROFILESTRING       = PMSHAPI.116
+                PRF32QUERYPROFILEDATA         = PMSHAPI.117
+                PRF32WRITEPROFILEDATA         = PMSHAPI.118
+                WIN32STARTAPP                 = PMSHAPI.119
+                WIN32ADDSWITCHENTRY           = PMSHAPI.120
+                WIN32CREATESWITCHENTRY        = PMSHAPI.121
+                WIN32QUERYSESSIONTITLE        = PMSHAPI.122
+                WIN32CHANGESWITCHENTRY        = PMSHAPI.123
+                WIN32QUERYSWITCHENTRY         = PMSHAPI.124
+                WIN32QUERYSWITCHHANDLE        = PMSHAPI.125
+                WIN32QUERYSWITCHLIST          = PMSHAPI.126
+                WIN32QUERYTASKSIZEPOS         = PMSHAPI.127
+                WIN32QUERYTASKTITLE           = PMSHAPI.128
+                WIN32REMOVESWITCHENTRY        = PMSHAPI.129
+                WIN32TERMINATEAPP             = PMSHAPI.130
+                WIN32SWITCHTOPROGRAM          = PMSHAPI.131
+                PRF32QUERYPROGRAMCATEGORY     = PMSHAPI.132
+                PRF32CHANGEWRITETHRU          = PMSHAPI.133
+                SHE32PIINITINIFILES           = PMSHAPI.134
+                PRFWRITETODISK                = PMSHAPI.135
+                PRFSUSPENDWRITETODISK         = PMSHAPI.136
+                SHE32SYSTEMSHUTDOWN           = PMSHAPI.151
+                START32SYSTEMEXECUTABLES      = PMSHAPI.152
+                PM32EXECREGISTER              = PMSHAPI.153
+                WIN32HAPPFROMPID              = PMSHAPI.154
+                WIN32HSWITCHFROMHAPP          = PMSHAPI.155
+                WIN32SWITCHPROGRAMREGISTER    = PMSHAPI.156
+                WIN32ENDPROGRAM               = PMSHAPI.157
+                WIN32SWITCHTOPROGRAM2         = PMSHAPI.158
+                WINCANTERMINATE               = PMSHAPI.160
+                WINSTARTAPP                   = PMSHAPI.201
+                WINHAPPFROMPID                = PMSHAPI.208
+                WINHSWITCHFROMHAPP            = PMSHAPI.209
+                SHPPILOCKINIFILE              = PMSHAPI.210
+                SHPPI16LOCKINIFILE            = PMSHAPI.211
+                SHPPISHUTDOWN                 = PMSHAPI.212
+                SHPPI16SHUTDOWN               = PMSHAPI.213
